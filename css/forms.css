@@ -1,0 +1,133 @@
+form {
+	width:100%;
+	position:relative;
+}
+
+legend {}
+
+fieldset {}
+
+form ul {list-style:none; margin:0;}
+form li {margin-bottom:0.75em; letter-spacing:-4px;}
+form li * {letter-spacing:0;}
+
+label {
+	display: block;
+	margin-right:20px;
+	margin-right:20px;
+	margin-bottom: 0.75em; 
+	text-align:left;
+	vertical-align:top;
+}
+
+input, textarea ,button, .button{
+	display:inline-block;
+	position:relative;
+	vertical-align:top; 
+	margin-right:20px;
+	margin-bottom: 9px;
+	-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+	border:1px solid #999; 
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+	max-width: 100%;
+}
+input[type="text"],
+input[type="password"] { 
+	padding:4px 8px !important; 
+	background:#FFF; 
+	background:rgba(255,255,255,0.85); 
+	border:1px solid #999;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1) inset;
+	width: 300px; 
+}
+textarea {
+	background:#FFF; 
+	background:rgba(255,255,255,0.85); 
+	border:1px solid #999;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1) inset;
+	width: 460px;
+}
+input[type="submit"] { 
+	padding:4px 8px !important; 
+	border:1px solid transparent;
+	color:#fff;
+	cursor:pointer;
+	width:auto;
+}
+
+button {
+	vertical-align:top; 
+	padding:4px 8px !important; 
+	border:1px solid transparent;
+	color:#fff;
+	cursor:pointer;
+	width:auto;
+}
+
+.button {
+	display:inline-block;
+	vertical-align:top; 
+	padding:5px 8px 3px !important; 
+	border:1px solid #999; 
+	color:#fff;
+	cursor:pointer;
+	width:auto;
+}
+
+input[type="submit"],
+button,
+.button,
+.button:link, .button:visited {
+	background: #EEE;
+    background: -moz-linear-gradient(top, #EEEEEE 0%, #CFCFCF 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEEEEE), color-stop(100%,#CFCFCF));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#CFCFCF',GradientType=0 );
+	border:1px solid #666; 
+	color:#333;
+    text-decoration:none;
+    text-shadow:1px 1px 1px rgba(255,255,255,0.9);
+}
+input[type="submit"]::-moz-focus-inner {border:0;}
+
+input[type="submit"]:hover,
+button:hover,
+.button:hover {
+	background: -moz-linear-gradient(top, #FFFFFF 0%, #DFDFDF 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#DFDFDF));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#DFDFDF',GradientType=0 );
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+	outline:none;
+	background:#FFF;
+	border-color:#000;
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.3);
+}
+
+input[type="submit"]:focus {background:#333;}
+
+form li *:last-child {margin-right:0;}
+
+form .submit_indent {
+	margin-left:25%;
+}
+textarea  {
+	min-height: 9em;	
+}
+input.large {
+	max-width: 460px;
+}
+input.small {
+	max-width: 140px;
+}
+input.num {
+	max-width: 60px;
+}
+

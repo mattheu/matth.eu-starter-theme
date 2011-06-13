@@ -1,0 +1,56 @@
+/*
+ *	
+ *	type.css
+ *
+ *	Default text size: 12px
+ *	Line-Height: 18px; 
+ *
+ */
+
+body 					{ font-size: 0.875em; 	line-height: 1.5em; 	font-family: "HelveticaNeue","Helvetica Neue", arial, sans-serif; font-weight: 400; color: #444; }
+
+p						{ margin-bottom: 0.75em; }
+ul, 
+ol 						{ margin: 0 20px 0.75em 20px; }
+
+li ul					{ margin: 0 0 0 10px; }
+
+h1, h2, h3, 
+h4, h5, h6 				{ color: #333; }
+h1						{ font-size: 2.571em;	line-height:1.286em; 	margin: 0.643em 0;}
+h2						{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
+h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
+h4						{ font-size: 1.25em;	line-height:1.2em; 		margin: 1.2em 0 0.6em; }
+h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
+
+#secondary				{ font-size: 0.917em; 	line-height: 1.636em; 	color: #666;  }
+#secondary h1,
+#secondary h2,
+#secondary h3			{ font-size: 1.364em;	line-height:1.5em;		margin: 1em 0 0.5em; 	color: #555; }
+#secondary h4			{ font-size: 1em;		margin: 1em 0 0.5em; }
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child			{ margin-top: 0 !important; }
+
+strong,
+b						{ font-weight: bold; }
+em						{ font-style: italic;}
+
+blockquote				{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 20px 0.5em;   padding-left: 19px; 	border-left: 1px solid #666;	font-style: italic;  }
+
+/**
+ * Tables
+ */
+
+table					{ border-collapse: collapse; border: 1px solid #999; position: relative; margin:9px 0 17px; width: 100%; }
+th, td					{ border: solid 1px #999; line-height: 1.5em; padding: 0.308em 9px 0.308em 10px; text-align:left; }
+td .num,
+td .num 				{ text-align:center; }
+
+
+tr:nth-child(even) td	{ background: #FFF; }
+tr:nth-child(odd) td	{ background: #DDD; }
+th 						{ background: #BBB; }
+caption					{ padding: 0.75em 0; font-weight: bold; }

@@ -1,0 +1,86 @@
+/*
+ *	
+ *	type.css
+ *
+ *	Default text size: 12px
+ *	Line-Height: 18px; 
+ *
+ */
+
+body 					{ font-size: 0.75em; 	line-height: 1.5em; 	color: #444; }
+
+p						{ margin-bottom: 0.75em; }
+ul, 
+ol,
+dl 						{ margin: 0 20px 0.75em 20px; }
+
+li ul					{ margin: 0 0 0 10px; }
+nav ul, nav ol, nav li 	{ margin: 0; } 
+
+dl						{ margin-bottom: 0; }
+dd						{ margin-bottom: 0.75em; }
+
+h1, h2, h3, 
+h4, h5, h6 				{ color: #333; font-weight: bold; }
+h1						{ font-size: 2.333em;	line-height:1.286em; 	margin: 0.643em 0;}
+h2						{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
+h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
+h4						{ font-size: 1.25em;	line-height:1.2em; 		margin: 1.2em 0 0.6em; }
+h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
+
+#secondary h1,
+#secondary h2,
+#secondary h3			{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
+
+#secondary.small		{ font-size: 0.917em; 	line-height: 1.636em; }
+#secondary.small h1,
+#secondary.small h2,
+#secondary.small h3		{ font-size: 1.364em;	line-height:1.5em;		margin: 1em 0 0.5em;  }
+#secondary.small h4		{ font-size: 1em;		margin: 1em 0 0.5em; }
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child			{ margin-top: 0 !important; }
+
+strong,
+b,
+th,
+dt						{ font-weight: bold; }
+em						{ font-style: italic;}
+
+blockquote				{ font-size: 1.5em;		line-height:1.5em;		margin: 0.5em 20px 0.5em;   padding-left: 19px; 	border-left: 1px solid #666;	font-style: italic;  }
+
+pre 					{ padding: 1.5em 20px; margin-bottom: 0.75em; white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ } 
+
+ins 					{ background-color: #ff9; color: #000; text-decoration:none; }
+mark 					{ background-color: #ff9; color: #000; font-style:italic; font-weight:bold; }
+del 					{ text-decoration: line-through; }
+abbr[title], 
+dfn[title] 				{ border-bottom:1px dotted; cursor:help; }
+
+
+/**
+ * Tables
+ */
+
+table					{ border-collapse: collapse; border: 1px solid #888; position: relative; margin:0 0 1.5em; width: 100%; }
+th, td					{ border: solid 1px #888; line-height: 1.5em; padding: 0.308em 9px 0.308em 10px; text-align:left; }
+td .num,
+td .num 				{ text-align:center; }
+
+
+tr:nth-child(even) td	{ background: #FFF; }
+tr:nth-child(odd) td	{ background: #DDD; }
+th 						{ background: #AAA; color: #FFF; }
+caption					{ padding: 0.75em 0; font-weight: bold; }
+
+/**
+ * 
+ *	Forms
+ *
+ */
+
+form li					{ list-style: none; }
+
+label					{}

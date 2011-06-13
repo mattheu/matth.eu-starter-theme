@@ -1,0 +1,187 @@
+/*
+Theme Name: matth.eu theme framework
+Theme URI: http://matth.eu/
+Description: Basic Wordpress Theme
+Author: matth.eu
+Version: 1.0
+License: GPLv2
+License http://www.gnu.org/licenses/old-licenses/gpl-2.0.html 
+Tags: 
+*/
+
+	@import url('css/boilerplate.css');
+	@import url('css/type_12-18.css');
+	@import url('css/forms.css');	
+
+	#grid 								{ background: #E2E2E2 url( images/grid.png); overflow: auto;  }
+
+/*
+ *	Generic Styles
+ */
+ 
+ 	a:link								{ color: #C1272D; }
+ 	a:visited							{ color: #7E1D20; }
+ 	a:hover, 
+ 	a:active,
+ 	a:focus								{ color: #81a31d !important; }
+ 	
+ 	img		 	 						{ border: 1px solid #555; padding: 4px; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box;  }
+ 	
+ 	object,
+	embed,
+	video 								{ max-width:100%; height:auto; }
+
+ 	
+ 	img.size-thumbnail					{ width: 140px; } 	
+ 	img.normal,
+ 	img.size-medium						{ width: 300px; }
+ 	
+ 	.alignleft							{ float: left; margin: 0 20px 0.75em 0; }
+  	.alignright							{ float: right; margin: 0 0 0.75em 20px;  }
+  	
+  	blockquote							{ font-weight: 300; }
+  	
+  	pre									{ border: 1px solid #555; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
+  	
+  	.pagination							{ text-align: center; margin: 1.5em 0 }
+  	.pagination a:link,
+  	.pagination a:visited,
+  	.pagination span					{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; }
+  	.pagination a:hover					{ background: #FFF; border-color: #333; color: #333 !important;  }
+  	.pagination .current				{ background: #ECECEC; border-color: #AAA; color: #AAA !important; }
+  	
+  	.info,								
+  	.updated							{ padding: 0.75em; margin: 0.75em 0; border: 1px solid #E6DB55; background: #FFFBCC; }
+  	.success							{ padding: 0.75em; margin: 0.75em 0; border: 1px solid #abd991; background: #dfffcc; }
+  	.error								{ padding: 0.75em; margin: 0.75em 0; border: 1px solid #e5a49a; background: #FFEBE8; }
+  	
+  	.info *:last-child,								
+  	.updated *:last-child,							
+  	.success *:last-child,							
+  	.error *:last-child					{ margin: 0; }
+  	
+	.clear								{ display: block; clear: both; }
+ 	
+/*
+ *	More General Layout Styles
+ */
+
+	body								{ width: 720px; padding: 0 0px; margin: 0 auto; }
+
+	header 								{ margin: 1.5em 10px 0; padding-bottom: 0.75em;  border-bottom: 1px solid #888;}	
+	
+	#main								{ width: 480px; float: left;  }
+	.grid 								{ letter-spacing: -4px; }
+
+	article								{ margin: 0 10px 0; padding: 1.5em 0 0.75em; border-bottom: 1px solid #888; }
+	.grid article						{ width: 220px; margin-left: 10px; margin-right: 10px; display: inline-block; vertical-align: top; letter-spacing: normal; border: none; }
+
+	article .post_title					{ margin-top: 0; }
+
+	.wp-post-image						{ float: left; width: 300px; margin: 0 20px 0.75em 0; }
+	.wp-post-image.landscape			{ width: 380px; }
+	
+	.post .post_meta					{ clear: both; color: #777; }
+
+	#secondary							{ float: right; width: 240px; margin: 0; color: #888; }
+	#secondary aside 					{ padding: 0.75em 10px; }
+	#secondary aside:first-child		{ padding-top: 1.5em; }
+	#secondary aside *:last-child		{ margin-bottom: 0.75em; }
+	#secondary h1, #secondary h2,
+	#secondary h3, #secondary h4		{ color: #666; }
+	
+	#secondary a:link,
+	#secondary a:visited				{ color: #888; text-decoration: none; }
+	
+	#secondary table					{ width: 100%; }
+	#secondary th,
+	#secondary td						{ padding-left: 6px ; padding-right: 7px ;}
+	
+	#wp-calendar th,
+	#wp-calendar td						{ text-align: center; }
+	
+	footer 								{ color: #999; clear: both; margin: 3em 0 2.25em; padding-top: 0.75em; }
+	footer a:link, footer a:visited 	{ color: #999; }
+
+	#comments							{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
+	
+	.commentlist,
+	.commentlist .children				{ list-style: none; margin: 0;  }
+	.comment							{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
+	
+	.comment_info						{ width: 140px; float: left; margin-bottom: 0.75em; }
+	.comment_body						{ width: 300px; float: right; padding-bottom: 1.5em; }
+	
+	.comment .avatar					{ height: 62px; width: 62px; padding: 3px; float: left; margin: 0 20px 0 0; }
+	.comment .reply a:link,
+	.comment .reply a:visited			{ color: #999; text-decoration: none; }
+	
+	.children .comment					{ padding: 0; border: none; }
+	.children .comment_body				{ border-top: 1px solid #888; padding-top: 1.5em; }
+	.children .comment_info				{ text-align: right; padding: 1.5em 0 0; }
+	.children .avatar					{ float: right; margin: 0 0 0 20px; }
+	
+	#respond							{ clear:both; padding-top: 1.5em; border-top: 1px solid #888; }
+	
+	#commentform label					{ width: 140px; }						
+
+	
+	.nocomments							{ margin: 0 0 0.5em 0; }
+
+/*
+ *	More specific styling
+ */
+
+
+/*
+ *	Media Queries
+ */
+
+ @media all and (min-width: 1200px) {
+ 
+ 	body 								{ width: 960px; }
+ 	#main 								{ width: 720px; }
+ 	.wp-post-image	 					{ width: 380px; }
+ 	.wp-post-image.landscape			{ width: 460px; }
+ 	
+ 	.comment_info						{ width: 220px; }
+	.comment_body						{ width: 460px; float: right; }
+	
+ }
+ 
+ @media all and (max-width: 720px) {
+ 
+ 	body 								{ width: 80%; min-width: 420px; }
+ 	#main								{ width: 100%; }
+ 	header,
+ 	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; } 	
+ 	.wp-post-image						{ width: 48%; margin-right: 4%; }
+ 	.grid article						{ width: 46%; margin-left: 2%; margin-right: 2%; }
+ 	.grid .wp-post-image				{ width: 100%; }
+ 	
+ 	.comment_info						{ width: auto; margin-left: 80px; float: none; }
+ 	.comment_body						{ width: auto; margin-left: 80px; float: none; } 	
+ 	.comment_info .avatar 				{ margin-left: -80px; }
+ 	
+ 	.children .comment					{ padding: 0; border: none; }
+	.children .comment_body				{ border-top: none; padding-top: 0; }
+	.children .comment_info				{ text-align: left; padding: 1.5em 0 0; border-top: 1px solid #888; }
+	.children .avatar					{ float: left; margin: 0 20px 0.75em 0; }
+
+ 	
+  	#secondary							{ width: 100%; letter-spacing: -4px; }
+  	#secondary aside					{ width: 46%; padding-left: 2%; padding-right: 2%; float: left; display: inline-block; letter-spacing: normal; }
+
+ } 
+
+ @media all and (max-width: 480px) {
+ 
+ 	body 								{ width: 80%; max-width: 320px; min-width: 0px; margin: auto; }
+ 	.wp-post-image						{ width: 98% !important; padding: 1.5%; margin-left: auto !important; margin-right: auto !important; float: none; display: block; }
+ 	#secondary 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
+ 	
+ 	.grid article,
+ 	#secondary aside 					{ width: 96%; margin-left: 2%; margin-right: 2%;}
+ 	
+ }  
+ 
