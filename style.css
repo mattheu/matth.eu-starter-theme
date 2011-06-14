@@ -74,6 +74,7 @@ Tags:
 	.grid 								{ letter-spacing: -4px; }
 
 	article								{ margin: 0 10px 0; padding: 1.5em 0 0.75em; border-bottom: 1px solid #888; }
+	article:last-child					{ border-bottom: none; }
 	.grid article						{ width: 220px; margin-left: 10px; margin-right: 10px; display: inline-block; vertical-align: top; letter-spacing: normal; border: none; }
 
 	article .post_title					{ margin-top: 0; }
@@ -86,7 +87,7 @@ Tags:
 	#secondary							{ float: right; width: 240px; margin: 0; color: #888; }
 	#secondary aside 					{ padding: 0.75em 10px; }
 	#secondary aside:first-child		{ padding-top: 1.5em; }
-	#secondary aside *:last-child		{ margin-bottom: 0.75em; }
+	#secondary aside>*:last-child		{ margin-bottom: 0.75em; }
 	#secondary h1, #secondary h2,
 	#secondary h3, #secondary h4		{ color: #666; }
 	
@@ -176,7 +177,7 @@ Tags:
 
  @media all and (max-width: 480px) {
  
- 	body 								{ width: 80%; max-width: 320px; min-width: 0px; margin: auto; }
+ 	body 								{ width: 80%; min-width: 0px; margin: auto; }
  	.wp-post-image						{ width: 98% !important; padding: 1.5%; margin-left: auto !important; margin-right: auto !important; float: none; display: block; }
  	#secondary 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	
