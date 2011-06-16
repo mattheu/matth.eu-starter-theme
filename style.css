@@ -36,8 +36,8 @@ Tags:
  	img.normal,
  	img.size-medium						{ width: 300px; }
  	
- 	.alignleft							{ float: left; margin: 0 20px 0.75em 0; }
-  	.alignright							{ float: right; margin: 0 0 0.75em 20px;  }
+ 	.alignleft							{ float: left; margin: 0 20px 1.5em 0; }
+  	.alignright							{ float: right; margin: 0 0 1.5em 20px;  }
   	
   	blockquote							{ font-weight: 300; }
   	
@@ -79,10 +79,10 @@ Tags:
 
 	article .post_title					{ margin-top: 0; }
 
-	.wp-post-image						{ float: left; width: 300px; margin: 0 20px 0.75em 0; }
+	.wp-post-image						{ float: left; width: 300px; margin: 0 20px 1.5em 0; }
 	.wp-post-image.landscape			{ width: 380px; }
 	
-	.post .post_meta					{ clear: both; color: #777; }
+	.post .post_meta					{ clear: both; color: #777; margin: 1.5em 0 0.75em; }
 
 	#secondary							{ float: right; width: 240px; margin: 0; color: #888; }
 	#secondary aside 					{ padding: 0.75em 10px; }
@@ -152,7 +152,7 @@ Tags:
  
  @media all and (max-width: 720px) {
  
- 	body 								{ width: 80%; min-width: 420px; }
+ 	body 								{ width: 80%; }
  	#main								{ width: 100%; }
  	header,
  	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; } 	
