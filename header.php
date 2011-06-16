@@ -48,6 +48,5 @@
 <div id="container" class="wrap" >
 	<header>
 		<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site_name'); ?></a></h1>
-		<!-- So<em class="made">NoTTs</em> -->
 		<p><?php bloginfo('description'); ?></p>
 	</header>
