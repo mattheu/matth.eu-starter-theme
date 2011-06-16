@@ -35,9 +35,6 @@
 	wp_head(); 
 ?>
 
-<script type="text/javascript" src="http://use.typekit.com/dzm8bfr.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
 <!--[if lt IE 9]>
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/libs/modernizr-1.7.min.js"></script>
 <![endif]-->
