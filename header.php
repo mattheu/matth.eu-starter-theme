@@ -20,7 +20,14 @@
 			echo ' | ' . sprintf( __( 'Page %s', 'humanmade' ), max( $paged, $page ) );
 ?></title>
 
-<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
+<?php 
+	// Set a blank favicon - both as a reminder & to supress errors.
+	// Can be overwritten by placing a file 'favicon.ico' is the images directory. 
+	if( !file_exists( $favicon = get_bloginfo( 'stylesheet_directory' ) . 'images/favicon.ico' ) ) 
+		$favicon = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII='; 
+?>
+<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
+
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" title="default" media="screen" />   
  
 <?php 	
