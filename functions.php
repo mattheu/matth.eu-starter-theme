@@ -1,7 +1,17 @@
 <?php
 
+/**
+ *
+ *	Plugins to be loaded by the theme. (can't be disabled)
+ *
+ */
 require_once( 'plugins/better_excerpt.php' );
 
+/**
+ *
+ *	Set up theme.
+ *
+ */
 add_action( 'after_setup_theme', 'mtf_setup' );
 function mtf_setup() {
 
@@ -20,18 +30,29 @@ function mtf_setup() {
  *
  */
 if ( !is_admin() ) { 
-
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' );
 	wp_enqueue_script( 'jquery' );
-	
 }
 
-
+register_nav_menus(
+	array(
+	  'mtf_menu_main' => 'Main Menu',
+	  'mtf_menu_foot' => 'Footer Menu'
+	)
+);
 
 register_sidebar( array(
-	'name' => __( 'Main Sidebar', 'mtf' ),
-	'id' => 'mtf_sidebar',
+	'name' => __( 'Main Sidebar Top', 'mtf_secondary_top' ),
+	'id' => 'mtf_secondary_top',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget' => "</aside>",
+	'before_title' => '<h1 class="widget-title">',
+	'after_title' => '</h1>',
+) );
+register_sidebar( array(
+	'name' => __( 'Main Sidebar Bottom', 'mtf_secondary_bottom' ),
+	'id' => 'mtf_secondary_bottom',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 	'after_widget' => "</aside>",
 	'before_title' => '<h1 class="widget-title">',
@@ -110,3 +131,30 @@ function mtf_coment_form_modifications( $defaults ) {
     return $defaults; 
 }
 add_filter( 'comment_form_defaults', 'mtf_coment_form_modifications' );
+
+function mtf_get_theme_setting( $setting ) {
+	
+	switch( $setting ) {		
+
+		case( 'dynamic_sidebar_before' ) :
+			if( defined( 'MTF_DYNAMIC_SIDEBAR_BEFORE' ) )
+				$r = MTF_DYNAMIC_SIDEBAR_BEFORE;
+			break;
+		
+		case( 'dynamic_sidebar_after' ) :			
+			if( defined( 'MTF_DYNAMIC_SIDEBAR_AFTER' ) )
+				$r = MTF_DYNAMIC_SIDEBAR_AFTER;
+			break;
+
+			
+	}
+	
+	
+	if( !isset( $r ) )
+		return;
+			
+	return $r; 
+		
+	
+}
+

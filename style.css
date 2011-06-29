@@ -18,14 +18,14 @@ Tags:
 /*
  *	Generic Styles
  */
- 
+ /*
  	a:link								{ color: #C1272D; }
  	a:visited							{ color: #7E1D20; }
  	a:hover, 
  	a:active,
  	a:focus								{ color: #81a31d !important; }
- 	
- 	img		 	 						{ border: 1px solid #555; padding: 4px; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box;  }
+ */
+ 	img		 	 						{ border: 1px solid #888; padding: 4px; height: auto; background: #FFF; max-width: 100%; -moz-box-sizing: border-box; box-sizing: border-box;  }
  	
  	object,
 	embed,
@@ -41,7 +41,7 @@ Tags:
   	
   	blockquote							{ font-weight: 300; }
   	
-  	pre									{ border: 1px solid #555; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
+  	pre									{ border: 1px solid #888; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
   	
   	.pagination							{ text-align: center; margin: 1.5em 0 }
   	.pagination a:link,
@@ -72,22 +72,34 @@ Tags:
 	
 	#main								{ width: 480px; float: left;  }
 	.grid 								{ letter-spacing: -4px; }
-
+	.grid * 							{ letter-spacing: normal; }
+	
+	.grid .section-title				{ margin: 0 10px; padding: 0.75em 0 0.75em; border-bottom: 1px solid #888; }
+	.grid .section-title *				{ margin: 0; }
+	
 	article								{ margin: 0 10px 0; padding: 1.5em 0 0.75em; border-bottom: 1px solid #888; }
 	article:last-child					{ border-bottom: none; }
-	.grid article						{ width: 220px; margin-left: 10px; margin-right: 10px; display: inline-block; vertical-align: top; letter-spacing: normal; border: none; }
+	.grid article						{ width: 220px; margin-left: 10px; margin-right: 10px; display: inline-block; vertical-align: top; border: none; }
 
 	article .post_title					{ margin-top: 0; }
 
-	.wp-post-image						{ float: left; width: 300px; margin: 0 20px 1.5em 0; }
+	.wp-post-image						{ float: left; width: 300px; margin: 0 20px 0.75em 0; }
 	.wp-post-image.landscape			{ width: 380px; }
 	
 	.post .post_meta					{ clear: both; color: #777; margin: 1.5em 0 0.75em; }
+	
+	header nav 							{ border-top: 1px solid #888; margin-top: 1.5em; }
+	header nav li 						{ display: inline-block; margin: 0 10px; padding: 0.75em 0 0; }
+	header nav li:first-child			{ margin-left: 0; }
 
 	#secondary							{ float: right; width: 240px; margin: 0; color: #888; }
 	#secondary aside 					{ padding: 0.75em 10px; }
-	#secondary aside:first-child		{ padding-top: 1.5em; }
-	#secondary aside>*:last-child		{ margin-bottom: 0.75em; }
+	#secondary>*:first-child			{ padding-top: 1.5em; }
+	#secondary .widget_area				{ overflow: auto; clear: both; }
+	#secondary ul 						{ margin-left: 0; }
+	#secondary ul ul					{ margin-left: 20px; }
+	
+	#secondary aside>*:last-child		{ margin-bottom: 0; }
 	#secondary h1, #secondary h2,
 	#secondary h3, #secondary h4		{ color: #666; }
 	
@@ -99,9 +111,14 @@ Tags:
 	#secondary td						{ padding-left: 6px ; padding-right: 7px ;}
 	
 	#wp-calendar th,
-	#wp-calendar td						{ text-align: center; }
+	.widget_calendar th,
+	#wp-calendar td,
+	.widget_calendar td					{ text-align: center; }
 	
-	footer 								{ color: #999; clear: both; margin: 3em 0 2.25em; padding-top: 0.75em; }
+	#wp-calendar a:link,
+	.widget_calendar a:link				{ text-decoration: underline; }	
+	
+	footer 								{ color: #999; clear: both; margin: 3em 10px 2.25em; padding-top: 0.75em; }
 	footer a:link, footer a:visited 	{ color: #999; }
 
 	#comments							{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
@@ -171,7 +188,7 @@ Tags:
 
  	
   	#secondary							{ width: 100%; letter-spacing: -4px; }
-  	#secondary aside					{ width: 46%; padding-left: 2%; padding-right: 2%; float: left; display: inline-block; letter-spacing: normal; }
+  	#secondary aside					{ width: 42%;  margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; float: left; display: inline-block; letter-spacing: normal; }
 
  } 
 
@@ -182,7 +199,7 @@ Tags:
  	#secondary 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	
  	.grid article,
- 	#secondary aside 					{ width: 96%; margin-left: 2%; margin-right: 2%;}
+ 	#secondary aside 					{ width: 92%;}
  	
  }  
  

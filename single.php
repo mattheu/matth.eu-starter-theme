@@ -5,7 +5,7 @@
 
 <section id="main" class="posts">	
 
-<article class="post v type-post status-publish format-standard hentry category-uncategorized post clearfix">
+<article <?php post_class(); ?>>
     	
     	<?php if ( has_post_thumbnail() ) {  
     		//Defaults for featured image can be overwritten

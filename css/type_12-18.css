@@ -12,7 +12,7 @@ body 					{ font-size: 0.75em; 	line-height: 1.5em; 	color: #444; }
 p						{ margin-bottom: 0.75em; }
 ul, 
 ol,
-dl 						{ margin: 0 20px 0.75em 20px; }
+dl 						{ margin: 0 20px 0.75em 20px; list-style-position: inside; }
 
 li ul					{ margin: 0 0 0 10px; }
 nav ul, nav ol, nav li 	{ margin: 0; } 
@@ -28,20 +28,22 @@ h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
 h4						{ font-size: 1.25em;	line-height:1.2em; 		margin: 1.2em 0 0.6em; }
 h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
 
+article h1,
+article h2				{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
 #secondary h1,
 #secondary h2,
-#secondary h3			{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
+#secondary h3			{ font-size: 1.5em;		line-height:1.5em;		margin: 0 0 0.5em; }
 
 #secondary.small		{ font-size: 0.917em; 	line-height: 1.636em; }
 #secondary.small h1,
 #secondary.small h2,
-#secondary.small h3		{ font-size: 1.364em;	line-height:1.5em;		margin: 1em 0 0.5em;  }
+#secondary.small h3		{ font-size: 1.364em;	line-height:1.5em;		margin: 0 0 0.5em;  }
 #secondary.small h4		{ font-size: 1em;		margin: 1em 0 0.5em; }
 
 h1:first-child,
 h2:first-child,
 h3:first-child,
-h4:first-child			{ margin-top: 0 !important; }
+h4:first-child			{ margin-top: 0; }
 
 strong,
 b,

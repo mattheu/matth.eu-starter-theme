@@ -13,8 +13,7 @@ form li * {letter-spacing:0;}
 
 label {
 	display: block;
-	margin-right:20px;
-	margin-right:20px;
+	margin-right:10px;
 	margin-bottom: 0.75em; 
 	text-align:left;
 	vertical-align:top;
@@ -24,8 +23,7 @@ input, textarea ,button, .button{
 	display:inline-block;
 	position:relative;
 	vertical-align:top; 
-	margin-right:20px;
-	margin-bottom: 9px;
+	margin-right:10px;
 	-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
 	border:1px solid #999; 
 	-moz-box-sizing:border-box;
