@@ -18,13 +18,17 @@ Tags:
 /*
  *	Generic Styles
  */
- /*
- 	a:link								{ color: #C1272D; }
- 	a:visited							{ color: #7E1D20; }
- 	a:hover, 
- 	a:active,
- 	a:focus								{ color: #81a31d !important; }
- */
+	
+	a:link								{ text-decoration: none; }
+	a:visited							{}
+	a:hover,
+	a:focus,
+	a:active							{ text-decoration: underline; }	
+	
+	::-moz-selection					{ background: rgba(0,0,0,0.25); color:#000; text-shadow: none; }
+	::selection 						{ background: rgba(0,0,0,0.25); color:#000; text-shadow: none; } 
+	a:link 								{ -webkit-tap-highlight-color: rgba(0,0,0,0.25) ; } 
+
  	img		 	 						{ border: 1px solid #888; padding: 4px; height: auto; background: #FFF; max-width: 100%; -moz-box-sizing: border-box; box-sizing: border-box;  }
  	
  	object,

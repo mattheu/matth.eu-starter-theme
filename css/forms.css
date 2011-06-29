@@ -1,3 +1,5 @@
+select, input, textarea, button { font:99% sans-serif; }
+
 form {
 	width:100%;
 	position:relative;

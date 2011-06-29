@@ -7,7 +7,7 @@
  *
  */
 
-body 					{ font-size: 0.75em; 	line-height: 1.5em; 	color: #444; }
+body 					{ font-size: 0.75em; 	line-height: 1.5em; 	color: #444;	font-family: 'HelveticaNeue', Helvetica, arial, sans-serif; }
 
 p						{ margin-bottom: 0.75em; }
 ul, 
@@ -53,6 +53,7 @@ em						{ font-style: italic;}
 
 blockquote				{ font-size: 1.5em;		line-height:1.5em;		margin: 0.5em 20px 0.5em;   padding-left: 19px; 	border-left: 1px solid #666;	font-style: italic;  }
 
+pre, code, kbd, samp 	{ font-family: monospace, sans-serif; }
 pre 					{ padding: 1.5em 20px; margin-bottom: 0.75em; white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ } 
 
 ins 					{ background-color: #ff9; color: #000; text-decoration:none; }
