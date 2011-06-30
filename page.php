@@ -5,7 +5,7 @@
 
 <section id="main" class="posts">	
 
-<article class="post v type-post status-publish format-standard hentry category-uncategorized post clearfix">
+<article <?php post_class(); ?>>
     	<h3 class="post_title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
 </article>

@@ -132,6 +132,7 @@ function mtf_coment_form_modifications( $defaults ) {
 }
 add_filter( 'comment_form_defaults', 'mtf_coment_form_modifications' );
 
+
 function mtf_get_theme_setting( $setting ) {
 	
 	switch( $setting ) {		

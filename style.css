@@ -159,7 +159,7 @@ Tags:
  *	Media Queries
  */
 
- @media all and (min-width: 1200px) {
+ @media all and (min-width: 1020px) {
  
  	body 								{ width: 960px; }
  	#main 								{ width: 720px; }

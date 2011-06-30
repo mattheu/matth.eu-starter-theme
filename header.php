@@ -8,4 +8,3 @@
 		<div id="header_description"><?php bloginfo('description'); ?></div>
 		<?php get_template_part( 'nav', 'main' ); ?>
 	</header>
-

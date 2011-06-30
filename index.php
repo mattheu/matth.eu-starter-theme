@@ -28,7 +28,6 @@
 
 <?php endwhile; ?>
 
-
 <?php 
     if( function_exists( 'hm_pagination' ) ) {
     	hm_pagination(); 
