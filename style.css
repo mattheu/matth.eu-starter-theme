@@ -95,12 +95,13 @@ Tags:
 	.post .post_meta					{ clear: both; color: #777; margin: 1.5em 0 0.75em; }
 	
 	header nav 							{ border-top: 1px solid #888; }
+	header nav ul						{ margin: 0; }
 	header nav li 						{ position: relative; display: inline-block; }
 	header nav li:first-child			{ margin-left: 0; }
 	header nav li a						{ position: relative; display: block; padding: 0.75em 10px; }
+	
 	header nav .sub-menu				{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; }
 	header nav li:hover>.sub-menu		{ display: block; }
-
 	header nav .sub-menu li				{ display: block; }
 	header nav .sub-menu a				{ border-bottom: 1px solid #888; }
 	header nav .sub-menu li:last-child a { border: none; }
