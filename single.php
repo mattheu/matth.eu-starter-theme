@@ -8,7 +8,7 @@
 <article <?php post_class(); ?>>
     	
     	<?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'mtf_medium' ); } ?>
-    	<h3 class="post_title"><?php the_title(); ?></h3>
+    	<h1 class="post_title"><?php the_title(); ?></h1>
     	<?php the_content(); ?>
 
 <div class="clear"></div>
