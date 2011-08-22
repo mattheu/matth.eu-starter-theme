@@ -7,11 +7,7 @@
 
 <article <?php post_class(); ?>>
     	
-    	<?php if ( has_post_thumbnail() ) {  
-    		//Defaults for featured image can be overwritten
-    		if( !isset( $mtf_featured_image_info ) ) $mtf_featured_image_info = array( 'x' => 380, 'y' => 290 );
-    		the_post_thumbnail( array( $mtf_featured_image_info['x'], $mtf_featured_image_info['y'], 'crop' =>true, ' featured' ) );
-    	} ?>
+    	<?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'mtf_medium' ); } ?>
     	<h3 class="post_title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
 

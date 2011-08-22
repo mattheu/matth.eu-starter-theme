@@ -9,11 +9,10 @@
 <article <?php post_class('clearfix'); ?>>
     	<?php 
     		if ( has_post_thumbnail() ) {  
-    			//Defaults for featured image can be overwritten
-    			//defined( 'MTF_FEATURED_IMAGE' ) ? $featured_image = unserialize( MTF_FEATURED_IMAGE ) : $featured_image = array( 'x' => 380, 'y' => 290 ); 
-    			if( !isset( $mtf_featured_image_info ) ) $mtf_featured_image_info = array( 'x' => 380, 'y' => 290 );
     		?>
-   			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array( $mtf_featured_image_info['x'], $mtf_featured_image_info['y'], 'crop' =>true, ' featured' ) ); ?></a>
+   			<a href="<?php the_permalink(); ?>">
+   				<?php the_post_thumbnail( 'mtf_medium_crop' ); ?>
+   			</a>
    			<h3 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
    			<?php function_exists( 'mph_get_the_excerpt' ) ? mph_the_excerpt( '80', '<p><a href="#">Continue reading...</a></p>' ) : the_excerpt(); ?>
     	<?php } elseif( get_post_format() == 'quote' ) { ?>
