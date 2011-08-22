@@ -10,8 +10,7 @@ function mtf_comment( $comment, $args, $depth ) {
 			<div class="comment_info">
 				<div class="comment_author vcard">
 					<?php 
-						defined( 'MTF_AVATAR_DEFAULT' ) ?  $default_avatar = MTF_AVATAR_DEFAULT : $default_avatar = false; 
-						echo get_avatar( $comment, 60, $default_avatar ); 
+						echo get_avatar( $comment, 60 ); 
 					?>
 					<?php printf( __( '%s <span class="says">says:</span>' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment_author .vcard -->

@@ -8,10 +8,10 @@
 <article <?php post_class('clearfix'); ?>>
     	<?php 
     		if ( has_post_thumbnail() ) {  ?>
-   			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'width=380&height=285&crop=true' ); ?></a>
+   			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mtf_thumbnail' ); ?></a>
    			<h3 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-    	<?php } elseif( get_post_format() == 'quote' ) { ?>
-    		<?php the_content() ;?>
+    	<?php } elseif( get_post_format == 'quote' ) { ?>    		
+    		<?php function_exists( 'mph_get_the_excerpt' ) ? mph_the_excerpt( '50', '<p><a href="#">Continue reading...</a></p>' ) : the_excerpt(); ?>    		
     	<?php } else { ?>
     		<h3 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>    		
     		<?php function_exists( 'mph_get_the_excerpt' ) ? mph_the_excerpt( '80', '<p><a href="#">Continue reading...</a></p>' ) : the_excerpt(); ?>
