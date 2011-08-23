@@ -52,7 +52,8 @@ function mtf_comment( $comment, $args, $depth ) {
 endif;	
 
 
-function mtf_coment_form_fields($fields) {
+function mtf_coment_form_fields( $fields ) {
+	$commenter = wp_get_current_commenter();
     $req = get_option( 'require_name_email' );
     $aria_req = ( $req ? " aria-required='true'" : '' );
     $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' . 
