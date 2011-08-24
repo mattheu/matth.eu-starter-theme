@@ -7,7 +7,10 @@
 */
 	$( document ).ready( function() {
 		
-		$('#show_grid').click( function() {
+		$( 'hmtl' ).removeClass( 'no_js' ).addClass( 'js' )
+		
+		//Grid Overlay Code - for development purposes.
+		$( '#mtf_show_grid' ).click( function() {
 				$('body').wrapInner('<div id="grid" />');
 		});
 		
