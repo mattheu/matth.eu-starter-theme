@@ -6,7 +6,7 @@
 <section id="main" class="posts">	
 
 <article <?php post_class(); ?>>
-    	<h3 class="post_title"><?php the_title(); ?></h3>
+    	<h1 class="post_title"><?php the_title(); ?></h1>
     	<?php the_content(); ?>
 </article>
 
