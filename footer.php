@@ -8,4 +8,5 @@
 	</p>
 </footer>
 </div>
+
 <?php get_template_part( 'footer', 'foot' ); ?>
