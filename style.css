@@ -9,10 +9,10 @@ License http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Tags: 
 */
 
-	@import url('css/boilerplate.css');
+/*	@import url('css/boilerplate.css');
 	@import url('css/type_12-18.css');
 	@import url('css/forms.css');	
-
+*/
 	#grid 								{ background: #E2E2E2 url( images/grid.png); overflow: auto;  }
 
 /*
@@ -20,7 +20,7 @@ Tags:
  */
 	
 	a:link								{ text-decoration: none; }
-	a:visited							{}
+	a:visited							{ opacity: 0.8; }
 	a:hover,
 	a:focus,
 	a:active							{ text-decoration: underline; }	
@@ -34,19 +34,16 @@ Tags:
  	object,
 	embed,
 	video 								{ max-width:100%; height:auto; }
-
  	
  	img.size-thumbnail					{ width: 140px; } 	
  	img.normal,
  	img.size-medium						{ width: 300px; }
  	
+ 	img.mtf_banner						{ width: 100%; }
+ 	
  	.alignleft							{ float: left; margin: 0 20px 1.5em 0; }
   	.alignright							{ float: right; margin: 0 0 1.5em 20px;  }
-  	
-  	blockquote							{ font-weight: 300; }
-  	
-  	pre									{ border: 1px solid #888; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
-  	
+  	  	
   	.pagination							{ text-align: center; margin: 1.5em 0 }
   	.pagination a:link,
   	.pagination a:visited,
@@ -66,24 +63,31 @@ Tags:
   	
 	.clear								{ display: block; clear: both; }
  	
+ 	/* Type */
+  	blockquote							{ font-weight: 300; }  	
+  	pre									{ border: 1px solid #888; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
+
+ 	
 /*
  *	More General Layout Styles
  */
 
-	body								{ width: 720px; padding: 0 0px; margin: 0 auto; }
+	body								{ background: #DDDDDD; }
 
-	header 								{ margin: 1.5em 10px 0; border-bottom: 1px solid #888;}	
+	.wrap								{ width: 720px; padding: 0 10px; margin: 0 auto; background: #FFFFFF; }
+
+	header 								{ margin: 0 10px; padding-top: 1.5em; border-bottom: 1px solid #888;}	
 	#header_description					{ margin-bottom: 1.5em; }
-	
-	
+		
 	#main								{ width: 480px; float: left;  }
+	
 	.grid 								{ letter-spacing: -4px; }
 	.grid * 							{ letter-spacing: normal; }
 	
 	.grid .section-title				{ margin: 0 10px; padding: 0.75em 0 0.75em; border-bottom: 1px solid #888; }
 	.grid .section-title *				{ margin: 0; }
 	
-	article								{ margin: 0 10px 0; padding: 1.5em 0 0.75em; border-bottom: 1px solid #888; }
+	article								{ margin-left: 10px; margin-right: 10px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; }
 	article:last-child					{ border-bottom: none; }
 	.grid article						{ width: 220px; margin-left: 10px; margin-right: 10px; display: inline-block; vertical-align: top; border: none; }
 
@@ -97,11 +101,12 @@ Tags:
 	header nav 							{ border-top: 1px solid #888; }
 	header nav ul						{ margin: 0; }
 	header nav li 						{ position: relative; display: inline-block; }
-	header nav li:first-child			{ margin-left: 0; }
+	
 	header nav li a						{ position: relative; display: block; padding: 0.75em 10px; }
 	
 	header nav .sub-menu				{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; }
-	header nav li:hover>.sub-menu		{ display: block; }
+	header nav li:hover>.sub-menu,
+	header nav li:focus>.sub-menu		{ display: block; }
 	header nav .sub-menu li				{ display: block; }
 	header nav .sub-menu a				{ border-bottom: 1px solid #888; }
 	header nav .sub-menu li:last-child a { border: none; }
@@ -133,7 +138,7 @@ Tags:
 	#wp-calendar a:link,
 	.widget_calendar a:link				{ text-decoration: underline; }	
 	
-	footer 								{ color: #999; clear: both; margin: 3em 10px 2.25em; padding-top: 0.75em; }
+	footer 								{ color: #999; clear: both; margin: 3em 10px 0; padding: 0.75em 0 2.25em; }
 	footer a:link, footer a:visited 	{ color: #999; }
 
 	#comments							{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
@@ -171,7 +176,7 @@ Tags:
 
  @media all and (min-width: 1020px) {
  
- 	body 								{ width: 960px; }
+ 	.wrap 								{ width: 960px; }
  	#main 								{ width: 720px; }
  	.wp-post-image	 					{ width: 380px; }
  	.wp-post-image.landscape			{ width: 460px; }
@@ -183,7 +188,7 @@ Tags:
  
  @media all and (max-width: 720px) {
  
- 	body 								{ width: 80%; }
+ 	.wrap 								{ width: 80%; }
  	#main								{ width: 100%; }
  	header,
  	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; } 	
@@ -208,7 +213,7 @@ Tags:
 
  @media all and (max-width: 480px) {
  
- 	body 								{ width: 80%; min-width: 0px; margin: auto; }
+ 	.wrap 								{ width: 80%; min-width: 0px; margin: auto; }
  	.wp-post-image						{ width: 98% !important; padding: 1.5%; margin-left: auto !important; margin-right: auto !important; float: none; display: block; }
  	#secondary 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	
@@ -217,3 +222,18 @@ Tags:
  	
  }  
  
+ 
+ /** Grid Overlay */
+ 
+#grid_overlay	  						{ width: 720px; padding: 0 10px;  position: fixed; left: 50%; top: 0; margin-left: -370px; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2); }
+#grid_overlay div 						{ width: 80px; float: left; height: 100%;  }
+#grid_overlay div span					{ display: block; margin: 0 10px; height: 100%; background: rgba(255,0,0,0.25); }
+ 
+@media all and (min-width: 1020px) {
+	#grid_overlay	  					{ width: 960px; margin-left: -490px; }
+}
+@media all and (max-width: 720px) {
+	#grid_overlay	  					{ width: 80%; margin: 20%; }				
+	#grid_overlay div 					{}
+	#grid_overlay div span				{}
+}
