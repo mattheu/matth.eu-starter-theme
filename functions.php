@@ -2,18 +2,19 @@
 
 /**
  *
- *	Plugins to be loaded by the theme. (can't be disabled)
+ * 		== More Functions & Plugins ==
+ *
+ * 		* Split off some of the more complicated theme functions. 
+ * 		* Core Plugins - to be loaded directly the theme. (can't be disabled)
  *
  */
 require_once( 'plugins/better_excerpt.php' );
 require_once( 'functions-comments.php' );
 
+
 /**
- *
- *	Set up theme.
- *
+ *	Enqueue all scripts & styles
  */
- add_action( 'init', 'mtf_init' );
 function mtf_assets(){
 
 	if ( !is_admin() ) { 
@@ -52,12 +53,14 @@ function mtf_assets(){
 			
 	}
 	
+	//Image sizes
 	if ( function_exists( 'add_image_size' ) ) { 
 		add_image_size( 'mtf_thumbnail', 220, 180, true );
 		add_image_size( 'mtf_medium', 380, 999, false ); 
-		add_image_size( 'mtf_medium_crop', 380, 290, true ); 
+		add_image_size( 'mtf_medium_crop', 380, 285, true ); 
 		add_image_size( 'mtf_medium_crop_v', 380, 495, true ); 
 		add_image_size( 'mtf_large', 540, 9999, false ); 
+		add_image_size( 'mtf_banner', 960, 350, false ); 
 	}
 }
 add_action( 'init', 'mtf_assets' );
@@ -106,9 +109,13 @@ function my_x( $dimensions, $size ){
 add_action( 'editor_max_image_size', 'my_x', 10, 2 );
 */
 
-add_action( 'after_setup_theme', 'mtf_setup' );
-function mtf_setup() {
 
+
+/**
+ * mtf_setup.
+ * Setup everything this theme needs. 
+ */
+function mtf_setup() {
 
 	register_nav_menus(
 		array(
@@ -116,7 +123,6 @@ function mtf_setup() {
 		  'mtf_menu_foot' => 'Footer Menu'
 		)
 	);
-
 
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar Top', 'mtf_secondary_top' ),
@@ -135,38 +141,54 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 	
-
 	add_theme_support( 'post-formats', array( 'image', 'link', 'gallery', 'status', 'quote' ) );
 	add_theme_support( 'post-thumbnails' );
 		
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 	
-}
-
-function mtf_get_theme_setting( $setting ) {
+	//Remove some unused stuff from the head.
+	remove_action('wp_head', 'wlwmanifest_link');
 	
-	switch( $setting ) {		
+}
+add_action( 'after_setup_theme', 'mtf_setup' );
 
-		case( 'dynamic_sidebar_before' ) :
-			if( defined( 'MTF_DYNAMIC_SIDEBAR_BEFORE' ) )
-				$r = MTF_DYNAMIC_SIDEBAR_BEFORE;
-			break;
-		
-		case( 'dynamic_sidebar_after' ) :			
-			if( defined( 'MTF_DYNAMIC_SIDEBAR_AFTER' ) )
-				$r = MTF_DYNAMIC_SIDEBAR_AFTER;
-			break;
 
-	}
-		
-	if( !isset( $r ) )
+/**
+ * Add extended options to the featured image meta box.
+ * Should this thumbnail link to the source image (may be displayed in lightbox)
+ * Is this image a banner or standard thumbnail.
+ * 
+ * @access public
+ * @param mixed $content
+ * @return void
+ */
+function mtf_thumbnail_options( $content ){	
+
+	global $post_ID;
+
+	$link_to_src = get_post_meta( $post_ID, 'mtf_thumbnail_link_to_src', true );
+	$content .= '<p><input type="checkbox" name="mtf_thumbnail_link_to_src" id="mtf_thumbnail_link_to_src" value="1" ' . checked( $link_to_src, true, false ) . '> <label for="mtf_thumbnail_link_to_src">Link to larger version if available?</label>';
+	return $content; 
+	
+}
+add_filter( 'admin_post_thumbnail_html', 'mtf_thumbnail_options' );
+
+
+/**
+ * Save the thumbnail options. 
+ */
+function mtf_thumbnail_options_save(){
+
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
-			
-	return $r; 
-		
+
+	if( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
+		update_post_meta( get_the_id(), 'mtf_thumbnail_link_to_src', $_POST['mtf_thumbnail_link_to_src'] );
+	} else {
+		delete_post_meta( get_the_id(), 'mtf_thumbnail_link_to_src' );
+	}
 	
 }
-
-
+add_action( 'save_post', 'mtf_thumbnail_options_save' );
 
