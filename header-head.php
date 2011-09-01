@@ -28,10 +28,7 @@
 ?>
 <link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
 
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css" title="default" media="screen" />   
- 
-<?php 	
-	// All javascript is loaded using register script from functions.php		
+<?php 
 	wp_head(); 
 ?>
 

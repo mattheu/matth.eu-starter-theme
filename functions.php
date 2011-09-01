@@ -14,16 +14,42 @@ require_once( 'functions-comments.php' );
  *
  */
  add_action( 'init', 'mtf_init' );
-function mtf_init(){
+function mtf_assets(){
 
-	/**
-	 *	Scripts.
-	 *	- Use jQuery hosted by google. 
-	 */
 	if ( !is_admin() ) { 
+		
+		//jQuery by google.
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' );
+		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', null, '1.4.2', true );
 		wp_enqueue_script( 'jquery' );
+
+		//Load my misc js plugins 		
+		wp_enqueue_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
+		
+		//Reset/boilerplate and base typography.
+		wp_enqueue_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
+		wp_enqueue_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
+		
+		//Formalize. Fixes everything that is wrong with forms. 
+		wp_enqueue_script( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/js/jquery.formalize.min.js', 'jquery', '1.0.0', true );	
+		wp_enqueue_style( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/css/formalize.css' );	
+				
+		// Enqueue the main style at the end. 
+		wp_enqueue_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
+		wp_enqueue_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/style.css' );	
+		
+		//Fancybox
+		wp_enqueue_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
+		wp_enqueue_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
+
+		//Wordpress + Page specific scripts
+		if ( is_singular() ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+	
+		//My js scripts.
+		wp_enqueue_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
+			
 	}
 	
 	if ( function_exists( 'add_image_size' ) ) { 
@@ -34,6 +60,7 @@ function mtf_init(){
 		add_image_size( 'mtf_large', 540, 9999, false ); 
 	}
 }
+add_action( 'init', 'mtf_assets' );
 
 function mtf_remove_default_sizes( $sizes ) {
 
