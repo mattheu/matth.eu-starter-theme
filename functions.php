@@ -139,6 +139,18 @@ add_action( 'after_setup_theme', 'mtf_setup' );
 
 
 /**
+ * Use this function to load different template files.
+ * $template is the path to the file. 
+ */
+function mtf_templates( $template ){
+	
+	if( is_archive() && get_queried_object() && get_queried_object()->slug == 'featured-image' )
+		$template = TEMPLATEPATH . '/index-grid.php';
+	
+	return $template; 
+	
+}
+add_filter(  'template_include', 'mtf_templates' );
  * Add extended options to the featured image meta box.
  * Should this thumbnail link to the source image (may be displayed in lightbox)
  * Is this image a banner or standard thumbnail.
