@@ -65,7 +65,9 @@ function supports_input_placeholder() {
 		
 		//Fancybox for all links to images.
 		//Required Scripts  & Styles are enqueued from functions.php
-		$( 'a[href*=".jpg"], a[href*=".png"], a[href*=".gif"]' ).fancybox();
+		$( 'a[href*=".jpg"], a[href*=".png"], a[href*=".gif"]' ).fancybox({
+			'titlePosition'	: 'inside'
+		});
 		
 	} );	
 
