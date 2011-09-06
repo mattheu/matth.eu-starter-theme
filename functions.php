@@ -53,17 +53,9 @@ function mtf_assets(){
 			
 	}
 	
-	//Image sizes
-	if ( function_exists( 'add_image_size' ) ) { 
-		add_image_size( 'mtf_thumbnail', 220, 180, true );
-		add_image_size( 'mtf_medium', 380, 999, false ); 
-		add_image_size( 'mtf_medium_crop', 380, 285, true ); 
-		add_image_size( 'mtf_medium_crop_v', 380, 495, true ); 
-		add_image_size( 'mtf_large', 540, 9999, false ); 
-		add_image_size( 'mtf_banner', 960, 350, false ); 
-	}
 }
-add_action( 'init', 'mtf_assets' );
+add_action( 'wp_enqueue_scripts', 'mtf_assets' );
+	
 
 function mtf_remove_default_sizes( $sizes ) {
 
@@ -90,26 +82,6 @@ function mtf_admin_init(){
 
 }
 */
-/*
-function my_x( $dimensions, $size ){
-	
-	switch ( $size ) {
-		case 'thumbnail' :
-			return array( 10, 10 );
-			break;
-		case 'medium' :
-			return array( 380, 9999 );
-			break;
-		case 'large' :
-			return array( 540, 9999 );
-			break;
-	}	
-	return $dimensions; 
-}
-add_action( 'editor_max_image_size', 'my_x', 10, 2 );
-*/
-
-
 
 /**
  * mtf_setup.
@@ -132,6 +104,7 @@ function mtf_setup() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
+	
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar Bottom', 'mtf_secondary_bottom' ),
 		'id' => 'mtf_secondary_bottom',
@@ -143,7 +116,18 @@ function mtf_setup() {
 	
 	add_theme_support( 'post-formats', array( 'image', 'link', 'gallery', 'status', 'quote' ) );
 	add_theme_support( 'post-thumbnails' );
-		
+
+	if ( function_exists( 'add_image_size' ) ) { 
+	
+		add_image_size( 'mtf_thumbnail', 140, 140, true );
+		add_image_size( 'mtf_small', 220, 165, true ); 
+		add_image_size( 'mtf_medium', 380, 999, false ); 
+		add_image_size( 'mtf_medium_crop', 380, 285, true ); 
+		add_image_size( 'mtf_large', 540, 9999, false ); 
+		add_image_size( 'mtf_banner', 960, 350, false ); 
+	
+	}
+	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 	
