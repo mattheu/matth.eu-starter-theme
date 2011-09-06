@@ -176,7 +176,7 @@ add_filter( 'admin_post_thumbnail_html', 'mtf_thumbnail_options' );
  */
 function mtf_thumbnail_options_save(){
 
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+	if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) )
 		return;
 
 	if( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
