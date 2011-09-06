@@ -2,7 +2,7 @@
 
 <?php while( have_posts() ) : the_post();  ?>
 
-<section id="main" class="posts">	
+<section class="main posts">	
 
 	<article <?php post_class(); ?>>
     	

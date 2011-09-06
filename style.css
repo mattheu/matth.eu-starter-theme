@@ -79,7 +79,7 @@ Tags:
 	header 								{ margin: 0 10px; padding-top: 1.5em; border-bottom: 1px solid #888;}	
 	#header_description					{ margin-bottom: 1.5em; }
 		
-	#main								{ width: 480px; float: left;  }
+	.main								{ width: 480px; float: left;  }
 	
 	.grid 								{ letter-spacing: -4px; }
 	.grid * 							{ letter-spacing: normal; }
@@ -177,7 +177,7 @@ Tags:
  @media all and (min-width: 1020px) {
  
  	.wrap 								{ width: 960px; }
- 	#main 								{ width: 720px; }
+ 	.main 								{ width: 720px; }
  	.wp-post-image	 					{ width: 380px; }
  	.wp-post-image.landscape			{ width: 460px; }
  	
@@ -188,8 +188,8 @@ Tags:
  
  @media all and (max-width: 720px) {
  
- 	.wrap 								{ width: 80%; }
- 	#main								{ width: 100%; }
+ 	.wrap 								{ width: 80%; padding: 0;  }
+ 	.main								{ width: 100%; }
  	header,
  	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; } 	
  	.wp-post-image						{ width: 48%; margin-right: 4%; }
