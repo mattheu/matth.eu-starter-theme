@@ -20,9 +20,9 @@ function supports_input_placeholder() {
 		
 		//Grid Overlay Code - for development purposes.
 		//To Do - nice to have shortcut key maybe? To avoid having footer link. 
-		$( '#show_grid, #grid_overlay' ).live( 'click', function( e ) {
+		$( '#show_grid, #grid_close' ).live( 'click', function( e ) {
 				e.preventDefault();
-				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div>';
+				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><a id="grid_close" href="#">Close</a></div>';
 				if( ! $('#grid_overlay').length ) {
 					$('body').prepend( gridOverlay );
 				} else {
