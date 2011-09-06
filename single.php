@@ -3,7 +3,7 @@
 
 <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
 
-<section class="main posts">	
+<section class="primary_content posts">	
 
 <article <?php post_class(); ?>>
     	

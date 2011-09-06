@@ -2,7 +2,7 @@
 
 <?php if( have_posts() ) : ?>
 
-	<section class="main posts">	
+	<section class="primary_content posts">	
 	
 	<?php while( have_posts() ) : the_post()  ?>
 	

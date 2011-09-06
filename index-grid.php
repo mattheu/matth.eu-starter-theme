@@ -1,7 +1,7 @@
 <?php get_header();  ?>
 
 <?php if( have_posts() ) : ?>
-<section class="main posts grid">	
+<section class="primary_content posts grid">	
 
 <?php while( have_posts() ) : the_post()  ?>
 
