@@ -24,7 +24,7 @@ function supports_input_placeholder() {
 				e.preventDefault();
 				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><a id="grid_close" href="#">Close</a></div>';
 				if( ! $('#grid_overlay').length ) {
-					$('body').prepend( gridOverlay );
+					$('body').append( gridOverlay );
 				} else {
 					$('#grid_overlay').remove();
 				}
