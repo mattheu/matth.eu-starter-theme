@@ -32,7 +32,6 @@ Tags:
  	object,
 	embed,
 	video 								{ max-width:100%; height:auto; }
- 	
 
 	img.attachment-mtf_small,
 	img.size-thumbnail					{ width: 220px; }
@@ -42,7 +41,6 @@ Tags:
 	img.size-large,
 	img.attachment-mtf_large,
 	img.attachment-mtf_banner			{ width: 100%; }
-
 
  	.alignleft							{ float: left; margin: 0 20px 1.5em 0; }
   	.alignright							{ float: right; margin: 0 0 1.5em 20px;  }
@@ -71,6 +69,7 @@ Tags:
   	blockquote							{ font-weight: 300; }  	
   	pre									{ border: 1px solid #888; padding: 20px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
 
+	.description						{ font-style: italic; color: #888;  }
  	
 /*
  *	More General Layout Styles
@@ -83,7 +82,7 @@ Tags:
 	header 								{ margin: 0 10px; padding-top: 1.5em; border-bottom: 1px solid #888;}	
 	#header_description					{ margin-bottom: 1.5em; }
 		
-	.primary_content								{ width: 480px; float: left;  }
+	.primary_content					{ width: 480px; float: left;  }
 	
 	.grid 								{ letter-spacing: -4px; }
 	.grid * 							{ letter-spacing: normal; }
@@ -107,13 +106,13 @@ Tags:
 	
 	header nav li a						{ position: relative; display: block; padding: 0.75em 10px; }
 	
-	header nav .sub-menu				{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; }
+	header nav .sub-menu						{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; }
 	header nav li:hover>.sub-menu,
-	header nav li:focus>.sub-menu		{ display: block; }
-	header nav .sub-menu li				{ display: block; }
-	header nav .sub-menu a				{ border-bottom: 1px solid #888; }
-	header nav .sub-menu li:last-child a { border: none; }
-	header nav .sub-menu .sub-menu		{ top: -1px; left: 100%;  }
+	header nav li:focus>.sub-menu,
+	header nav .sub-menu li						{ display: block; }
+	header nav .sub-menu a						{ border-bottom: 1px solid #888; }
+	header nav .sub-menu li:last-child a 		{ border: none; }
+	header nav .sub-menu .sub-menu				{ top: -1px; left: 100%;  }
 	
 	.secondary_content							{ float: right; width: 240px; margin: 0; color: #888; }
 	.secondary_content aside 					{ padding: 0.75em 0px; margin-left: 10px; margin-right: 10px; }
@@ -125,7 +124,8 @@ Tags:
 	.secondary_content aside>*:last-child		{ margin-bottom: 0; }
 	.secondary_content h1, 
 	.secondary_content h2,
-	.secondary_content h3, .secondary_content h4		{ color: #666; }
+	.secondary_content h3, 
+	.secondary_content h4						{ color: #666; }
 	
 	.secondary_content a:link,
 	.secondary_content a:visited				{ color: #888; text-decoration: none; }
@@ -181,11 +181,7 @@ Tags:
  @media all and (min-width: 1020px) {
  
  	.wrap 								{ width: 960px; }
- 	.primary_content 								{ width: 720px; }
-/*
- 	.wp-post-image	 					{ width: 380px; }
- 	.wp-post-image.landscape			{ width: 460px; }
- */	
+ 	.primary_content 					{ width: 720px; }
  
 	img.attachment-mtf_small,
 	img.size-thumbnail					{ width: 220px; }
@@ -201,7 +197,7 @@ Tags:
  @media all and (max-width: 740px) {
  
  	.wrap 								{ width: 80%; padding: 0;  }
- 	.primary_content								{ width: 100%; }
+ 	.primary_content					{ width: 100%; }
  	header,
  	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; } 	
 
@@ -227,8 +223,8 @@ Tags:
 	.children .avatar					{ float: left; margin: 0 20px 0.75em 0; }
 
  	
-  	.secondary_content							{ width: 100%; }
-  	.secondary_content aside					{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
+  	.secondary_content					{ width: 100%; }
+  	.secondary_content aside			{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
 
  } 
 
@@ -242,10 +238,10 @@ Tags:
 	img.attachment-mtf_medium,						 
 	img.attachment-mtf_medium_crop		{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 
- 	.secondary_content 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
+ 	.secondary_content 					{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	
  	.grid article,
- 	.secondary_content aside 					{ width: 96%;}
+ 	.secondary_content aside 			{ width: 96%;}
  	
  }  
  

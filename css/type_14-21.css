@@ -24,11 +24,11 @@ h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 0.888em 0 0.444em; }
 h4						{ font-size: 1.25em;	line-height:1.6em;		margin: 1.2em 0 0.4em; }
 h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
 
-#secondary				{ font-size: .857em; 	line-height: 1.75em; 	color: #666;  }
-#secondary h1,
-#secondary h2,
-#secondary h3			{ font-size: 1.458em;	line-height:1.2em;		margin: 0.8em 0 0.4em; 	color: #555; }
-#secondary h4			{ font-size: 1em;		margin: 1em 0 0.5em; }
+.secondary_content				{ font-size: .857em; 	line-height: 1.75em; 	color: #666;  }
+.secondary_content h1,
+.secondary_content h2,
+.secondary_content h3			{ font-size: 1.458em;	line-height:1.2em;		margin: 0.8em 0 0.4em; 	color: #555; }
+.secondary_content h4			{ font-size: 1em;		margin: 1em 0 0.5em; }
 
 h1:first-child,
 h2:first-child,
