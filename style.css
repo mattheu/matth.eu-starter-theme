@@ -37,7 +37,7 @@ Tags:
 	img.size-thumbnail					{ width: 220px; }
 	img.size-medium,
 	img.attachment-mtf_medium,						 
-	img.attachment-mtf_medium_crop		{ width: 240px; }
+	img.attachment-mtf_medium_crop		{ width: 220px; }
 	img.size-large,
 	img.attachment-mtf_large,
 	img.attachment-mtf_banner			{ width: 100%; }
@@ -83,9 +83,11 @@ Tags:
 	#header_description					{ margin-bottom: 1.5em; }
 		
 	.primary_content					{ width: 480px; float: left;  }
-	
-	.grid 								{ letter-spacing: -4px; }
+
+
+	.grid 								{ letter-spacing: -0.25em;  /* Note that this will need changing if you adjust the base font size */ }
 	.grid * 							{ letter-spacing: normal; }
+
 	
 	.grid .section-title				{ margin: 0 10px; padding: 0.75em 0 0.75em; border-bottom: 1px solid #888; }
 	.grid .section-title *				{ margin: 0; }
@@ -106,7 +108,7 @@ Tags:
 	
 	header nav li a						{ position: relative; display: block; padding: 0.75em 10px; }
 	
-	header nav .sub-menu						{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; }
+	header nav .sub-menu						{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.9); border: 1px solid #888; z-index: 100; }
 	header nav li:hover>.sub-menu,
 	header nav li:focus>.sub-menu,
 	header nav .sub-menu li						{ display: block; }
@@ -114,6 +116,10 @@ Tags:
 	header nav .sub-menu li:last-child a 		{ border: none; }
 	header nav .sub-menu .sub-menu				{ top: -1px; left: 100%;  }
 	
+	.linklist									{}
+	.linklist li								{ border-bottom: 1px solid #888; margin-bottom: -1px; }
+	.linklist li a								{ display: block;  padding: 0.75em 0; }
+		
 	.secondary_content							{ float: right; width: 240px; margin: 0; color: #888; }
 	.secondary_content aside 					{ padding: 0.75em 0px; margin-left: 10px; margin-right: 10px; }
 	.secondary_content div:first-child aside:first-child	{ padding-top: 1.5em; }
