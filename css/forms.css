@@ -4,8 +4,7 @@ legend {}
 fieldset {}
 
 form ul 							{ list-style:none; margin:0; }
-form li 							{ margin-bottom:0.75em; letter-spacing:-4px; }
-form li * 							{ letter-spacing:0; }
+form li 							{ margin-bottom:0.75em; }
 
 form label 							{ display: inline-block; width: 60px;  margin: 1px 20px; padding: 0.375em 0; vertical-align: top; }
 
@@ -13,24 +12,35 @@ input[type="submit"],
 button, 
 .button 							{ margin-right: 0px;  }
 
-.placeholder						{ color: #888; }
+input.placeholder,
+textarea.placeholder				{ color: #888; }
 
 input[type="text"],
+input[type="password"],
 textarea 							{ border-radius: 5px; border: 1px solid #888;  padding: 0.375em 4px 0.375em 8px; font-size: 12px;  }
 textarea 							{ line-height: 1.8em; padding: 0.375em 4px 0.375em 8px; }
-input[type="text"] 					{ height: 2.25em; }
+input[type="text"],
+input[type="password"] 				{ height: 2.25em; }
 
-select 								{ 
-										border-radius: 5px; border: 1px solid #888;  padding: 0.375em 4px 0.375em 8px; font-size: 12px;
-										line-height: 1.8em; padding: 0.375em 4px 0.375em 8px; 
-										height: 2.25em;
- 									}
+select 								{ border-radius: 5px; border: 1px solid #888;  padding: 0.375em 4px 0.375em 8px; font-size: 12px; line-height: 1.8em; padding: 0.375em 26px 0.375em 8px; height: 2.25em; }
+ 									
+select:before						{ content: ' '; display: block;  height: 20px; width: 20px; position: absolute; top: 0; right: 0; background: red; }
 
-input[type="radio"]					{ margin: 0.375em 10px 0.75em 0; }
+input[type="radio"]					{ margin: 0.375em 10px 0.75em 10px; }
 
-form#contact_form 					{ padding-left: 80px; position:relative; max-width: 620px; }
+form#contact_form 					{ position:relative; width: 100%; margin-top: 1.5em;  }
+form#contact_form li				{ padding-left: 80px; }
 form#contact_form label 			{ margin-left: -80px; }
-form#contact_form label.secondary 	{ margin-left: 0; width: auto; }
+form#contact_form label.secondary 	{ margin: 0 20px 0 0; width: auto; float: none; width: auto; }
 
 input[type="submit"]:focus			{ box-shadow: none;  }
 input[type="submit"]:active	 		{ margin-top: 1px; margin-bottom: -1px; }
+
+ 
+
+@media all and (max-width: 480px) {
+
+form#contact_form li				{ padding-left: 0; }
+form#contact_form label 			{ margin-left: 0; width: 20%;  }
+
+}
