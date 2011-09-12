@@ -17,7 +17,7 @@
 		if ( $site_description && ( is_home() || is_front_page() ) )
 			echo " | $site_description";
 		if ( $paged >= 2 || $page >= 2 )
-			echo ' | ' . sprintf( __( 'Page %s', 'humanmade' ), max( $paged, $page ) );
+			echo ' | ' . sprintf( __( 'Page %s', 'mtf' ), max( $paged, $page ) );
 ?></title>
 
 <?php 
@@ -31,8 +31,6 @@
 <?php 
 	wp_head(); 
 ?>
-
-<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_directory'); ?>/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
 
 <!--[if lt IE 9]>
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/libs/modernizr-1.7.min.js"></script>
