@@ -74,6 +74,18 @@ Tags:
  *	More General Layout Styles
  */
 
+	.grid_test							{ margin: 0 10px; }
+	.grid_test .grid					{ clear: both; }
+	.grid_test article					{ padding: 0.75em 0; margin: 0.75em 0; background: rgba(0,0,0,0.1); border: none; text-align: center;  }
+	
+	.grid .col1							{ width: 60px; }
+	.grid .col2							{ width: 140px; }
+	.grid .col3							{ width: 220px; }
+	.grid .col4							{ width: 220px; }	
+	.grid .col6							{ width: 340px; }	
+	.grid .col8							{ width: 460px; }	
+	.grid .col9							{ width: 460px; }	
+
 	body								{ background: #EEEEEE; }
 
 	.wrap								{ width: 720px; padding: 0 10px; margin: 0 auto; background: #FFFFFF; }
@@ -83,7 +95,7 @@ Tags:
 		
 	.primary_content					{ width: 480px; float: left;  }
 
-	.grid 								{ letter-spacing: -0.25em;  /* Note that this will need changing if you adjust the base font size */ }
+	.grid 								{ letter-spacing: -0.25em; margin: 0 -10px;   /* Note that this will need changing if you adjust the base font size */ }
 	.grid * 							{ letter-spacing: normal; }
 	
 	.grid .section-title				{ margin: 0 10px; padding: 0.75em 0 0.75em; border-bottom: 1px solid #888; }
@@ -115,7 +127,7 @@ Tags:
 	
 	.secondary_content							{ float: right; width: 240px; margin: 0; color: #888; }
 	.secondary_content aside 					{ padding: 0.75em 0px; margin-left: 10px; margin-right: 10px; }
-	.secondary_content div:first-child aside:first-child	{ padding-top: 1.5em; }
+	/* .secondary_content div:first-child aside:first-child	{ padding-top: 1.5em; } */
 	.secondary_content .widget_area				{ overflow: auto; clear: both; }
 	.secondary_content ul 						{ margin-left: 0; }
 	.secondary_content ul ul					{ margin-left: 20px; }
@@ -137,10 +149,9 @@ Tags:
 	.linklist li								{ border-bottom: 1px solid #888; margin-bottom: -1px; }
 	.linklist li a								{ display: block;  padding: 0.75em 0; }
 	
-	.content_box								{ background: #EEE; }
-	
-	.secondary_content .content_box				{ margin: 0.75em 0; padding: 0.75em 10px; }
-	.secondary_content div:first-child aside.content_box:first-child { padding: 0.75em 10px; }
+	.content_box								{ background: #EEE; padding: 0.75em 10px; }
+
+	.secondary_content .content_box				{ margin-left: 10px; margin-right: 10px; padding: 0.75em 10px; }
 
 	#wp-calendar th,
 	.widget_calendar th,
@@ -173,10 +184,11 @@ Tags:
 	
 	#respond							{ clear:both; padding-top: 1.5em; border-top: 1px solid #888; }
 	
-	#commentform label					{ width: 140px; }						
-
+	#commentform label					{ width: 140px; }					
 	
 	.nocomments							{ margin: 0 0 0.5em 0; }
+	
+	.primary_content.grid				{ margin-left: 0; }
 
 /*
  *	More specific styling
@@ -187,6 +199,12 @@ Tags:
  */
 
  @media all and (min-width: 1020px) {
+ 
+	.grid .col4							{ width: 300px; }	
+	.grid .col6							{ width: 460px; }	
+	.grid .col7							{ width: 300px; }	
+	.grid .col8							{ width: 620px; }	
+	.grid .col9							{ width: 700px; }
  
  	.wrap 								{ width: 960px; }
  	.primary_content 					{ width: 720px; }
@@ -204,6 +222,16 @@ Tags:
  
  @media all and (max-width: 740px) {
  
+	.grid .col1							{ width: 8.5%; }
+	.grid .col2							{ width: 21%; }
+	.grid .col3,
+	.grid .col4							{ width: 46%; }
+	
+	.grid .col6							{ width: 96%; }	
+	
+	.grid .col8							{ width: 71%; }	
+	.grid .col9							{ width: 71%; } 
+ 
  	.wrap 								{ width: 80%; padding: 0;  }
  	.primary_content					{ width: 100%; }
  	header,
@@ -220,6 +248,8 @@ Tags:
 
  	.grid article						{ width: 46%; margin-left: 2%; margin-right: 2%; }
  	.grid .wp-post-image				{ width: 100%; }
+ 	
+	.secondary_content .content_box		{ width: 42%; margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; }
  	
  	.comment_info						{ width: auto; margin-left: 80px; float: none; }
  	.comment_body						{ width: auto; margin-left: 80px; float: none; } 	
