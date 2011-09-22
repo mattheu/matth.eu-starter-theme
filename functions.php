@@ -1,5 +1,8 @@
 <?php
 
+//Update Script
+require_once( get_template_directory() . '/updates/update.php' );
+
 /**
  *
  * 		== More Functions & Plugins ==
