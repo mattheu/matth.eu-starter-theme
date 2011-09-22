@@ -47,8 +47,7 @@ Tags:
   	.aligncenter						{ display: block; clear: both; margin: 0 auto 1.5em;  }
 
   	.pagination							{ text-align: center; margin: 1.5em 0 }
-  	.pagination a:link,
-  	.pagination a:visited,
+  	.pagination a,
   	.pagination span					{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; }
   	.pagination a:hover					{ background: #FFF; border-color: #333; color: #333;  }
   	.pagination .current				{ background: #ECECEC; border-color: #AAA; color: #AAA; }
