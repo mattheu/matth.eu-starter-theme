@@ -75,8 +75,8 @@ td .num 				{ text-align:center; }
 
 
 tr:nth-child(even) td	{ background: #FFF; }
-tr:nth-child(odd) td	{ background: #DDD; }
-th 						{ background: #AAA; color: #FFF; }
+tr:nth-child(odd) td	{ background: #EEE; }
+th 						{ background: #CCC; }
 caption					{ padding-bottom: 0.75em; font-weight: bold; }
 
 /**
