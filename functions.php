@@ -17,6 +17,7 @@ require_once( 'functions-comments.php' );
 
 /**
  *	Enqueue all scripts & styles
+ *  Register & Enqueue separately to allow for deregistering them from a child theme.
  */
 function mtf_assets(){
 
@@ -27,32 +28,26 @@ function mtf_assets(){
 		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', null, '1.4.2', true );
 		wp_enqueue_script( 'jquery' );
 
-		//Load my misc js plugins 		
-		wp_enqueue_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
-		
-		//Reset/boilerplate and base typography.
-		wp_enqueue_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
-		wp_enqueue_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
-		
-		//Formalize. Fixes everything that is wrong with forms. 
-		wp_enqueue_script( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/js/jquery.formalize.min.js', 'jquery', '1.0.0', true );	
-		wp_enqueue_style( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/css/formalize.css' );	
+		wp_enqueue_style( 'reset' );		
+		wp_enqueue_style( 'type' );		
 				
-		// Enqueue the main style at the end. 
-		wp_enqueue_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
-		wp_enqueue_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/style.css' );	
-		
-		//Fancybox
-		wp_enqueue_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
-		wp_enqueue_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
+		wp_enqueue_script( 'formalize' );
+		wp_enqueue_style ( 'formalize' );
+						
+		wp_enqueue_style( 'mtf_forms' );
+		wp_enqueue_style( 'mtf_style' );
 
+		wp_enqueue_script( 'fancybox');
+		wp_enqueue_style( 'fancybox');
+		
 		//Wordpress + Page specific scripts
 		if ( is_singular() ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	
 		//My js scripts.
-		wp_enqueue_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
+		wp_register_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
+		wp_enqueue_script( 'mtf_scripts' );
 			
 	}
 	
@@ -70,21 +65,6 @@ function mtf_remove_default_sizes( $sizes ) {
 
 }
 //add_action( 'intermediate_image_sizes', 'mtf_remove_default_sizes' );
-
-/*
-add_action( 'admin_init', 'mtf_admin_init' );
-function mtf_admin_init(){
-
-	//Force thumbnail sizes. 
-	update_option( 'thumbnail_size_w', 220 );
-	update_option( 'thumbnail_size_h', 180 );
-	update_option( 'medium_size_w', 380 );
-	update_option( 'medium_size_h', 999 );
-	update_option( 'large_size_w', 540 );
-	update_option( 'large_size_h', 9999 );
-
-}
-*/
 
 /**
  * mtf_setup.
@@ -131,6 +111,27 @@ function mtf_setup() {
 	
 	}
 	
+   	//Load my misc js plugins 		
+    wp_register_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
+	wp_enqueue_script( 'mtf_plugins' );
+    		
+    //Reset/boilerplate and base typography.
+    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
+    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
+
+    //Formalize. Fixes everything that is wrong with forms. 
+    wp_register_script( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/js/jquery.formalize.min.js', 'jquery', '1.0.0', true );	
+    wp_register_style ( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/css/formalize.css' );	
+    
+    // Enqueue the main style at the end. 
+    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
+    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/style.css' );	
+
+    //Fancybox
+    wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
+    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
+
+	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 	
@@ -140,20 +141,14 @@ function mtf_setup() {
 }
 add_action( 'after_setup_theme', 'mtf_setup' );
 
+function my_parse_request( $query ) {
+	global $wp_query; 
+	return $query;
+};
+//add_action( 'parse_request', 'my_parse_request' );
+
 
 /**
- * Use this function to load different template files.
- * $template is the path to the file. 
- */
-function mtf_templates( $template ){
-	
-	if( is_archive() && get_queried_object() && get_queried_object()->slug == 'featured-image' )
-		$template = TEMPLATEPATH . '/index-grid.php';
-	
-	return $template; 
-	
-}
-add_filter(  'template_include', 'mtf_templates' );
  * Add extended options to the featured image meta box.
  * Should this thumbnail link to the source image (may be displayed in lightbox)
  * Is this image a banner or standard thumbnail.
@@ -182,6 +177,9 @@ function mtf_thumbnail_options_save(){
 	if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) )
 		return;
 
+	if( ! post_type_supports( get_post_type(),  'post_thumbnail' ) )
+		return; 
+
 	if( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
 		update_post_meta( get_the_id(), 'mtf_thumbnail_link_to_src', $_POST['mtf_thumbnail_link_to_src'] );
 	} else {
@@ -191,3 +189,46 @@ function mtf_thumbnail_options_save(){
 }
 add_action( 'save_post', 'mtf_thumbnail_options_save' );
 
+
+/**
+ * The Default WordPress image caption gets a width applied inline, with 10px of padding.
+ * This should really be removed.
+ *
+ * TODO - would be nice to style it based on the size of image it contains - can I assign it the same class?
+ *
+ */
+function mtf_cleaner_caption( $output, $attr, $content ) {
+
+	//hm( $output );
+	//hm( $attr );
+	//hm( $content );
+	//hm( get_intermediate_image_sizes() );
+	//global $_wp_additional_image_sizes;
+	//hm( $_wp_additional_image_sizes );
+	
+	if ( is_feed() )
+		return $output;
+
+	$defaults = array(
+		'id' => '',
+		'align' => 'alignnone',
+		'width' => '',
+		'caption' => ''
+	);
+	$attr = shortcode_atts( $defaults, $attr );
+
+	/* If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags. */
+	if ( 1 > $attr['width'] || empty( $attr['caption'] ) )
+		return $content;
+
+	$attributes = ( !empty( $attr['id'] ) ? ' id="' . esc_attr( $attr['id'] ) . '"' : '' );
+	$attributes .= ' class="wp-caption ' . esc_attr( $attr['align'] ) . '"';
+
+	$output = '<div' . $attributes .'>';
+	$output .= do_shortcode( $content );
+	$output .= '<p class="wp-caption-text">' . $attr['caption'] . '</p>';
+	$output .= '</div>';
+
+	return $output;
+}
+add_filter( 'img_caption_shortcode', 'mtf_cleaner_caption', 10, 3 );
