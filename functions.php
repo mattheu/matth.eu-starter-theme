@@ -1,7 +1,7 @@
 <?php
 
 //Update Script
-require_once( get_template_directory() . '/updates/update.php' );
+get_template_part( 'updates/updates', 'core' );
 
 /**
  *
@@ -11,8 +11,11 @@ require_once( get_template_directory() . '/updates/update.php' );
  * 		* Core Plugins - to be loaded directly the theme. (can't be disabled)
  *
  */
-require_once( 'plugins/better_excerpt.php' );
-require_once( 'functions-comments.php' );
+
+get_template_part( 'functions/functions', 'comments' );
+get_template_part( 'functions/functions', 'image_caption' ); 
+get_template_part( 'functions/functions', 'thumbnail_link' ); 
+get_template_part( 'functions/functions', 'better_excerpt' ); 
 
 
 /**
@@ -146,89 +149,3 @@ function my_parse_request( $query ) {
 	return $query;
 };
 //add_action( 'parse_request', 'my_parse_request' );
-
-
-/**
- * Add extended options to the featured image meta box.
- * Should this thumbnail link to the source image (may be displayed in lightbox)
- * Is this image a banner or standard thumbnail.
- * 
- * @access public
- * @param mixed $content
- * @return void
- */
-function mtf_thumbnail_options( $content ){	
-
-	global $post_ID;
-
-	$link_to_src = get_post_meta( $post_ID, 'mtf_thumbnail_link_to_src', true );
-	$content .= '<p><input type="checkbox" name="mtf_thumbnail_link_to_src" id="mtf_thumbnail_link_to_src" value="1" ' . checked( $link_to_src, true, false ) . '> <label for="mtf_thumbnail_link_to_src">Link to larger version if available?</label>';
-	return $content; 
-	
-}
-add_filter( 'admin_post_thumbnail_html', 'mtf_thumbnail_options' );
-
-
-/**
- * Save the thumbnail options. 
- */
-function mtf_thumbnail_options_save(){
-
-	if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) )
-		return;
-
-	if( ! post_type_supports( get_post_type(),  'post_thumbnail' ) )
-		return; 
-
-	if( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
-		update_post_meta( get_the_id(), 'mtf_thumbnail_link_to_src', $_POST['mtf_thumbnail_link_to_src'] );
-	} else {
-		delete_post_meta( get_the_id(), 'mtf_thumbnail_link_to_src' );
-	}
-	
-}
-add_action( 'save_post', 'mtf_thumbnail_options_save' );
-
-
-/**
- * The Default WordPress image caption gets a width applied inline, with 10px of padding.
- * This should really be removed.
- *
- * TODO - would be nice to style it based on the size of image it contains - can I assign it the same class?
- *
- */
-function mtf_cleaner_caption( $output, $attr, $content ) {
-
-	//hm( $output );
-	//hm( $attr );
-	//hm( $content );
-	//hm( get_intermediate_image_sizes() );
-	//global $_wp_additional_image_sizes;
-	//hm( $_wp_additional_image_sizes );
-	
-	if ( is_feed() )
-		return $output;
-
-	$defaults = array(
-		'id' => '',
-		'align' => 'alignnone',
-		'width' => '',
-		'caption' => ''
-	);
-	$attr = shortcode_atts( $defaults, $attr );
-
-	/* If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags. */
-	if ( 1 > $attr['width'] || empty( $attr['caption'] ) )
-		return $content;
-
-	$attributes = ( !empty( $attr['id'] ) ? ' id="' . esc_attr( $attr['id'] ) . '"' : '' );
-	$attributes .= ' class="wp-caption ' . esc_attr( $attr['align'] ) . '"';
-
-	$output = '<div' . $attributes .'>';
-	$output .= do_shortcode( $content );
-	$output .= '<p class="wp-caption-text">' . $attr['caption'] . '</p>';
-	$output .= '</div>';
-
-	return $output;
-}
-add_filter( 'img_caption_shortcode', 'mtf_cleaner_caption', 10, 3 );
