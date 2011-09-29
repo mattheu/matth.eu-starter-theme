@@ -128,7 +128,7 @@ function mtf_setup() {
     
     // Enqueue the main style at the end. 
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
-    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/style.css' );	
+    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/main.css' );	
 
     //Fancybox
     wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
