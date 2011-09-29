@@ -1,18 +1,16 @@
-<?php get_header();  ?>
-
-
-<?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
+<?php get_header(); the_post();  ?>
 
 <section class="primary_content posts">	
 
-<article <?php post_class(); ?>>
-    	<h1 class="post_title"><?php the_title(); ?></h1>
-    	<?php the_content(); ?>
-</article>
+	<article <?php post_class(); ?>>
+
+	   	<h1 class="post_title"><?php the_title(); ?></h1>
+
+	   	<?php the_content(); ?>
+
+	</article>
 
 </section>
-
-<?php endwhile; endif; ?>
 
 <?php get_sidebar(); ?>
 

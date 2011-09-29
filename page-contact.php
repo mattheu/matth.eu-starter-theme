@@ -1,11 +1,9 @@
-<?php get_header();  ?>
-
-
-<?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
+<?php get_header();  the_post();  ?>
 
 <section class="primary_content posts">	
 
-<article <?php post_class(); ?>>
+	<article <?php post_class(); ?>>
+	
     	<h3 class="post_title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
     	
@@ -109,11 +107,9 @@
     		</ul>
     	</form>
     	
-</article>
+	</article>
 
 </section>
-
-<?php endwhile; endif; ?>
 
 <?php get_sidebar(); ?>
 
