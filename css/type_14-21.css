@@ -19,8 +19,8 @@ h1, h2, h3,
 h4, h5, h6 				{ color: #333; }
 h1						{ font-size: 2.5em;		line-height:1.2em; 		margin: 0.6em 0;}
 h1.post_title,
-h2						{ font-size: 2em;		line-height:1.25em; 	margin: 0.834em 0 0.417em; }
-h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 0.888em 0 0.444em; }
+h2						{ font-size: 1.5em;		line-height:1.5em; 	margin: 0.834em 0 0.417em; }
+h3						{ font-size: 1..25em;		line-height:1.6em;		margin: 0.888em 0 0.444em; }
 h4						{ font-size: 1.25em;	line-height:1.6em;		margin: 1.2em 0 0.4em; }
 h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
 
