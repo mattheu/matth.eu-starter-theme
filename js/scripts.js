@@ -16,7 +16,7 @@ function supports_input_placeholder() {
 */
 	$( document ).ready( function() {
 		
-		$( 'hmtl' ).removeClass( 'no_js' ).addClass( 'js' )
+		$( 'html' ).removeClass( 'no_js' ).addClass( 'js' )
 		
 		//Grid Overlay Code - for development purposes.
 		//To Do - nice to have shortcut key maybe? To avoid having footer link. 
