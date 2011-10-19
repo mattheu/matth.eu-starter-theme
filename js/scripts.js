@@ -1,12 +1,3 @@
-
-// Detect input placeholder support.
-// See http://diveintohtml5.org/detect.html#input-placeholder
-// When using modernizr - use <code> if (Modernizr.input.placeholder) </code>
-function supports_input_placeholder() {
-	var i = document.createElement('input');
-	return 'placeholder' in i;
-}
-
 // remap jQuery to $
 (function($){
 
@@ -36,7 +27,7 @@ function supports_input_placeholder() {
 		 *	Fake HTML5 Placeholder attribute support for older browsers.
 		 *
 		 */
-		if( supports_input_placeholder() ) {
+		if( ! document.createElement('input') ) {
 		
 			$('[placeholder]').focus(function() {
 			var input = $(this);
