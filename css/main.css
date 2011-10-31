@@ -279,6 +279,7 @@
 #grid_overlay div:first-child			{ border: none; margin: 0; }
 #grid_overlay div span					{ display: block; margin: 0 10px; height: 100%; background: rgba(255,0,0,0.15); border-right: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.18); }
 #grid_close								{ position: absolute; top: 0.75em; right: 10px; background: #FFF; border: 1px solid #000; padding: 0.375em 10px; opacity: 0.5; pointer-events: auto;  }
+.admin-bar #grid_close					{ margin-top: 28px; }
 #grid_close:hover						{ opacity: 1; text-decoration: none; }
 
 @media all and (min-width: 1020px) {
