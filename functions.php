@@ -43,10 +43,7 @@ function mtf_assets(){
 		wp_enqueue_script( 'fancybox');
 		wp_enqueue_style( 'fancybox');
 		
-		//Wordpress + Page specific scripts
-		if ( is_singular() ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
+		wp_enqueue_script( 'comment-reply' );
 	
 		//My js scripts.
 		wp_register_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
@@ -57,18 +54,7 @@ function mtf_assets(){
 }
 add_action( 'wp_enqueue_scripts', 'mtf_assets' );
 	
-
-function mtf_remove_default_sizes( $sizes ) {
-
-	unset( $sizes['thumbnail'] );
-	unset( $sizes['medium'] );
-	unset( $sizes['large'] );
 	
-	return( $sizes );
-
-}
-//add_action( 'intermediate_image_sizes', 'mtf_remove_default_sizes' );
-
 /**
  * mtf_setup.
  * Setup everything this theme needs. 
@@ -144,8 +130,20 @@ function mtf_setup() {
 }
 add_action( 'after_setup_theme', 'mtf_setup' );
 
-function my_parse_request( $query ) {
-	global $wp_query; 
-	return $query;
-};
-//add_action( 'parse_request', 'my_parse_request' );
+
+/**
+ * mtf_home_feed.
+ * If home is a page - feed should be a general feed, not just comments for that page. 
+ */
+function mtf_home_feed(){
+
+	if( ! is_front_page() )
+		return;
+
+	if( is_page() ) 
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
+
+	echo '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo('name') . ' Feed" href="' . get_bloginfo('url') . '/feed/" />';
+	
+}
+add_action( 'wp_head', 'mtf_home_feed', 1 );
