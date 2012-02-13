@@ -55,7 +55,7 @@
 		}
 		
 		//Fancybox etc can be applied to all links that point directly to image files.
-		if ( typeof window.fancybox == 'function' ) {
+		if( typeof $.fancybox == 'function' ) {
 			$( 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]' ).fancybox({
 				'titlePosition'	: 'inside'
 			});

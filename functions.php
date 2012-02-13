@@ -31,8 +31,8 @@ function mtf_assets(){
 		return; 
 
 	//jQuery by google.
-	//wp_deregister_script( 'jquery' );
-	//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', null, '1.4.2', true );
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
 
 	wp_enqueue_script( 'jquery' );
 
@@ -48,10 +48,14 @@ function mtf_assets(){
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
     wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/main.css' );	
 
-    //Fancybox
-    //@TODO - upgrade to the latest version. 
-    wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
-    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
+    // Fancybox
+    // Not included in the framework by default. 
+   	// Either include it or modify/delete this. 
+    $fancybox_path = '/js/jquery.fancybox.2.0/source/jquery.fancybox.pack.js';
+    if( file_exists( TEMPLATEPATH. $fancybox_path ) ) {
+    	wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . $fancybox_path, 'jquery', '2.0', true );	
+	    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox.2.0/source/jquery.fancybox.css' );	
+    }		
 
 	// Let child themes hook in and modify these.
 	do_action( 'mtf_registered_scripts' );
@@ -67,8 +71,8 @@ function mtf_assets(){
 	wp_enqueue_style( 'mtf_forms' );
 	wp_enqueue_style( 'mtf_style' );
 
-	//wp_enqueue_script( 'fancybox');
-	//wp_enqueue_style( 'fancybox');
+	wp_enqueue_script( 'fancybox');
+	wp_enqueue_style( 'fancybox');
 	
 	//wp_enqueue_script( 'comment-reply' );
 	
