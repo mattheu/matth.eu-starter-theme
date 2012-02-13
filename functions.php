@@ -17,6 +17,9 @@ get_template_part( 'functions/functions', 'image_caption' );
 get_template_part( 'functions/functions', 'thumbnail_link' ); 
 get_template_part( 'functions/functions', 'better_excerpt' ); 
 
+//if( file_exists( WP_PLUGIN_DIR . '/carrington-yell/init.php' ) ) {
+	//require_once( WP_PLUGIN_DIR . '/carrington-yell/init.php' );
+//}
 
 /**
  *	Enqueue all scripts & styles
@@ -24,32 +27,56 @@ get_template_part( 'functions/functions', 'better_excerpt' );
  */
 function mtf_assets(){
 
-	if ( !is_admin() ) { 
-		
-		//jQuery by google.
-		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', null, '1.4.2', true );
-		wp_enqueue_script( 'jquery' );
+	if( is_admin() )
+		return; 
 
-		wp_enqueue_style( 'reset' );		
-		wp_enqueue_style( 'type' );		
-				
-		wp_enqueue_script( 'formalize' );
-		wp_enqueue_style ( 'formalize' );
-						
-		wp_enqueue_style( 'mtf_forms' );
-		wp_enqueue_style( 'mtf_style' );
+	//jQuery by google.
+	//wp_deregister_script( 'jquery' );
+	//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', null, '1.4.2', true );
 
-		wp_enqueue_script( 'fancybox');
-		wp_enqueue_style( 'fancybox');
+	wp_enqueue_script( 'jquery' );
+
+   	//Load my misc js plugins 		
+    wp_register_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
+	wp_enqueue_script( 'mtf_plugins' );
+    		
+    //Reset/boilerplate and base typography.
+    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
+    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
+    
+    // Enqueue the main style at the end. 
+    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
+    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/main.css' );	
+
+    //Fancybox
+    //@TODO - upgrade to the latest version. 
+    wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
+    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
+
+	// Let child themes hook in and modify these.
+	do_action( 'mtf_registered_scripts' );
 		
-		wp_enqueue_script( 'comment-reply' );
+	//wp_enqueue_script( 'jquery' );
+
+	wp_enqueue_style( 'reset' );		
+	wp_enqueue_style( 'type' );		
+	    	
+	wp_enqueue_script( 'formalize' );
+	wp_enqueue_style ( 'formalize' );
+	    			
+	wp_enqueue_style( 'mtf_forms' );
+	wp_enqueue_style( 'mtf_style' );
+
+	//wp_enqueue_script( 'fancybox');
+	//wp_enqueue_style( 'fancybox');
 	
-		//My js scripts.
-		wp_register_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
-		wp_enqueue_script( 'mtf_scripts' );
-			
-	}
+	//wp_enqueue_script( 'comment-reply' );
+	
+	//My js scripts.
+	wp_register_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
+	wp_enqueue_script( 'mtf_scripts' );
+		
+		
 	
 }
 add_action( 'wp_enqueue_scripts', 'mtf_assets' );
@@ -99,27 +126,6 @@ function mtf_setup() {
 		add_image_size( 'mtf_banner', 960, 350, false ); 
 	
 	}
-	
-   	//Load my misc js plugins 		
-    wp_register_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
-	wp_enqueue_script( 'mtf_plugins' );
-    		
-    //Reset/boilerplate and base typography.
-    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
-    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
-
-    //Formalize. Fixes everything that is wrong with forms. 
-    wp_register_script( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/js/jquery.formalize.min.js', 'jquery', '1.0.0', true );	
-    wp_register_style ( 'formalize', get_bloginfo( 'template_directory' ) . '/js/formalize/assets/css/formalize.css' );	
-    
-    // Enqueue the main style at the end. 
-    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
-    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/main.css' );	
-
-    //Fancybox
-    wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js', 'jquery', '1.3.4', true );	
-    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css' );			
-
 	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
