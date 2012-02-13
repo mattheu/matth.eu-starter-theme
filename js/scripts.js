@@ -54,11 +54,12 @@
 			
 		}
 		
-		//Fancybox for all links to images.
-		//Required Scripts  & Styles are enqueued from functions.php
-		$( 'a[href*=".jpg"], a[href*=".png"], a[href*=".gif"]' ).fancybox({
-			'titlePosition'	: 'inside'
-		});
+		//Fancybox etc can be applied to all links that point directly to image files.
+		if ( typeof window.fancybox == 'function' ) {
+			$( 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]' ).fancybox({
+				'titlePosition'	: 'inside'
+			});
+		}
 		
 	} );	
 

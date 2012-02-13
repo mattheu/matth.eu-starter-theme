@@ -286,9 +286,7 @@
 	#grid_overlay	  					{ width: 960px; margin-left: -490px; }
 }
 @media all and (max-width: 720px) {
-	#grid_overlay	  					{ width: 90%; margin: 0 10%; left: 0; padding: 0; }				
+	#grid_overlay	  					{ width: 90%; margin: 0 5%; left: 0; padding: 0; }				
 	#grid_overlay div 					{ width: 25%;  }
 	#grid_overlay div span				{ margin: 0 8%; }
-	
-	
 }
