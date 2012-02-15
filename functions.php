@@ -17,10 +17,6 @@ get_template_part( 'functions/functions', 'image_caption' );
 get_template_part( 'functions/functions', 'thumbnail_link' ); 
 get_template_part( 'functions/functions', 'better_excerpt' ); 
 
-//if( file_exists( WP_PLUGIN_DIR . '/carrington-yell/init.php' ) ) {
-	//require_once( WP_PLUGIN_DIR . '/carrington-yell/init.php' );
-//}
-
 /**
  *	Enqueue all scripts & styles
  *  Register & Enqueue separately to allow for deregistering them from a child theme.
@@ -30,12 +26,11 @@ function mtf_assets(){
 	if( is_admin() )
 		return; 
 
-	//jQuery by google.
+	//jQuery
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
-
 	wp_enqueue_script( 'jquery' );
-
+	
    	//Load my misc js plugins 		
     wp_register_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
 	wp_enqueue_script( 'mtf_plugins' );
@@ -157,3 +152,32 @@ function mtf_home_feed(){
 	
 }
 add_action( 'wp_head', 'mtf_home_feed', 1 );
+
+
+/**
+ * mtf_grid_admin_bar_button function.
+ *
+ * Add the show grid buttong to the menu bar if the current user can. 
+ * 
+ * @access public
+ * @return null
+ */
+function mtf_grid_admin_bar_button(){
+
+	if( ! current_user_can( 'manage_options' ) )
+		return;
+
+	global $wp_admin_bar;
+	
+    $wp_admin_bar->add_menu( 
+    	array(	
+    		'id' => 'show-grid',	
+			'parent' => 'top-secondary',
+    		'title' => 'Show Grid',	
+    		'href' => '#',
+			'meta'   => array( 'class' => 'hide-no-js' ),
+    	) 
+    );
+
+}
+add_action('admin_bar_menu', 'mtf_grid_admin_bar_button', 1000 );

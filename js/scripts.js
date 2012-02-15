@@ -7,13 +7,20 @@
 */
 	$( document ).ready( function() {
 		
-		$( 'html' ).removeClass( 'no_js' ).addClass( 'js' )
+		$( 'html' ).removeClass( 'no-js' ).addClass( 'js' )
 		
-		//Grid Overlay Code - for development purposes.
-		//To Do - nice to have shortcut key maybe? To avoid having footer link. 
-		$( '#show_grid, #grid_close' ).live( 'click', function( e ) {
+		/**
+		 *	Grid Overlay Code
+		 *
+		 *	Added to the menu bar for development purposes.
+		 */
+		
+		//Should we add this with PHP so that we can control who actually sees it?
+		//$( '<li id="wp-admin-bar-show-grid" class=""><a class="ab-item" id="show-grid"  href="#">Show Grid</a></li>' ).appendTo( $( '#wp-admin-bar-top-secondary' ) );
+		
+		$( '#wp-admin-bar-show-grid a, .show-grid' ).live( 'click', function( e ) {
 				e.preventDefault();
-				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><a id="grid_close" href="#">Close</a></div>';
+				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div></div>';
 				if( ! $('#grid_overlay').length ) {
 					$('body').append( gridOverlay );
 				} else {
