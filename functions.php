@@ -37,7 +37,8 @@ function mtf_assets(){
     		
     //Reset/boilerplate and base typography.
     wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
-    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );		
+    //wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );
+    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type.css' );
     
     // Enqueue the main style at the end. 
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
@@ -164,7 +165,7 @@ add_action( 'wp_head', 'mtf_home_feed', 1 );
  */
 function mtf_grid_admin_bar_button(){
 
-	if( ! current_user_can( 'manage_options' ) )
+	if( is_admin() || ! current_user_can( 'manage_options' ) )
 		return;
 
 	global $wp_admin_bar;

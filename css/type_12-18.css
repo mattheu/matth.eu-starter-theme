@@ -1,4 +1,4 @@
-/*
+/**
  *	
  *	type.css
  *
@@ -7,39 +7,37 @@
  *
  */
 
-body 					{ font-size: 0.75em; 	line-height: 1.5em; 	color: #444;	font-family: 'HelveticaNeue', Helvetica, arial, sans-serif; }
+body 					{ font-size: 0.75em; line-height: 1.5em; font-family: 'HelveticaNeue', Helvetica, arial, sans-serif; color: #444; }
 
 p						{ margin-bottom: 0.75em; }
+
 ul, 
 ol,
 dl,
 address					{ margin: 0 20px 0.75em 20px; list-style-position: inside; }
 
 li ul					{ margin: 0 0 0 10px; }
-nav ul, nav ol, nav li 	{ margin: 0; } 
 
 dl						{ margin-bottom: 0; }
 dd						{ margin-bottom: 0.75em; }
 
 h1, h2, h3, 
 h4, h5, h6 				{ color: #333; font-weight: bold; }
-h1						{ font-size: 2.333em;	line-height:1.286em; 	margin: 0.643em 0;}
-h2						{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
-h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
+h1, .alpha						{ font-size: 2.333em;	line-height:1.286em; 	margin: 0.643em 0;}
+h2, .beta						{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
+h3,	.					{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
 h4						{ font-size: 1.25em;	line-height:1.2em; 		margin: 1.2em 0 0.6em; }
 h5, h6					{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
 
+/** Articles should have smaller headings **/
 article h1,
 article h2				{ font-size: 1.833em;	line-height:1.227em; 	margin: 0.818em 0 0.409em; }
-.secondary_content h1,
-.secondary_content h2,
-.secondary_content h3			{ font-size: 1.5em;		line-height:1.5em;		margin: 0 0 0.5em; }
 
-.secondary_content.small		{ font-size: 0.917em; 	line-height: 1.636em; }
-.secondary_content.small h1,
-.secondary_content.small h2,
-.secondary_content.small h3		{ font-size: 1.364em;	line-height:1.5em;		margin: 0 0 0.5em;  }
-.secondary_content.small h4		{ font-size: 1em;		margin: 1em 0 0.5em; }
+/** Secondary Content should be a little bit smaller */
+.secondary-content h1,
+.secondary-content h2,
+.secondary-content h3			{ font-size: 1.5em;		line-height:1.5em;		margin: 0 0 0.5em; }
+.secondary-content h4			{ font-size: 1em;		margin: 1em 0 0.5em; }
 
 h1:first-child,
 h2:first-child,
@@ -79,12 +77,8 @@ tr:nth-child(odd) td	{ background: #EEE; }
 th 						{ background: #CCC; }
 caption					{ padding-bottom: 0.75em; font-weight: bold; }
 
+
 /**
- * 
  *	Forms
- *
  */
-
 form li					{ list-style: none; }
-
-label					{}
