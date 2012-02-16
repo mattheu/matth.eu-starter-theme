@@ -3,10 +3,10 @@
 
 <?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
 
-<section class="primary_content posts">	
+<section class="primary-content posts">	
 
 <article <?php post_class(); ?>>
-    	<h3 class="post_title"><?php the_title(); ?></h3>
+    	<h3 class="post-title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
     	
     	<form id="contact_form" class="clear form-horizontal">

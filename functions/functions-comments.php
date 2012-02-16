@@ -7,16 +7,16 @@ function mtf_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
-			<div class="comment_info">
+			<div class="comment-info">
 				<div class="comment_author vcard">
 					<?php 
 						echo get_avatar( $comment, 60 ); 
 					?>
 					<?php printf( __( '%s <span class="says">says:</span>' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment_author .vcard -->
-			</div><!-- .comment_info -->
+			</div><!-- .comment-info -->
 
-		<div class="comment_body">
+		<div class="comment-body">
 		
 		<div class="comment_meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 			<?php /* translators: 1: date, 2: time */

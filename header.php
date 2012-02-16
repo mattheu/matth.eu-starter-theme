@@ -7,7 +7,7 @@
 		<header class="site-header">
 	
 			<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site_name'); ?></a></h1>
-			<div class="site_description"><?php bloginfo('description'); ?></div>
+			<div class="site-description"><?php bloginfo('description'); ?></div>
 	
 			<?php get_template_part( 'nav', 'main' ); ?>
 	

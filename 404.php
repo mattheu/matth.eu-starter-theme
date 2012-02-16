@@ -1,6 +1,6 @@
 <?php get_header();  ?>
 
-<section class="primary_content posts">	
+<section class="primary-content posts">	
 
 <article <?php post_class(); ?>>
 

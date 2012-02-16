@@ -1,4 +1,4 @@
-<footer>
+<footer class="site-footer">
 	<p>Basic wordpress theme framework by <a href="http://matth.eu">matth.eu</a> &mdash; 
 	&copy; <?php echo date('Y', time() ); ?>
 	<?php if( is_user_logged_in() && current_user_can( 'manage_options' ) ) { ?>

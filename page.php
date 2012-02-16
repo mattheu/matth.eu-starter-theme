@@ -1,10 +1,10 @@
 <?php get_header(); the_post();  ?>
 
-<section class="primary_content posts">	
+<section class="primary-content posts">	
 
 	<article <?php post_class(); ?>>
 
-	   	<h1 class="post_title"><?php the_title(); ?></h1>
+	   	<h1 class="post-title"><?php the_title(); ?></h1>
 
 	   	<?php the_content(); ?>
 
