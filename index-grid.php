@@ -13,12 +13,12 @@
     	
     	<?php elseif ( get_post_format() == 'quote' ) : ?>    		
 
-   			<?php function_exists( 'mph_get_the_excerpt' ) ? mph_the_excerpt( '50', '<p><a href="#">Continue reading...</a></p>' ) : the_excerpt(); ?>    		
+   			<?php the_excerpt(); ?>
 
     	<?php else : ?>
     		
     		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>    		
-    		<?php function_exists( 'mph_get_the_excerpt' ) ? mph_the_excerpt( '80', '<p><a href="#">Continue reading...</a></p>' ) : the_excerpt(); ?>
+   			<?php the_excerpt(); ?>
 
     	<?php endif; ?>
 

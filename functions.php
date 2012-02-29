@@ -11,11 +11,10 @@ get_template_part( 'updates/updates', 'core' );
  * 		* Core Plugins - to be loaded directly the theme. (can't be disabled)
  *
  */
+get_template_part( 'functions/functions-comments' );
+get_template_part( 'functions/functions-image_caption' ); 
+get_template_part( 'functions/functions-thumbnail_link' ); 
 
-get_template_part( 'functions/functions', 'comments' );
-get_template_part( 'functions/functions', 'image_caption' ); 
-get_template_part( 'functions/functions', 'thumbnail_link' ); 
-get_template_part( 'functions/functions', 'better_excerpt' ); 
 
 /**
  *	Enqueue all scripts & styles
@@ -37,7 +36,6 @@ function mtf_assets(){
     		
     //Reset/boilerplate and base typography.
     wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
-    //wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type_12-18.css' );
     wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type.css' );
     
     // Enqueue the main style at the end. 
@@ -182,3 +180,30 @@ function mtf_grid_admin_bar_button(){
 
 }
 add_action('admin_bar_menu', 'mtf_grid_admin_bar_button', 1000 );
+
+
+/**
+ * mtf_excerpt_length function.
+ * 
+ * Filter the excerpt length. 
+ * Different lengths can be used in different places.
+ *
+ * @access public
+ * @param int $length
+ * @return int
+ */
+function mtf_excerpt_length( $length ) {
+
+	global $template;
+
+	// Can adjust excerpt based on template file like this.
+	if ( in_array( basename( $template ), array( 'index-grid/php', 'category-featured-image.php' ) ) )
+		return 25;
+
+	if ( has_post_thumbnail() )
+		return 50;
+
+	return 100;
+		
+}
+add_filter( 'excerpt_length', 'mtf_excerpt_length' );
