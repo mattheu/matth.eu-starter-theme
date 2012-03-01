@@ -8,14 +8,11 @@
 	$( document ).ready( function() {
 		
 		/**
-		 *	Grid Overlay Code
+		 *	Dev Grid Overlay
 		 *
-		 *	Added to the menu bar for development purposes.
+		 *	'Show Grid' button added to the admin bar.
+		 *	should be styled in the theme stylesheet.
 		 */
-		
-		//Should we add this with PHP so that we can control who actually sees it?
-		//$( '<li id="wp-admin-bar-show-grid" class=""><a class="ab-item" id="show-grid"  href="#">Show Grid</a></li>' ).appendTo( $( '#wp-admin-bar-top-secondary' ) );
-		
 		$( '#wp-admin-bar-show-grid a, .show-grid' ).live( 'click', function( e ) {
 				e.preventDefault();
 				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div></div>';
@@ -28,9 +25,7 @@
 		
 		
 		/**
-		 *
 		 *	Fake HTML5 Placeholder attribute support for older browsers.
-		 *
 		 */
 		if( ! document.createElement('input') ) {
 		
@@ -64,8 +59,10 @@
 			$( 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]' ).fancybox({
 				'titlePosition'	: 'inside'
 			});
-		}
+		}	
 		
 	} );	
 
 })(this.jQuery);
+
+

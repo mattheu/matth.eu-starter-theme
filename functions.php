@@ -1,8 +1,5 @@
 <?php
 
-//Update Script
-get_template_part( 'updates/updates', 'core' );
-
 /**
  *
  * 		== More Functions & Plugins ==
@@ -11,32 +8,43 @@ get_template_part( 'updates/updates', 'core' );
  * 		* Core Plugins - to be loaded directly the theme. (can't be disabled)
  *
  */
+
+// Update Script - stores an option of the version number & gives us an action that allows us to hook in and do stuff.
+get_template_part( 'updates/updates', 'core' );
+
 get_template_part( 'functions/functions-comments' );
 get_template_part( 'functions/functions-image_caption' ); 
 get_template_part( 'functions/functions-thumbnail_link' ); 
 
 
 /**
- *	Enqueue all scripts & styles
- *  Register & Enqueue separately to allow for deregistering them from a child theme.
+ *	mtf_register_assets function
+ *	
+ *	Register & Enqueue Styles
+ *  Do this separately to allow for deregistering/modifying them from a child theme.
+ *  
+ *  @return null
  */
-function mtf_assets(){
+function mtf_register_assets() {
 
-	if( is_admin() )
+	if ( is_admin() )
 		return; 
+
+	$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+
+	//Modernizr
+	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
 	//jQuery
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
-	wp_enqueue_script( 'jquery' );
 	
-   	//Load my misc js plugins 		
-    wp_register_script( 'mtf_plugins', get_bloginfo( 'template_directory' ) . '/js/plugins.js', 'jquery', '1.0.0', true );	
-	wp_enqueue_script( 'mtf_plugins' );
+   	//Register my misc js functions & plugins
+    wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/js/functions.js', 'jquery', $theme['Version'], true );	
     		
     //Reset/boilerplate and base typography.
     wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );	
-    wp_register_style( 'type', get_bloginfo( 'template_directory' ) . '/css/type.css' );
+    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type.css' );
     
     // Enqueue the main style at the end. 
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );	
@@ -46,40 +54,66 @@ function mtf_assets(){
     // Not included in the framework by default. 
    	// Either include it or modify/delete this. 
     $fancybox_path = '/js/jquery.fancybox.2.0/source/jquery.fancybox.pack.js';
-    if( file_exists( TEMPLATEPATH. $fancybox_path ) ) {
+    if ( file_exists( TEMPLATEPATH. $fancybox_path ) ) {
     	wp_register_script( 'fancybox', get_bloginfo( 'template_directory' ) . $fancybox_path, 'jquery', '2.0', true );	
 	    wp_register_style ( 'fancybox', get_bloginfo( 'template_directory' ) . '/js/jquery.fancybox.2.0/source/jquery.fancybox.css' );	
     }		
 
-	// Let child themes hook in and modify these.
-	do_action( 'mtf_registered_scripts' );
+	// Theme behaviour.
+	wp_register_script( 'mtf_behaviour', get_bloginfo( 'template_directory' ) . '/js/behaviour.js', 'jquery', $theme['Version'], true );	
 		
-	//wp_enqueue_script( 'jquery' );
+}
+add_action( 'init', 'mtf_register_assets' );
+
+
+/**
+ * mtf_enqueue_scripts description
+ * 
+ * @return null
+ */
+function mtf_enqueue_scripts () {
+
+	if ( is_admin() )
+		return; 
+	
+	wp_enqueue_script( 'modernizr' );
+	wp_enqueue_script( 'jquery' );
+	
+	// Theme Plugins & Functions
+	wp_enqueue_script( 'mtf_functions' );
+
+	wp_enqueue_script( 'fancybox');
+	
+	wp_enqueue_script( 'comment-reply' );
+
+	// Theme Behaviour.
+	wp_enqueue_script( 'mtf_behaviour' );
+
+}
+add_action( 'wp_enqueue_scripts', 'mtf_enqueue_scripts' );
+	
+/**
+ * mtf_print_styles
+ * 
+ * @return null
+ */	
+function mtf_print_styles () {
+
+	if ( is_admin() )
+		return; 
 
 	wp_enqueue_style( 'reset' );		
-	wp_enqueue_style( 'type' );		
-	    	
-	wp_enqueue_script( 'formalize' );
-	wp_enqueue_style ( 'formalize' );
-	    			
+
+	wp_enqueue_style( 'mtf_type' );		
 	wp_enqueue_style( 'mtf_forms' );
 	wp_enqueue_style( 'mtf_style' );
 
-	wp_enqueue_script( 'fancybox');
 	wp_enqueue_style( 'fancybox');
-	
-	//wp_enqueue_script( 'comment-reply' );
-	
-	//My js scripts.
-	wp_register_script( 'mtf_scripts', get_bloginfo( 'template_directory' ) . '/js/scripts.js', 'jquery', '1.0.0', true );	
-	wp_enqueue_script( 'mtf_scripts' );
-		
-		
-	
+
 }
-add_action( 'wp_enqueue_scripts', 'mtf_assets' );
-	
-	
+add_action( 'wp_print_styles', 'mtf_print_styles' );
+
+
 /**
  * mtf_setup.
  * Setup everything this theme needs. 
@@ -138,13 +172,15 @@ add_action( 'after_setup_theme', 'mtf_setup' );
 /**
  * mtf_home_feed.
  * If home is a page - feed should be a general feed, not just comments for that page. 
+ * 
+ * @todo is this to specific for this framework?
  */
-function mtf_home_feed(){
+function mtf_home_feed() {
 
-	if( ! is_front_page() )
+	if ( ! is_front_page() )
 		return;
 
-	if( is_page() ) 
+	if ( is_page() ) 
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 
 	echo '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo('name') . ' Feed" href="' . get_bloginfo('url') . '/feed/" />';
@@ -156,14 +192,15 @@ add_action( 'wp_head', 'mtf_home_feed', 1 );
 /**
  * mtf_grid_admin_bar_button function.
  *
- * Add the show grid buttong to the menu bar if the current user can. 
+ * Grid Overlay Development Tool
+ * Add the show grid button to the menu bar if the current user is admin. 
  * 
  * @access public
  * @return null
  */
-function mtf_grid_admin_bar_button(){
+function mtf_grid_admin_bar_button() {
 
-	if( is_admin() || ! current_user_can( 'manage_options' ) )
+	if ( is_admin() || ! current_user_can( 'manage_options' ) )
 		return;
 
 	global $wp_admin_bar;
@@ -207,3 +244,30 @@ function mtf_excerpt_length( $length ) {
 		
 }
 add_filter( 'excerpt_length', 'mtf_excerpt_length' );
+
+
+/**
+ * Maybe add favicon link to the head.
+ * 
+ * If one is in the root directory, do nothing.
+ * If there is a favicon.ico in the theme images directory, use that.
+ * Else set a blank favicon - both as a reminder & to stop the error log filling.
+ * 
+ * @return null
+ */
+function mtf_favicon() {
+
+	if ( file_exists( get_bloginfo( 'url' ) . 'favicon.ico' ) ) 
+		return;
+
+	// Can be overwritten by placing a file 'favicon.ico' is the images directory. 
+	if ( ! file_exists( $favicon = get_bloginfo( 'stylesheet_directory' ) . 'images/favicon.ico' ) ) 
+		$favicon = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII='; 
+
+	?>
+	
+	<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
+
+	<?php
+}
+add_action( 'wp_head', 'mtf_favicon' );
