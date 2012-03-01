@@ -14,20 +14,6 @@
 
 	<title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
 
-	<?php 
-		// Set a blank favicon - both as a reminder & to supress errors.
-		// Can be overwritten by placing a file 'favicon.ico' is the images directory. 
-		if( !file_exists( $favicon = get_bloginfo( 'stylesheet_directory' ) . 'images/favicon.ico' ) ) 
-			$favicon = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII='; 
-	?>
-	<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
+	<?php wp_head(); ?>
 
-	<?php 
-		wp_head(); 
-	?>
-
-	<!--[if lt IE 9]>
-		<script src="<?php bloginfo('stylesheet_directory'); ?>/js/libs/modernizr-1.7.min.js"></script>
-	<![endif]-->
- 
 </head>
