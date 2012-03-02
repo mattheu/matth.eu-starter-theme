@@ -30,6 +30,7 @@
   vertical-align: top;
   *margin-left: .3em;
 }
+
 .btn:first-child, .btn:link:first-child, .btn:visited:first-child {
   *margin-left: 0;
 }
@@ -101,7 +102,6 @@ user-select: none;
   margin-top: -1px;
 }
 
-
 button.btn, input[type="submit"].btn {
   *padding-top: 2px;
   *padding-bottom: 2px;
@@ -117,9 +117,6 @@ button.btn.large, input[type="submit"].btn.large {
 button.btn.small, input[type="submit"].btn.small {
   *padding-top: 0;
   *padding-bottom: 0;
-}
-form {
-  margin: 3em 0 1.5em;
 }
 form ul {
   margin: 0;
@@ -140,7 +137,6 @@ legend {
   border: 0;
   border-bottom: 1px solid #eee;
 }
-label,
 input,
 button,
 select,
@@ -148,12 +144,16 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
-  line-height: 18px;
+  line-height: 1.5;
 }
 label {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.5;
   display: block;
   margin-bottom: 5px;
   color: #666Dark;
+  font-size: 1em;
 }
 input,
 textarea,
@@ -164,8 +164,6 @@ select,
   height: 18px;
   padding: 4px;
   margin-bottom: 9px;
-  font-size: 1em;
-  line-height: 1.5em;
   color: #999;
   border: 1px solid #888;
   background: #FFF;

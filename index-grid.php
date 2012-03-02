@@ -1,6 +1,6 @@
 <?php get_header();  ?>
 
-<section class="primary-content posts grid">	
+<section class="primary-content posts grid">
 
 	<?php while( have_posts() ) : the_post()  ?>
 
@@ -10,20 +10,20 @@
 
 	   		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mtf_small' ); ?></a>
    			<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-    	
-    	<?php elseif ( get_post_format() == 'quote' ) : ?>    		
+
+    	<?php elseif ( get_post_format() == 'quote' ) : ?>
 
    			<?php the_excerpt(); ?>
 
     	<?php else : ?>
-    		
-    		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>    		
+
+    		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
    			<?php the_excerpt(); ?>
 
     	<?php endif; ?>
 
 	    <p class="post-meta"><small><b>Posted: </b><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?> by <?php the_author_posts_link(); ?></small></p>
-    
+
 	</article>
 
 	<?php endwhile; ?>
