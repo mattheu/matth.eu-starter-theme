@@ -1,29 +1,29 @@
 /**
- *	
+ *
  *	type.css
  *
  *	Default text size: 14px
- *	Line-Height: 21px; 
+ *	Line-Height: 21px;
  *
  */
 
-body 					{ font-size: 0.875em; 	line-height: 1.5em; 	font-family: "HelveticaNeue","Helvetica Neue", arial, sans-serif; font-weight: 400; color: #444; }
+body 					{ font-size: 0.875em; line-height: 1.5em; font-family: "HelveticaNeue","Helvetica Neue", arial, sans-serif; font-weight: 400; color: #444; }
 
 p						{ margin-bottom: 0.75em; }
 
-ul, 
+ul,
 ol,
 dl,
-address 						{ margin: 0 30px 0.75em 30px; }
+address 				{ margin: 0 30px 0.75em 30px; }
 
 li ul					{ margin: 0 0 0 15px; }
 
 dl						{ margin-bottom: 0; }
 dd						{ margin-bottom: 0.75em; }
 
-h1, h2, h3, 
+h1, h2, h3,
 h4, h5, h6 				{ color: #333; }
-h1						{ font-size: 2.5em;		line-height:1.2em; 		margin: 0.6em 0;}
+h1						{ font-size: 2.5em;		line-height:1.2em; 		margin: 0.6em 0 0.3em;}
 h2						{ font-size: 2em;		line-height:1.125em; 	margin: 0.5625em 0 0.5625em; }
 h3						{ font-size: 1.5em;		line-height:1.5em;		margin: 0.888em 0 0.444em; }
 h4						{ font-size: 1.25em;	line-height:1.6em;		margin: 1.2em 0 0.4em; }
@@ -51,14 +51,13 @@ em						{ font-style: italic;}
 
 blockquote				{ font-size: 1.25em;		line-height:1.6em;		margin: 0 30px 0.8em 15px;   padding-left: 14px; 	border-left: 1px solid #666;	font-style: italic;  }
 
-
 pre, code, kbd, samp 	{ font-family: monospace, sans-serif; }
-pre 					{ padding: 1.5em 20px; margin-bottom: 0.75em; white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ } 
+pre 					{ padding: 1.5em 20px; margin-bottom: 0.75em; white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ }
 
 ins 					{ background-color: #ff9; color: #000; text-decoration:none; }
 mark 					{ background-color: #ff9; color: #000; font-style:italic; font-weight:bold; }
 del 					{ text-decoration: line-through; }
-abbr[title], 
+abbr[title],
 dfn[title] 				{ border-bottom:1px dotted; cursor:help; }
 
 /**
@@ -72,8 +71,8 @@ td .num 				{ text-align:center; }
 
 table tbody th,
 table td 				{ border-top: 1px solid #CCC; vertical-align: top; }
-table th + th, 
-td + td, 
+table th + th,
+td + td,
 th + td 				{ border-left: 1px solid #CCC; }
 
 table tr:first-child td { border-top: none; }

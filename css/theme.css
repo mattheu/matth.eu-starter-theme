@@ -104,33 +104,6 @@
 	.grid_test article							{ padding: 0.75em 0; margin-bottom: 0.75em; margin-top: 0.75em; background: rgba(0,0,0,0.1); border: none; text-align: center;  }
 
 
-/**
- *	Grid Overlay
- *
- *	Note that grid.js is required to actually create this.
- *	Adjust this so that it fits the current grid layout.
- */
-
-	#grid_overlay	  						{ width: 720px; padding: 0 10px;  position: fixed; left: 50%; top: 0; margin-left: -370px; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2);  pointer-events:none;  }
-	#grid_overlay div 						{ width: 80px; float: left; height: 100%; border-left: 1px solid rgba(0,0,0,0.1); margin-left: -1px; }
-	#grid_overlay div:first-child			{ border: none; margin: 0; }
-	#grid_overlay div span					{ display: block; margin: 0 10px; height: 100%; background: rgba(255,0,0,0.15); border-right: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.18); }
-	#grid_close								{ position: absolute; top: 0.75em; right: 10px; background: #FFF; border: 1px solid #000; padding: 0.375em 10px; opacity: 0.5; pointer-events: auto;  }
-
-	.admin-bar #grid_close					{ margin-top: 28px; }
-	#grid_close:hover						{ opacity: 1; text-decoration: none; }
-
-	@media all and (min-width: 1020px) {
-		#grid_overlay	  					{ width: 960px; margin-left: -490px; }
-	}
-
-	@media all and (max-width: 720px) {
-		#grid_overlay	  					{ width: 90%; margin: 0 5%; left: 0; padding: 0; }
-		#grid_overlay div 					{ width: 25%;  }
-		#grid_overlay div span				{ margin: 0 8%; }
-	}
-
-
 /*
  *	General Layout Styles
  */
@@ -375,3 +348,7 @@
  	.secondary-content aside 			{ width: 96%;}
 
  }
+#menu-main li { display: block; float: left; }
+#menu-main .sub-menu li { width: auto; float: none; }
+#menu-main .flexMenu { float: right; border-left: 1px solid #888; border-right: 1px solid #888;  }
+#menu-main .flexMenu .sub-menu { right: 0; margin-right: -1px; }
