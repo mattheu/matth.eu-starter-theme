@@ -268,7 +268,6 @@
   	.alignright									{ margin-right: 20px; }
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
-
 	.wrap								{ width: 720px; padding: 0 10px; }
 	.primary-content					{ width: 480px; float: left;  }
 	
@@ -388,7 +387,3 @@
  	.secondary-content aside 			{ width: 96%;}
 
  }
-#menu-main li { display: block; float: left; }
-#menu-main .sub-menu li { width: auto; float: none; }
-#menu-main .flexMenu { float: right; border-left: 1px solid #888; border-right: 1px solid #888;  }
-#menu-main .flexMenu .sub-menu { right: 0; margin-right: -1px; }
