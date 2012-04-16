@@ -1,5 +1,7 @@
-<?php get_header(); ?>
-<?php if( have_posts() ) : ?>
+<?php 
+	get_header();
+	if( have_posts() ) : 
+?>
 
 	<section class="primary-content posts">	
 	
@@ -39,8 +41,12 @@
 	
 	</section><!-- / .primary-content -->
 
-<?php endif; ?>
+<?php 
 
-<?php get_sidebar(); ?>
+	endif; 
 
-<?php get_footer(); ?>
+	get_sidebar();
+	
+	get_footer();
+
+?>
