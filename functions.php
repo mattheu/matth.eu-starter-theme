@@ -122,16 +122,10 @@ function mtf_setup() {
 	add_theme_support( 'post-formats', array( 'image', 'link', 'gallery', 'status', 'quote' ) );
 	add_theme_support( 'post-thumbnails' );
 
-	if ( function_exists( 'add_image_size' ) ) {
 
-		add_image_size( 'mtf_thumbnail', 140, 140, true );
-		add_image_size( 'mtf_small', 220, 165, true );
-		add_image_size( 'mtf_medium', 380, 999, false );
-		add_image_size( 'mtf_medium_crop', 380, 285, true );
-		add_image_size( 'mtf_large', 540, 9999, false );
-		add_image_size( 'mtf_banner', 960, 350, false );
 
-	}
+	// Image Sizes.
+	add_image_size( 'medium-crop', 380, 285, true );
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
