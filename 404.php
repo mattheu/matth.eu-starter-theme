@@ -2,13 +2,13 @@
 
 <section class="primary-content posts">	
 
-<article <?php post_class(); ?>>
-
-	<h1>404</h1>
-
-	<p>Page not found.</p>
-
-</article>
+	<article <?php post_class(); ?>>
+	
+		<h1>404</h1>
+	
+		<p>Page not found.</p>
+	
+	</article>
 
 </section>
 

@@ -11,7 +11,7 @@
     	<?php the_content(); ?>
 
 	</article>
-
+	
 </section>
 
 <?php endwhile; ?>

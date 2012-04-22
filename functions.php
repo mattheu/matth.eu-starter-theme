@@ -87,7 +87,6 @@ function mtf_enqueue_scripts () {
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_scripts' );
 
 
-
 /**
  * mtf_setup.
  * Setup everything this theme needs.
@@ -199,6 +198,7 @@ function mtf_favicon() {
 	<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
 
 	<?php
+	
 }
 add_action( 'wp_head', 'mtf_favicon' );
 
@@ -207,8 +207,9 @@ add_action( 'wp_head', 'mtf_favicon' );
  *	Hide update notice if not an admin.
  */
 function mtf_remove_update_nag() {
-	if( ! current_user_can( 'manage_options' ) ) {
+
+	if ( ! current_user_can( 'manage_options' ) )	
 		remove_action( 'admin_notices', 'update_nag', 3 );
-	}
+
 }
 add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
