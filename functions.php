@@ -127,8 +127,6 @@ function mtf_setup() {
 	// Image Sizes.
 	add_image_size( 'medium-crop', 380, 285, true );
 
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
 
 	//Remove some unused stuff from the head.
 	remove_action('wp_head', 'wlwmanifest_link');
