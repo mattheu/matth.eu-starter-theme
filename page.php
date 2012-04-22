@@ -1,17 +1,27 @@
-<?php get_header(); the_post();  ?>
+<?php 
+
+	get_header();  
+
+	the_post();  
+	
+?>
 
 <section class="primary-content posts">	
 
 	<article <?php post_class(); ?>>
+	
+	    <h1 class="post-title"><?php the_title(); ?></h1>
+	    
+	    <?php the_content(); ?>
+	
+	</article><!-- / .article -->
+	
+</section><!-- / .primary-content -->
 
-	   	<h1 class="post-title"><?php the_title(); ?></h1>
+<?php 
 
-	   	<?php the_content(); ?>
+	get_sidebar();
 
-	</article>
+	get_footer(); 
 
-</section>
-
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+?>
