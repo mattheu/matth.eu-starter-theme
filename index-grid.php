@@ -1,37 +1,34 @@
-<?php get_header();  ?>
+<?php 
 
-<section class="primary-content posts grid">
+	get_header();
 
-	<?php while( have_posts() ) : the_post()  ?>
+	if ( have_posts() ) : 
 
-	<article <?php post_class('clearfix'); ?>>
+?>
 
-    	<?php if ( has_post_thumbnail() ) : ?>
+	<section class="primary-content posts grid">	
+	
+	<?php 
+	
+		while ( have_posts() ) {
+		
+			the_post();
+			get_template_part( 'loop-grid-article');
+	
+		}
 
-	   		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mtf_small' ); ?></a>
-   			<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		get_template_part( 'nav', 'pagination' ); 
+		
+	?>
+	
+	</section><!-- / .primary-content -->
 
-    	<?php elseif ( get_post_format() == 'quote' ) : ?>
+<?php 
 
-   			<?php the_excerpt(); ?>
+	endif; 
 
-    	<?php else : ?>
+	get_sidebar();
+	
+	get_footer();
 
-    		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-   			<?php the_excerpt(); ?>
-
-    	<?php endif; ?>
-
-	    <p class="post-meta"><small><b>Posted: </b><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?> by <?php the_author_posts_link(); ?></small></p>
-
-	</article><!-- / article -->
-
-	<?php endwhile; ?>
-
-	<?php get_template_part( 'nav', 'pagination' ); ?>
-
-</section><!-- / .primary-content -->
-
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+?>
