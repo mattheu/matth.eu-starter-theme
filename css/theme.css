@@ -115,14 +115,11 @@
   	.wrap 										{ width: 960px; padding: 0 15px; margin: 0 auto; }
   	.primary-content		 					{ width: 720px; float: left; }
 
-	.primary-content.grid						{ margin-left: 0; }
+	.primary-content.grid						{ margin: 0; }
 
-
-	img.attachment-mtf_small,
 	img.size-thumbnail							{ width: 210px; }
 	img.size-medium,
-	img.attachment-mtf_medium,
-	img.attachment-mtf_medium_crop				{ width: 370px; }
+	img.attachment-medium-crop					{ width: 370px; }
 
 /**
  *	Main Site Header
@@ -258,27 +255,25 @@
 
  	/* Adjust the sizes of some images to fit our new grid */
 
-	img.attachment-mtf_small,
 	img.size-thumbnail							{ width: 140px; }
 	img.size-medium,
-	img.attachment-mtf_medium,
-	img.attachment-mtf_medium_crop				{ width: 220px; }
+	img.attachment-medium-crop					{ width: 220px; }
 
  	.alignleft									{ margin-right: 20px; }
   	.alignright									{ margin-right: 20px; }
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
-	.wrap								{ width: 720px; padding: 0 10px; }
-	.primary-content					{ width: 480px; float: left;  }
+	.wrap										{ width: 720px; padding: 0 10px; }
+	.primary-content							{ width: 480px; float: left;  }
 	
 	.site-header,
 	article,
 	.posts.grid article,
 	.hero,
 	.secondary-content aside,
-	.site-footer						{ margin-left: 10px; margin-right: 10px; }
+	.site-footer								{ margin-left: 10px; margin-right: 10px; }
 	
-	.grid 										{ margin: 0 -15px; }
+	.grid 										{ margin: 0 -10px; }
 	.grid .section-title						{ margin-left: 10px; margin-right: 10px; }
 
 	.site-header .menu li a						{ padding: 0.75em 10px; }
@@ -314,11 +309,9 @@
  @media all and (max-width: 740px) {
 
 	/* Adjust the sizes of some images to fit our new grid */
-	img.attachment-mtf_small,
 	img.size-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
 	img.size-medium,
-	img.attachment-mtf_medium,
-	img.attachment-mtf_medium_crop		{ width: 48%; padding: 1%; }
+	img.attachment-medium-crop			{ width: 48%; padding: 1%; }
 
 	.align-left							{ margin-right: 4%;}
 	.align-right						{ margin-left: 4%;}
@@ -377,7 +370,7 @@
 	img.size-thumbnail					{}
 	img.size-medium,
 	img.attachment-mtf_medium,
-	img.attachment-mtf_medium_crop		{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
+	img.attachment-mtf_medium-crop		{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 
  	.posts.grid article					{ width: 46%; margin-left: 2%; margin-right: 2%; }
 
