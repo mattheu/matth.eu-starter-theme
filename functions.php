@@ -119,9 +119,9 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 
-	add_theme_support( 'post-formats', array( 'image', 'link', 'gallery', 'status', 'quote' ) );
-	add_theme_support( 'post-thumbnails' );
 
+	add_theme_support( 'post-formats', array( 'quote' ) );
+	add_theme_support( 'post-thumbnails' );
 
 
 	// Image Sizes.
