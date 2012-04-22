@@ -140,7 +140,7 @@
 	.site-header li:focus>.sub-menu,
 	.site-header .sub-menu li					{ display: block; }
 
-	.js .site-header #menu-main li:hover > .sub-menu { display: none; }
+	.site-header .menu li:hover > .sub-menu 	{ display: block; }
 
 	.site-header .sub-menu a					{ border-bottom: 1px solid #888; }
 	.site-header .sub-menu li:first-child a     { padding-left: 15px; }
