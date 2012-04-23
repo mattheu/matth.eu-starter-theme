@@ -39,7 +39,7 @@
 
  	/* Type */
   	blockquote									{ font-weight: 300; }
-  	pre											{ border: 1px solid #888; padding: 30px 1.5em; height: auto; background: #FFF; max-width: 100%; box-sizing: border-box; }
+  	pre											{ border: 1px solid #888; border-radius: 3px; padding: 30px 1.5em; height: auto; background: #EFEFEF; max-width: 100%; box-sizing: border-box; }
 
 	.description								{ font-style: italic; color: #888;  }
 
@@ -213,14 +213,15 @@
  *	Styling for the default WordPress comments.
  */
 
+
 	.comments									{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
 
 	.commentlist,
 	.commentlist .children						{ list-style: none; margin: 0;  }
 
 	.comment									{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
-	.comment .comment-info						{ width: 140px; float: left; margin-bottom: 0.75em; }
-	.comment .comment-body						{ width: 300px; float: right; padding-bottom: 1.5em; }
+	.comment .comment-info						{ width: 210px; float: left; margin-bottom: 0.75em; }
+	.comment .comment-body						{ width: 450px; float: right; padding-bottom: 1.5em; }
 
 	.comment .avatar							{ height: 62px; width: 62px; padding: 3px; float: left; margin: 0 30px 0 0; }
 	.comment .reply a:link,
@@ -234,8 +235,6 @@
 	#respond									{ clear:both; padding-top: 1.5em; border-top: 1px solid #888; }
 	#commentform label							{ width: 140px; }
 	.nocomments									{ margin: 0 0 0.5em 0; }
-
-
 
 /*
  *	More specific styling
@@ -292,12 +291,12 @@
 	/** Specific Changes **/
 	.posts.grid article							{ width: 220px; }
 	.posts.grid article img 					{ width: 100%; margin-right: 0; }
-	
- 	.comment .comment-info				{ width: 220px; }
-	.comment .comment-body				{ width: 460px; float: right; }
-	.children .avatar					{ margin-left: 20px; }
-	.comment .avatar					{ margin-right: 20px; }
-	
+
+ 	.comment .comment-info				{ width: 160px; }
+	.comment .comment-body				{ width: 280px; }
+	.comment .avatar					{ margin-right: 20px; margin-left: 0; }
+	.children .avatar					{ margin-left: 20px; margin-right: 0; }
+
  }
 
 
@@ -310,7 +309,7 @@
 
 	/* Adjust the sizes of some images to fit our new grid */
 	img.size-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
-	img.size-medium,
+	img.attachment-medium,
 	img.attachment-medium-crop			{ width: 48%; padding: 1%; }
 
 	.align-left							{ margin-right: 4%;}
@@ -367,8 +366,8 @@
 	.wrap 								{ width: 95%; min-width:0; margin: auto; }
 
 	img.attachment-mtf_small,
-	img.size-thumbnail					{}
-	img.size-medium,
+	img.attachment-thumbnail			{}
+	img.attachment--medium,
 	img.attachment-mtf_medium,
 	img.attachment-mtf_medium-crop		{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 

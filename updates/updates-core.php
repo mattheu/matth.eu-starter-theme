@@ -40,7 +40,7 @@ function mtf_default_settings( $current_version ){
 			'size_h' => 160
 		),
 		'medium' => array(
-			'size_w' =>	450,
+			'size_w' =>	370,
 			'size_h' => 340		
 		),
 		'large' => array( 

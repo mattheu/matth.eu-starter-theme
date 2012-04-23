@@ -46,7 +46,7 @@ function mtf_register_assets() {
 
     //Reset/boilerplate and base typography.
     wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css' );
-    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type.css' );
+    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type_14-21.css' );
 
     // Enqueue the main style at the end.
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css' );
@@ -123,7 +123,7 @@ function mtf_setup() {
 
 
 	// Image Sizes.
-	add_image_size( 'medium-crop', 380, 285, true );
+	add_image_size( 'medium-crop', 370, 285, true );
 
 
 	//Remove some unused stuff from the head.
