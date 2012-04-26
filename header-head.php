@@ -11,8 +11,14 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width">
 
-	<title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
+	<title><?php bloginfo('name'); ?> <?php wp_title( '|' ); ?></title>
 
+	<?php 
+		/* Set a default blank favicon - to prevent errors */
+		$favicon = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII='; 
+	?>
+	<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
+	
 	<?php wp_head(); ?>
 
 </head>
