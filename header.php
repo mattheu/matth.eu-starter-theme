@@ -2,7 +2,7 @@
 
 <body <?php body_class(); ?>>
 
-	<div id="container" class="wrap" >
+	<div class="wrap" >
 	
 		<header class="site-header">
 	
