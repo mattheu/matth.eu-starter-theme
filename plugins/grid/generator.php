@@ -1,39 +1,35 @@
 <?php
 
-	$grid = array(
 
-		0 => array(
-			'break-point' => 'default',
-			'unit' => 'px',
-			'col_count' => 12,
-			'col_width' => 50,
-			'gutter' => 30
-		),
-		1 => array(
+	$grid[] = array(
+		'break-point' => 'default',
+		'unit' => 'px',
+		'col_count' => 12,
+		'col_width' => 50,
+		'gutter' => 30
+	);
+	$grid[] = array(
 			'break-point' => 'max-width: 1020px',
 			'unit' => 'px',
 			'col_count' => 12,
 			'col_width' => 40,
 			'gutter' => 20
-		),
-		2 => array(
+	);
+	$grid[] = array(
 			'break-point' => 'max-width: 740px',
 			'total-width' => 90,
 			'unit' => '%',
 			'col_count' => 6,
 			'col_width' => 12.666666667,
 			'gutter' => 4
-		),
-		3 => array(
+	);
+	$grid[] = array(
 			'break-point' => 'max-width: 480px',
 			'total-width' => 95,
 			'unit' => '%',
 			'col_count' => 4,
 			'col_width' => 21,
 			'gutter' => 4
-		)
-
-
 	);
 
 ?>
@@ -45,7 +41,7 @@
  *	Adjust this so that it fits the current grid layout.
  */
 
-	#grid_overlay	  						{ position: fixed; left: 50%; top: 0; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2);  pointer-events:none;  }
+	#grid_overlay	  						{ position: fixed; left: 50%; top: 0; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2);  pointer-events:none; z-index: 99999; }
 	#grid_overlay div 						{ float: left; height: 100%; border-left: 1px solid rgba(0,0,0,0.1); margin-left: -1px; }
 	#grid_overlay div:first-child			{ border: none; margin: 0; }
 	#grid_overlay div span					{ display: block; height: 100%; background: rgba(255,0,0,0.15); border-right: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.18); }
