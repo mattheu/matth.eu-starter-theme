@@ -5,10 +5,6 @@
    		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
 		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-	<?php elseif ( get_post_format() == 'quote' ) : ?>
-
-		<?php the_excerpt(); ?>
-
 	<?php else : ?>
 
 		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>

@@ -13,7 +13,12 @@
 		while ( have_posts() ) {
 		
 			the_post();
-			get_template_part( 'loop-article' );
+			
+			if( $post_format = get_post_format() )
+				get_template_part( 'loop/loop', $post_format );
+
+			else
+				get_template_part( 'loop/loop', get_post_type() );			
 	
 		}
 

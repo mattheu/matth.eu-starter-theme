@@ -13,7 +13,7 @@
 		while ( have_posts() ) {
 		
 			the_post();
-			get_template_part( 'loop-grid-article');
+			get_template_part( 'loop/loop-grid');
 	
 		}
 
