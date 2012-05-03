@@ -1,26 +1,37 @@
 <?php
 
-add_action( 'init', 'mtf_upgrade' );
+/**
+ *	Handle Theme Updates
+ *
+ *	Current theme version is stored in wp_options.
+ *	When a new theme version is used, the update action is called.
+ *	Default settings and upgrade scripts can hook in here
+ *	Remember to bump the version no in style.css
+ *
+ * @access public
+ * @return none
+ */
 function mtf_upgrade() {
 
-	$old_version = get_option( 'mtf_theme_version' );
+	$current_version = get_option( 'mtf_theme_version' );
 	
 	$theme_data = get_theme_data( get_stylesheet_uri() );
 	$new_version = $theme_data['Version'];
 
-	if ( version_compare( $new_version, $old_version ) == 0 )
+	if ( version_compare( $new_version, $current_version ) == 0 )
 		return;
-
+	
 	//Make a note that an update is in progress.
-	update_option( 'mtf_theme_version', 'UPDATING: ' . $old_version . ' to ' . $new_version );
+	update_option( 'mtf_theme_version', 'UPDATING: ' . $current_version . ' to ' . $new_version );
 	
 	//Let plugins hook in here.
-	do_action( 'mtf_theme_update', $old_version, $new_version ); 
+	do_action( 'mtf_theme_update', $current_version, $new_version ); 
 
 	//Update the current version to the New version.
 	update_option( 'mtf_theme_version', $new_version );
 
 }
+add_action( 'init', 'mtf_upgrade' );
 
 
 /**
@@ -31,7 +42,7 @@ function mtf_upgrade() {
  * @access public
  * @return none
  */
-function mtf_default_settings( $current_version ){
+function mtf_default_settings( $current_version, $new_version ){
 
 	// Set Default Image Sizes.
 	$image_sizes = array(
@@ -41,11 +52,11 @@ function mtf_default_settings( $current_version ){
 		),
 		'medium' => array(
 			'size_w' =>	370,
-			'size_h' => 340		
+			'size_h' => 999		
 		),
 		'large' => array( 
 			'size_w' =>	690,
-			'size_h' => 520
+			'size_h' => 999
 		)
 	);
 	
@@ -55,6 +66,6 @@ function mtf_default_settings( $current_version ){
 				update_option( $image_size_name . '_' . $dimension_name, $dimension );
 
 }
-add_action( 'mtf_theme_update', 'mtf_default_settings' );
+add_action( 'mtf_theme_update', 'mtf_default_settings', 10, 2 );
 
 

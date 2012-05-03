@@ -27,8 +27,8 @@
 			'break-point' => 'max-width: 480px',
 			'total-width' => 95,
 			'unit' => '%',
-			'col_count' => 4,
-			'col_width' => 21,
+			'col_count' => 2,
+			'col_width' => 12.666666667,
 			'gutter' => 4
 	);
 
