@@ -10,7 +10,9 @@
 
 	<article <?php post_class(); ?>>
 	
-	    <h1 class="post-title"><?php the_title(); ?></h1>
+		<header>
+		    <h1 class="post-title"><?php the_title(); ?></h1>
+		</header>    
 	    
 	    <?php the_content(); ?>
 	
