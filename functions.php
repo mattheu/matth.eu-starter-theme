@@ -14,8 +14,9 @@ get_template_part( 'plugins/grid/grid' );
 
 
 /**
- * mtf_setup.
- * Setup everything this theme needs.
+ *	Setup
+ *
+ *  @return null
  */
 function mtf_setup() {
 
@@ -44,17 +45,11 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 
-
 	add_theme_support( 'post-formats', array( 'quote' ) );
 	add_theme_support( 'post-thumbnails' );
 
 	// Add default posts and comments RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
-
-
-	// Image Sizes.
-	add_image_size( 'medium-crop', 370, 285, true );
-
 
 	//Remove some unused stuff from the head.
 	remove_action('wp_head', 'wlwmanifest_link');
@@ -105,12 +100,12 @@ function mtf_enqueue_assets() {
 	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'jquery' );
 
-	/** Theme Scripts **/
+	// Theme Scripts
 	wp_enqueue_script( 'comment-reply' );
 	wp_enqueue_script( 'mtf_functions' );
 	wp_enqueue_script( 'mtf_theme' );
 
-	/** Styles **/
+	// Theme Styles
 	wp_enqueue_style( 'reset' );
 	wp_enqueue_style( 'mtf_type' );
 	wp_enqueue_style( 'mtf_forms' );
@@ -124,7 +119,6 @@ add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
  * Filter the excerpt length.
  * Different lengths can be used in different places.
  *
- * @access public
  * @param int $length
  * @return int
  */
@@ -137,9 +131,9 @@ function mtf_excerpt_length( $length ) {
 		return 25;
 
 	if ( has_post_thumbnail() )
-		return 50;
+		return 30;
 
-	return 100;
+	return 120;
 
 }
 add_filter( 'excerpt_length', 'mtf_excerpt_length' );
@@ -147,6 +141,8 @@ add_filter( 'excerpt_length', 'mtf_excerpt_length' );
 
 /**
  *	Hide update notice if not an admin.
+ *
+ *  @return null
  */
 function mtf_remove_update_nag() {
 
@@ -160,10 +156,12 @@ add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
 /**
  *	Different category templates.
  *
+ *	@param $template Path of template file
+ *  @return null
  *	@todo - build some sort of UI/checkbox perhaps?
  */
 function mtf_grid_template ( $template ) {
-		
+	
 	// Portfolio category should use the grid template.
 	if( is_category( 'featured-image' ) )
 		return locate_template( 'index-grid.php', false );
@@ -172,3 +170,4 @@ function mtf_grid_template ( $template ) {
 	
 }
 add_filter( 'category_template', 'mtf_grid_template' );
+add_filter( 'single_template', 'mtf_grid_template' );
