@@ -1,39 +1,41 @@
 <?php
-if ( ! function_exists( 'mtf_comment' ) ) :
 function mtf_comment( $comment, $args, $depth ) {
+
 	$GLOBALS['comment'] = $comment;
+
 	switch ( $comment->comment_type ) :
+
 		case '' :
+
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
 			<div class="comment-info">
-				<div class="comment_author vcard">
-					<?php 
-						echo get_avatar( $comment, 60 ); 
-					?>
-					<?php printf( __( '%s <span class="says">says:</span>' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-				</div><!-- .comment_author .vcard -->
+				<?php echo get_avatar( $comment, 50 ); ?>
 			</div><!-- .comment-info -->
 
 		<div class="comment-body">
+
+			<div class="comment-header vcard">
+				<cite class="fn"><?php comment_author_link(); ?></cite> <span class="said"><?php echo _e( 'said' ); ?></span>
+				<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+					<?php echo human_time_diff( get_comment_time('U'), current_time('timestamp') ) . ' ago'; ?>
+				</a>
+				<?php edit_comment_link( '(Edit)' ); ?>
+			</div><!-- .comment_author .vcard -->
 		
-		<div class="comment_meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-			<?php /* translators: 1: date, 2: time */
-				printf( __( '%1$s at %2$s' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), ' ' );
-			
-				 if ( $comment->comment_approved == '0' ) : ?>
+			<?php if ( $comment->comment_approved == '0' ) : ?>
+				<div class="comment_meta commentmetadata">				 
 					<em><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
-				<?php endif; ?>
-			</div><!-- .comment-meta .commentmetadata -->
+				</div><!-- .comment-meta .commentmetadata -->
+			<?php endif; ?>
 		
 			<?php comment_text(); ?>
 
-				<div class="reply">
-					<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-				</div><!-- .reply -->
+			<div class="reply">
+				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+			</div><!-- .reply -->
 
-		
 		</div>
 
 	</div><!-- #comment-##  -->
@@ -43,13 +45,13 @@ function mtf_comment( $comment, $args, $depth ) {
 		case 'pingback'  :
 		case 'trackback' :
 	?>
+	
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)'), ' ' ); ?></p>
+		<p>Pingback: <?php comment_author_link(); ?><?php edit_comment_link( '(Edit)', ' ' ); ?></p>
 	<?php
 			break;
 	endswitch;
 }
-endif;	
 
 
 function mtf_coment_form_fields( $fields ) {
