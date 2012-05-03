@@ -9,7 +9,6 @@ get_template_part( 'functions/functions-comments' );
 get_template_part( 'functions/functions-image_caption' );
 get_template_part( 'functions/functions-thumbnail_link' );
 
-get_template_part( 'plugins/fancybox/fancybox' );
 get_template_part( 'plugins/grid/grid' );
 
 
