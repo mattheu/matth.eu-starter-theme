@@ -6,6 +6,9 @@
 *
 */
 	$( document ).ready( function() {
+		
+		// Seriously there's no way to add a class to this?!?!
+		$('#commentform #submit').addClass('btn');
 
 		/**
 		 *	Fake HTML5 Placeholder attribute support for older browsers.
