@@ -39,13 +39,13 @@
 
  	/* Type */
   	blockquote									{ font-weight: 300; }
-  	pre											{ border: 1px solid #888; border-radius: 3px; padding: 30px 1.5em; height: auto; background: #EFEFEF; max-width: 100%; box-sizing: border-box; }
+  	pre											{ border-top: 1px solid #888; border-bottom: 1px solid #888; padding: 1.5em 15px; margin: 1.5em 0; height: auto; max-width: 100%; box-sizing: border-box; }
 
 	.description								{ font-style: italic; color: #888;  }
 
 	.no-js .hide-no-js 							{ display: none; }
 
-
+	ul											{ list-style-position: inside; }
 /**
  *	Generic Components
  */
@@ -95,17 +95,7 @@
 
 
 /**
- *	Grid
- */
-
- 	/* Helper styles for demonstrating the grid */
-	.grid_test									{ margin: 0 15px; }
-	.grid_test .grid							{ clear: both; }
-	.grid_test article							{ padding: 0.75em 0; margin-bottom: 0.75em; margin-top: 0.75em; background: rgba(0,0,0,0.1); border: none; text-align: center;  }
-
-
-/*
- *	General Layout Styles
+ *	General Theme Layout
  */
 
 	body										{ background: #EEEEEE; }
@@ -113,13 +103,19 @@
 	.wrap { background: #FFFFFF; }
 
   	.wrap 										{ width: 960px; padding: 0 15px; margin: 0 auto; }
-  	.primary-content		 					{ width: 720px; float: left; }
+  	.primary-content		 					{ width: 640px; float: left; }
+
+	.secondary-content 							{ float: right; width: 320px; }
+
+  	.primary-content.no-sidebar					{ width: 100%; float: none; }
 
 	.primary-content.grid						{ margin: 0; }
+	.posts.grid article							{ width: 210px; }
 
-	img.size-thumbnail							{ width: 210px; }
-	img.size-medium,
+	img.attachment-thumbnail					{ width: 210px; }
+	img.attachment-medium,
 	img.attachment-medium-crop					{ width: 370px; }
+
 
 /**
  *	Main Site Header
@@ -135,7 +131,7 @@
 	.site-header .menu li a						{ position: relative; display: block; padding: 0.75em 15px; }
 	.site-header .menu li:first-child a			{ padding-left: 0; }
 
-	.site-header .sub-menu						{ display: none; position: absolute; width: 140px; top: 100%; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
+	.site-header .sub-menu						{ display: none; position: absolute; width: 130px; top: 100%; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
 	.site-header li:hover>.sub-menu,
 	.site-header li:focus>.sub-menu,
 	.site-header .sub-menu li					{ display: block; }
@@ -143,11 +139,10 @@
 	.site-header .menu li:hover > .sub-menu 	{ display: block; }
 
 	.site-header .sub-menu a					{ border-bottom: 1px solid #888; }
-	.site-header .sub-menu li:first-child a     { padding-left: 15px; }
-	.site-header .sub-menu li:last-child a      { border: none; }
-	.site-header .sub-menu .sub-menu            { top: -1px; left: 100%;  }
+	.site-header .sub-menu li:first-child a 	{ padding-left: 15px; }
+	.site-header .sub-menu li:last-child a  	{ border: none; }
+	.site-header .sub-menu .sub-menu			{ top: -1px; left: 100%;  }
 
-	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }
 
 /**
  *	Generic Article Styling
@@ -158,31 +153,30 @@
 
 	article .post-title							{ margin-top: 0; }
 	article .wp-post-image						{ float: left; margin: 0 30px 0.75em 0; }
-	article .post-meta							{ clear: both; color: #777; margin: 0.75em 0 0.75em; }
+	article .post-meta							{ color: #777; font-style: italic; margin: 0.75em 0 0.75em; }
 
-	.posts.grid article							{ width: 210px; margin-left: 15px; margin-right: 15px; display: inline-block; vertical-align: top; border: none; }
+	.posts.grid article							{ margin-left: 15px; margin-right: 15px; display: inline-block; vertical-align: top; border: none; }
+ 	.posts.grid article .wp-post-image			{ width: 100%; }
+
+	.single .post-header 						{ margin-bottom: 1.5em; } 
 
 /**
  *	Sidebar.
  */
 
-	.secondary-content							{ float: right; width: 240px; margin: 0; color: #888; }
+	.secondary-content							{ margin: 0; color: #888; }
 	.secondary-content aside 					{ padding: 0.75em 0px; margin-left: 15px; margin-right: 15px; }
+	.secondary-content aside>*:last-child		{ margin-bottom: 0; }
 	.secondary-content .widget-area				{ overflow: auto; clear: both; }
 	.secondary-content .widget-area:first-child { padding-top: 1.5em; }
 	.secondary-content ul 						{ margin-left: 0; }
 	.secondary-content ul ul					{ margin-left: 30px; }
 
-	
-	.secondary-content aside>*:last-child		{ margin-bottom: 0; }
 	.secondary-content h1,
 	.secondary-content h2,
 	.secondary-content h3,
 	.secondary-content h4						{ color: #666; }
-
-	.secondary-content a:link,
-	.secondary-content a:visited				{ color: #888; text-decoration: none; }
-
+		
 	.secondary-content table					{ width: 100%; }
 	.secondary-content th,
 	.secondary-content td						{ padding-left: 6px ; padding-right: 7px ;}
@@ -237,9 +231,6 @@
 	#respond #reply-title small					{ font-size: 1em; line-height: 1.5em; }
 	#respond #cancel-comment-reply-link			{ float: right; }
 
-/*
- *	More specific styling
- */
 	#comments #respond:first-child				{ padding-top: 0; border-top: none; }
 
 	#commentform .comment-notes,
@@ -251,19 +242,22 @@
 	.nocomments									{ margin: 0 0 0.5em 0; }
 
 /**
-  *		## Media Queries ##
-  */
+ *	More Specific styling.
+ */
+		
+	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }
+
 
 
 /**
-  *	Large Screens
-  */
- @media all and ( max-width: 1020px ) {
+ *	Smaller Screens
+ */
+  
+@media all and ( max-width: 1020px ) {
 
  	/* Adjust the sizes of some images to fit our new grid */
-
-	img.size-thumbnail							{ width: 140px; }
-	img.size-medium,
+	img.attachment-thumbnail					{ width: 140px; }
+	img.attachment-medium,
 	img.attachment-medium-crop					{ width: 220px; }
 
  	.alignleft									{ margin-right: 20px; }
@@ -271,7 +265,8 @@
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
 	.wrap										{ width: 720px; padding: 0 10px; }
-	.primary-content							{ width: 480px; float: left;  }
+	.primary-content							{ width: 480px; }
+	.secondary-content							{ width: 240px; }
 	
 	.site-header,
 	article,
@@ -284,7 +279,7 @@
 	.grid .section-title						{ margin-left: 10px; margin-right: 10px; }
 
 	.site-header .menu li a						{ padding: 0.75em 10px; }
-	.site-header .sub-menu li:first-child a     { padding-left: 10px; }
+	.site-header .sub-menu li:first-child a 	{ padding-left: 10px; }
 
 	article .wp-post-image						{ margin-right: 20px; }
 	
@@ -320,50 +315,26 @@
   */
  @media all and (max-width: 740px) {
 
-	/* Adjust the sizes of some images to fit our new grid */
-	img.size-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
-	img.attachment-medium,
-	img.attachment-medium-crop			{ width: 48%; padding: 1%; }
-
-	.align-left							{ margin-right: 4%;}
-	.align-right						{ margin-left: 4%;}
-
-
-	/**
-	 *	More specific layout adjustments
-	 */
-
-	body 								{ background: #FFF; }
-	.wrap 								{ background: transparent; border: none; }
-
- 	.wrap 								{ width: 90%; padding: 0;  }
- 	.primary-content					{ width: 100%; }
-
- 	.site-header,
- 	.hero,
- 	article 							{ width: 96%; margin-left: 2%; margin-right: 2%; }
-
-
- 	.posts.grid article					{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
- 		
- 	
- 	.grid .wp-post-image				{ width: 100%; }
-
-	.secondary-content .content-box		{ width: 42%; margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; }
-
- 	.comment .comment-info				{ width: auto; margin-left: 80px; float: none; }
- 	.comment .comment-body				{ width: auto; margin-left: 80px; float: none; }
- 	.comment .comment-info .avatar 		{ margin-left: -80px; }
-
- 	.children .comment					{ padding: 0; border: none; }
-	.children .comment-body				{ border-top: none; padding-top: 0; }
-	.children .comment-info				{ text-align: left; padding: 1.5em 0 0; border-top: 1px solid #888; }
-	.children .avatar					{ float: left; margin: 0 8% 0.75em 0; }
-
-  	.secondary-content					{ width: 100%; }
-  	.secondary-content aside			{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
-
-	#wpadminbar *						{ font-size: 10px !important; font-family: Verdana, sans-serif !important; }
+	/** No bg on body **/
+	body 										{ background: #FFF; }
+	.wrap 										{ background: transparent; border: none; }
+											
+	img.attachment-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
+	img.attachment-medium,					
+	img.attachment-medium-crop					{ width: 48%; padding: 1%; }
+											
+	.align-left									{ margin-right: 4%;}
+	.align-right								{ margin-left: 4%;}
+											
+ 	.wrap 										{ width: 90%; padding: 0;  }
+ 	.primary-content							{ width: 100%; }
+											
+ 	.site-header,							
+ 	.hero,									
+ 	article 									{ width: 96%; margin-left: 2%; margin-right: 2%; }
+											
+ 	.posts.grid article							{ width: 29.333%; margin-left: 2%; margin-right: 2%; } 	
+											
 	/* Comments */
 	.commentlist .comment .comment-info			{ width: 13.194444444%; margin-right: 4.166666667%; }
 	.commentlist .comment .comment-info .avatar { width: 100%; }
@@ -382,7 +353,14 @@
 	#respond textarea 							{ margin-left: -5px; margin-right: -5px; width: 100%; }
 
 	#respond #submit							{ width: auto; margin-left: 0; }
+	
+	/* Sidebar */							
+  	.secondary-content							{ width: 100%; }
+  	.secondary-content aside					{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
+	.secondary-content .content-box				{ width: 42%; margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; }
 
+	/* Small adjustment to the admin bar to fit more on */
+	#wpadminbar *										{ font-size: 10px !important; font-family: Verdana, sans-serif !important; }
 	#wpadminbar #wp-admin-bar-my-account				{ width: 36px; }
 	#wpadminbar #wp-admin-bar-my-account > a			{ text-indent: -99999px; }
 	#wpadminbar #wp-admin-bar-my-account > a > img 		{ position: absolute; top: 8px; left: 10px; margin-left: 0 !important; }
@@ -394,19 +372,17 @@
  */
 @media all and (max-width: 480px) {
 
-	.wrap 								{ width: 95%; min-width:0; margin: auto; }
-
-	img.attachment-mtf_small,
-	img.attachment-thumbnail			{}
-	img.attachment--medium,
-	img.attachment-mtf_medium,
-	img.attachment-mtf_medium-crop		{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
-
- 	.posts.grid article					{ width: 46%; margin-left: 2%; margin-right: 2%; }
-
- 	.secondary-content 					{ width: 100%; margin-left: 0%; margin-right: 0%; }
-
- 	/*.grid article,*/
- 	.secondary-content aside 			{ width: 96%;}
+	.wrap 										{ width: 95%; min-width:0; margin: auto; }
+												
+	img.attachment-mtf_small,					
+	img.attachment-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
+	img.attachment--medium,						
+	img.attachment-mtf_medium,					
+	img.attachment-mtf_medium-crop				{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
+												
+ 	.posts.grid article							{ width: 46%; margin-left: 2%; margin-right: 2%; }
+												
+ 	.secondary-content 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
+ 	.secondary-content aside 					{ width: 96%;}
 
  }
