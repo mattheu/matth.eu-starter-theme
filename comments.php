@@ -22,7 +22,7 @@
 <?php endif; // check for comment navigation ?>
 
 			<ol class="commentlist">
-				<?php wp_list_comments( array( 'callback' => 'mtf_comment' ) ); ?>
+				<?php wp_list_comments( array( 'callback' => 'mtf_comment', 'max-depth' => 3 ) ); ?>
 			</ol>
 
 <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
