@@ -86,6 +86,7 @@
 	.pagination.right							{ text-align: right; }
 	.pagination.left							{ text-align: left; }
 
+	.ie7 .pagination span						{ display: inline; zoom: 1; }
 
 	/* Give class grid to display the elements contained within as a grid - eg galleries */
 	.grid 										{ margin: 0 -15px;   /* letter-spacing: -0.25em; Note that this will need adjusting depending on the base font size. do this in the type stylesheet. */ }
@@ -112,6 +113,8 @@
 	.primary-content.grid						{ margin: 0; }
 	.posts.grid article							{ width: 210px; }
 
+	.ie8 .primary-content.grid					{ }
+
 	img.attachment-thumbnail					{ width: 210px; }
 	img.attachment-medium,
 	img.attachment-medium-crop					{ width: 370px; }
@@ -127,11 +130,11 @@
 	.site-header .menu							{ border-top: 1px solid #888; }
 	.site-header .menu ul						{ margin: 0; }
 	.site-header .menu li						{ position: relative; display: inline-block; }
-
+		
 	.site-header .menu li a						{ position: relative; display: block; padding: 0.75em 15px; }
 	.site-header .menu li:first-child a			{ padding-left: 0; }
 
-	.site-header .sub-menu						{ display: none; position: absolute; width: 130px; top: 100%; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
+	.site-header .sub-menu						{ display: none; position: absolute; width: 130px; top: 100%; background: #FFF; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
 	.site-header li:hover>.sub-menu,
 	.site-header li:focus>.sub-menu,
 	.site-header .sub-menu li					{ display: block; }
@@ -143,6 +146,8 @@
 	.site-header .sub-menu li:last-child a  	{ border: none; }
 	.site-header .sub-menu .sub-menu			{ top: -1px; left: 100%;  }
 
+	.ie7 .site-header .menu li					{ display: inline; zoom: 1; }
+	.ie7 .site-header .sub-menu li				{ display:list-item; vertical-align: top; margin-left: -16px !important; }
 
 /**
  *	Generic Article Styling
@@ -157,6 +162,14 @@
 
 	.posts.grid article							{ margin-left: 15px; margin-right: 15px; display: inline-block; vertical-align: top; border: none; }
  	.posts.grid article .wp-post-image			{ width: 100%; }
+
+	.posts.grid									{ margin-top: 0.75em; }
+	.posts.grid article							{ padding-top: 0.75em;  }
+	.posts.grid article img 					{ width: 100%; margin-right: 0; }
+	.posts.grid article *:last-child			{ margin-bottom: 0; }
+
+
+	.ie7 .posts.grid article					{ display: inline; zoom: 1; }
 
 	.single .post-header 						{ margin-bottom: 1.5em; } 
 
@@ -295,7 +308,6 @@
 	.posts.grid article							{ width: 220px; }
 	.posts.grid article img 					{ width: 100%; margin-right: 0; }
 
-
 	.commentlist .comment .comment-info			{ width: 60px; float: left; margin-bottom: 0.75em; }
 	.commentlist .comment .comment-info .avatar { width: 40px; }
 	.commentlist .comment .comment-body			{ width: 400px; float: right; padding-bottom: 1.5em; }
@@ -386,3 +398,4 @@
  	.secondary-content aside 					{ width: 96%;}
 
  }
+
