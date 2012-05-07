@@ -27,17 +27,8 @@ function mtf_setup() {
 	);
 
 	register_sidebar( array(
-		'name' => __( 'Main Sidebar Top', 'mtf_secondary_top' ),
-		'id' => 'mtf_secondary_top',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Main Sidebar Bottom', 'mtf_secondary_bottom' ),
-		'id' => 'mtf_secondary_bottom',
+		'name' => __( 'Main Sidebar', 'mtf_secondary' ),
+		'id' => 'mtf_secondary',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h1 class="widget-title">',
