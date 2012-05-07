@@ -42,8 +42,11 @@
  */
 
 	#grid_overlay	  						{ position: fixed; left: 50%; top: 0; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2);  pointer-events:none; z-index: 99999; }
-	#grid_overlay div 						{ float: left; height: 100%; border-left: 1px solid rgba(0,0,0,0.1); margin-left: -1px; }
-	#grid_overlay div:first-child			{ border: none; margin: 0; }
+	#grid_overlay div 						{ float: left; height: 100%; border-left: 5px solid rgba(0,0,0,0.1); border-right: 5px solid rgba(0,0,0,0.1);  margin-left: -5px;  margin-right: -5px; }
+
+	#grid_overlay div:first-child			{ border-left: none; none; margin-left: 0; }
+	#grid_overlay div:last-child			{ border-right: none; none; margin-right: 0; }
+	
 	#grid_overlay div span					{ display: block; height: 100%; background: rgba(255,0,0,0.15); border-right: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.18); }
 	#grid_close								{ position: absolute; top: 0.75em; right: 10px; background: #FFF; border: 1px solid #000; padding: 0.375em 10px; opacity: 0.5; pointer-events: auto;  }
 
