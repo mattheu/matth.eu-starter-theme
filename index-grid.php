@@ -7,7 +7,9 @@
 ?>
 
 	<section class="primary-content posts grid no-sidebar">	
+
 		<?php 	
+
 			while ( have_posts() ) {
 	
 				the_post();
@@ -16,7 +18,9 @@
 			}
 	
 			get_template_part( 'nav', 'pagination' ); 
+
 		?>
+
 	</section><!-- / .primary-content -->
 
 <?php 
