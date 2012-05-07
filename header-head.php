@@ -9,7 +9,7 @@
 	<script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title><?php bloginfo('name'); ?> <?php wp_title( '|' ); ?></title>
 
