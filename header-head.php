@@ -13,11 +13,8 @@
 
 	<title><?php bloginfo('name'); ?> <?php wp_title( '|' ); ?></title>
 
-	<?php 
-		/* Set a default blank favicon - to prevent errors @todo - remove*/
-		$favicon = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII='; 
-	?>
-	<link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
+	<!-- Set a blank default favicon with a data uri - to prevent annoying console messages during development. -->
+	<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" />
 	
 	<?php wp_head(); ?>
 
