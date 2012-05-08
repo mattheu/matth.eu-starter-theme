@@ -113,8 +113,6 @@
 	.primary-content.grid						{ margin: 0; }
 	.posts.grid article							{ width: 210px; }
 
-	.ie8 .primary-content.grid					{ }
-
 	img.attachment-thumbnail					{ width: 210px; }
 	img.attachment-medium,
 	img.attachment-medium-crop					{ width: 370px; }
