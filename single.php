@@ -16,7 +16,7 @@
 	    </header>
 		
 		<?php if( has_post_thumbnail() ) : ?>
-		    <figure>
+		    <figure class="post-thumb">
 			    <?php the_post_thumbnail( 'medium' ); ?>
 		    </figure>
 	    <?php endif; ?>
