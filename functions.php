@@ -123,7 +123,7 @@ function mtf_excerpt_length( $length ) {
 	if ( has_post_thumbnail() )
 		return 30;
 
-	return 120;
+	return 50;
 
 }
 add_filter( 'excerpt_length', 'mtf_excerpt_length' );
