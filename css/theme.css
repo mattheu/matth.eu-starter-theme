@@ -255,7 +255,14 @@
 /**
  *	More Specific styling.
  */
-		
+
+
+	.search-form 								{ overflow: auto; }		
+	.search-form > div							{ margin-right: 80px; padding: 0 5px; }		
+	.search-form label							{ display: none; }
+	.search-form .search-input					{ display: block; float: left;  width: 100%; margin: 0 -5px;}
+	.search-form .search-submit					{ display: block; float: right; width: 70px; margin-right: -85px;   }
+	
 	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }
 
 
@@ -311,9 +318,6 @@
 	.commentlist .comment .comment-body			{ width: 400px; float: right; padding-bottom: 1.5em; }
 	.commentlist .children 						{ margin-left: 60px; }
 	.commentlist .children .comment-body	 	{ width: 340px; }
-
-
-
 
  }
 
