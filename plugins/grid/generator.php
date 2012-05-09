@@ -6,14 +6,16 @@
 		'unit' => 'px',
 		'col_count' => 12,
 		'col_width' => 50,
-		'gutter' => 30
+		'gutter' => 10,
+		'col_padding' => 10
 	);
 	$grid[] = array(
 			'break-point' => 'max-width: 1020px',
 			'unit' => 'px',
 			'col_count' => 12,
 			'col_width' => 40,
-			'gutter' => 20
+			'gutter' => 10,
+			'col_padding' => 5
 	);
 	$grid[] = array(
 			'break-point' => 'max-width: 740px',
@@ -21,7 +23,8 @@
 			'unit' => '%',
 			'col_count' => 6,
 			'col_width' => 12.666666667,
-			'gutter' => 4
+			'gutter' => 2,
+			'col_padding' => 1
 	);
 	$grid[] = array(
 			'break-point' => 'max-width: 480px',
@@ -29,7 +32,8 @@
 			'unit' => '%',
 			'col_count' => 2,
 			'col_width' => 12.666666667,
-			'gutter' => 4
+			'gutter' => 2,
+			'col_padding' => 1
 	);
 
 ?>
@@ -42,7 +46,7 @@
  */
 
 	#grid_overlay	  						{ position: fixed; left: 50%; top: 0; height: 100%; overflow: hidden; background: rgba(255,0,0,0.2);  pointer-events:none; z-index: 99999; }
-	#grid_overlay div 						{ float: left; height: 100%; border-left: 5px solid rgba(0,0,0,0.1); border-right: 5px solid rgba(0,0,0,0.1);  margin-left: -5px;  margin-right: -5px; }
+	#grid_overlay div 						{ float: left; height: 100%; border-left: 0 solid rgba(255,0,0,0.1); border-right: 0 solid rgba(255,0,0,0.1);  margin-left: 0;  margin-right: 0; }
 
 	#grid_overlay div:first-child			{ border-left: none; none; margin-left: 0; }
 	#grid_overlay div:last-child			{ border-right: none; none; margin-right: 0; }
@@ -59,7 +63,7 @@
 
 			$col_count = $break['col_count'];
 			$col_width = $break['col_width'];
-			$gutter    = $break['gutter'];
+			$gutter    = $break['gutter'] + ( 2 * $break['col_padding'] );
 			$unit      = $break['unit'];
 
 			$total_width = ( ( empty( $break['total-width' ] ) ) ) ? ( $col_width + $gutter ) * $col_count : $break['total-width' ];
@@ -82,11 +86,15 @@
 				
 				#grid_overlay div {
 					width: <?php echo ( $col_width + $gutter ) . $unit; ?>;
+					border-width: 0 <?php echo ( 0 != $break['col_padding'] ) ? ( $break['gutter'] / 2 ) : 0; ?>px; 
+					margin: 0 -<?php echo ( 0 != $break['col_padding'] ) ? ( $break['gutter'] / 2 ) : 0; ?>px;
+					
 				}
 				
 				#grid_overlay div span {
 					display: block;
 					margin: 0 <?php echo ( $gutter / 2 ) . $unit; ?>;
+
 				}
 
 			<?php elseif( '%' == $break['unit'] ) : ?>
@@ -100,6 +108,8 @@
 				
 				#grid_overlay div {
 					width: <?php echo ( $col_width + $gutter ) . $unit; ?>;
+					border-width: 0; 
+					margin: 0;
 				}
 				
 				#grid_overlay div span {
