@@ -11,7 +11,7 @@
 	<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	
 	<?php the_excerpt(); ?>	
-	
-	<p class="post-meta"><small><b>Posted: </b><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?> by <?php the_author_posts_link(); ?></small></p>
-		
+
+	<?php get_template_part( 'loop/parts-post-meta' ); ?>
+			
 </article><!-- / .article -->
