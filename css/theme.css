@@ -69,7 +69,7 @@
 	 *	Pagination
 	 */
 
-  	.pagination									{ text-align: center; margin: 1.5em 0; padding: 0 15px; margin-left: -5px; margin-right: -5px; }
+  	.pagination									{ text-align: center; margin: 1.5em 0; }
   	.pagination a,
   	.pagination span							{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; text-align: center; }
 
@@ -290,8 +290,6 @@
   	.alignright									{ margin-right: 20px; }
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
-  	.pagination									{ padding: 0 20px; }
-
 	.wrap										{ width: 720px; padding: 0 10px; }
 	.primary-content							{ width: 480px; }
 	.secondary-content							{ width: 240px; }
@@ -349,9 +347,7 @@
 											
 	.align-left									{ margin-right: 4%;}
 	.align-right								{ margin-left: 4%;}
-
-  	.pagination									{ padding: 0 2%; }
-
+											
  	.wrap 										{ width: 90%; padding: 0;  }
  	.primary-content							{ width: 100%; }
 											
