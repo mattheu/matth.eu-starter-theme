@@ -89,13 +89,19 @@ tr:first-child th:first-child { border-radius: 2px 0 0 0; }
 tr:first-child td:last-child,
 tr:first-child th:last-child { border-radius: 0 2px 0 0; }
 
-tr:last-child td:first-child { border-radius: 0 0 0 3px; }
-tr:last-child td:last-child { border-radius: 0 0 3px 0; }
+tr:last-child td:first-child { border-radius: 0 0 0 2px; }
+tr:last-child td:last-child { border-radius: 0 0 2px 0; }
 
 tr:nth-child(even) td	{ background: #FFF; }
 tr:nth-child(odd) td	{ background: #EEEEEE; }
-th 						{ background: #CCC; }
-caption					{ padding: 0.75em 0; font-weight: bold; }
+
+
+table thead tr:first-child th { border-bottom: 1px solid #888; }
+table tfoot tr:first-child td { border-top: 1px solid #888; }
+
+th 						{ background: #BBB; color: #FFF; font-weight: bold;  }
+
+caption					{ margin-bottom:0.75em; font-weight: bold; }
 
 .grid 					{ letter-spacing: -0.29em; }
 

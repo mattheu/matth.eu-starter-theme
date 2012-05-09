@@ -69,17 +69,38 @@ dfn[title] 				{ border-bottom:1px dotted; cursor:help; }
  * Tables
  */
 
-table					{ border-collapse: collapse; border: 1px solid #888; position: relative; margin:0 0 1.5em; width: 100%; }
-th, td					{ border: solid 1px #888; line-height: 1.5em; padding: 0.308em 9px 0.308em 10px; text-align:left; }
+table					{ border-collapse: separate; border: 1px solid #888; position: relative; margin:9px 0 17px; width: 100%; border-radius: 3px; }
+th, td					{ line-height: 1.5em; padding: 0.308em 14px 0.308em 10px; text-align:left; }
 td .num,
 td .num 				{ text-align:center; }
 
+table tbody th,
+table td 				{ border-top: 1px solid #888; vertical-align: top; }
+table th + th,
+td + td,
+th + td 				{ border-left: 1px solid #888; }
+
+table tr:first-child td,
+table tr:first-child th { border-top: none; }
+
+tr:first-child td:first-child,
+tr:first-child th:first-child { border-radius: 2px 0 0 0; }
+tr:first-child td:last-child,
+tr:first-child th:last-child { border-radius: 0 2px 0 0; }
+
+tr:last-child td:first-child { border-radius: 0 0 0 2px; }
+tr:last-child td:last-child { border-radius: 0 0 2px 0; }
 
 tr:nth-child(even) td	{ background: #FFF; }
-tr:nth-child(odd) td	{ background: #EEE; }
-th 						{ background: #CCC; }
-caption					{ padding-bottom: 0.75em; font-weight: bold; }
+tr:nth-child(odd) td	{ background: #EEEEEE; }
 
+
+table thead tr:first-child th { border-bottom: 1px solid #888; }
+table tfoot tr:first-child td { border-top: 1px solid #888; }
+
+th 						{ background: #BBB; color: #FFF; font-weight: bold;  }
+
+caption					{ margin-bottom:0.75em; font-weight: bold; }
 
 /**
  *	Forms
