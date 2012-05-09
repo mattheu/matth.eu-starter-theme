@@ -153,7 +153,7 @@ add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
 function mtf_grid_template ( $template ) {
 	
 	// Portfolio category should use the grid template.
-	if( is_category( 'featured-image' ) )
+	if( is_category( 'grid' ) )
 		return locate_template( 'index-grid.php', false );
 			
 	return $template;
