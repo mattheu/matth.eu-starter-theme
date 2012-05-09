@@ -37,6 +37,11 @@
 
 	.clear										{ display: block; clear: both; }
 
+	.clearfix:before,
+	.clearfix::after 							{ content:""; display:table; }
+	.clearfix::after							{ clear:both; }
+	.clearfix 									{ zoom:1; }
+
  	/* Type */
   	blockquote									{ font-weight: 300; }
   	pre											{ border-top: 1px solid #888; border-bottom: 1px solid #888; padding: 1.5em 15px; margin: 1.5em 0; height: auto; max-width: 100%; box-sizing: border-box; }
