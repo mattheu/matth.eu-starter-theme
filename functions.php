@@ -71,7 +71,7 @@ function mtf_register_assets() {
 	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/js/theme.js', array( 'jquery' ), $theme['Version'], true );
 
     // Theme CSS
-    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/boilerplate.css', null, $theme['Version'] );
+    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/reset.css', null, $theme['Version'] );
     wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type_14-21.css', null, $theme['Version'] );
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css', null, $theme['Version'] );
     wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/theme.css', null, $theme['Version'] );

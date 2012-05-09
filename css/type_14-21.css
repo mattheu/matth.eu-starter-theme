@@ -23,7 +23,7 @@ dt						{ font-weight: bold; }
 dd						{ margin-bottom: 0.75em; }
 
 h1, h2, h3,
-h4, h5, h6 				{ color: #333; }
+h4, h5, h6 				{ color: #333; font-weight: bold; }
 h1 a, h2 a, h3 a,
 h4 a, h5 a, h6 a		{ color: inherit; }
 
@@ -48,6 +48,8 @@ h1:first-child,
 h2:first-child,
 h3:first-child,
 h4:first-child			{ margin-top: 0 !important; }
+
+small					{ font-size: .857em; 	line-height: 1.75em; }
 
 strong,
 b						{ font-weight: bold; }
