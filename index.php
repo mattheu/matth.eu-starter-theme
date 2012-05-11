@@ -7,7 +7,9 @@
 ?>
 
 	<section class="primary-content posts">	
-	
+
+	<?php get_template_part( 'loop/loop-header' ); ?>
+		
 	<?php 
 	
 		while ( have_posts() ) {

@@ -133,9 +133,12 @@ add_filter( 'excerpt_length', 'mtf_excerpt_length' );
  *	Customize the excerpt read more link.
  */
 function mtf_excerpt_more_link( $more ) {
+
 	return '<a class="post-more-link" href="'. get_permalink( get_the_ID() ) . '">Read the full article&hellip;</a>';
+
 }
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
+
 
 /**
  *	Hide update notice if not an admin.
