@@ -165,7 +165,7 @@ select,
   height: 18px;
   padding: 4px;
   margin-bottom: 9px;
-  color: #999;
+  color: #666;
   border: 1px solid #888;
   background: #FFF;
   border-radius: 5px;
@@ -406,10 +406,12 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
   cursor: not-allowed;
 }
 :-moz-placeholder {
-  color: #666;
+  color: #999;
+  font-style: italic; 
 }
 ::-webkit-input-placeholder {
-  color: #666;
+  color: #999;
+  font-style: italic; 
 }
 .help-block {
   margin-top: 5px;
