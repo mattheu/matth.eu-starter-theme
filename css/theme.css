@@ -118,8 +118,10 @@
 	.primary-content.grid						{ margin: 0; }
 	.posts.grid article							{ width: 210px; }
 
-	img.attachment-thumbnail					{ width: 210px; }
+	img.attachment-thumbnail,
+	img.size-thumbnail							{ width: 210px; }
 	img.attachment-medium,
+	img.size-medium,
 	img.attachment-medium-crop					{ width: 370px; }
 
 
@@ -282,12 +284,14 @@
 @media all and ( max-width: 1020px ) {
 
  	/* Adjust the sizes of some images to fit our new grid */
-	img.attachment-thumbnail					{ width: 160px; }
+	img.attachment-thumbnail,
+	img.size-thumbnail					{ width: 160px; }
 	img.attachment-medium,
+	img.size-medium,
 	img.attachment-medium-crop					{ width: 220px; }
 
  	.alignleft									{ margin-right: 20px; }
-  	.alignright									{ margin-right: 20px; }
+  	.alignright									{ margin-left: 20px; }
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
   	.pagination									{ padding: 0 10px; }
@@ -343,8 +347,10 @@
 	body 										{ background: #FFF; }
 	.wrap 										{ background: transparent; border: none; }
 											
-	img.attachment-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
-	img.attachment-medium,					
+	img.attachment-thumbnail,
+	img.size-thumbnail							{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
+	img.attachment-medium,
+	img.size-medium,
 	img.attachment-medium-crop					{ width: 48%; padding: 1%; }
 											
 	.align-left									{ margin-right: 4%;}
@@ -403,11 +409,11 @@
 
 	.wrap 										{ width: 95%; min-width:0; margin: auto; }
 												
-	img.attachment-mtf_small,					
-	img.attachment-thumbnail					{ width: 48%; margin-right: 4%; padding: 1%; }
-	img.attachment--medium,						
-	img.attachment-mtf_medium,					
-	img.attachment-mtf_medium-crop				{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
+	img.attachment-thumbnail,
+	img.size-thumbnail							{ width: 48%; margin-right: 4%; padding: 1%; }
+	img.attachment-medium,
+	img.size-medium,
+	img.attachment-medium-crop					{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 												
  	.posts.grid article							{ width: 46%; margin-left: 2%; margin-right: 2%; }
 												
