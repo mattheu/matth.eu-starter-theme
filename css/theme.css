@@ -168,6 +168,8 @@
 		
 	article .post-meta							{ color: #777; font-style: italic; margin: 0.75em 0 0.75em; }
 
+	article .post-more-link						{ display: block; margin-top: 0.75em; }
+
 	.posts.grid article							{ margin-left: 15px; margin-right: 15px; display: inline-block; vertical-align: top; border: none; }
  	.posts.grid article .wp-post-image			{ width: 100%; }
 
