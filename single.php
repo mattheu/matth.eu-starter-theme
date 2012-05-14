@@ -23,6 +23,15 @@
 	    
 	    <?php the_content(); ?>
 	
+		<?php 
+			$args = array(
+				'before' => '<div class="post-taxonomies">',
+				'after' => '</div>',
+				'template' => '<div class="post-taxonomy-terms"><strong>%s:</strong> %l.</div>'
+			);
+			the_taxonomies( $args );
+		?>
+
 		<?php comments_template(); ?>
 	
 	</article><!-- / .article -->
