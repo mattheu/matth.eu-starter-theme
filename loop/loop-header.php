@@ -1,4 +1,14 @@
-<?php if ( is_author() ) : ?>
+<?php if ( is_search() ) : ?>
+
+	<div class="search-header loop-header">
+	
+		<h2 class="search-header-title loop-header-title">
+			Search results for: <em>"<?php the_search_query(); ?>"</em>
+		</h2>
+	
+	</div>
+
+<?php elseif ( is_author() ) : ?>
 
 	<div class="author-header loop-header vcard">
 	
@@ -13,41 +23,33 @@
     	</h2>
 
 		<?php 
-			$author_description = get_the_author_meta( 'description' );
-			if ( ! empty( $author_description  ) )
-				echo '<p class="loop-header-description">' . $author_description . '</p>';
+			$description = get_the_author_meta( 'description' );
+			if ( ! empty( $description  ) )
+				echo '<p class="loop-header-description">' . $description . '</p>';
 		?>
 	
 		<?php rewind_posts(); ?>
 	
 	</div>
 
-<?php elseif ( is_category() ) : ?>
+<?php elseif ( is_category() || is_tag() || is_tax() ) : ?>
+
+	<?php
+		$term = get_queried_object();
+		$tax = get_taxonomy( $term->taxonomy );
+		$title = single_term_title( '', false );
+		$description = term_description(); 
+	?>
 
     <div class="loop-header tax-header cat-header">
     	
-    	<h2 class="loop-header-title">Category Archives: <span><?php echo single_cat_title( '', false ); ?></span></h2>
+    	<h2 class="loop-header-title"><?php echo esc_attr( $tax->labels->name ); ?> Archives: <span><?php echo esc_attr( $title ); ?></span></h2>
 
 		<?php 
-			$category_description = category_description(); 
-			if ( ! empty( $category_description  ) )
-				echo '<p class="loop-header-description">' . $category_description . '</p>';
+			if ( ! empty( $description  ) )
+				echo '<p class="loop-header-description">' . $description . '</p>';
 		?>
 			
-    </div>
-
-<?php elseif ( is_tag() ) : ?>
-
-    <div class="loop-header tax-header tag-header">
-    	
-    	<h2 class="loop-header-title">Tag Archives: <span><?php echo single_tag_title( '', false ); ?></span></h2>
-
-		<?php 
-			$tag_description = tag_description(); 
-			if ( ! empty( $tag_description ) )
-				echo '<p class="loop-header-description">' . $tag_description . '</p>';
-		?>
-
     </div>
 
 <?php elseif ( is_date() ) : ?>

@@ -272,6 +272,8 @@
 	.loop-header 								{ margin-left: 15px; margin-right: 15px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; overflow: auto; }	
 	.loop-header-thumb							{ float: left; margin: 0 30px 0.75em 0; }
 	.loop-header-title							{ margin-top: 0; }
+	
+	.loop-no-results							{ margin: 1.5em 15px; }
 		
 	.search-form > div							{ margin-right: 80px; padding: 0 5px; }		
 	.search-form label							{ display: none; }
@@ -310,6 +312,7 @@
 	.posts.grid article,
 	.hero,
 	.loop-header,
+	.loop-no-results,
 	.secondary-content aside,
 	.site-footer								{ margin-left: 10px; margin-right: 10px; }
 	
@@ -371,7 +374,8 @@
 											
  	.site-header,							
  	.hero,
-	.loop-header,									
+	.loop-header,			
+	.loop-no-results,						
  	article 									{ width: 96%; margin-left: 2%; margin-right: 2%; }
 											
  	.posts.grid article							{ width: 29.333%; margin-left: 2%; margin-right: 2%; } 	
