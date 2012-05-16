@@ -25,7 +25,7 @@
 		<?php 
 			$description = get_the_author_meta( 'description' );
 			if ( ! empty( $description  ) )
-				echo '<p class="loop-header-description">' . $description . '</p>';
+				echo '<div class="loop-header-description"><p>' . $description . '</p></div>';
 		?>
 	
 		<?php rewind_posts(); ?>
@@ -47,7 +47,7 @@
 
 		<?php 
 			if ( ! empty( $description  ) )
-				echo '<p class="loop-header-description">' . $description . '</p>';
+				echo '<div class="loop-header-description">' . $description . '</div>';
 		?>
 			
     </div>
