@@ -64,6 +64,7 @@ function mtf_register_assets() {
 	//Libraries, plugins and other resources
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
+	
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
    	// Scripts. Theme functions and behaviour
@@ -103,6 +104,25 @@ function mtf_enqueue_assets() {
 
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
+
+
+/**
+ * 	Add the Favicon to the head.
+ *	
+ *	Added to theme, admin and login.
+ *	
+ *  @todo Set your own favicon. Default is wordpress logo - to prevent annoying console messages during development.
+ */
+function mtf_favicon() { 
+	?>
+
+	<link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'url' ); ?>/wp-includes/images/wpmini-blue.png" />
+
+	<?php 
+}
+add_action( 'wp_head', 'mtf_favicon' );
+add_action( 'admin_head', 'mtf_favicon' );
+add_action( 'login_head', 'mtf_favicon' );
 
 
 /**
