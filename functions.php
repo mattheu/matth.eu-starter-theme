@@ -1,5 +1,7 @@
 <?php
 
+define( 'MPH_THEME_NAME', basename( dirname( __FILE__ ) ) );
+
 /**
  *	More Functions & Plugins.
  */
@@ -59,7 +61,14 @@ function mtf_register_assets() {
 		return;
 
 	// Use the theme version for theme assets to bust cache when updating.
-	$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+	
+	if( function_exists( 'wp_get_theme' ) ) {
+		$theme = wp_get_theme( MPH_THEME_NAME );
+		$version = $theme->version;
+	} else {
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$version = $theme['Version'];
+	}
 
 	//Libraries, plugins and other resources
 	wp_deregister_script( 'jquery' );
@@ -68,14 +77,14 @@ function mtf_register_assets() {
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
    	// Scripts. Theme functions and behaviour
-    wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/js/functions.js', array( 'jquery' ), $theme['Version'], true );
-	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/js/theme.js', array( 'jquery' ), $theme['Version'], true );
+    wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/js/functions.js', array( 'jquery' ), $version, true );
+	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/js/theme.js', array( 'jquery' ), $version, true );
 
     // Theme CSS
-    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/reset.css', null, $theme['Version'] );
-    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type_14-21.css', null, $theme['Version'] );
-    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css', null, $theme['Version'] );
-    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/theme.css', null, $theme['Version'] );
+    wp_register_style( 'reset', get_bloginfo( 'template_directory' ) . '/css/reset.css', null, $version );
+    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type_14-21.css', null, $version );
+    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css', null, $version );
+    wp_register_style( 'mtf_style', get_bloginfo( 'template_directory' ) . '/css/theme.css', null, $version );
 
 }
 add_action( 'init', 'mtf_register_assets' );

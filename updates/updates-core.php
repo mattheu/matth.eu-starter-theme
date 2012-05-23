@@ -15,8 +15,13 @@ function mtf_upgrade() {
 
 	$current_version = get_option( 'mtf_theme_version' );
 	
-	$theme_data = get_theme_data( get_stylesheet_uri() );
-	$new_version = $theme_data['Version'];
+	if( function_exists( 'wp_get_theme' ) ) {
+		$theme = wp_get_theme( MPH_THEME_NAME );
+		$new_version = $theme->version;
+	} else {
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$new_version = $theme['Version'];
+	}
 
 	if ( version_compare( $new_version, $current_version ) == 0 )
 		return;
