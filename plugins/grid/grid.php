@@ -11,7 +11,7 @@
  */
 function mtf_grid_admin_bar_button() {
 
- 	if ( is_admin() || ! current_user_can( 'manage_options' ) )
+	if ( ! mtf_show_grid_for_all() && ( is_admin() || ! current_user_can( 'manage_options' ) ) )
 		return;
 
 	wp_enqueue_script( 'mtf_grid', get_bloginfo( 'template_directory' ) . '/plugins/grid/grid.js', 'jquery', '1.0', true );
@@ -31,7 +31,7 @@ add_action( 'wp_enqueue_scripts', 'mtf_grid_admin_bar_button', 1000 );
  */
 function mtf_grid_admin_bar_style() {
 
-	if ( is_admin() || ! current_user_can( 'manage_options' ) )
+	if ( ! mtf_show_grid_for_all() && ( is_admin() || ! current_user_can( 'manage_options' ) ) )
 		return;
 
 	ob_start();	
@@ -43,3 +43,13 @@ function mtf_grid_admin_bar_style() {
 
 }
 add_action( 'wp_head', 'mtf_grid_admin_bar_style' );
+
+
+function mtf_show_grid_for_all() {
+
+	if( defined( 'MTF_SHOW_GRID_FOR_ALL' ) && MTF_SHOW_GRID_FOR_ALL )
+		return true;
+
+	return false;
+
+}
