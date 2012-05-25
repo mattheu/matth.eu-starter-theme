@@ -40,7 +40,7 @@
 
 <?php endif; // end have_comments() ?>
 
-<?php if ( ! comments_open() ) : ?>
+<?php if ( have_comments() && ! comments_open() ) : ?>
 	<p class="nocomments info">Comments are now closed.</p>
 <?php endif; // end ! comments_open() ?>
 
