@@ -279,6 +279,9 @@
 	.loop-header-thumb img 						{ width: 100%; }
 	.loop-header-title							{ margin-top: 0; }
 	
+	.contact-methods							{ margin-left: 0; font-size: 0.875em; line-height: 1.5em; font-style: italic; }
+	.contact-method-name						{ display: inline-block; width: 75px; }
+	
 	.loop-no-results							{ margin: 1.5em 15px; }
 		
 	.search-form > div							{ margin-right: 80px; padding: 0 5px; }		
