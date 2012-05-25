@@ -34,15 +34,16 @@
 
 <?php else : // or, if we don't have comments:
 
-	if ( comments_open() && !have_comments() ) : ?>
+	if ( comments_open() && ! have_comments() ) : ?>
 		<!--<h3 class="nocomments"><?php _e( 'Be the first to respond' ); ?></h3>-->
-	<?php endif; // end ! comments_open()
-
-	if ( ! comments_open() ) : ?>
-		<p class="nocomments info"><?php _e( 'Comments are closed.' ); ?></p>
 	<?php endif; // end ! comments_open() ?>
 
 <?php endif; // end have_comments() ?>
+
+<?php if ( ! comments_open() ) : ?>
+	<p class="nocomments info">Comments are now closed.</p>
+<?php endif; // end ! comments_open() ?>
+
 
 <?php comment_form(); ?>
 

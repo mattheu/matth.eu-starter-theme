@@ -234,10 +234,15 @@
 
 	#comments									{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
 
+	.comments-title								{ border-bottom: 1px solid #888; padding-bottom: 0.444em; }
+
+	#comments .nocomments						{ margin-top: 1.5em; }
+
 	.commentlist,
 	.commentlist .children						{ list-style: none; margin: 0;  }
-
+	
 	.commentlist .comment						{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
+	.commentlist>.comment:first-child			{ border-top: none; }
 	.commentlist .comment .comment-info			{ width: 80px; float: left; margin-bottom: 0.75em; }
 	.commentlist .comment .comment-body			{ width: 530px; float: right; padding-bottom: 1.5em; }
 	.commentlist .comment .comment-header,
