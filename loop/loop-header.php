@@ -1,6 +1,6 @@
 <?php if ( is_search() ) : ?>
 
-	<div class="search-header loop-header">
+	<div class="search-header loop-header clearfix">
 	
 		<h2 class="search-header-title loop-header-title">
 			Search results for: <em>"<?php the_search_query(); ?>"</em>
@@ -10,7 +10,7 @@
 
 <?php elseif ( is_author() ) : ?>
 
-	<div class="author-header loop-header vcard">
+	<div class="author-header loop-header vcard clearfix">
 	
 		<?php the_post(); ?>
 		
@@ -41,7 +41,7 @@
 		$description = term_description(); 
 	?>
 
-    <div class="loop-header tax-header cat-header">
+    <div class="loop-header tax-header cat-header clearfix">
     	
     	<h2 class="loop-header-title"><?php echo esc_attr( $tax->labels->name ); ?> Archives: <span><?php echo esc_attr( $title ); ?></span></h2>
 
@@ -54,7 +54,7 @@
 
 <?php elseif ( is_date() ) : ?>
 
-    <div class="loop-header tax-header">
+    <div class="loop-header tax-header clearfix">
     	
     	<h2 class="loop-header-title">
 			<?php 
