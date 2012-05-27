@@ -29,7 +29,7 @@ h4 a, h5 a, h6 a		{ color: inherit; }
 
 h1, .alpha				{ font-size: 2.5em;		line-height:1.2em; 		margin: 0.6em 0 0.3em;}
 h2, .beta				{ font-size: 2em;		line-height:1.5em; 		margin: 0.5625em 0 0.5625em; }
-h3, .gamma				{ font-size: 1.5em;		line-height:1.5em;		margin: 0.888em 0 0.444em; }
+h3, .gamma				{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
 h4, .delta				{ font-size: 1.25em;	line-height:1.6em;		margin: 1.2em 0 0.4em; }
 h5, .epsilon,
 h6, .zeta				{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }

@@ -10,7 +10,7 @@
 
 <?php elseif ( is_author() ) : ?>
 
-	<div class="author-header loop-header vcard clearfix">
+	<div class="author-header loop-header vcard clearfix has-loop-header-thumb">
 	
 		<?php the_post(); ?>
 		

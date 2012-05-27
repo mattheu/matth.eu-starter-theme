@@ -234,7 +234,7 @@
 
 	#comments									{ clear: both; padding-top: 0.75em; margin-top: 1.5em; border-top: 1px solid #888; }
 
-	.comments-title								{ border-bottom: 1px solid #888; padding-bottom: 0.444em; }
+	.comments-title								{ border-bottom: 1px solid #888; padding-bottom: 0.5em; }
 
 	#comments .nocomments						{ margin-top: 1.5em; }
 
@@ -274,7 +274,8 @@
  *	More Specific styling.
  */
 
-	.loop-header 								{ margin-left: 15px; padding-left: 160px; margin-right: 15px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; }	
+	.loop-header 								{ margin-left: 15px; margin-right: 15px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; }	
+	.loop-header.has-loop-header-thumb			{ padding-left: 160px; }
 	.loop-header-thumb							{ float: left; margin: 0 30px 0.75em -160px; width: 130px; }
 	.loop-header-thumb img 						{ width: 100%; }
 	.loop-header-title							{ margin-top: 0; }
@@ -351,7 +352,9 @@
 	.commentlist .children 						{ margin-left: 60px; }
 	.commentlist .children .comment-body	 	{ width: 340px; }
 
-	.loop-header								{ padding-left: 120px; }
+	#commentform #submit						{ margin-left: 0; }
+
+	.loop-header.has-loop-header-thumb			{ padding-left: 120px; }
 	.loop-header-thumb							{ width: 100px; margin-left: -120px; margin-right: 20px; }
 
  }
@@ -419,7 +422,7 @@
   	.secondary-content aside					{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
 	.secondary-content .content-box				{ width: 42%; margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; }
 
-	.loop-header 								{ padding-left: 33.3333%; width: auto; }
+	.loop-header.has-loop-header-thumb			{ padding-left: 33.3333%; width: auto; }
 	.loop-header-thumb							{ width: 47%; margin-left: -53%;  margin-right: 6%; } 	
 
 	/* Small adjustment to the admin bar to fit more on */
