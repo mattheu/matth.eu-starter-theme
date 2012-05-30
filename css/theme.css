@@ -70,29 +70,29 @@
 	 *	Pagination
 	 */
 
-  	.pagination									{ text-align: center; margin: 1.5em -5px; padding: 0 15px; }
-  	.pagination a,
-  	.pagination span							{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; text-align: center; }
+  	.pagination-container						{ text-align: center; margin: 1.5em -5px; padding: 0 15px; }
+  	.pagination-container a,
+  	.pagination-container span					{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; text-align: center; }
 
-  	.pagination > *:first-child,
-  	.pagination li:first-child a				{ margin-left: 0 !important; }
-  	.pagination > *:last-child,
-  	.pagination li:last-child *					{ margin-right: 0; }
+  	.pagination-container > *:first-child,
+  	.pagination-container li:first-child a		{ margin-left: 0 !important; }
+  	.pagination-container > *:last-child,
+  	.pagination-container li:last-child *		{ margin-right: 0; }
 
-	.pagination a								{ cursor: pointer; }
-  	.pagination a:hover							{ background: #FFF; border-color: #333; color: #333;  }
+	.pagination-container a						{ cursor: pointer; }
+  	.pagination-container a:hover				{ background: #FFF; border-color: #333; color: #333;  }
 
-  	.pagination .current,
-  	.pagination .active							{ background: #ECECEC; border-color: #AAA; color: #AAA; }
+  	.pagination-container .current,
+  	.pagination-container .active				{ background: #ECECEC; border-color: #AAA; color: #AAA; }
 
-	.pagination ul,
-	.pagination ol 								{ margin: 0; }
-	.pagination li 								{ list-style: none; display: inline; }
+	.pagination-container ul,
+	.pagination-container ol 					{ margin: 0; }
+	.pagination-container li 					{ list-style: none; display: inline; }
 
-	.pagination.right							{ text-align: right; }
-	.pagination.left							{ text-align: left; }
+	.pagination-container.right					{ text-align: right; }
+	.pagination-container-container.left		{ text-align: left; }
 
-	.ie7 .pagination span						{ display: inline; zoom: 1; }
+	.ie7 .pagination-container span				{ display: inline; zoom: 1; }
 
 	/* Give class grid to display the elements contained within as a grid - eg galleries */
 	.grid 										{ margin: 0 -15px;   /* letter-spacing: -0.25em; Note that this will need adjusting depending on the base font size. do this in the type stylesheet. */ }
@@ -311,7 +311,7 @@
   	.alignright									{ margin-left: 20px; }
 	pre											{ padding-left: 20px; padding-right: 20px; }
 
-  	.pagination									{ padding: 0 10px; }
+  	.pagination-container						{ padding: 0 10px; }
 
 	.wrap										{ width: 720px; padding: 0 10px; }
 	.primary-content							{ width: 480px; }
@@ -380,7 +380,7 @@
 	.align-left									{ margin-right: 4%;}
 	.align-right								{ margin-left: 4%;}
 
-  	.pagination									{ padding: 0 2%; }
+  	.pagination-container						{ padding: 0 2%; }
 							
  	.wrap 										{ width: 90%; padding: 0;  }
  	.primary-content							{ width: 100%; }

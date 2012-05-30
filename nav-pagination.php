@@ -1,5 +1,5 @@
 
-<nav class="pagination">
+<nav class="pagination-container">
 		
 	<?php 
 
