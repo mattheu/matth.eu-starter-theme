@@ -21,7 +21,9 @@
 		    </figure>
 	    <?php endif; ?>
 
+	  	<div class="post-content">
 		    <?php the_content(); ?>
+	  	</div>
 
 		<?php
 			$args = array(
