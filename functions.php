@@ -62,8 +62,8 @@ function mtf_register_assets() {
 		return;
 
 	// Use the theme version for theme assets to bust cache when updating.
-	
-	if( function_exists( 'wp_get_theme' ) ) {
+
+	if ( function_exists( 'wp_get_theme' ) ) {
 		$theme = wp_get_theme( MPH_THEME_NAME );
 		$version = $theme->version;
 	} else {
@@ -74,7 +74,7 @@ function mtf_register_assets() {
 	//Libraries, plugins and other resources
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
-	
+
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
    	// Scripts. Theme functions and behaviour
@@ -92,7 +92,7 @@ add_action( 'init', 'mtf_register_assets' );
 
 
 /**
- *	Enqueue all the assets.	
+ *	Enqueue all the assets.
  *
  *  @return null
  */
@@ -118,17 +118,17 @@ add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 
 /**
  * 	Add the Favicon to the head.
- *	
+ *
  *	Added to theme, admin and login.
- *	
+ *
  *  @todo Set your own favicon. Default is wordpress logo - to prevent annoying console messages during development.
  */
-function mtf_favicon() { 
+function mtf_favicon() {
 	?>
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'url' ); ?>/wp-includes/images/wpmini-blue.png" />
 
-	<?php 
+	<?php
 }
 add_action( 'wp_head', 'mtf_favicon' );
 add_action( 'admin_head', 'mtf_favicon' );
@@ -177,7 +177,7 @@ add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
  */
 function mtf_remove_update_nag() {
 
-	if ( ! current_user_can( 'manage_options' ) )	
+	if ( ! current_user_can( 'manage_options' ) )
 		remove_action( 'admin_notices', 'update_nag', 3 );
 
 }
@@ -192,13 +192,15 @@ add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
  *	@todo - build some sort of UI/checkbox perhaps?
  */
 function mtf_grid_template ( $template ) {
-	
+
 	// Portfolio category should use the grid template.
-	if( is_category( 'grid' ) )
+	if ( is_category( 'grid' ) )
 		return locate_template( 'index-grid.php', false );
-			
+
 	return $template;
-	
+
 }
 add_filter( 'category_template', 'mtf_grid_template' );
 add_filter( 'single_template', 'mtf_grid_template' );
+
+

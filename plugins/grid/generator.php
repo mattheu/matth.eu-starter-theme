@@ -76,7 +76,7 @@
 		
 		<?php endif; ?>
 
-			<?php if( 'px' == $break['unit'] ) : ?>
+			<?php if ( 'px' == $break['unit'] ) : ?>
 
 				#grid_overlay {
 					width: <?php echo $total_width . $unit; ?>;
@@ -97,7 +97,7 @@
 
 				}
 
-			<?php elseif( '%' == $break['unit'] ) : ?>
+			<?php elseif ( '%' == $break['unit'] ) : ?>
 		
 				#grid_overlay {
 					width: <?php echo $total_width . $unit; ?>;
@@ -119,7 +119,7 @@
 
 			<?php endif; ?>
 
-		<?php if( 'default' != $break['break-point'] ) : ?>
+		<?php if ( 'default' != $break['break-point'] ) : ?>
 		
 			}
 		
