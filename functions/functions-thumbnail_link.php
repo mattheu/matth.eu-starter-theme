@@ -28,7 +28,7 @@ function mtf_thumbnail_options_save( $post_id ){
 	if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) )
 		return;
 
-	if( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
+	if ( isset( $_POST['mtf_thumbnail_link_to_src'] ) && $_POST['mtf_thumbnail_link_to_src'] ) {
 		update_post_meta( $post_id, '_mtf_thumbnail_link_to_src', $_POST['mtf_thumbnail_link_to_src'] );
 	} else {
 		delete_post_meta( $post_id, '_mtf_thumbnail_link_to_src' );
@@ -45,7 +45,7 @@ add_action( 'save_post', 'mtf_thumbnail_options_save' );
  */
 function mtf_thumbnail_output( $thumbnail ) {
 
-		if( ! is_main_query() || ! is_singular() )
+		if ( ! is_main_query() || ! is_singular() )
 			return $thumbnail;
 
 		$url = ( get_post_meta( get_the_ID(), '_mtf_thumbnail_link_to_src', true ) ) ? wp_get_attachment_url( get_post_thumbnail_id( get_the_id() ) ) : false;

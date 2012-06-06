@@ -16,7 +16,7 @@
 			
 				the_post();
 				
-				if( $post_format = get_post_format() )
+				if ( $post_format = get_post_format() )
 					get_template_part( 'loop/loop', $post_format );
 			
 				else

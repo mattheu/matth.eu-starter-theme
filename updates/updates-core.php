@@ -15,7 +15,7 @@ function mtf_upgrade() {
 
 	$current_version = get_option( 'mtf_theme_version' );
 	
-	if( function_exists( 'wp_get_theme' ) ) {
+	if ( function_exists( 'wp_get_theme' ) ) {
 		$theme = wp_get_theme( MPH_THEME_NAME );
 		$new_version = $theme->version;
 	} else {
@@ -65,9 +65,9 @@ function mtf_default_settings( $current_version, $new_version ){
 		)
 	);
 	
-	foreach( $image_sizes as $image_size_name => $image_size )
-		foreach( $image_size as $dimension_name => $dimension )
-			if( $dimension != get_option( $image_size_name . '_' . $dimension_name ) )
+	foreach ( $image_sizes as $image_size_name => $image_size )
+		foreach ( $image_size as $dimension_name => $dimension )
+			if ( $dimension != get_option( $image_size_name . '_' . $dimension_name ) )
 				update_option( $image_size_name . '_' . $dimension_name, $dimension );
 
 }

@@ -13,7 +13,7 @@
 		/**
 		 *	Fake HTML5 Placeholder attribute support for older browsers.
 		 */
-		if( ! document.createElement('input') ) {
+		if ( ! document.createElement('input') ) {
 
 			$('[placeholder]').focus(function() {
 			var input = $(this);
