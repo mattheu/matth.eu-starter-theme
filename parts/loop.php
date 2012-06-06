@@ -1,5 +1,5 @@
-<article <?php post_class('clearfix'); ?>>
-			
+<article <?php post_class( array( 'entry', 'clearfix' ) ); ?>>
+
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="post-thumb">
 			<a href="<?php the_permalink(); ?>">
@@ -7,11 +7,11 @@
 			</a>
 		</figure>
 	<?php endif; ?>
-	
-	<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-	
-	<?php the_excerpt(); ?>	
 
-	<?php get_template_part( 'loop/parts-post-meta' ); ?>
-			
+	<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+
+	<?php the_excerpt(); ?>
+
+	<?php get_template_part( 'parts/parts-post-meta' ); ?>
+
 </article><!-- / .article -->

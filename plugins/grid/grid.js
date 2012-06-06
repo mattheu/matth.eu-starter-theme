@@ -14,7 +14,7 @@ $( document ).ready( function($) {
 		$( '#wp-admin-bar-show-grid a, .show-grid' ).live( 'click', function( e ) {
 				e.preventDefault();
 				var gridOverlay = '<div id="grid_overlay"><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div><div><span></span></div></div>';
-				if( ! $('#grid_overlay').length ) {
+				if ( ! $('#grid_overlay').length ) {
 					$('body').append( gridOverlay );
 				} else {
 					$('#grid_overlay').remove();

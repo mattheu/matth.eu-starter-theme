@@ -1,5 +1,5 @@
 <?php
-if( has_nav_menu( 'mtf_menu_main' ) ) : ?>
+if ( has_nav_menu( 'mtf_menu_main' ) ) : ?>
 
 	<nav class="nav clearfix">
 		<?php wp_nav_menu( array( 

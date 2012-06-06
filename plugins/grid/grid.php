@@ -47,7 +47,7 @@ add_action( 'wp_head', 'mtf_grid_admin_bar_style' );
 
 function mtf_show_grid_for_all() {
 
-	if( defined( 'MTF_SHOW_GRID_FOR_ALL' ) && MTF_SHOW_GRID_FOR_ALL )
+	if ( defined( 'MTF_SHOW_GRID_FOR_ALL' ) && MTF_SHOW_GRID_FOR_ALL )
 		return true;
 
 	return false;

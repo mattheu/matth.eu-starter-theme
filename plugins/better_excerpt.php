@@ -48,18 +48,18 @@ function mph_improved_trim_excerpt( $text, $length = 120, $read_more = false ) {
     array_pop($words);
     array_push($words, '[...]');
     $text = implode(' ', $words);
-    if( $read_more ){
+    if ( $read_more ){
        $text .= str_replace( '#', get_permalink( $post->ID ), $read_more ); 
     }
   }
    
-   	//if( strpos( $post->post_content, '<!--more-->' ) && $read_more )
+   	//if ( strpos( $post->post_content, '<!--more-->' ) && $read_more )
 		//return $text . str_replace( '#', get_permalink( $post->ID ), $read_more ); 
  	 /*else {
   	// EG - an explicit excerpt has been set... do we need to add a read more link? 
    	$words = explode(' ', get_the_content(''), $excerpt_length + 1);
     if (count($words) > $excerpt_length) {
-      if( $read_more ){
+      if ( $read_more ){
  	     $text .= str_replace( '#', get_permalink( $post->ID ), $read_more ); 
       }
     }*/

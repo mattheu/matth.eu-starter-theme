@@ -3,7 +3,7 @@
 		
 	<?php 
 
-			if( function_exists( 'hm_pagination' ) ) :
+			if ( function_exists( 'hm_pagination' ) ) :
 	
 			hm_pagination(); 
 	

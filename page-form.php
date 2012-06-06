@@ -1,14 +1,14 @@
 <?php get_header();  ?>
 
 
-<?php if( have_posts() ) : while( have_posts() ) : the_post();  ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
 
-<section class="primary-content posts">	
+<section class="primary-content entries">
 
-<article <?php post_class(); ?>>
+<article <?php post_class( array( 'entry' ) ); ?>>
     	<h3 class="post-title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
-    	
+
     	<form id="contact_form" class="clear form-horizontal">
     		<ul>
     			<li class="control-group">
@@ -37,13 +37,13 @@
     			<li class="control-group">
     				<label for="form_gender" class="control-label">Gender</label>
 
-    				<div class="controls">    				
+    				<div class="controls">
     				<label for="form_gender_m" class="secondary">
-    					<input id="form_gender_m" name="form_gender" type="radio"> 
+    					<input id="form_gender_m" name="form_gender" type="radio">
     					Male
     				</label>
     				<label for="form_gender_f" class="secondary">
-    					<input id="form_gender_f" name="form_gender" type="radio"> 
+    					<input id="form_gender_f" name="form_gender" type="radio">
     					Female
     				</label>
     				</div>
@@ -100,12 +100,12 @@
 		    			<p>
 		    				<button class="btn btn-small">Primary</button>
 		    			</p>
-	    				
+
 	    			</div>
     			</li>
     		</ul>
     	</form>
-    	
+
 </article>
 
 </section>

@@ -31,20 +31,20 @@ add_filter( 'user_contactmethods','mtf_add_remove_contactmethods', 10, 1 );
  */
 function mtf_output_user_contact_methods( $description, $user_id ) {
 
-	if( ! is_author() )
+	if ( ! is_author() )
 		return $description;
 
 	foreach ( _wp_get_user_contactmethods() as $method => $name ) {
 	
-		if( $contact_method = get_the_author_meta( $method, $user_id ) ) {
+		if ( $contact_method = get_the_author_meta( $method, $user_id ) ) {
 			
-			if( 'google_plus' == $method )
+			if ( 'google_plus' == $method )
 				$methods[] = '<li  class="contact-method-type-gplus"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://profiles.google.com/' . $contact_method . '">' . $contact_method . '</a></li>';
 
-			elseif( 'twitter' == $method )
+			elseif ( 'twitter' == $method )
 				$methods[] = '<li class="contact-method-type-twitter"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://twitter.com/' . $contact_method . '">' . $contact_method . '</a></li>';
 
-			elseif( 'facebook' == $method )
+			elseif ( 'facebook' == $method )
 				$methods[] = '<li class="contact-method-type-fbook"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://facebook.com/' . $contact_method . '">' . $contact_method . '</a></li>';				
 	
 			else
@@ -54,7 +54,7 @@ function mtf_output_user_contact_methods( $description, $user_id ) {
 	
 	}
 	
-	if( ! empty( $methods ) )
+	if ( ! empty( $methods ) )
 		$description .= '<ul class="contact-methods">' . implode( "\n", $methods ) . '</ul>';
 		
 	return $description;
