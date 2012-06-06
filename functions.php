@@ -63,7 +63,7 @@ function mtf_register_assets() {
 
 	// Use the theme version for theme assets to bust cache when updating.
 
-	if ( function_exists( 'wp_get_theme' ) ) {
+	if( function_exists( 'wp_get_theme' ) ) {
 		$theme = wp_get_theme( MPH_THEME_NAME );
 		$version = $theme->version;
 	} else {
@@ -126,7 +126,7 @@ add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 function mtf_favicon() {
 	?>
 
-	<link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'url' ); ?>/wp-includes/images/wpmini-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url(); ?>/wp-includes/images/wpmini-blue.png" />
 
 	<?php
 }
@@ -164,7 +164,7 @@ add_filter( 'excerpt_length', 'mtf_excerpt_length' );
  */
 function mtf_excerpt_more_link( $more ) {
 
-	return ' [&hellip;] <a class="post-more-link" href="'. get_permalink( get_the_ID() ) . '">Read the full article&hellip;</a>';
+	return ' [&hellip;] <a class="entry-more-link" href="'. get_permalink( get_the_ID() ) . '">Read the full article&hellip;</a>';
 
 }
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
@@ -194,7 +194,7 @@ add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
 function mtf_grid_template ( $template ) {
 
 	// Portfolio category should use the grid template.
-	if ( is_category( 'grid' ) )
+	if( is_category( 'grid' ) )
 		return locate_template( 'index-grid.php', false );
 
 	return $template;
@@ -202,5 +202,3 @@ function mtf_grid_template ( $template ) {
 }
 add_filter( 'category_template', 'mtf_grid_template' );
 add_filter( 'single_template', 'mtf_grid_template' );
-
-

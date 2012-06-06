@@ -6,30 +6,30 @@
 
 ?>
 
-<section class="primary-content posts">
+<section class="primary-content entries">
 
-	<article <?php post_class(); ?>>
+	<article <?php post_class( array( 'entry' ) ); ?>>
 
-		<header class="post-header">
-		    <h1 class="post-title"><?php the_title(); ?></h1>
-		    <?php get_template_part( 'loop/parts-post-meta' ); ?>
+		<header class="entry-header">
+		    <h1 class="entry-title"><?php the_title(); ?></h1>
+		    <?php get_template_part( 'parts/parts-post-meta' ); ?>
 	    </header>
 
-		<?php if ( has_post_thumbnail() ) : ?>
-		    <figure class="post-thumb">
+		<?php if( has_post_thumbnail() ) : ?>
+		    <figure class="entry-thumb">
 			    <?php the_post_thumbnail( 'medium' ); ?>
 		    </figure>
 	    <?php endif; ?>
 
-	  	<div class="post-content">
-		    <?php the_content(); ?>
-	  	</div>
+	    <div class="entry-content">
+			<?php the_content(); ?>
+	    </div>
 
 		<?php
 			$args = array(
-				'before' => '<div class="post-taxonomies">',
+				'before' => '<div class="entry-taxonomies">',
 				'after' => '</div>',
-				'template' => '<div class="post-taxonomy-terms"><strong>%s:</strong> %l.</div>'
+				'template' => '<div class="entry-taxonomy-terms"><strong>%s:</strong> %l.</div>'
 			);
 			the_taxonomies( $args );
 		?>

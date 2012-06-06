@@ -1,31 +1,31 @@
-<?php 
+<?php
 
 	get_header();
 
-	if ( have_posts() ) : 
+	if ( have_posts() ) :
 
 ?>
 
-	<section class="primary-content posts grid no-sidebar">	
+	<section class="primary-content entries grid no-sidebar">
 
-		<?php 	
+		<?php
 
 			while ( have_posts() ) {
-	
+
 				the_post();
-				get_template_part( 'loop/loop-grid');
-		
+				get_template_part( 'parts/loop-grid');
+
 			}
-	
-			get_template_part( 'nav', 'pagination' ); 
+
+			get_template_part( 'nav', 'pagination' );
 
 		?>
 
 	</section><!-- / .primary-content -->
 
-<?php 
+<?php
 
-	endif; 
+	endif;
 
 	get_footer();
 

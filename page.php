@@ -6,16 +6,16 @@
 
 ?>
 
-<section class="primary-content posts">
+<section class="primary-content entries">
 
-	<article <?php post_class(); ?>>
+	<article <?php post_class( array( 'entry' ) ); ?>>
 
 		<header>
-		    <h1 class="post-title"><?php the_title(); ?></h1>
+		    <h1 class="entry-title"><?php the_title(); ?></h1>
 		</header>
 
-	    <div class="post-content">
-		    <?php the_content(); ?>
+	    <div class="entry-content">
+	        <?php the_content(); ?>
 	    </div>
 
 	</article><!-- / .article -->

@@ -1,7 +1,7 @@
 
-	<p class="post-meta"><small>
+	<p class="entry-meta"><small>
 
-		<span class="post-date">
+		<span class="entry-date">
 			<?php
 				printf( __( '<b class="sep">Posted: </b><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>'),
 					esc_url( get_permalink() ),
@@ -13,20 +13,20 @@
 			?>
 		</span>
 
-		<span class="post-author">
+		<span class="entry-author">
 			by <?php the_author_posts_link(); ?>
 		</span>
-
-		<?php if ( comments_open() || ! comments_open() && have_comments() ) : ?>
-			<span class="post-author">
+		
+		<?php if( comments_open() || ! comments_open() && have_comments() ) : ?>
+			<span class="entry-author">
 				| <a href="<?php the_permalink(); ?>#comments">
 					<?php printf( _n( '1 Comment', '%1$s Comments', get_comments_number() ), number_format_i18n( get_comments_number() ) ); ?>
 				</a>
-			</span>
+			</span> 
 		<?php endif; ?>
 
 		<?php if ( ! is_main_query() || ( ! is_singular() && is_main_query() ) ) : ?>
-		<span class="post-permalink">
+		<span class="entry-permalink">
 			| <a href="<?php the_permalink(); ?>">View Post</a>
 		</span>
 		<?php endif; ?>

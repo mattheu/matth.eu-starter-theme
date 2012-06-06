@@ -4,9 +4,9 @@
 
 ?>
 
-	<section class="primary-content posts">	
+	<section class="primary-content entries">
 
-	<?php get_template_part( 'loop/loop-header' ); ?>
+	<?php get_template_part( 'parts/loop-header' ); ?>
 		
 	<?php 
 	
@@ -16,11 +16,11 @@
 			
 				the_post();
 				
-				if ( $post_format = get_post_format() )
-					get_template_part( 'loop/loop', $post_format );
+				if( $post_format = get_post_format() )
+					get_template_part( 'parts/loop', $post_format );
 			
 				else
-					get_template_part( 'loop/loop', get_post_type() );			
+					get_template_part( 'parts/loop', get_post_type() );
 			
 			}
 			
@@ -28,7 +28,7 @@
 	
 		} else {
 		
-			get_template_part( 'loop/loop-no-results' ); 
+			get_template_part( 'parts/loop-no-results' );
 		
 		}
 		
