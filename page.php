@@ -1,31 +1,31 @@
-<?php 
+<?php
 
-	get_header();  
+	get_header();
 
-	the_post();  
-	
+	the_post();
+
 ?>
 
 <section class="primary-content entries">
 
 	<article <?php post_class( array( 'entry' ) ); ?>>
-	
+
 		<header>
 		    <h1 class="entry-title"><?php the_title(); ?></h1>
-		</header>    
-	    
+		</header>
+
 	    <div class="entry-content">
 	        <?php the_content(); ?>
 	    </div>
-	
+
 	</article><!-- / .article -->
-	
+
 </section><!-- / .primary-content -->
 
-<?php 
+<?php
 
 	get_sidebar();
 
-	get_footer(); 
+	get_footer();
 
 ?>
