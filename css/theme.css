@@ -135,7 +135,7 @@
 	.site-header .menu							{ border-top: 1px solid #888; }
 	.site-header .menu ul						{ margin: 0; }
 	.site-header .menu li						{ position: relative; display: inline-block; }
-		
+
 	.site-header .menu li a						{ position: relative; display: block; padding: 0.75em 15px; }
 	.site-header .menu li:first-child a			{ padding-left: 0; }
 
@@ -165,7 +165,7 @@
 	article .post-thumb							{ float: left; margin: 0 30px 0.75em 0; }
 	article .post-thumb	a						{ display: block; vertical-align: top;  }
 	article .post-thumb img						{ vertical-align: top; }
-		
+
 	article .post-meta							{ color: #777; font-style: italic; margin: 0.75em 0 0.75em; }
 
 	article .post-more-link						{ display: block; margin-top: 0.75em; }
@@ -181,7 +181,7 @@
 
 	.ie7 .posts.grid article					{ display: inline; zoom: 1; }
 
-	.single .post-header 						{ margin-bottom: 1.5em; } 
+	.single .post-header 						{ margin-bottom: 1.5em; }
 
 /**
  *	Sidebar.
@@ -199,7 +199,7 @@
 	.secondary-content h2,
 	.secondary-content h3,
 	.secondary-content h4						{ color: #666; }
-		
+
 	.secondary-content table					{ width: 100%; }
 	.secondary-content th,
 	.secondary-content td						{ padding-left: 6px ; padding-right: 7px ;}
@@ -239,7 +239,7 @@
 
 	.commentlist,
 	.commentlist .children						{ list-style: none; margin: 0;  }
-	
+
 	.commentlist .comment						{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
 	.commentlist>.comment:first-child			{ border-top: none; }
 	.commentlist .comment .comment-info			{ width: 80px; float: left; margin-bottom: 0.75em; }
@@ -273,22 +273,22 @@
  *	More Specific styling.
  */
 
-	.loop-header 								{ margin-left: 15px; margin-right: 15px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; }	
+	.loop-header 								{ margin-left: 15px; margin-right: 15px; padding-top: 1.5em; padding-bottom: 0.75em; border-bottom: 1px solid #888; }
 	.loop-header.has-loop-header-thumb			{ padding-left: 160px; }
 	.loop-header-thumb							{ float: left; margin: 0 30px 0.75em -160px; width: 130px; }
 	.loop-header-thumb img 						{ width: 100%; }
 	.loop-header-title							{ margin-top: 0; }
-	
+
 	.contact-methods							{ margin-left: 0; font-size: 0.875em; line-height: 1.5em; font-style: italic; }
 	.contact-method-name						{ display: inline-block; width: 75px; }
-	
+
 	.loop-no-results							{ margin: 1.5em 15px; }
-		
-	.search-form > div							{ margin-right: 80px; padding: 0 5px; }		
+
+	.search-form > div							{ margin-right: 80px; padding: 0 5px; }
 	.search-form label							{ display: none; }
 	.search-form .search-input					{ display: block; float: left;  width: 100%; margin: 0 -5px;}
 	.search-form .search-submit					{ display: block; float: right; width: 70px; margin-right: -85px;   }
-	
+
 	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }
 
 
@@ -296,7 +296,7 @@
 /**
  *	Smaller Screens
  */
-  
+
 @media all and ( max-width: 1020px ) {
 
  	/* Adjust the sizes of some images to fit our new grid */
@@ -315,7 +315,7 @@
 	.wrap										{ width: 720px; padding: 0 10px; }
 	.primary-content							{ width: 480px; }
 	.secondary-content							{ width: 240px; }
-	
+
 	.site-header,
 	article,
 	.posts.grid article,
@@ -324,7 +324,7 @@
 	.loop-no-results,
 	.secondary-content aside,
 	.site-footer								{ margin-left: 10px; margin-right: 10px; }
-	
+
 	.grid 										{ margin: 0 -10px; }
 	.grid .section-title						{ margin-left: 10px; margin-right: 10px; }
 
@@ -335,12 +335,12 @@
 
 	.content-box								{ padding-left: 15px; padding-right: 15px;  }
 
-	.secondary-content ul ul					{ margin-left: 20px; }	
+	.secondary-content ul ul					{ margin-left: 20px; }
 	.secondary-content .content-box				{ margin-left: 10px; margin-right: 10px; padding: 0.75em 10px; }
 	.secondary-content .widget-area:first-child { padding-top: 0.75em; }
-	
+
 	.grid_test									{ margin: 0 10px; }
-	
+
 	/** Specific Changes **/
 	.posts.grid article							{ width: 220px; }
 	.posts.grid article img 					{ width: 100%; margin-right: 0; }
@@ -369,28 +369,28 @@
 	/** No bg on body **/
 	body 										{ background: #FFF; }
 	.wrap 										{ background: transparent; border: none; }
-											
+
 	img.attachment-thumbnail,
 	img.size-thumbnail							{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
 	img.attachment-medium,
 	img.size-medium,
 	img.attachment-medium-crop					{ width: 48%; padding: 1%; }
-											
+
 	.align-left									{ margin-right: 4%;}
 	.align-right								{ margin-left: 4%;}
 
   	.pagination-container						{ padding: 0 2%; }
-							
+
  	.wrap 										{ width: 90%; padding: 0;  }
  	.primary-content							{ width: 100%; }
-											
- 	.site-header,							
+
+ 	.site-header,
  	.hero,
-	.loop-header,			
-	.loop-no-results,						
+	.loop-header,
+	.loop-no-results,
  	article 									{ width: 96%; margin-left: 2%; margin-right: 2%; }
-											
- 	.posts.grid article							{ width: 29.333%; margin-left: 2%; margin-right: 2%; } 	
+
+ 	.posts.grid article							{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
 
 	article .post-thumb							{ width: 48%; margin-right: 4%; }
 	article .post-thumb img						{ width: 100%; }
@@ -404,7 +404,7 @@
 	.commentlist .children 						{ margin-left: 17.361111111%; }
 	.commentlist .children .comment-info		{ width: 15.966386554%; margin-right: 5.042016807%; }
 	.commentlist .children .comment-body	 	{ width: 78.991596639%; }
-	
+
 	/* A little hacky way to get 100% width with fixed padding */
 	#respond .comment-form-author,
 	#respond .comment-form-email,
@@ -415,14 +415,14 @@
 	#respond textarea 							{ margin-left: -5px; margin-right: -5px; width: 100%; }
 
 	#respond #submit							{ width: auto; margin-left: 0; }
-	
-	/* Sidebar */							
+
+	/* Sidebar */
   	.secondary-content							{ width: 100%; }
   	.secondary-content aside					{ width: 46%;  margin-left: 2%; margin-right: 2%; float: left; }
 	.secondary-content .content-box				{ width: 42%; margin-left: 2%; margin-right: 2%; padding-left: 2%; padding-right: 2%; }
 
 	.loop-header.has-loop-header-thumb			{ padding-left: 33.3333%; width: auto; }
-	.loop-header-thumb							{ width: 47%; margin-left: -53%;  margin-right: 6%; } 	
+	.loop-header-thumb							{ width: 47%; margin-left: -53%;  margin-right: 6%; }
 
 	/* Small adjustment to the admin bar to fit more on */
 	#wpadminbar *										{ font-size: 10px !important; font-family: Verdana, sans-serif !important; }
@@ -438,15 +438,15 @@
 @media all and (max-width: 480px) {
 
 	.wrap 										{ width: 95%; min-width:0; margin: auto; }
-												
+
 	img.attachment-thumbnail,
 	img.size-thumbnail							{ width: 48%; margin-right: 4%; padding: 1%; }
 	img.attachment-medium,
 	img.size-medium,
 	img.attachment-medium-crop					{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
-												
+
  	.posts.grid article							{ width: 46%; margin-left: 2%; margin-right: 2%; }
-												
+
  	.secondary-content 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	.secondary-content aside 					{ width: 96%;}
 
