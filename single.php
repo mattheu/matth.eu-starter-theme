@@ -10,13 +10,13 @@
 
 	<article <?php post_class( array( 'entry' ) ); ?>>
 
-		<header class="post-header">
-		    <h1 class="post-title"><?php the_title(); ?></h1>
-		    <p class="post-meta"><small><b>Posted: </b><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?> by <?php the_author_posts_link(); ?></small></p>
+		<header class="entry-header">
+		    <h1 class="entry-title"><?php the_title(); ?></h1>
+		    <p class="entry-meta"><small><b>Posted: </b><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?> by <?php the_author_posts_link(); ?></small></p>
 	    </header>
 
 		<?php if ( has_post_thumbnail() ) : ?>
-		    <figure class="post-thumb">
+		    <figure class="entry-thumb">
 			    <?php the_post_thumbnail( 'medium' ); ?>
 		    </figure>
 	    <?php endif; ?>
@@ -25,9 +25,9 @@
 
 		<?php
 			$args = array(
-				'before' => '<div class="post-taxonomies">',
+				'before' => '<div class="entry-taxonomies">',
 				'after' => '</div>',
-				'template' => '<div class="post-taxonomy-terms"><strong>%s:</strong> %l.</div>'
+				'template' => '<div class="entry-taxonomy-terms"><strong>%s:</strong> %l.</div>'
 			);
 			the_taxonomies( $args );
 		?>

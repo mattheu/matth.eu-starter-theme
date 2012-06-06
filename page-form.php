@@ -6,7 +6,7 @@
 <section class="primary-content entries">
 
 <article <?php post_class( array( 'entry' ) ); ?>>
-    	<h3 class="post-title"><?php the_title(); ?></h3>
+    	<h3 class="entry-title"><?php the_title(); ?></h3>
     	<?php the_content(); ?>
 
     	<form id="contact_form" class="clear form-horizontal">
