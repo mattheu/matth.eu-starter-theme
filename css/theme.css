@@ -56,8 +56,12 @@
  */
 
 	.linklist									{ margin: 0; list-style: none; }
-	.linklist li								{ border-bottom: 1px solid #888; margin-bottom: -1px; }
-	.linklist li a								{ display: block;  padding: 0.75em 0; }
+	.linklist > li								{ border-bottom: 1px solid #888; margin-bottom: -1px; }
+	.linklist > li:last-child					{ border-bottom: none; margin-bottom: 0; }
+	.linklist > li > a,
+	.linklist > li > span							{ display: block;  padding: 0.75em 0; }
+
+
 
 	.content-box								{ background: #EEE; padding: 0.75em 15px; }
 
