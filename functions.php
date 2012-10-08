@@ -63,7 +63,7 @@ function mtf_register_assets() {
 
 	// Use the theme version for theme assets to bust cache when updating.
 
-	if( function_exists( 'wp_get_theme' ) ) {
+	if ( function_exists( 'wp_get_theme' ) ) {
 		$theme = wp_get_theme( MPH_THEME_NAME );
 		$version = $theme->version;
 	} else {
