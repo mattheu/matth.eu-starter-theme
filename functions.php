@@ -91,7 +91,6 @@ function mtf_register_assets() {
 }
 add_action( 'init', 'mtf_register_assets' );
 
-
 /**
  *	Enqueue all the assets.
  *

@@ -1,5 +1,6 @@
+<p class="entry-meta">
 
-	<p class="entry-meta"><small>
+	<small>
 
 		<span class="entry-date">
 			<?php
@@ -31,4 +32,6 @@
 		</span>
 		<?php endif; ?>
 
-	</small></p>
+	</small>
+
+</p>
