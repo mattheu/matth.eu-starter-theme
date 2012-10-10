@@ -416,7 +416,7 @@
 	.loop-no-results,						
  	.entry	 									{ width: 96%; margin-left: 2%; margin-right: 2%; }
 											
- 	.grid .entry						{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
+ 	.grid .entry								{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
 
 	.entry .entry-thumb							{ width: 48%; margin-right: 4%; }
 	.entry .entry-thumb img,
