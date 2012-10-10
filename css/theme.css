@@ -421,7 +421,7 @@
 	.entry .entry-thumb							{ width: 48%; margin-right: 4%; }
 	.entry .entry-thumb img,
 	.entry .entry-thumb picture,
-	.entry .entry-thumb div[data-picture],		{ width: 100%; }
+	.entry .entry-thumb div[data-picture]		{ width: 100%; }
 
 	.entry.format-image .entry-thumb 			{ width: 100%; }
 
