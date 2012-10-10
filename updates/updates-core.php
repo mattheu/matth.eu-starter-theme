@@ -60,7 +60,7 @@ function mtf_default_settings( $current_version, $new_version ){
 			'size_h' => 999		
 		),
 		'large' => array( 
-			'size_w' =>	690,
+			'size_w' =>	610,
 			'size_h' => 999
 		)
 	);
