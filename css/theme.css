@@ -419,7 +419,10 @@
  	.grid .entry						{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
 
 	.entry .entry-thumb							{ width: 48%; margin-right: 4%; }
-	.entry .entry-thumb img						{ width: 100%; }
+	.entry .entry-thumb img,
+	.entry .entry-thumb picture,
+	.entry .entry-thumb div[data-picture],		{ width: 100%; }
+
 
 	.entry:last-child							{ border-bottom: 1px solid #888; }
 
