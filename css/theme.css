@@ -120,11 +120,13 @@
   	.primary-content.grid						{ margin-left: 0; margin-right: 0; }
 	.primary-content.grid .entry				{ width: 210px; }
 
-	img.attachment-thumbnail,
-	img.size-thumbnail							{ width: 210px; }
-	img.attachment-medium,
-	img.size-medium,
-	img.attachment-medium-crop					{ width: 370px; }
+	.attachment-thumbnail,
+	.size-thumbnail								{ width: 210px; }
+	.attachment-medium,
+	.size-medium,
+	.attachment-medium-crop						{ width: 370px; }
+	.size-large,
+	.attachment-large							{ width: 610px; }
 
 
 /**
@@ -261,10 +263,11 @@
 	
 	.commentlist .comment						{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
 	.commentlist>.comment:first-child			{ border-top: none; }
-	.commentlist .comment .comment-info			{ width: 80px; float: left; margin-bottom: 0.75em; }
-	.commentlist .comment .comment-body			{ width: 530px; float: right; padding-bottom: 1.5em; }
-	.commentlist .comment .comment-header,
-	.commentlist .comment .comment-meta			{ margin-bottom: 0.75em }
+	.commentlist .comment .comment-info			{ width: 80px; float: left; margin-bottom: 1.5em; }
+	.commentlist .comment .comment-body			{ width: 530px; float: right; margin-bottom: 1.5em; }
+	.commentlist .comment .comment-header		{ margin-bottom: 0.75em; }
+	.commentlist .comment .comment-header cite  { font-weight: bold; }
+	.commentlist .comment .comment-meta			{ margin-bottom: 0.75em; }
 
 	.commentlist .comment .avatar				{ width: 50px; height: auto; padding: 3px; float: left; margin: 0 30px 0 0; }
 	.commentlist .comment .reply a:link,
@@ -310,11 +313,13 @@
 @media all and ( max-width: 1020px ) {
 
  	/* Adjust the sizes of some images to fit our new grid */
-	img.attachment-thumbnail,
-	img.size-thumbnail					{ width: 160px; }
-	img.attachment-medium,
-	img.size-medium,
-	img.attachment-medium-crop					{ width: 220px; }
+	.attachment-thumbnail,
+	.size-thumbnail								{ width: 160px; }
+	.attachment-medium,
+	.size-medium,
+	.attachment-medium-crop						{ width: 220px; }
+	.size-large,
+	.attachment-large							{ width: 460px; }
 
  	.alignleft									{ margin-right: 20px; }
   	.alignright									{ margin-left: 20px; }
@@ -381,11 +386,11 @@
 	body 										{ background: #FFF; }
 	.wrap 										{ background: transparent; border: none; }
 											
-	img.attachment-thumbnail,
-	img.size-thumbnail							{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
-	img.attachment-medium,
-	img.size-medium,
-	img.attachment-medium-crop					{ width: 48%; padding: 1%; }
+	.attachment-thumbnail,
+	.size-thumbnail								{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
+	.attachment-medium,
+	.size-medium,
+	.attachment-medium-crop						{ width: 48%; padding: 1%; }
 											
 	.align-left									{ margin-right: 4%;}
 	.align-right								{ margin-left: 4%;}
@@ -450,11 +455,11 @@
 
 	.wrap 										{ width: 95%; min-width:0; margin: auto; }
 												
-	img.attachment-thumbnail,
-	img.size-thumbnail							{ width: 48%; margin-right: 4%; padding: 1%; }
-	img.attachment-medium,
-	img.size-medium,
-	img.attachment-medium-crop					{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
+	.attachment-thumbnail,
+	.size-thumbnail							{ width: 48%; margin-right: 4%; padding: 1%; }
+	.attachment-medium,
+	.size-medium,
+	.attachment-medium-crop					{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 												
  	.grid .entry								{ width: 46%; margin-left: 2%; margin-right: 2%; }
 												
