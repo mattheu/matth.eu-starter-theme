@@ -375,7 +375,8 @@
 	.commentlist .comment .comment-body			{ width: 400px; float: right; }
 	.commentlist .children 						{ margin-left: 60px; }
 	.commentlist .children .comment-body	 	{ width: 340px; }
-
+	.commentlist .children .children .comment-body	{ width: 280px; }
+	#commentform textarea						{ width: 370px; }
 	#commentform #submit						{ margin-left: 0; }
 
 	.loop-header.has-loop-header-thumb			{ padding-left: 120px; }
@@ -423,13 +424,50 @@
 	.entry:last-child							{ border-bottom: 1px solid #888; }
 
 	/* Comments */
-	.commentlist .comment .comment-info			{ width: 13.194444444%; margin-right: 4.166666667%; }
-	.commentlist .comment .comment-info .avatar { width: 100%; }
-	.commentlist .comment .comment-body			{ width: 82.638888889%; }
-	.commentlist .children 						{ margin-left: 17.361111111%; }
-	.commentlist .children .comment-info		{ width: 15.966386554%; margin-right: 5.042016807%; }
-	.commentlist .children .comment-body	 	{ width: 78.991596639%; }
+
+	/*
 	
+		// Calculations
+	
+		// Width of children. Gets 1 col smaller each time.
+		$w0 = 100;
+		$w1 = 96;
+		$w2 = (5/6*100-4) / $w1 * 100;
+		$w3 = (4/6*100-4) / $w2 * 100 / $w1 * 100;
+		$w4 = (3/6*100-4) / $w3 * 100 / $w2 * 100 / $w1 * 100;
+		$w5 = (2/6*100-4) / $w4 * 100 / $w3 * 100 / $w2 * 100 / $w1 * 100;
+
+		// margin-left. equivalent to 1 col + 2 * padding as a percentage of context
+		$m0 = 16.66667;
+		$m1 = $m0 / $w1 * 100;
+		$m2 = $m0 / $w1 * 100 / $w2 * 100;
+		$m3 = $m0 / $w1 * 100 / $w2 * 100 / $w3 * 100;
+		$m4 = $m0 / $w1 * 100 / $w2 * 100 / $w3 * 100 / $w4 * 100;
+		$m5 = $m0 / $w1 * 100 / $w2 * 100 / $w3 * 100 / $w4 * 100 / $w5 * 100;
+
+		// margin right. equivalent to 2 * padding as  % of context
+		$p0 = 4;
+		$p1 = $p0 / $w1 * 100;
+		$p2 = $p0 / $w1 * 100 / $w2 * 100;
+		$p3 = $p0 / $w1 * 100 / $w2 * 100 / $w3 * 100;
+		$p4 = $p0 / $w1 * 100 / $w2 * 100 / $w3 * 100 / $w4 * 100;
+		$p5 = $p0 / $w1 * 100 / $w2 * 100 / $w3 * 100 / $w4 * 100 / $w5 * 100;
+
+	*/
+
+	.commentlist .comment .comment-info					{ width: 13.194444444%; /* 12.666666667 / 96 * 100 */ margin-right: 4.166666667%; /* 4 / 96 * 100 */ }
+	.commentlist .comment .comment-info .avatar			{ width: 100%; }
+	.commentlist .comment .comment-body					{ width: 82.638888889%; /* 79.333333333 / 96 * 100 */ }
+	
+	.commentlist .children 								{ margin-left: 17.361111111%; /* 16.66666666667 / 96 * 100 */ }
+	.commentlist .children .comment-info				{ width: 15.966386554%; /* (1/6*100-4) / 96 * 100 / ( (5/6*100-4) / 96 * 100 ) * 100  */ margin-right: 5.042016807%; /* 4 / ( (5/6*100-4) / 96 * 100 ) * 100 / 96 * 100 */ }
+	.commentlist .children .comment-body	 			{ width: 78.991596639%; /* (4/6*100-4) / 96 * 100 / ( (5/6*100-4) / 96 * 100 ) * 100 */ }
+		
+	.commentlist .children .children 					{ margin-left: 21.008403361%; }
+	.commentlist .children .children .comment-info		{ width: 20.212765958%; margin-right: 6.382978723%; }
+	.commentlist .children .children .comment-body	 	{ width: 73.404255319%; }
+
+
 	/* A little hacky way to get 100% width with fixed padding */
 	#respond .comment-form-author,
 	#respond .comment-form-email,
