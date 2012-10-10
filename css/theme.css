@@ -217,8 +217,8 @@
 	.secondary-content aside>*:last-child		{ margin-bottom: 0; }
 	.secondary-content .widget-area				{ overflow: auto; clear: both; }
 	.secondary-content .widget-area:first-child { padding-top: 1.5em; }
-	.secondary-content ul 						{ margin-left: 0; }
-	.secondary-content ul ul					{ margin-left: 30px; }
+	.secondary-content ul 						{ margin-left: 20px; margin-right: 10px; }
+
 
 	.secondary-content h1,
 	.secondary-content h2,
