@@ -11,7 +11,7 @@
 	::-moz-selection							{ background: rgba(0,0,0,0.25); color:#000; text-shadow: none; }
 	::selection 								{ background: rgba(0,0,0,0.25); color:#000; text-shadow: none; }
 
- 	.entry	img,
+ 	.entry img,
  	.loop-header img,
  	.wp-caption	 								{ border: 1px solid #888; padding: 4px; height: auto; background: #FFF; max-width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; text-align: center; }
  	.wp-caption img								{ border: none; padding: 0; }
