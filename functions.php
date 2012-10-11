@@ -11,6 +11,7 @@ get_template_part( 'functions/functions-comments' );
 get_template_part( 'functions/functions-image_caption' );
 get_template_part( 'functions/functions-thumbnail_link' );
 get_template_part( 'functions/functions-user-contact-methods' );
+get_template_part( 'functions/gallery' );
 
 get_template_part( 'plugins/grid/grid' );
 
@@ -38,7 +39,6 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 
-	add_theme_support( 'post-formats', array( 'quote', 'image' ) );
 	add_theme_support( 'post-thumbnails' );
 
 	// Add default posts and comments RSS feed links to head

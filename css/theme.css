@@ -188,7 +188,8 @@
 	.entry .entry-thumb	a						{ display: block; vertical-align: top;  }
 	.entry .entry-thumb img						{ vertical-align: top; }
 
-	.entry.format-image .entry-thumb 			{ margin-bottom: 1.5em; }
+	.entry.format-image .entry-thumb,
+	.entry.format-gallery .entry-thumb 			{ margin-bottom: 1.5em; }
 
 	.entry .entry-meta							{ color: #888; margin: 0.75em 0 0.75em; }
 	.entry .entry-meta a 						{ color: inherit; }
@@ -279,7 +280,7 @@
 	.commentlist,
 	.commentlist .children						{ list-style: none; margin: 0;  }
 	
-	.commentlist .comment						{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; overflow: auto; }
+	.commentlist .comment						{ padding: 1.5em 0 0; border-top: 1px solid #888; clear: both; }
 	.commentlist>.comment:first-child			{ border-top: none; }
 	.commentlist .comment .comment-info			{ width: 80px; float: left; margin-bottom: 1.5em; }
 	.commentlist .comment .comment-body			{ width: 530px; float: right; margin-bottom: 1.5em; }
@@ -311,7 +312,7 @@
 	#commentform #submit						{ margin-left: 80px; }
 	.nocomments									{ margin: 0 0 0.5em 0; }
 
-	.children .children #commentform textarea	{ width: 440px; }
+	.children #commentform textarea				{ width: 100%; }
 	.children #commentform #submit 				{ margin-left: 0; }
 
 /**
@@ -328,8 +329,6 @@
 	/** Front Page **/
 
 	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }
-
-
 
 /**
  *	Smaller Screens
@@ -396,7 +395,7 @@
 	.commentlist .children .comment-body	 	{ width: 340px; }
 	.commentlist .children .children .comment-body	{ width: 280px; }
 	#commentform textarea						{ width: 370px; }
-	#commentform #submit						{ margin-left: 0; }
+	
 
 	.loop-header.has-loop-header-thumb			{ padding-left: 120px; }
 	.loop-header-thumb							{ width: 100px; margin-left: -120px; margin-right: 20px; }
@@ -442,11 +441,13 @@
  	.grid .entry								{ width: 29.333%; margin-left: 2%; margin-right: 2%; }
 
 	.entry .entry-thumb							{ width: 48%; margin-right: 4%; }
+	.entry .entry-thumb.full					{ width: 100%; margin-right: 0; }
 	.entry .entry-thumb img,
 	.entry .entry-thumb picture,
 	.entry .entry-thumb div[data-picture]		{ width: 100%; }
 
-	.entry.format-image .entry-thumb 			{ width: 100%; }
+	.entry.format-image .entry-thumb,
+	.entry.format-gallery .entry-thumb 			{ width: 100%; }
 
 	.entry:last-child							{ border-bottom: 1px solid #888; }
 
@@ -541,5 +542,4 @@
  	.secondary-content 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	.secondary-content aside 					{ width: 96%;}
 
- }
-
+}

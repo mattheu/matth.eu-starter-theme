@@ -28,14 +28,14 @@ h1 a, h2 a, h3 a,
 h4 a, h5 a, h6 a		{ color: inherit; }
 
 h1, .alpha				{ font-size: 2.5em;		line-height:1.2em; 		margin: 0.6em 0 0.3em;}
-h2, .beta				{ font-size: 2em;		line-height:1.5em; 		margin: 0.5625em 0 0.5625em; }
+h2, .beta				{ font-size: 2em;		line-height:1.5em; 		margin: .375em 0; }
 h3, .gamma				{ font-size: 1.5em;		line-height:1.5em;		margin: 1em 0 0.5em; }
 h4, .delta				{ font-size: 1.25em;	line-height:1.6em;		margin: 1.2em 0 0.4em; }
 h5, .epsilon,
 h6, .zeta				{ font-size: 1em; 		line-height:1.5em; 		margin: 1em 0 0.5em; }
 
 /* Article h1 should have smaller headings **/
-article h1				{ font-size: 2em;		line-height:1.125em; 	margin: 0.5625em 0 0.5625em; }
+article h1				{ font-size: 2em;		line-height:1.125em; 	margin: .375em 0; }
 
 /* Slightly smaller text in the sidebar */
 .secondary-content				{ font-size: .857em; 	line-height: 1.75em; 	color: #666;  }
