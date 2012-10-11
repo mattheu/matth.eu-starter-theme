@@ -6,7 +6,7 @@
 
 ?>
 
-<section class="primary-content entries">
+<section class="primary-content">
 
 	<article <?php post_class( array( 'entry' ) ); ?>>
 
@@ -15,11 +15,7 @@
 		    <?php get_template_part( 'parts/parts-post-meta' ); ?>
 	    </header>
 
-		<?php if( has_post_thumbnail() ) : ?>
-		    <figure class="entry-thumb">
-			    <?php the_post_thumbnail( 'medium' ); ?>
-		    </figure>
-	    <?php endif; ?>
+		<?php get_template_part( 'single/thumbnail' ); ?>
 
 	    <div class="entry-content">
 			<?php the_content(); ?>
