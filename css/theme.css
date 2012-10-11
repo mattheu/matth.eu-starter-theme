@@ -134,7 +134,8 @@
 	.primary-content.grid .entry				{ width: 210px; }
 
 	.attachment-thumbnail,
-	.size-thumbnail								{ width: 210px; }
+	.size-thumbnail								{ width: 130px; }
+	.attachment-small							{ width: 210px; }
 	.attachment-medium,
 	.size-medium,
 	.attachment-medium-crop						{ width: 370px; }
@@ -338,7 +339,8 @@
 
  	/* Adjust the sizes of some images to fit our new grid */
 	.attachment-thumbnail,
-	.size-thumbnail								{ width: 160px; }
+	.size-thumbnail								{ width: 100px; }
+	.attachment-small									{ width: 160px; }
 	.attachment-medium,
 	.size-medium,
 	.attachment-medium-crop						{ width: 220px; }
@@ -414,7 +416,8 @@
 	.wrap 										{ background: transparent; border: none; }
 											
 	.attachment-thumbnail,
-	.size-thumbnail								{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
+	.size-thumbnail,
+	.attachment-small									{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
 	.attachment-medium,
 	.size-medium,
 	.attachment-medium-crop						{ width: 48%; padding: 1%; }
@@ -527,10 +530,11 @@
 	.wrap 										{ width: 95%; min-width:0; margin: auto; }
 												
 	.attachment-thumbnail,
-	.size-thumbnail							{ width: 48%; margin-right: 4%; padding: 1%; }
+	.size-thumbnail,
+	.attachment-small									{ width: 48%; margin-right: 4%; padding: 1%; }
 	.attachment-medium,
 	.size-medium,
-	.attachment-medium-crop					{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
+	.attachment-medium-crop						{ width: 100%;  margin-left: auto; margin-right: auto; float: none; display: block; }
 												
  	.grid .entry								{ width: 46%; margin-left: 2%; margin-right: 2%; }
 												
