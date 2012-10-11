@@ -8,7 +8,7 @@ function mtf_comment( $comment, $args, $depth ) {
 		case '' :
 
 	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+	<li <?php comment_class('clearfix'); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
 			<div class="comment-info">
 				<?php echo get_avatar( $comment, 50 ); ?>
