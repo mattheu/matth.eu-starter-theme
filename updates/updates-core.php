@@ -52,8 +52,8 @@ function mtf_default_settings( $current_version, $new_version ){
 	// Set Default Image Sizes.
 	$image_sizes = array(
 		'thumbnail' => array(
-			'size_w' =>	210,
-			'size_h' => 160
+			'size_w' =>	130,
+			'size_h' => 100
 		),
 		'medium' => array(
 			'size_w' =>	370,
