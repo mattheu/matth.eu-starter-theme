@@ -76,6 +76,10 @@
   	.pagination-container a,
   	.pagination-container span					{ padding: 0.25em 0.5em; margin: 0 5px; min-width: 12px; background: #FFF; color: #666; border: 1px solid #888; display: inline-block; text-decoration: none; text-align: center; }
 
+  	/* Reset for nested spans/links */
+  	.pagination-container a span, 
+  	.pagination-container span a				{ padding: 0; margin: 0; display: inline; min-width: 0; background: transparent; border: none; } 
+
   	.pagination-container > *:first-child,
   	.pagination-container li:first-child a		{ margin-left: 0 !important; }
   	.pagination-container > *:last-child,
