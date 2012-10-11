@@ -39,6 +39,9 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 
+	//add_image_size( 'small', 210, 160, true)
+
+	add_theme_support( 'post-formats', array( 'quote', 'image', 'gallery', 'link' ) );
 	add_theme_support( 'post-thumbnails' );
 
 	// Add default posts and comments RSS feed links to head
