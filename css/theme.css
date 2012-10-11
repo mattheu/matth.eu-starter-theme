@@ -102,6 +102,14 @@
 	.grid .section-title						{ margin: 0 15px; padding: 0.75em 0 0.75em; border-bottom: 1px solid #888; }
 	.grid .section-title *						{ margin: 0; }
 
+/**
+ * Gallery
+ */
+
+.gallery { clear: both; }
+.gallery dl { width: 130px; display: inline-block; vertical-align: top; margin: 0 15px 1.5em; }
+.gallery br { display: none; }
+
 
 /**
  *	General Theme Layout.
@@ -338,6 +346,8 @@
 
   	.pagination-container						{ padding: 0 10px; }
 
+  	.gallery dl 								{ width: 100px; margin: 0 10px 1.5em; }
+
 	.wrap										{ width: 720px; padding: 0 10px; }
 	.primary-content							{ width: 480px; }
 	.secondary-content							{ width: 240px; }
@@ -403,7 +413,10 @@
 	.attachment-medium,
 	.size-medium,
 	.attachment-medium-crop						{ width: 48%; padding: 1%; }
-											
+	
+	.gallery dl { width: 29.3333333337%; margin-left: 2%; margin-right: 2%;}		
+	.gallery dl img { width: 100%; }
+
 	.align-left									{ margin-right: 4%;}
 	.align-right								{ margin-left: 4%;}
 

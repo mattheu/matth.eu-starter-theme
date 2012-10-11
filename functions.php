@@ -199,3 +199,6 @@ function mtf_grid_template ( $template ) {
 }
 add_filter( 'category_template', 'mtf_grid_template' );
 add_filter( 'single_template', 'mtf_grid_template' );
+
+
+add_filter( 'use_default_gallery_style', create_function( null, 'return false;' ) );
