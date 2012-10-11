@@ -309,6 +309,8 @@
 	.search-form .search-input					{ display: block; float: left;  width: 100%; margin: 0 -5px;}
 	.search-form .search-submit					{ display: block; float: right; width: 70px; margin-right: -85px;   }
 	
+	.error404 .entry-content .search-form		{ margin: 1.5em 0; }
+
 	/** Front Page **/
 
 	.hero 										{ padding: 1.5em 0; margin: 0 15px; border-bottom: 1px solid #888; position: relative; }

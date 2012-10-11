@@ -4,11 +4,15 @@
 
 	<article class="entry">
 
-		<h1>404</h1>
+		<h1>Page not found</h1>
 
 		<div class="entry-content">
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'twentyeleven' ); ?></p>
+			<p>We can&rsquo;t seem to find what you&rsquo;re looking for. Try searching, or maybe one of the links below can&nbsp;help.</p>
+
+			<div class="404-search">
+				<?php get_search_form(); ?>
+			</div>
 
 			<?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 10 ), array( 'widget_id' => '404' ) ); ?>
 
