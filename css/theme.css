@@ -89,7 +89,8 @@
   	.pagination-container a:hover				{ background: #FFF; border-color: #333; color: #333;  }
 
   	.pagination-container .current,
-  	.pagination-container .active				{ background: #ECECEC; border-color: #AAA; color: #AAA; }
+  	.pagination-container .active,
+  	.singular-pagination > span 				{ background: #ECECEC; border-color: #AAA; color: #AAA; }
 
 	.pagination-container ul,
 	.pagination-container ol 					{ margin: 0; }
