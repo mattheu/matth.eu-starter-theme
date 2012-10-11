@@ -13,11 +13,11 @@
 			while ( have_posts() ) {
 
 				the_post();
-				get_template_part( 'parts/loop-grid');
+				get_template_part( 'river/river-grid');
 
 			}
 
-			get_template_part( 'nav', 'pagination' );
+			get_template_part( 'parts/nav', 'pagination' );
 
 		?>
 

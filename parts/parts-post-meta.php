@@ -8,7 +8,7 @@
 					esc_url( get_permalink() ),
 					esc_attr( get_the_time() ),
 					esc_attr( get_the_date( 'c' ) ),
-					esc_html( ( ! is_main_query() || ( is_main_query() && is_singular() ) ) ? get_the_date() : human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago' ),
+					esc_html( ( get_the_time( 'U' ) < strtotime( '1 month ago' )|| ! is_main_query() || ( is_main_query() && is_singular() ) ) ? get_the_date() : human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago' ),
 					esc_html( get_the_date() )
 				);
 			?>
@@ -18,7 +18,7 @@
 			by <?php the_author_posts_link(); ?>
 		</span>
 		
-		<?php if( comments_open() || ! comments_open() && have_comments() ) : ?>
+		<?php if ( comments_open() || ! comments_open() && have_comments() ) : ?>
 			<span class="entry-author">
 				| <a href="<?php the_permalink(); ?>#comments">
 					<?php printf( _n( '1 Comment', '%1$s Comments', get_comments_number() ), number_format_i18n( get_comments_number() ) ); ?>

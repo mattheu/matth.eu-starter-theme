@@ -9,6 +9,6 @@
 			<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site_name'); ?></a></h1>
 			<div class="site-description"><?php bloginfo('description'); ?></div>
 
-			<?php get_template_part( 'nav-main' ); ?>
+			<?php get_template_part( 'parts/nav-main' ); ?>
 
 		</header>
