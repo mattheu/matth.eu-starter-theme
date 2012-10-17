@@ -10,7 +10,12 @@
 <?php if ( have_comments() ) : ?>
 
 	<h3 class="comments-title">
-		<?php printf( _n( 'One Response to %2$s', '%1$s Responses', get_comments_number() ),number_format_i18n( get_comments_number() ) ); ?>
+		<?php
+			printf( 
+				_n( 'One response to &ldquo;%2$s&rdquo;', '%1$s resposes  &ldquo;%2$s&rdquo;', get_comments_number(), 'twentyeleven' ),
+				number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' 
+			);
+		?>
 	</h3>
 
 <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
