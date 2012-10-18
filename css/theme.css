@@ -254,6 +254,9 @@
 	#wp-calendar a:link,
 	.widget_calendar a:link						{ text-decoration: underline; }
 
+	.widget.author-profile .avatar				{ float: left; margin-right: 30px; margin-bottom: .75em; border: 1px solid #888; padding: 4px; max-width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;  }
+
+
 
 /**
  *	Site Footer
@@ -342,7 +345,7 @@
 	.attachment-small									{ width: 160px; }
 	.attachment-medium,
 	.size-medium,
-	.attachment-medium-crop						{ width: 220px; }
+	.attachment-medium-crop						{ width: 180px; }
 	.size-large,
 	.attachment-large							{ width: 460px; }
 
@@ -380,6 +383,8 @@
 	.secondary-content ul ul					{ margin-left: 20px; }
 	.secondary-content .content-box				{ margin-left: 10px; margin-right: 10px; padding: 0.75em 10px; }
 	.secondary-content .widget-area:first-child { padding-top: 0.75em; }
+
+	.widget.author-profile .avatar				{ width: 100px; height: auto; margin-right: 20px; }
 
 	.grid_test									{ margin: 0 10px; }
 
@@ -451,6 +456,8 @@
 
 	.entry:last-child							{ border-bottom: 1px solid #888; }
 
+
+
 	/* Comments */
 
 	/*
@@ -521,6 +528,7 @@
 	#wpadminbar #wp-admin-bar-my-account > a			{ text-indent: -99999px; }
 	#wpadminbar #wp-admin-bar-my-account > a > img 		{ position: absolute; top: 8px; left: 10px; margin-left: 0 !important; }
 
+	.widget.author-profile .avatar				{ width: 27.536231884%; margin-right: 4.166666667%; }
 
  }
 
@@ -542,6 +550,7 @@
 
  	.secondary-content 							{ width: 100%; margin-left: 0%; margin-right: 0%; }
  	.secondary-content aside 					{ width: 96%;}
+	.widget.author-profile .avatar				{ width: 30.555555556%; margin-right: 4.166666667%; }
 
 }
 
