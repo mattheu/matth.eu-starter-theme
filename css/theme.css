@@ -150,27 +150,27 @@
 	.site-header 								{ margin: 0 15px; padding-top: 1.5em; border-bottom: 1px solid #888;}
 	.site-header .site-description				{ margin-bottom: 1.5em; }
 
-	.site-header .menu							{ border-top: 1px solid #888; }
-	.site-header .menu ul						{ margin: 0; }
-	.site-header .menu li						{ position: relative; display: inline-block; }
+	.main-menu .menu							{ border-top: 1px solid #888; }
+	.main-menu .menu ul						{ margin: 0; }
+	.main-menu .menu li						{ position: relative; display: inline-block; }
 
-	.site-header .menu li a						{ position: relative; display: block; padding: 0.75em 15px; }
-	.site-header .menu li:first-child a			{ padding-left: 0; }
+	.main-menu .menu li a						{ position: relative; display: block; padding: 0.75em 15px; }
+	.main-menu .menu li:first-child a			{ padding-left: 0; }
 
-	.site-header .sub-menu						{ display: none; position: absolute; width: 130px; top: 100%; background: #FFF; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
-	.site-header li:hover>.sub-menu,
-	.site-header li:focus>.sub-menu,
-	.site-header .sub-menu li					{ display: block; }
+	.main-menu .sub-menu						{ display: none; position: absolute; width: 130px; top: 100%; background: #FFF; background: rgba(255,255,255,0.95); border: 1px solid #888; z-index: 100; }
+	.main-menu li:hover>.sub-menu,
+	.main-menu li:focus>.sub-menu,
+	.main-menu .sub-menu li					{ display: block; }
 
-	.site-header .menu li:hover > .sub-menu 	{ display: block; }
+	.main-menu .menu li:hover > .sub-menu 	{ display: block; }
 
-	.site-header .sub-menu a					{ border-bottom: 1px solid #888; }
-	.site-header .sub-menu li:first-child a 	{ padding-left: 15px; }
-	.site-header .sub-menu li:last-child a  	{ border: none; }
-	.site-header .sub-menu .sub-menu			{ top: -1px; left: 100%;  }
+	.main-menu .sub-menu a					{ border-bottom: 1px solid #888; }
+	.main-menu .sub-menu li:first-child a 	{ padding-left: 15px; }
+	.main-menu .sub-menu li:last-child a  	{ border: none; }
+	.main-menu .sub-menu .sub-menu			{ top: -1px; left: 100%;  }
 
-	.ie7 .site-header .menu li					{ display: inline; zoom: 1; }
-	.ie7 .site-header .sub-menu li				{ display:list-item; vertical-align: top; margin-left: -16px !important; }
+	.ie7 .main-menu .menu li					{ display: inline; zoom: 1; }
+	.ie7 .main-menu .sub-menu li				{ display:list-item; vertical-align: top; margin-left: -16px !important; }
 
 
 /**
@@ -520,6 +520,7 @@
 	#wpadminbar #wp-admin-bar-my-account				{ width: 36px; }
 	#wpadminbar #wp-admin-bar-my-account > a			{ text-indent: -99999px; }
 	#wpadminbar #wp-admin-bar-my-account > a > img 		{ position: absolute; top: 8px; left: 10px; margin-left: 0 !important; }
+
 
  }
 
