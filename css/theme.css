@@ -111,9 +111,9 @@
  * Gallery
  */
 
-.gallery { clear: both; }
-.gallery dl { width: 130px; display: inline-block; vertical-align: top; margin: 0 15px 1.5em; }
-.gallery br { display: none; }
+	.gallery, .gallery.grid { clear: both; margin-top: 1.5em; }
+	.gallery dl { width: 130px; display: inline-block; vertical-align: top; margin: 0 15px 1.5em; }
+	.gallery br { display: none; }
 
 
 /**
@@ -185,6 +185,7 @@
 
 	.entry .entry-title							{ margin: 0 0 .75em; }
 	.entry .entry-thumb							{ float: left; margin: 0 30px 0.75em 0; }
+	.entry .entry-thumb.full					{ float: none; clear: both; margin-right: 0; }
 	.entry .entry-thumb	a						{ display: block; vertical-align: top;  }
 	.entry .entry-thumb img						{ vertical-align: top; }
 
