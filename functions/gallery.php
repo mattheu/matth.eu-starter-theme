@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 add_filter( 'post_gallery', 'mtf_gallery_shortcode', 10, 2 );
 
@@ -94,7 +94,7 @@ function mtf_gallery_shortcode( $null, $attr ) {
 
 	$i = 0;
 	foreach ( $attachments as $id => $attachment ) {
-	
+
 		if ( get_post_thumbnail_id( get_the_ID() ) == $id )
 			continue;
 
@@ -131,8 +131,9 @@ function mtf_wp_get_attachment_link( $id = 0, $size = 'thumbnail', $permalink = 
 	if ( empty( $_post ) || ( 'attachment' != $_post->post_type ) || ! $url = wp_get_attachment_url( $_post->ID ) )
 		return __( 'Missing Attachment' );
 
+	// Max image size.
 	if ( $permalink )
-		$url = get_attachment_link( $_post->ID );
+		$url = reset( wp_get_attachment_image_src( $_post->ID, array( 1500, 1500 ) ) );
 
 	$post_title = esc_attr( $_post->post_title );
 
