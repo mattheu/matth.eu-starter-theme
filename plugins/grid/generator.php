@@ -36,6 +36,8 @@
 			'col_padding' => 1
 	);
 
+	$grid = apply_filters( 'mph_grid', $grid );
+
 ?>
 
 /**
@@ -50,7 +52,7 @@
 
 	#grid_overlay div:first-child			{ border-left: none; none; margin-left: 0; }
 	#grid_overlay div:last-child			{ border-right: none; none; margin-right: 0; }
-	
+
 	#grid_overlay div span					{ display: block; height: 100%; background: rgba(255,0,0,0.15); border-right: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.18); }
 	#grid_close								{ position: absolute; top: 0.75em; right: 10px; background: #FFF; border: 1px solid #000; padding: 0.375em 10px; opacity: 0.5; pointer-events: auto;  }
 
@@ -71,9 +73,9 @@
 		?>
 
 		<?php if ( 'default' != $break['break-point'] ) : ?>
-		
+
  		    @media all and ( <?php echo $break['break-point']; ?> ) {
-		
+
 		<?php endif; ?>
 
 			<?php if ( 'px' == $break['unit'] ) : ?>
@@ -83,14 +85,14 @@
 					padding: 0 <?php echo ( $gutter / 2 ) . $unit; ?>;
 					margin-left: -<?php echo ( ( $total_width + $gutter ) / 2 ) . $unit; ?>;
 				}
-				
+
 				#grid_overlay div {
 					width: <?php echo ( $col_width + $gutter ) . $unit; ?>;
-					border-width: 0 <?php echo ( 0 != $break['col_padding'] ) ? ( $break['gutter'] / 2 ) : 0; ?>px; 
+					border-width: 0 <?php echo ( 0 != $break['col_padding'] ) ? ( $break['gutter'] / 2 ) : 0; ?>px;
 					margin: 0 -<?php echo ( 0 != $break['col_padding'] ) ? ( $break['gutter'] / 2 ) : 0; ?>px;
-					
+
 				}
-				
+
 				#grid_overlay div span {
 					display: block;
 					margin: 0 <?php echo ( $gutter / 2 ) . $unit; ?>;
@@ -98,20 +100,20 @@
 				}
 
 			<?php elseif ( '%' == $break['unit'] ) : ?>
-		
+
 				#grid_overlay {
 					width: <?php echo $total_width . $unit; ?>;
 					padding: 0;
 					margin-left: <?php echo ( ( 100 - $total_width ) / 2 ) . $unit; ?>;
 					left: 0;
 				}
-				
+
 				#grid_overlay div {
 					width: <?php echo ( $col_width + $gutter ) . $unit; ?>;
-					border-width: 0; 
+					border-width: 0;
 					margin: 0;
 				}
-				
+
 				#grid_overlay div span {
 					display: block;
 					margin: 0 <?php echo ( ( $gutter / 2 ) / ( ( ( $col_width + $gutter ) ) / 100 ) ) . $unit; ?>;
@@ -120,9 +122,9 @@
 			<?php endif; ?>
 
 		<?php if ( 'default' != $break['break-point'] ) : ?>
-		
+
 			}
-		
+
 		<?php endif; ?>
 
 	<?php
