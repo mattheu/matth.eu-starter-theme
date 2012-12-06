@@ -90,7 +90,6 @@ function mtf_register_assets() {
     wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css', array( 'mtf_reset', 'mtf_type' ), $version );
     wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/css/theme.css', array( 'mtf_reset', 'mtf_type', 'mtf_forms' ), $version );
 
-
 }
 add_action( 'init', 'mtf_register_assets' );
 
