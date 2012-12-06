@@ -422,10 +422,13 @@
 
 	.attachment-thumbnail,
 	.size-thumbnail,
-	.attachment-small									{ width: 34.721875%;  margin-right: 4.166666667%; padding: 1%; }
+	.attachment-small									{ width: 34.721875%; padding: 1%; }
 	.attachment-medium,
 	.size-medium,
 	.attachment-medium-crop						{ width: 48%; padding: 1%; }
+
+	.alignright { margin-left: 4.166666667%; }
+	.alignleft { margin-right: 4.166666667%; }
 
 	.gallery dl { width: 29.3333333337%; margin-left: 2%; margin-right: 2%;}
 	.gallery dl img { width: 100%; }
