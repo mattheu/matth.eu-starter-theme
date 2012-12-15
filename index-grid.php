@@ -13,7 +13,7 @@
 			while ( have_posts() ) {
 
 				the_post();
-				get_template_part( 'river/river-grid');
+				get_template_part( 'river/single-grid');
 
 			}
 

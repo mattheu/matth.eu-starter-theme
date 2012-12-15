@@ -8,7 +8,7 @@ get_header();
 
 	<?php
 
-	get_template_part( 'river/river-header' );
+	get_template_part( 'river/single-header' );
 
 	if ( have_posts() ) {
 
@@ -18,11 +18,11 @@ get_header();
 
 			if ( $post_format = get_post_format() )
 
-				get_template_part( 'river/river', $post_format );
+				get_template_part( 'river/single', $post_format );
 
 			else
 
-				get_template_part( 'river/river', get_post_type() );
+				get_template_part( 'river/single', get_post_type() );
 
 		}
 
@@ -30,7 +30,7 @@ get_header();
 
 	} else {
 
-		get_template_part( 'river/river-no-results' );
+		get_template_part( 'river/single-no-results' );
 
 	}
 
