@@ -43,8 +43,11 @@
 	.clearfix 									{ zoom:1; }
 
  	/* Type */
-  	blockquote									{ font-weight: 300; }
+  	blockquote,
+  	.lead-text									{ font-weight: 300; }
   	pre											{ border-top: 1px solid #888; border-bottom: 1px solid #888; padding: 1.5em 15px; margin: 1.5em 0; height: auto; max-width: 100%; box-sizing: border-box; }
+
+  	.lead-text 									{ margin-left: 0; padding-left: 0; border: none; }
 
 	.description								{ font-style: italic; color: #888;  }
 
@@ -263,9 +266,9 @@
  *	Site Footer
  */
 
-	.site-footer								{ color: #999; clear: both; margin: 3em 15px 0; padding: 0.75em 0 2.25em; }
+	.site-footer								{ color: #888; clear: both; margin: 3em 15px 0; padding: 0.75em 0 2.25em; }
 	.site-footer a:link,
-	.site-footer a:visited 						{ color: #999; }
+	.site-footer a:visited 						{ color: inherit; }
 
 
 /**

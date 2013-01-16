@@ -55,7 +55,8 @@ strong,
 b						{ font-weight: bold; }
 em						{ font-style: italic;}
 
-blockquote				{ font-size: 1.25em;		line-height:1.6em;		margin: 0 30px 0.8em 15px;   padding-left: 14px; 	border-left: 1px solid #666;	font-style: italic;  }
+blockquote,
+.lead-text				{ font-size: 1.25em;		line-height:1.6em;		margin: 0 30px 0.8em 15px;   padding-left: 14px; 	border-left: 1px solid #666;	font-style: italic;  }
 
 pre, code, kbd, samp 	{ font-family: monospace, sans-serif; }
 pre 					{ padding: 1.5em 20px; margin-bottom: 0.75em; white-space: pre; white-space: pre-wrap; /* white-space: pre-line; CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word;  }
