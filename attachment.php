@@ -6,9 +6,23 @@
 
 	<article <?php post_class( array( 'entry' ) ); ?>>
 
-    	<?php echo wp_get_attachment_image( get_the_id(), 'full' ); ?>
+		<?php if ( wp_attachment_is_image( get_the_ID() ) ) : ?>
+			<figure class="entry-thumb full">
+				<?php echo wp_get_attachment_image( get_the_id(), 'large' ); ?>
+			</figure>
+		<?php endif; ?>
 
-    	<?php the_content(); ?>
+		<header class="entry-header">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
+
+		<?php if ( ! wp_attachment_is_image( get_the_ID() ) ) : ?>
+			<p class="download-link"><a href="<?php echo wp_get_attachment_url( get_the_id() ); ?>"> Download <?php echo basename( wp_get_attachment_url( get_the_id() ) ) ?></a></p>
+		<?php endif; ?>
+
+		<div class="attachment-excerpt lead-text"><?php the_excerpt(); ?></div>
+
+		<div><?php the_content(); ?></div>
 
 	</article>
 
