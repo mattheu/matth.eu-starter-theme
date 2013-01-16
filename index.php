@@ -4,38 +4,41 @@ get_header();
 
 ?>
 
-<section class="primary-content entries">
+<section class="primary-content">
 
-	<?php
+	<?php get_template_part( 'river/single-header' ); ?>
 
-	get_template_part( 'river/single-header' );
+	<div class="entries">
 
-	if ( have_posts() ) {
+		<?php
 
-		while ( have_posts() ) {
+		if ( have_posts() ) {
 
-			the_post();
+			while ( have_posts() ) {
 
-			if ( $post_format = get_post_format() )
+				the_post();
 
-				get_template_part( 'river/single', $post_format );
+				if ( $post_format = get_post_format() )
 
-			else
+					get_template_part( 'river/single', $post_format );
 
-				get_template_part( 'river/single', get_post_type() );
+				else
+
+					get_template_part( 'river/single', get_post_type() );
+
+			}
+
+		} else {
+
+			get_template_part( 'river/single-no-results' );
 
 		}
 
-		get_template_part( 'parts/nav', 'pagination' );
+		?>
 
-	} else {
+	</div>
 
-		get_template_part( 'river/single-no-results' );
-
-	}
-
-	?>
-
+	<?php get_template_part( 'parts/nav', 'pagination' ); ?>
 </section><!-- / .primary-content -->
 
 <?php
