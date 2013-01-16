@@ -238,6 +238,7 @@
 	.secondary-content .widget-area:first-child { padding-top: 1.5em; }
 	.secondary-content ul 						{ margin-left: 20px; margin-right: 10px; }
 
+	.secondary-content a 						{ color: inherit; }
 
 	.secondary-content h1,
 	.secondary-content h2,
