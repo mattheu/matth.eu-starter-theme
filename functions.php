@@ -6,13 +6,12 @@ define( 'MPH_THEME_NAME', basename( dirname( __FILE__ ) ) );
  *	More Functions & Plugins.
  */
 get_template_part( 'updates/updates', 'core' );
-
 get_template_part( 'functions/functions-comments' );
 get_template_part( 'functions/functions-image_caption' );
 get_template_part( 'functions/functions-thumbnail_link' );
 get_template_part( 'functions/functions-user-contact-methods' );
 get_template_part( 'functions/gallery' );
-
+get_template_part( 'widgets/about' );
 get_template_part( 'plugins/grid/grid' );
 
 
@@ -22,6 +21,9 @@ get_template_part( 'plugins/grid/grid' );
  *  @return null
  */
 function mtf_setup() {
+
+	if ( get_option( 'link_manager_enabled' ) )
+    	update_option( 'link_manager_enabled', false );
 
 	register_nav_menus(
 		array(
@@ -203,4 +205,4 @@ add_filter( 'category_template', 'mtf_grid_template' );
 add_filter( 'single_template', 'mtf_grid_template' );
 
 
-add_filter( 'use_default_gallery_style', create_function( null, 'return false;' ) );
+add_filter( 'use_default_gallery_style', '__return_false' );

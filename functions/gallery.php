@@ -15,8 +15,6 @@ add_filter( 'post_gallery', 'mtf_gallery_shortcode', 10, 2 );
  */
 function mtf_gallery_shortcode( $null, $attr ) {
 
-	$post = get_post();
-
 	static $instance = 0;
 	$instance++;
 
@@ -35,7 +33,7 @@ function mtf_gallery_shortcode( $null, $attr ) {
 	extract(shortcode_atts(array(
 		'order'      => 'ASC',
 		'orderby'    => 'menu_order ID',
-		'id'         => $post->ID,
+		'id'         => get_the_id(),
 		'itemtag'    => 'dl',
 		'icontag'    => 'dt',
 		'captiontag' => 'dd',

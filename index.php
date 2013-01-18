@@ -10,35 +10,39 @@ get_header();
 
 	<div class="entries">
 
-		<?php
+	<?php
 
-		if ( have_posts() ) {
+	if ( have_posts() ) {
 
-			while ( have_posts() ) {
+		while ( have_posts() ) {
 
-				the_post();
+			the_post();
 
-				if ( $post_format = get_post_format() )
+			if ( is_search() )
+				get_template_part( 'river/river-search' );
 
-					get_template_part( 'river/single', $post_format );
+			elseif ( $post_format = get_post_format() )
+				get_template_part( 'river/single', $post_format );
 
-				else
-
-					get_template_part( 'river/single', get_post_type() );
-
-			}
-
-		} else {
-
-			get_template_part( 'river/single-no-results' );
+			else
+				get_template_part( 'river/single', get_post_type() );
 
 		}
 
-		?>
+		get_template_part( 'parts/nav', 'pagination' );
+
+	} else {
+
+		get_template_part( 'river/single-no-results' );
+
+	}
+
+	?>
 
 	</div>
 
 	<?php get_template_part( 'parts/nav', 'pagination' ); ?>
+
 </section><!-- / .primary-content -->
 
 <?php

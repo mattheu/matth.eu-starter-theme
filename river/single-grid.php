@@ -2,12 +2,12 @@
 
 	<?php if ( has_post_thumbnail() ) : ?>
 
-   		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
-		<h3 class="entry-title delta"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+   		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'small' ); ?></a>
+		<h2 class="entry-title epsilon"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 	<?php else : ?>
 
-		<h3 class="entry-title delta"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<h2 class="entry-title epsilon"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php the_excerpt(); ?>
 
 	<?php endif; ?>
