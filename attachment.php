@@ -1,35 +1,46 @@
-<?php get_header();  ?>
+<?php
 
-<?php while ( have_posts() ) : the_post();  ?>
+get_header();
 
-<section class="primary-content entries">
+the_post();
 
-	<article <?php post_class( array( 'entry' ) ); ?>>
+?>
 
-		<?php if ( wp_attachment_is_image( get_the_ID() ) ) : ?>
-			<figure class="entry-thumb full">
-				<?php echo wp_get_attachment_image( get_the_id(), 'large' ); ?>
-			</figure>
-		<?php endif; ?>
 
-		<header class="entry-header">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-		</header>
+<div class="row">
 
-		<?php if ( ! wp_attachment_is_image( get_the_ID() ) ) : ?>
-			<p class="download-link"><a href="<?php echo wp_get_attachment_url( get_the_id() ); ?>"> Download <?php echo basename( wp_get_attachment_url( get_the_id() ) ) ?></a></p>
-		<?php endif; ?>
+	<section class="primary-content grid8">
 
-		<div class="attachment-excerpt lead-text"><?php the_excerpt(); ?></div>
+		<article <?php post_class( array( 'entry' ) ); ?>>
 
-		<div><?php the_content(); ?></div>
+			<?php if ( wp_attachment_is_image( get_the_ID() ) ) : ?>
+				<figure class="entry-thumb full">
+					<?php echo wp_get_attachment_image( get_the_id(), 'large' ); ?>
+				</figure>
+			<?php endif; ?>
 
-	</article>
+			<header class="entry-header">
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			</header>
 
-</section>
+			<?php if ( ! wp_attachment_is_image( get_the_ID() ) ) : ?>
+				<p class="download-link"><a href="<?php echo wp_get_attachment_url( get_the_id() ); ?>"> Download <?php echo basename( wp_get_attachment_url( get_the_id() ) ) ?></a></p>
+			<?php endif; ?>
+
+			<div class="attachment-excerpt lead-text"><?php the_excerpt(); ?></div>
+
+			<div><?php the_content(); ?></div>
+
+		</article>
+
+	</section>
 
 <?php endwhile; ?>
 
-<?php get_sidebar(); ?>
+	<section class="secondary-content grid4" role="complementary">
+		<?php get_sidebar(); ?>
+	</section><!-- .secondary-content .widget-area -->
+
+</div>
 
 <?php get_footer(); ?>

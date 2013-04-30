@@ -1,0 +1,23 @@
+$bg-color-body: #F5F5F5;
+$bg-color-wrap: #FFF;
+
+$base-font-size: 1; // REM
+$base-line-height: 1.5; // REM
+$base-font-family: "Helvetica Neue", "helvetica", 'arial', sans-serif;;
+
+$secondary-font-size: .875;
+
+$grid-col-count: 12;
+$grid-col-gutter: 1;
+$grid-col-gutter-narrow: $grid-col-gutter;
+
+$border-color-lt: #EEE;
+$border-color-dk: #888;
+
+@import "css3-mixins.scss";
+@import "helpers.scss";
+@import "type.scss";
+@import "grid.scss";
+@import "forms.scss";
+@import "generic.scss";
+@import "layout.scss";

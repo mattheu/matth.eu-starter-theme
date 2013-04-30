@@ -1,0 +1,2 @@
+// remap jQuery to $
+(function(e){e(document).ready(function(){e("#commentform #submit").addClass("btn");e(".gallery-size-large").addClass("flexslider").flexslider({animation:"slide",selector:".row > .gallery-item"})})})(this.jQuery);

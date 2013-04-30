@@ -23,7 +23,7 @@ get_template_part( 'plugins/grid/grid' );
 function mtf_setup() {
 
 	if ( get_option( 'link_manager_enabled' ) )
-    	update_option( 'link_manager_enabled', false );
+		update_option( 'link_manager_enabled', false );
 
 	register_nav_menus(
 		array(
@@ -41,9 +41,15 @@ function mtf_setup() {
 		'after_title' => '</h1>',
 	) );
 
-	//add_image_size( 'small', 210, 160, true)
+	add_theme_support( 'structured-post-formats', array(
+		'image', 'gallery', 'video', 'audio'
+	) );
+	
+	// 'aside', 'audio', 'chat', 'gallery', 'image', 'quote', 'status'
+	add_theme_support( 'post-formats', array(
+		'image', 'gallery', 'video', 'audio', 'quote'
+	) );
 
-	add_theme_support( 'post-formats', array( 'image', 'link', 'video', 'gallery' ) );
 	add_theme_support( 'post-thumbnails' );
 
 	// Add default posts and comments RSS feed links to head
@@ -52,9 +58,13 @@ function mtf_setup() {
 	//Remove some unused stuff from the head.
 	remove_action('wp_head', 'wlwmanifest_link');
 
-}
-add_action( 'after_setup_theme', 'mtf_setup' );
+	add_filter( 'use_default_gallery_style', '__return_false' );
 
+}
+add_action( 'init', 'mtf_setup' );
+
+// WPThumb features
+add_theme_support( 'wpthumb-crop-from-position' );
 
 /**
  *	Register all assets
@@ -76,21 +86,20 @@ function mtf_register_assets() {
 		$version = $theme['Version'];
 	}
 
-	//Libraries, plugins and other resources
-	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', get_bloginfo( 'template_directory' ) . '/js/libs/jquery.min.js', null, '1.7.1', true );
+	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
-	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/js/libs/modernizr-1.7.min.js', null, '1.7' );
+	// Scripts. Theme functions and behaviour
+	wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/assets/js/functions.js', array( 'jquery' ), $version, true );
+	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/js/theme.js', array( 'modernizr', 'jquery' ), $version, true );
 
-   	// Scripts. Theme functions and behaviour
-    wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/js/functions.js', array( 'jquery' ), $version, true );
-	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/js/theme.js', array( 'jquery' ), $version, true );
-
-    // Theme CSS
-    wp_register_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/css/reset.css', null, $version );
-    wp_register_style( 'mtf_type', get_bloginfo( 'template_directory' ) . '/css/type_14-21.css', array( 'mtf_reset' ), $version );
-    wp_register_style( 'mtf_forms', get_bloginfo( 'template_directory' ) . '/css/forms.css', array( 'mtf_reset', 'mtf_type' ), $version );
-    wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/css/theme.css', array( 'mtf_reset', 'mtf_type', 'mtf_forms' ), $version );
+	// Theme CSS
+	wp_register_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/assets/styles/reset.css', null, $version, 'all' );
+	wp_register_style( 'genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
+	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/styles/css/theme.css', array( 'mtf_reset' ), $version, 'all' );
+	
+	// Flexslider
+	wp_register_script( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/js/flexslider.min.js', array( 'jquery' ), $version, true );
+	wp_register_style( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/styles/flexslider.css', array( 'mtf_reset' ), $version, 'all' );
 
 }
 add_action( 'init', 'mtf_register_assets' );
@@ -103,7 +112,6 @@ add_action( 'init', 'mtf_register_assets' );
 function mtf_enqueue_assets() {
 
 	wp_enqueue_script( 'modernizr' );
-	wp_enqueue_script( 'jquery' );
 
 	// Theme Scripts
 	wp_enqueue_script( 'comment-reply' );
@@ -111,7 +119,11 @@ function mtf_enqueue_assets() {
 	wp_enqueue_script( 'mtf_theme' );
 
 	// Theme Styles
+	wp_enqueue_style( 'genericons' );
 	wp_enqueue_style( 'mtf_theme' );
+	
+	wp_enqueue_style( 'flexslider' );
+	wp_enqueue_script( 'flexslider' );
 
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
@@ -127,7 +139,7 @@ add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 function mtf_favicon() {
 	?>
 
-	<link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url(); ?>/wp-includes/images/wpmini-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/favicon.ico" />
 
 	<?php
 }
@@ -149,16 +161,15 @@ function mtf_excerpt_length( $length ) {
 
 	// Can adjust excerpt based on template file like this.
 	if ( in_array( basename( $template ), array( 'index-grid.php' ) ) )
-		return 25;
+		return 15;
 
 	if ( has_post_thumbnail() )
-		return 30;
+		return 20;
 
 	return 50;
 
 }
 add_filter( 'excerpt_length', 'mtf_excerpt_length' );
-
 
 /**
  *	Customize the excerpt read more link.
@@ -170,39 +181,58 @@ function mtf_excerpt_more_link( $more ) {
 }
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
 
-
-/**
- *	Hide update notice if not an admin.
- *
- *  @return null
- */
-function mtf_remove_update_nag() {
-
-	if ( ! current_user_can( 'manage_options' ) )
-		remove_action( 'admin_notices', 'update_nag', 3 );
-
-}
-add_action( 'admin_notices', 'mtf_remove_update_nag', 1 );
-
-
 /**
  *	Different category templates.
  *
  *	@param $template Path of template file
  *  @return null
- *	@todo - build some sort of UI/checkbox perhaps?
+ *	@todo - use query vars for this, not check get.
  */
 function mtf_grid_template ( $template ) {
 
+	//m( get_query_var( 'hello' ) );
+	global $wp_query;
+
 	// Portfolio category should use the grid template.
-	if( is_category( 'grid' ) )
+	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
 		return locate_template( 'index-grid.php', false );
 
 	return $template;
 
 }
-add_filter( 'category_template', 'mtf_grid_template' );
-add_filter( 'single_template', 'mtf_grid_template' );
+add_filter( 'template_include', 'mtf_grid_template' );
 
+/**
+ * Add custom query vars.
+ * 
+ * @param  WP_Query $query
+ * @return WP_Query $query
+ */
+function mtf_grid_query_var( $query ) {
 
-add_filter( 'use_default_gallery_style', '__return_false' );
+	if ( ! $query-> is_main_query() )
+		return;
+
+	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
+		$query->set( 'hello', 'world' );
+	
+	return $query;
+
+}
+add_filter( 'parse_query', 'mtf_grid_query_var' );
+
+/**
+ * Add custom post classes.
+ * 
+ * @param array $classes
+ * @return array $classes
+ */
+function mtf_post_class( $classes ) {
+
+	if ( has_post_thumbnail() )
+		$classes[] = 'has-thumbnail';
+
+	return $classes;
+	
+}
+add_filter( 'post_class', 'mtf_post_class' );

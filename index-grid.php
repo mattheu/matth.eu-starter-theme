@@ -1,32 +1,53 @@
-<?php
+<?php 
 
-	get_header();
+global $wp_query;
 
-	if ( have_posts() ) :
+get_header(); 
 
 ?>
 
-	<section class="primary-content entries grid no-sidebar">
+<div class="row">
 
-		<?php
+	<section class="primary-content grid-12">
 
-			while ( have_posts() ) {
+		<?php get_template_part( 'river/single-header' ); ?>
 
-				the_post();
-				get_template_part( 'river/single-grid');
+		<div class="entries entries-grid row">
+
+			<?php
+
+			if ( have_posts() ) {
+
+				while ( have_posts() ) {
+
+					the_post();
+
+					if ( $post_format = get_post_format() )
+						get_template_part( 'river/single-grid', $post_format );
+
+					else
+						get_template_part( 'river/single-grid', get_post_type() );
+					
+					// Add clear div after every row.
+					if ( 0 === ( $wp_query->current_post + 1 ) % 2 )
+						echo '<div class="clear"></div>';
+
+				}
+
+			} else {
+
+				get_template_part( 'river/single-no-results' );
 
 			}
 
-			get_template_part( 'parts/nav', 'pagination' );
+			?>
 
-		?>
+		</div>
+
+		<?php get_template_part( 'parts/nav', 'pagination' ); ?>
 
 	</section><!-- / .primary-content -->
 
-<?php
+</div>
 
-	endif;
-
-	get_footer();
-
-?>
+<?php get_footer(); ?>

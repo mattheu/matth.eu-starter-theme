@@ -1,55 +1,267 @@
 <?php
 
-/**
- * mtf_grid_admin_bar_button function.
- *
- * Grid Overlay Development Tool
- * Add the show grid button to the menu bar if the current user is admin.
- *
- * @access public
- * @return null
- */
-function mtf_grid_admin_bar_button() {
+add_action( 'wp_footer', function() {
 
-	if ( ! mtf_show_grid_for_all() && ( is_admin() || ! current_user_can( 'manage_options' ) ) )
+	if ( ! current_user_can( 'manage_options' ) )
 		return;
 
-	wp_enqueue_script( 'mtf_grid', get_bloginfo( 'template_directory' ) . '/plugins/grid/grid.js', 'jquery', '1.0', true );
+	?>
 
-}
-add_action( 'wp_enqueue_scripts', 'mtf_grid_admin_bar_button', 1000 );
+	<!-- <div id="grid-overlay-toggle" style="position: fixed; top: 10px; right: 10px; ">
+		<button id="tpp-grid-overlay-on" style="display: none;" class="btn">Show Grid</button>
+		<button id="tpp-grid-overlay-off" style="display: none;" class="btn">Hide Grid</button>
+	</div> -->
 
+	<div id="grid-overlay" style="display:none;">
+		<div class="wrap">
+		<div class="row show-grid">
+			<div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div><div class="grid-1"><div class="grid-content"></div></div>
+		</div>
 
-/**
- * The Grid Style
- *
- * Insert the grid style directly in the head.
- * A little hacky I'll admit, but its only for development.
- *
- * @access public
- * @return null
- */
-function mtf_grid_admin_bar_style() {
+		<div id="baseline-grid">
+			<div class="baseline-grid-row"></div>
+		</div>
 
-	if ( ! mtf_show_grid_for_all() && ( is_admin() || ! current_user_can( 'manage_options' ) ) )
-		return;
+		</div>
+	</div>
 
-	ob_start();	
-	include( 'generator.php' );
-	$style = ob_get_contents();
-	ob_end_clean();
+	<script type="text/javascript" >
+	
+		var mphGridOverlay = {
 
-	echo '<style>' . str_replace( array( "\t", "\n", "\r" ), '', $style ) . '</style>';
+			overlay : document.getElementById('grid-overlay'),
+			button  : document.createElement('a'),
+			
+			buttonTextOff  : 'Show Grid',
+			buttonTextOn  : 'Hide Grid',
 
-}
-add_action( 'wp_head', 'mtf_grid_admin_bar_style' );
+			insertButton : function() {
+				var button = this.button,
+				    adminBarContainer = document.getElementById( 'wp-admin-bar-top-secondary' ),
+				    li = document.createElement( 'li' );
 
+				if ( 'null' === typeof( adminBarContainer ) )
+					return;
 
-function mtf_show_grid_for_all() {
+				button.setAttribute( 'href', '#');
+				button.setAttribute('class', 'ab-item' );
 
-	if ( defined( 'MTF_SHOW_GRID_FOR_ALL' ) && MTF_SHOW_GRID_FOR_ALL )
-		return true;
+				button.appendChild( document.createTextNode( this.buttonTextOff ) );
+				li.appendChild( button );
+				adminBarContainer.appendChild( li );
+				li.style.width = button.offsetWidth + 'px';
+			},
 
-	return false;
+			toggleDisplay : function(e,el) {
+				this.overlay.style.display = ( this.overlay.style.display === 'block' ) ? 'none' : 'block';
+				this.button.innerHTML = '';
+				this.button.appendChild( 
+					document.createTextNode( ( this.overlay.style.display === 'block' ) ? this.buttonTextOff : this.buttonTextOn ) 
+				);
+			},
 
-}
+			/**
+			 * Add baseline rows until the screen is filled.
+			 * @return {[type]} [description]
+			 */
+			baselineFillRows : function() {
+
+				var baseLineGrid    = document.getElementById('baseline-grid'),
+					baseLineGridRow = baseLineGrid.getElementsByTagName('div');
+
+				// Get height.
+				this.overlay.style.display='block';
+				var baseLineGridRowHeight = baseLineGridRow[0].clientHeight;
+				this.overlay.style.display='none';
+
+				baseLineGrid.innerHTML = '';
+
+				for ( var i = 0; i < ( window.innerHeight / baseLineGridRowHeight ); i++ ) {
+					var newEl = document.createElement( 'div');
+					newEl.setAttribute('class', 'baseline-grid-row' );
+					baseLineGrid.appendChild( newEl );
+				}
+
+			},
+
+			init : function() {
+				
+				var self = this;
+				self.overlay.style.display = 'none';
+				self.insertButton();
+				self.button.addEventListener( 'click', function(e) { self.toggleDisplay.call( self, e, this ) } );
+				
+				this.baselineFillRows();
+			}
+
+		}
+
+		jQuery(document).ready( function() {
+
+			mphGridOverlay.init();
+
+		} );
+		
+
+		// new function() {
+
+		// 	var gridOverlay    = document.getElementById('grid-overlay'),
+		// 	    gridOverlayOn  = document.getElementById('tpp-grid-overlay-on'),
+		// 	    gridOverlayOff = document.getElementById('tpp-grid-overlay-off');
+
+	 //   		gridOverlayOn.style.display='block';
+		// 	gridOverlayOff.style.display='none';
+
+		// 	gridOverlayOn.addEventListener( 'click', function(){
+		// 		gridOverlay.style.display='block';
+		// 		gridOverlayOn.style.display='none';
+		// 		gridOverlayOff.style.display='block';
+		// 	});
+
+		// 	gridOverlayOff.addEventListener( 'click', function(){
+		// 		gridOverlay.style.display='none';
+		// 		gridOverlayOn.style.display='block';
+		// 		gridOverlayOff.style.display='none';
+		// 	} );
+
+		// 	// Baseline
+		// 	var baseLineGrid = document.getElementById('baseline-grid');
+		// 	var baseLineGridRow = baseLineGrid.getElementsByTagName('div');
+
+		// 	var fillRows = function() {
+
+		// 		// Get height.
+		// 		gridOverlay.style.display='block';
+		// 		var baseLineGridRowHeight = baseLineGridRow[0].clientHeight;
+		// 		gridOverlay.style.display='none';
+
+		// 		baseLineGrid.innerHTML = '';
+
+		// 		for ( var i = 0; i < ( window.innerHeight / baseLineGridRowHeight ); i++ ) {
+		// 			var newEl = document.createElement( 'div');
+		// 			console.log( newEl );
+		// 			newEl.setAttribute('class', 'baseline-grid-row' );
+		// 			baseLineGrid.appendChild( newEl );
+		// 		}
+
+		// 	}
+
+		// 	fillRows();
+
+		// }
+
+	</script>
+
+	<?php
+
+}, 20 );
+
+add_action( 'wp_footer', function() {
+
+	return;
+
+	?>
+
+	<div id="grid-demo" class="wrap" style="display:block;">
+
+		<div class="row show-grid">
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+			<div class="grid-1"><div class="grid-content">1</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-2"><div class="grid-content">2</div></div>
+			<div class="grid-2"><div class="grid-content">2</div></div>
+			<div class="grid-2"><div class="grid-content">2</div></div>
+			<div class="grid-6"><div class="grid-content">6</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-3"><div class="grid-content">3</div></div>
+			<div class="grid-4"><div class="grid-content">4</div></div>
+			<div class="grid-5"><div class="grid-content">5</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-8"><div class="grid-content">8</div></div>
+			<div class="grid-4"><div class="grid-content">4</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-7"><div class="grid-content">7</div></div>
+			<div class="grid-5"><div class="grid-content">5</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-9"><div class="grid-content">9</div></div>
+			<div class="grid-3"><div class="grid-content">3</div></div>
+		</div>
+		<div class="row show-grid">
+			<div class="grid-12"><div class="grid-content">12</div></div>
+		</div>
+
+		<div class="row show-grid">
+			<div class="grid-8">
+				<div class="row show-grid">
+					<div class="grid-8"><div class="grid-content">8</div></div>
+					<div class="grid-1"><div class="grid-content">1</div></div><div class="grid-2"><div class="grid-content">2</div></div><div class="grid-3"><div class="grid-content">3</div></div><div class="grid-1"><div class="grid-content">1</div></div><div class="grid-1"><div class="grid-content">1</div></div>
+				</div>
+			</div>
+			<div class="grid-4">
+				<div class="row show-grid">
+					<div class="grid-4"><div class="grid-content">4</div></div>
+					<div class="grid-1"><div class="grid-content">1</div></div><div class="grid-1"><div class="grid-content">1</div></div><div class="grid-2"><div class="grid-content">2</div></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row show-grid">
+			<div class="grid-8">
+				<div class="row show-grid">
+					<div class="grid-8"><div class="grid-content">8</div></div>
+					<div class="grid-1">
+						<div class="row show-grid">
+							<div class="grid-1"><div class="grid-content">1</div></div>
+							<div class="grid-1"><div class="grid-content">1</div></div>
+						</div>
+					</div>
+					<div class="grid-4">
+						<div class="row show-grid">
+							<div class="grid-4"><div class="grid-content">4</div></div>
+							<div class="grid-2"><div class="grid-content">2</div></div>
+							<div class="grid-2"><div class="grid-content">2</div></div>
+						</div>
+					</div>
+					<div class="grid-3">
+						<div class="row show-grid">
+							<div class="grid-3"><div class="grid-content">3</div></div>
+							<div class="grid-1"><div class="grid-content">1</div></div>
+							<div class="grid-2"><div class="grid-content">2</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-4">
+				<div class="grid48"><div class="grid-content">4</div></div>
+				<div class="row show-grid">
+					<div class="grid-1"><div class="grid-content">1</div></div>
+					<div class="grid-3"><div class="grid-content">3</div></div>
+					<div class="grid-4">
+						<div class="row show-grid">
+							<div class="grid-2"><div class="grid-content">2</div></div>
+							<div class="grid-2"><div class="grid-content">2</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php
+
+} );

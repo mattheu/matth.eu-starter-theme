@@ -6,26 +6,32 @@
 
 ?>
 
-<section class="primary-content entries">
+<div class="row">
 
-	<article <?php post_class( array( 'entry' ) ); ?>>
+	<section class="primary-content grid-8">
 
-		<header>
-		    <h1 class="entry-title"><?php the_title(); ?></h1>
-		</header>
+		<article <?php post_class( array( 'entry' ) ); ?>>
 
-	    <div class="entry-content">
-	        <?php the_content(); ?>
-	    </div>
+			<header class="entry-header">
 
-	</article><!-- / .article -->
+			    <h1 class="entry-title"><?php the_title(); ?></h1>
 
-</section><!-- / .primary-content -->
+			</header>
 
-<?php
+			<div class="entry-content">
 
-	get_sidebar();
+				<?php the_content(); ?>
 
-	get_footer();
+			</div>
+		
+		</article><!-- / .article -->
 
-?>
+	</section><!-- / .primary-content -->
+
+	<section class="sidebar grid-4" role="complementary">
+		<?php get_sidebar(); ?>
+	</section><!-- .secondary-content .widget-area -->
+
+</div>
+
+<?php get_footer(); ?>

@@ -1,52 +1,62 @@
 <?php
 
-get_header();
+// Grid view. - load grid template if grid view is set.
+// @todo best to hook in on parse template or something and handle this.
+// if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] ) {
+// 	get_template_part( 'index-grid' );
+// 	return;
+// }
 
 ?>
 
-<section class="primary-content">
 
-	<?php get_template_part( 'river/single-header' ); ?>
+<?php get_header(); ?>
 
-	<div class="entries">
+<div class="row">
 
-	<?php
+	<section class="primary-content grid-8">
 
-	if ( have_posts() ) {
+		<?php get_template_part( 'river/header' ); ?>
 
-		while ( have_posts() ) {
+		<div class="entries">
 
-			the_post();
+			<?php
 
-			if ( is_search() )
-				get_template_part( 'river/river-search' );
+			if ( have_posts() ) {
 
-			elseif ( $post_format = get_post_format() )
-				get_template_part( 'river/single', $post_format );
+				while ( have_posts() ) {
 
-			else
-				get_template_part( 'river/single', get_post_type() );
+					the_post();
+					
+					if ( is_search() )
+						get_template_part( 'river/river-search' );
 
-		}
+					elseif ( $post_format = get_post_format() )
+						get_template_part( 'river/single', $post_format );
 
-	} else {
+					else
+						get_template_part( 'river/single', get_post_type() );
 
-		get_template_part( 'river/single-no-results' );
+				}
 
-	}
+			} else {
 
-	?>
+				get_template_part( 'river/single-no-results' );
 
-	</div>
+			}
 
-	<?php get_template_part( 'parts/nav', 'pagination' ); ?>
+			?>
 
-</section><!-- / .primary-content -->
+		</div>
 
-<?php
+		<?php get_template_part( 'parts/nav', 'pagination' ); ?>
 
-get_sidebar();
+	</section><!-- / .primary-content -->
 
-get_footer();
+	<section class="sidebar grid-4" role="complementary">
+		<?php get_sidebar(); ?>
+	</section><!-- .secondary-content .widget-area -->
 
-?>
+</div>
+
+<?php get_footer(); ?>

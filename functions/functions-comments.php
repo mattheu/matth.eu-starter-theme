@@ -9,7 +9,7 @@ function mtf_comment( $comment, $args, $depth ) {
 
 	?>
 	<li <?php comment_class('clearfix'); ?> id="li-comment-<?php comment_ID(); ?>">
-		<div id="comment-<?php comment_ID(); ?>" data-authorname="<?php echo comment_author(); ?>">
+		<div id="comment-<?php comment_ID(); ?>" data-authorname="<?php echo comment_author(); ?>" class="row">
 
 			<div class="comment-info">
 				<?php echo get_avatar( $comment, 50 ); ?>
@@ -18,7 +18,7 @@ function mtf_comment( $comment, $args, $depth ) {
 			<div class="comment-body">
 
 				<div class="comment-header vcard">
-					<cite class="fn"><?php comment_author_link(); ?></cite> <span class="said"><?php echo _e( 'said' ); ?></span>
+					<b class="fn comment-author"><?php comment_author_link(); ?></b> <span class="said"><?php echo _e( 'said' ); ?></span>
 					<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<?php echo human_time_diff( get_comment_time('U'), current_time('timestamp') ) . ' ago'; ?>
 					</a>
@@ -51,25 +51,3 @@ function mtf_comment( $comment, $args, $depth ) {
 			break;
 	endswitch;
 }
-
-
-function mtf_coment_form_fields( $fields ) {
-	$commenter = wp_get_current_commenter();
-    $req = get_option( 'require_name_email' );
-    $aria_req = ( $req ? " aria-required='true'" : '' );
-    $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-                '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['email']  = '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-                '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['url']    = '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' .
-                '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
-    return $fields;
-}
-add_filter('comment_form_default_fields','mtf_coment_form_fields' );
-
-function mtf_coment_form_modifications( $defaults ) {
-    $defaults['comment_notes_after'] = ' ';
-    return $defaults;
-}
-add_filter( 'comment_form_defaults', 'mtf_coment_form_modifications' );
-

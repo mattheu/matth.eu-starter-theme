@@ -1,0 +1,31 @@
+// Helper Functions
+
+@function em( $EM ) {
+	@return #{$EM}em;
+}
+
+@function rem( $REM ) {
+	@return #{$REM}rem;
+}
+
+@function px( $REM ) {
+	@return #{$REM * 16}px;
+}
+
+
+// Helper Mixins
+
+@mixin clearfix() {
+	
+	zoom: 1;
+	clear: both;
+	
+	&:before,
+	&::after {
+		content: "";
+		display: table;
+	}
+	&::after {
+		clear: both;
+	}
+}

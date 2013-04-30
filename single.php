@@ -1,46 +1,37 @@
 <?php
-
+	
 	get_header();
 
 	the_post();
 
 ?>
 
-<section class="primary-content">
+<div class="row">
 
-	<article <?php post_class( array( 'entry' ) ); ?>>
+	<section class="primary-content grid-8">
 
-		<header class="entry-header">
-		    <h1 class="entry-title"><?php the_title(); ?></h1>
-		    <?php get_template_part( 'parts/parts-post-meta' ); ?>
-	    </header>
+		<article <?php post_class( array( 'entry' ) ); ?>>
 
-		<?php get_template_part( 'single/thumbnail' ); ?>
+		    <?php 
+		    
+			get_template_part( 'single/header' ); 
 
-	    <div class="entry-content">
-			<?php the_content(); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="singular-pagination pagination-container">', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-	    </div>
+		    get_template_part( 'single/content', get_post_format() );
 
-		<?php
-			$args = array(
-				'before' => '<div class="entry-taxonomies">',
-				'after' => '</div>',
-				'template' => '<div class="entry-taxonomy-terms"><strong>%s:</strong> %l.</div>'
-			);
-			the_taxonomies( $args );
-		?>
+		    get_template_part( 'parts/taxonomies' );
 
-		<?php comments_template(); ?>
+			comments_template(); 
 
-	</article><!-- / .article -->
+			?>
 
-</section><!-- / .primary-content -->
+		</article><!-- / .article -->
 
-<?php
+	</section><!-- / .primary-content -->
 
-	get_sidebar();
+	<section class="sidebar grid-4" role="complementary">
+		<?php get_sidebar(); ?>
+	</section><!-- .secondary-content .widget-area -->
 
-	get_footer();
+</div>
 
-?>
+<?php get_footer(); ?>

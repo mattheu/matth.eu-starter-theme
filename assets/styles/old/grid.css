@@ -1,0 +1,61 @@
+
+.wrap { width: 92%; margin: 0 auto; max-width: 1200px; }
+
+.row { margin: 0; clear: both; overflow: auto; } /* 2/92*100 */
+.row > [class*="grid"] { display: block; margin: 0; float: left; box-sizing: border-box; -moz-box-sizing: border-box; padding: 0 .75em; }
+.row > .grid1  { width: 8.333333333%; }
+.row > .grid2  { width: 16.666666667%; }
+.row > .grid3  { width: 25%; }
+.row > .grid4  { width: 33.333333333%; }
+.row > .grid5  { width: 41.666666667%; }
+.row > .grid6  { width: 50%; }
+.row > .grid7  { width: 58.333333333%; }
+.row > .grid8  { width: 66.666666667%; }
+.row > .grid9  { width: 75%; }
+.row > .grid10 { width: 83.333333333%; }
+.row > .grid11 { width: 91.666666667%; }
+.row > .grid12 { width: 100%; }
+
+.row .row { margin-left: -.75em; margin-right: -.75em; }
+
+/*target / parent*/
+
+.grid8 .row > .grid1  { width: 12.5%; } /* (100/12*1)/(100/12*8)*100 */
+.grid8 .row > .grid2  { width: 25%; }
+.grid8 .row > .grid3  { width: 37.5%; }
+.grid8 .row > .grid4  { width: 50%; }
+
+
+@media all and (max-width: 740px) {
+
+	.wrap { width: 90%; min-width: 300px; }
+
+	.row > [class*="grid"] {}
+	.row { margin: 0; }
+	.row > .grid1,
+	.row > .grid2 { width: 25% !important; }
+	.row > .grid3 { width: 50% !important; }
+	.row > .grid4,
+	.row > .grid5,
+	.row > .grid6,
+	.row > .grid7,
+	.row > .grid8,
+	.row > .grid9,
+	.row > .grid10,
+	.row > .grid11,
+	.row > .grid12 { width: 100% !important; }
+
+}
+
+/** Add class grid-demo to grid-content to display demo grids */
+#grid-demo { background: #EEE; }
+#grid-demo .row [class*="grid"] .grid-content { background: #DDD; text-align: center; margin-bottom: 1.5em; }
+
+/** Helper grid overlay. **/
+.admin-bar #grid-overlay-toggle { top: 38px !important; }
+
+#grid-overlay { position: fixed; top: 0; bottom: 0; left: 0; right: 0; pointer-events: none; overflow: hidden; }
+#grid-overlay .wrap { background: rgba(255,0,0,0.1); height: 100%; }
+#grid-overlay .row { height: 100%; overflow: hidden; }
+#grid-overlay .row.show-grid > [class*="grid"] { height: 100%; position: relative; bottom: 0; top: 0; }
+#grid-overlay .row.show-grid > [class*="grid"] .grid-content { background: rgba(255,0,0,0.1); height: 100%; position: relative; bottom: 0; top: 0; }

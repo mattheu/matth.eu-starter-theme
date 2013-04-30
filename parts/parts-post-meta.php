@@ -19,16 +19,16 @@
 		</span>
 		
 		<?php if ( comments_open() || ! comments_open() && have_comments() ) : ?>
-			<span class="entry-author">
+			<span class="entry-comments">
 				| <a href="<?php the_permalink(); ?>#comments">
-					<?php printf( _n( '1 Comment', '%1$s Comments', get_comments_number() ), number_format_i18n( get_comments_number() ) ); ?>
+					<?php printf( _n( '1&nbsp;Comment', '%1$s&nbsp;Comments', get_comments_number() ), number_format_i18n( get_comments_number() ) ); ?>
 				</a>
 			</span> 
 		<?php endif; ?>
 
 		<?php if ( ! is_main_query() || ( ! is_singular() && is_main_query() ) ) : ?>
 		<span class="entry-permalink">
-			| <a href="<?php the_permalink(); ?>">View Post</a>
+			| <a href="<?php the_permalink(); ?>">View&nbsp;Post</a>
 		</span>
 		<?php endif; ?>
 

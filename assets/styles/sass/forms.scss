@@ -1,0 +1,221 @@
+label { 
+	@include small;
+	display: inline-block;
+}
+
+input,
+textarea {
+
+	font-family: $base-font-family;
+	@include small;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid $border-color-lt;	
+	height: px( $base-line-height * 1.5 );
+	height: rem( $base-line-height * 1.5 );
+	margin: 0 0 px( $base-line-height / 2 ) 0;
+	margin: 0 0 rem( $base-line-height / 2 ) 0;
+	padding: px( $base-line-height / 4 ) 0;
+	padding: rem( $base-line-height / 4 ) 0;
+	text-indent: 9px;
+	position: relative;
+	border: 1px solid #aaa;
+	cursor: text;
+	overflow: hidden;
+	background-color: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1) inset;
+	width: 100%;
+	vertical-align: top;
+}
+
+textarea { 
+	height: auto; 
+	max-width: 100%;
+}
+
+// Input sizes.
+.medium-text { 
+	max-width: 300px; 
+}
+.small-text { 
+	max-width: 100px; 
+}
+.tiny-text { 
+	max-width: 50px; 
+}
+
+
+select {
+	margin-top: 11px;
+	margin-bottom: .75rem;
+}
+
+
+.form-row { 
+	
+	@include clearfix;
+	@include small;
+
+	margin: 0 -10px;
+	padding: rem( $base-line-height / 2 ) 10px 0 170px;
+	
+	&:first-child {
+		margin-top: rem( -1 * $base-line-height / 2 ); 
+	}
+
+}
+
+input[disabled] {
+
+	color: #AAA;
+	background: #EEE;
+	cursor: default;
+
+}
+
+// Validation.
+
+.form-row  {
+
+	label {
+		float: left;
+		width: 150px;
+		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
+		margin: rem( $base-line-height / 4 ) 10px rem( $base-line-height * 0.75 )  -160px;
+		// margin: .375rem 10px 1.125rem -160px;
+	}
+
+}
+
+.form-row-radio,
+.form-row-checkbox {
+	
+	label { 
+		width: auto; 
+		margin: 0 px( $grid-col-gutter ) 0 px( $grid-col-gutter / 2 ); 
+		margin: 0 rem( $grid-col-gutter ) 0 rem( $grid-col-gutter / 2 ); 
+	}
+	
+	input { 
+		margin-right: px( $grid-col-gutter / 4 ); 
+		margin-right: rem( $grid-col-gutter / 4 ); 
+		padding: 0; 
+		height: auto; 
+		width: auto; 
+		vertical-align: baseline;
+	}
+
+}
+
+.form-row-error { 
+	background: #FFDEDE;
+	input { 
+		border-color: #CC0000; 
+	}
+}
+
+// Buttons
+
+input[type="submit"],
+input[type="button"],
+button,
+.button {
+	
+	@include small;
+	font-family: $base-font-family;
+
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: px( $base-line-height * 1.5 );
+	height: rem( $base-line-height * 1.5 );
+	margin: 0 px( $grid-col-gutter / 2 ) px( $base-line-height / 2 ) 0;
+	margin: 0 rem( $grid-col-gutter / 2 ) rem( $base-line-height / 2 ) 0;
+	padding: px( $base-line-height / 4 ) 9px;
+	padding: rem( $base-line-height / 4 ) 9px;
+	position: relative;
+	overflow: hidden;
+	cursor: default;
+	border: 1px solid darken( $border-color-lt, 15 );	
+	color: #444;
+	background-color: #DDD;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	text-decoration: none; 
+	
+	text-indent: 0; 
+	vertical-align: top;
+
+	width: auto;	
+
+}
+
+.description { 
+	font-style: italic; 
+	color: #999; 
+}
+
+// WordPress default comment form.
+#commentform {
+
+	p {
+		@extend .form-row;
+	}
+
+	.comment-notes {
+		padding-left: 10px; 
+	}
+
+	.logged-in-as { 
+		padding-left: 10px; 
+		padding-bottom: px( $base-line-height / 2); 
+		padding-bottom: rem( $base-line-height / 2); 
+		margin-top: px( -1 * $base-line-height / 4 );  
+		margin-top: rem( -1 * $base-line-height / 4 );  
+	}
+
+	.form-allowed-tags {
+		padding-top: 0;
+	}
+
+	input[type="text"],
+	input[type="email"] {
+		@extend .medium-text;
+	}
+
+}
+
+#reply-title small { 
+	font-size: 1em;
+	line-height: inherit;
+	float: right;
+}
+
+@media all and ( max-width: 700px ) {
+
+	.form-row { 
+		padding-left: 10px;
+
+		label { 
+			margin-left: 0; 
+			margin-top: 0; 
+			margin-bottom: px( $base-line-height / 2 );
+			margin-bottom: rem( $base-line-height / 2 );
+			float: none;
+			display: block;
+		}
+
+
+		&.form-row-checkbox label,
+		&.form-row-radio label { display: inline-block; }
+
+		select { 
+			margin-top: px( $base-line-height / -2 );
+		}
+	}
+
+}
+
+
+.form-row-label {
+	@extend label;
+}

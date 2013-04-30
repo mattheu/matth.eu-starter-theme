@@ -1,0 +1,69 @@
+
+.wrap { width: 92%; margin: 0 auto; max-width: 1200px; }
+
+.row { margin: 0 -2.173913043%; clear: both; overflow: auto; } /* 2/92*100 */
+.row > [class*="grid"] { display: block; margin: 0 2.083333333%; float: left; } /* 2/(92+4)*100 */
+.row > .grid1  { width: 4.166666667%; } /* 1 * (100/12) - 2 * (2/96*100) */
+.row > .grid2  { width: 12.5%; }
+.row > .grid3  { width: 20.833333333%; }
+.row > .grid4  { width: 29.166333334%; }
+.row > .grid5  { width: 37.5%; }
+.row > .grid6  { width: 45.833333333%; }
+.row > .grid7  { width: 54.166666667%; }
+.row > .grid8  { width: 62.5%; }
+.row > .grid9  { width: 70.833333333%; }
+.row > .grid10 { width: 79.166666667%; }
+.row > .grid11 { width: 87.5%; }
+.row > .grid12 { width: 95.833333333%; }
+
+/** Nested grids within the grid8 module */
+.grid8 .row > [class*="grid"] { margin-left: 3.125%; margin-right: 3.125%; } /* 2.083333333 / (62.5+2*2.083333333) * 100 */
+.grid8 .row { margin: 0 -3.333333333%;} /* 2.083333333 / 62.5 * 100 */
+.grid8 .row > .grid1  { width: 6.250000001%; } /* 4.166666667 / (62.5+2*2.083333333) * 100 */
+.grid8 .row > .grid2  { width: 18.75%; }
+.grid8 .row > .grid3  { width: 31.25%; }
+.grid8 .row > .grid4  { width: 43.749500001%; }
+.grid8 .row > .grid5  { width: 56.250000001%; }
+.grid8 .row > .grid6  { width: 68.75%; }
+.grid8 .row > .grid7  { width: 81.250000001%; }
+.grid8 .row > .grid8,
+.grid8 .row > .grid9,
+.grid8 .row > .grid10,
+.grid8 .row > .grid11,
+.grid8 .row > .grid12 { width: 93.750000001%; }
+.grid8 .alignright { margin-left: 6.6666%; }
+.grid8 .alignleft { margin-right: 6.6666%; }
+
+@media all and (max-width: 740px) {
+
+	.wrap { width: 90%; min-width: 300px; }
+
+	.row > [class*="grid"] { margin-left: 2.083333333% !important; margin-right: 2.083333333% !important; }
+	.row { margin: 0 -2.173913043% !important;}
+	.row > .grid1,
+	.row > .grid2 { width: 20.833333333% !important; }
+	.row > .grid3 { width: 45.833333333% !important; }
+	.row > .grid4,
+	.row > .grid5,
+	.row > .grid6,
+	.row > .grid7,
+	.row > .grid8,
+	.row > .grid9,
+	.row > .grid10,
+	.row > .grid11,
+	.row > .grid12 { width: 95.833333333% !important; }
+
+}
+
+/** Add class grid-demo to container to display demo grids */
+#grid-demo { background: #EEE; }
+#grid-demo .row [class*="grid"] { background: #DDD; text-align: center; margin-bottom: 1.5em; }
+
+/** Helper grid overlay. **/
+.admin-bar #grid-overlay-toggle { top: 38px !important; }
+
+#grid-overlay { position: fixed; top: 0; bottom: 0; left: 0; right: 0; pointer-events: none; overflow: hidden; }
+#grid-overlay .wrap { background: rgba(255,0,0,0.1); height: 100%; }
+#grid-overlay .row { height: 100%; overflow: hidden; }
+#grid-overlay .row.show-grid > [class*="grid"] { background: rgba(255,0,0,0.1); height: 100%; position: relative; bottom: 0; top: 0; }
+
