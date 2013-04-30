@@ -29,8 +29,6 @@ get_header();
 
 		}
 
-		get_template_part( 'parts/nav', 'pagination' );
-
 	} else {
 
 		get_template_part( 'river/single-no-results' );
