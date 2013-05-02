@@ -11,8 +11,6 @@ textarea {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px solid $border-color-lt;	
-	height: px( $base-line-height * 1.5 );
-	height: rem( $base-line-height * 1.5 );
 	margin: 0 0 px( $base-line-height / 2 ) 0;
 	margin: 0 0 rem( $base-line-height / 2 ) 0;
 	padding: px( $base-line-height / 4 ) 0;
@@ -127,8 +125,6 @@ button,
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	height: px( $base-line-height * 1.5 );
-	height: rem( $base-line-height * 1.5 );
 	margin: 0 px( $grid-col-gutter / 2 ) px( $base-line-height / 2 ) 0;
 	margin: 0 rem( $grid-col-gutter / 2 ) rem( $base-line-height / 2 ) 0;
 	padding: px( $base-line-height / 4 ) 9px;
