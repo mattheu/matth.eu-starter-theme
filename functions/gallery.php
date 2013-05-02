@@ -34,7 +34,7 @@ add_filter( 'the_content', 'mph_the_gallery_strip' );
 
 function mph_format_gallery_args( $attr ) {
 	$attr['size'] = 'large';
-	return $attr;
+	return apply_filters( 'mph_format_gallery_args', $attr );
 }
 
 /**
