@@ -3,9 +3,9 @@
 		
 	<?php 
 
-			if ( function_exists( 'hm_pagination' ) ) :
-	
-			hm_pagination(); 
+		if ( function_exists( 'hm_pagination' ) ) :
+				
+			echo hm_get_pagination( null, null, null, array( 'prev_text' => '<i alt="f503" class="genericon genericon-leftarrow"></i>', 'next_text' => '<i alt="f503" class="genericon genericon-rightarrow"></i>' ) );
 	
 		else :
 	
