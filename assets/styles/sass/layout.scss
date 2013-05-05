@@ -390,7 +390,6 @@ body {
 
 	}
 	
-
 }
 
 .gallery {
@@ -398,7 +397,7 @@ body {
 	margin: rem( $base-line-height ) 0 0;
 	
 	img { 
-		width: 100%; 
+		width: 100% !important; 
 		vertical-align: top; 
 		top: 0;
 	}
