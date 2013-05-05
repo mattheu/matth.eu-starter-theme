@@ -1,3 +1,9 @@
+<?php
+
+if ( ! ( get_next_posts_link() || get_previous_posts_link() ) )
+	return;
+
+?>
 
 <nav class="pagination-container">
 		
