@@ -23,6 +23,6 @@
 		</a>
 	</h3>
 
-	<?php get_template_part( 'parts/parts-post-meta' ); ?>
+	<?php get_template_part( 'parts/post-meta' ); ?>
 
 </article><!-- / .article -->

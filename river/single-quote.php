@@ -30,6 +30,6 @@ $meta = get_post_format_meta( $post->ID );
 	endif;
 	?>
 
-	<?php get_template_part( 'parts/parts-post-meta' ); ?>
+	<?php get_template_part( 'parts/post-meta' ); ?>
 
 </article><!-- / .article -->
