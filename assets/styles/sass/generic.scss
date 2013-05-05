@@ -60,16 +60,19 @@
 		margin-left: rem( $grid-col-gutter * 2 );
 	}
 
-	&.size-large { 
+	&.size-large, 
+	&.attachment-large { 
 		width: 100%;
 	}
 	
-	&.size-medium { 
+	&.size-medium,
+	&.attachment-medium { 
 		width: 62.5%;
 		width: calc( .625 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
 	}
 
-	&.size-thumbnail { 
+	&.size-thumbnail,
+	&.attachment-thumbnail { 
 		width: .375%;
 		width: calc( .375 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
 	}	
@@ -77,6 +80,7 @@
 	@media all and ( max-width: 700px ) {
 
 		&.size-thumbnail,
+		&.attachment-thumbnail,
 		&.size-medium { 
 			width: 50%;
 			width: calc( .5 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
@@ -85,8 +89,6 @@
 	}
 
 }
-
-
 
 .search-form {
 
