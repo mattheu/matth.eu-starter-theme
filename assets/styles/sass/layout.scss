@@ -127,8 +127,6 @@ body {
 		
 		@extend img.size-large;
 		@extend img.aligncenter;
-		margin: 0 0 px( 1.5 ) 0;
-		margin: 0 0 rem( 1.5 ) 0;
 
 		iframe, object { 
 			vertical-align: top;
@@ -142,6 +140,8 @@ body {
 
 	.entry-post-format {
  		
+ 		@include clearfix;
+
  		img { 
 			vertical-align: top; 
 			margin-bottom: 0;
@@ -156,8 +156,8 @@ body {
 			margin-bottom:  rem( $base-line-height / -2 );
 		}
 
-		margin-bottom:  px( $base-line-height / 2 );
-		margin-bottom:  rem( $base-line-height / 2 );
+		margin-bottom:  px( $base-line-height );
+		margin-bottom:  rem( $base-line-height );
 
 	}
 
