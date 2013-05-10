@@ -73,7 +73,7 @@
 
 	&.size-thumbnail,
 	&.attachment-thumbnail { 
-		width: .375%;
+		width: 37.5%;
 		width: calc( .375 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
 	}	
 
