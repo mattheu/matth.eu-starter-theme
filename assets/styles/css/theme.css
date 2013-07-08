@@ -2885,10 +2885,10 @@ button,
     width: 62.5%;
     width: calc(.625 * ( 100% + 2rem ) - 2rem ); }
   .entry img.size-thumbnail, .entry .entry-thumb, .entry img.attachment-thumbnail {
-    width: .375%;
+    width: 37.5%;
     width: calc(.375 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .entry img.size-thumbnail, .entry .entry-thumb, .entry img.attachment-thumbnail, .entry img.size-medium {
+    .entry img.size-thumbnail, .entry .entry-thumb, .entry img.attachment-thumbnail, .entry img.size-medium, .entry img.attachment-medium {
       width: 50%;
       width: calc(.5 * ( 100% + 2rem ) - 2rem ); } }
 
