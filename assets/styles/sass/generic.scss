@@ -212,6 +212,40 @@
 		text-align: left;
 	}
 
+	a.prev,
+	a.next {
+
+		position: relative;
+  		line-height: .75rem;
+  		height: .75rem;
+  		width: .75rem;
+		vertical-align: top;
+		text-indent: -9999px;
+
+		&:after { 
+			font-family: 'Genericons';
+			text-indent: 0;
+			position: absolute;
+			height: 16px;
+			width: 16px;
+			top: 50%;
+			left: 50%;
+			margin-top: -6px;
+			margin-left: -8px;
+		}
+		
+		&.prev:after {
+			content: '\f503';
+			margin-left: -12px;
+		}
+		
+		&.next:after {
+			content: '\f501';
+			margin-left: -4px;
+		}
+
+	}
+
 }
 
 .ie7 .pagination-container span {
