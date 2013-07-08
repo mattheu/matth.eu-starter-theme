@@ -64,6 +64,30 @@ add_action( 'init', 'mtf_setup' );
 add_theme_support( 'wpthumb-crop-from-position' );
 
 /**
+ * Get the theme version.
+ * Return version defined in style.css
+ * 
+ * @return string version.
+ */
+function mtf_get_theme_version() {
+
+	if ( function_exists( 'wp_get_theme' ) ) {
+
+		$theme = wp_get_theme( MPH_THEME_NAME );
+		$version = $theme->version;
+	
+	} else {
+
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$version = $theme['Version'];
+	
+	}
+
+	return apply_filters( 'mtf_get_theme_version', $version );
+
+}
+
+/**
  *	Register all assets
  *
  *  @return null
@@ -74,14 +98,7 @@ function mtf_register_assets() {
 		return;
 
 	// Use the theme version for theme assets to bust cache when updating.
-
-	if ( function_exists( 'wp_get_theme' ) ) {
-		$theme = wp_get_theme( MPH_THEME_NAME );
-		$version = $theme->version;
-	} else {
-		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
-		$version = $theme['Version'];
-	}
+	$version = mtf_get_theme_version();
 
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
@@ -147,7 +164,7 @@ add_action( 'login_head', 'mtf_favicon' );
 
 /**
  * Filter the excerpt length.
- * Different lengths can be used in different places.
+ * Different lengths are used in different templates
  *
  * @param int $length
  * @return int
@@ -179,27 +196,10 @@ function mtf_excerpt_more_link( $more ) {
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
 
 /**
- *	Different category templates.
+ *	Grid view category templates.
  *
  *	@param $template Path of template file
  *  @return null
- *	@todo - use query vars for this, not check get.
- */
-function mtf_grid_template ( $template ) {
-
-	//m( get_query_var( 'hello' ) );
-	global $wp_query;
-
-	// Portfolio category should use the grid template.
-	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
-		return locate_template( 'index-grid.php', false );
-
-	return $template;
-
-}
-add_filter( 'template_include', 'mtf_grid_template' );
-
-/**
  * Add custom query vars.
  * 
  * @param  WP_Query $query
@@ -217,6 +217,22 @@ function mtf_grid_query_var( $query ) {
 
 }
 add_filter( 'parse_query', 'mtf_grid_query_var' );
+
+/**
+ *	@todo - use query vars for this, not check get.
+ */
+function mtf_grid_template ( $template ) {
+
+	global $wp_query;
+
+	// Portfolio category should use the grid template.
+	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
+		return locate_template( 'index-grid.php', false );
+
+	return $template;
+
+}
+add_filter( 'template_include', 'mtf_grid_template' );
 
 /**
  * Add custom post classes.
