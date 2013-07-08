@@ -8,7 +8,7 @@
 			</a>
 		</figure>
 	
-	<?php elseif ( $video = get_the_post_format_media( 'video' ) ) : ?>
+	<?php elseif ( function_exists( 'get_the_post_format_media' ) && $video = get_the_post_format_media( 'video' ) ) : ?>
 
 		<div class="entry-thumb">
 			<?php echo $video; ?>

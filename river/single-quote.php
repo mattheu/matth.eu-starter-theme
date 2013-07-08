@@ -1,5 +1,10 @@
 <?php 
 
+if ( ! function_exists( 'get_post_format_meta' ) ) {
+	get_template_part( 'river/single' );
+	return;
+}
+
 $meta = get_post_format_meta( $post->ID );
 
 ?>
@@ -25,10 +30,11 @@ $meta = get_post_format_meta( $post->ID );
 
 		</figure>
 
-	<?php else :
-		the_content();
-	endif;
-	?>
+	<?php else : ?>
+		
+		<?php the_content(); ?>
+	
+	<?php endif; ?>
 
 	<?php get_template_part( 'parts/post-meta' ); ?>
 
