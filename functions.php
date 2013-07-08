@@ -22,9 +22,6 @@ get_template_part( 'plugins/grid/grid' );
  */
 function mtf_setup() {
 
-	if ( get_option( 'link_manager_enabled' ) )
-		update_option( 'link_manager_enabled', false );
-
 	register_nav_menus(
 		array(
 		  'mtf_menu_main' => 'Main Menu',
