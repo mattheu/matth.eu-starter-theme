@@ -1,3 +1,47 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, .form-row-label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /* -------------------------------------------------------------
   Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
   By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
@@ -280,26 +324,6 @@ table tr:first-child td,
 table tr:first-child th {
   border-top: none; }
 
-tr:first-child td:first-child,
-tr:first-child th:first-child {
-  border-radius: 2px 0 0 0; }
-
-tr:first-child td:last-child,
-tr:first-child th:last-child {
-  border-radius: 0 2px 0 0; }
-
-tr:last-child td:first-child {
-  border-radius: 0 0 0 2px; }
-
-tr:last-child td:last-child {
-  border-radius: 0 0 2px 0; }
-
-tr:nth-child(even) td {
-  background: #FFFFFF; }
-
-tr:nth-child(odd) td {
-  background: #F5F5F5; }
-
 table thead tr:first-child th {
   border-bottom: 1px solid #eeeeee; }
 
@@ -314,8 +338,6 @@ caption {
   margin-bottom: 0.75em;
   font-weight: bold; }
 
-/*.row { letter-spacing: -0.29em; }
-.row > * { letter-spacing: normal; }*/
 small,
 nav,
 .site-footer {
@@ -2696,15 +2718,13 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid #eeeeee;
-  height: 36px;
-  height: 2.25rem;
   margin: 0 0 12px 0;
   margin: 0 0 0.75rem 0;
   padding: 6px 0;
   padding: 0.375rem 0;
   text-indent: 9px;
   position: relative;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   cursor: text;
   overflow: hidden;
   background-color: #FFF;
@@ -2788,8 +2808,6 @@ button,
   display: inline-block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height: 36px;
-  height: 2.25rem;
   margin: 0 8px 12px 0;
   margin: 0 0.5rem 0.75rem 0;
   padding: 6px 9px;
@@ -2861,14 +2879,18 @@ button,
     float: right;
     margin-left: 32px;
     margin-left: 2rem; }
-  .entry img.size-large, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb {
+  .entry img.size-large, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb, .entry img.attachment-large {
     width: 100%; }
-  .entry img.size-medium {
+  .entry img.size-medium, .entry img.attachment-medium {
     width: 62.5%;
     width: calc(.625 * ( 100% + 2rem ) - 2rem ); }
-  .entry img.size-thumbnail, .entry .entry-thumb {
-    width: .375%;
+  .entry img.size-thumbnail, .entry .entry-thumb, .entry img.attachment-thumbnail {
+    width: 37.5%;
     width: calc(.375 * ( 100% + 2rem ) - 2rem ); }
+  @media all and (max-width: 700px) {
+    .entry img.size-thumbnail, .entry .entry-thumb, .entry img.attachment-thumbnail, .entry img.size-medium, .entry img.attachment-medium {
+      width: 50%;
+      width: calc(.5 * ( 100% + 2rem ) - 2rem ); } }
 
 .search-form {
   zoom: 1;
@@ -2958,6 +2980,33 @@ button,
     text-align: right; }
   .pagination.left {
     text-align: left; }
+  .pagination a.prev,
+  .pagination a.next {
+    position: relative;
+    line-height: .75rem;
+    height: .75rem;
+    width: .75rem;
+    vertical-align: top;
+    text-indent: -9999px; }
+    .pagination a.prev:after,
+    .pagination a.next:after {
+      font-family: 'Genericons';
+      text-indent: 0;
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      top: 50%;
+      left: 50%;
+      margin-top: -6px;
+      margin-left: -8px; }
+    .pagination a.prev.prev:after,
+    .pagination a.next.prev:after {
+      content: '\f503';
+      margin-left: -12px; }
+    .pagination a.prev.next:after,
+    .pagination a.next.next:after {
+      content: '\f501';
+      margin-left: -4px; }
 
 .ie7 .pagination-container span {
   display: inline;
@@ -3052,24 +3101,27 @@ body {
   .entry .entry-thumb {
     margin-bottom: 24px;
     margin-bottom: 1.5rem; }
-    .entry .entry-thumb img,
-    .entry .entry-thumb div[data-picture] {
+    .entry .entry-thumb img {
       max-width: 100%;
       height: auto;
       width: 100%;
       margin: 0;
       vertical-align: top; }
-  .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb {
-    margin: 0 0 24px 0;
-    margin: 0 0 1.5rem 0; }
-    .entry.format-image .entry-thumb iframe, .entry.format-image .entry-thumb object, .entry.format-gallery .entry-thumb iframe, .entry.format-gallery .entry-thumb object, .entry.format-video .entry-thumb iframe, .entry.format-video .entry-thumb object {
-      vertical-align: top;
-      width: 100%; }
+  .entry.format-image .entry-thumb iframe, .entry.format-image .entry-thumb object, .entry.format-gallery .entry-thumb iframe, .entry.format-gallery .entry-thumb object, .entry.format-video .entry-thumb iframe, .entry.format-video .entry-thumb object {
+    vertical-align: top;
+    width: 100%; }
   .entry.format-quote blockquote:first-child {
     margin-top: 0; }
   .entry .entry-post-format {
-    margin-bottom: 12px;
-    margin-bottom: 0.75rem; }
+    zoom: 1;
+    clear: both;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
+    .entry .entry-post-format:before, .entry .entry-post-format::after {
+      content: "";
+      display: table; }
+    .entry .entry-post-format::after {
+      clear: both; }
     .entry .entry-post-format img {
       vertical-align: top;
       margin-bottom: 0; }
@@ -3292,7 +3344,7 @@ body {
   margin: 24px 0 0;
   margin: 1.5rem 0 0; }
   .gallery img {
-    width: 100%;
+    width: 100% !important;
     vertical-align: top;
     top: 0; }
   .gallery .gallery-item {
@@ -3386,14 +3438,14 @@ body {
     top: 100%;
     background: #FFF;
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #888888;
+    border: 1px solid #888;
     z-index: 100; }
     .menu .sub-menu li,
     .menu .sub-menu li {
       display: block; }
     .menu .sub-menu a,
     .menu .sub-menu a {
-      border-bottom: 1px solid #888888; }
+      border-bottom: 1px solid #888; }
     .menu .sub-menu li:first-child a,
     .menu .sub-menu li:first-child a {
       padding-left: 15px; }
