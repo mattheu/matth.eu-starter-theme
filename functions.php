@@ -200,25 +200,6 @@ add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
  *
  *	@param $template Path of template file
  *  @return null
- * Add custom query vars.
- * 
- * @param  WP_Query $query
- * @return WP_Query $query
- */
-function mtf_grid_query_var( $query ) {
-
-	if ( ! $query-> is_main_query() )
-		return;
-
-	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
-		$query->set( 'hello', 'world' );
-	
-	return $query;
-
-}
-add_filter( 'parse_query', 'mtf_grid_query_var' );
-
-/**
  *	@todo - use query vars for this, not check get.
  */
 function mtf_grid_template ( $template ) {
