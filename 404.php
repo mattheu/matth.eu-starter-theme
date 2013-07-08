@@ -1,6 +1,5 @@
 <?php get_header();  ?>
 
-
 <div class="row">
 
 	<section class="primary-content grid-8">
