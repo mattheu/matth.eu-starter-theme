@@ -55,6 +55,7 @@ function mtf_setup() {
 	//Remove some unused stuff from the head.
 	remove_action('wp_head', 'wlwmanifest_link');
 
+	// Remove default gallery styles
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
 }
@@ -66,7 +67,7 @@ add_theme_support( 'wpthumb-crop-from-position' );
 /**
  * Get the theme version.
  * Return version defined in style.css
- * 
+ *
  * @return string version.
  */
 function mtf_get_theme_version() {
