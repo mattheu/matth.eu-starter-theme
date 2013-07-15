@@ -1,3 +1,12 @@
+<?php
+
+if ( ! function_exists( 'get_post_format_meta' ) ) {
+	get_template_part( 'river/single' );
+	return;
+}
+
+?>
+
 <article <?php post_class( array( 'entry' ) ); ?>>
 
 	<?php if ( has_post_thumbnail() ) : ?>
