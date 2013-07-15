@@ -94,12 +94,10 @@ function mtf_get_theme_version() {
  */
 function mtf_register_assets() {
 
-	if ( is_admin() )
-		return;
-
 	// Use the theme version for theme assets to bust cache when updating.
 	$version = mtf_get_theme_version();
 
+	wp_deregister_script( 'modernizr' );
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
 	// Scripts. Theme functions and behaviour
