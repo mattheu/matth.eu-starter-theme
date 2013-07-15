@@ -1,15 +1,3 @@
-<?php
-
-// Grid view. - load grid template if grid view is set.
-// @todo best to hook in on parse template or something and handle this.
-// if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] ) {
-// 	get_template_part( 'index-grid' );
-// 	return;
-// }
-
-?>
-
-
 <?php get_header(); ?>
 
 <div class="row">
@@ -27,7 +15,7 @@
 				while ( have_posts() ) {
 
 					the_post();
-					
+						
 					if ( is_search() )
 						get_template_part( 'river/river-search' );
 

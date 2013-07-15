@@ -22,9 +22,6 @@ get_template_part( 'plugins/grid/grid' );
  */
 function mtf_setup() {
 
-	if ( get_option( 'link_manager_enabled' ) )
-		update_option( 'link_manager_enabled', false );
-
 	register_nav_menus(
 		array(
 		  'mtf_menu_main' => 'Main Menu',
@@ -67,25 +64,40 @@ add_action( 'init', 'mtf_setup' );
 add_theme_support( 'wpthumb-crop-from-position' );
 
 /**
+ * Get the theme version.
+ * Return version defined in style.css
+ * 
+ * @return string version.
+ */
+function mtf_get_theme_version() {
+
+	if ( function_exists( 'wp_get_theme' ) ) {
+
+		$theme = wp_get_theme( MPH_THEME_NAME );
+		$version = $theme->version;
+	
+	} else {
+
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$version = $theme['Version'];
+	
+	}
+
+	return apply_filters( 'mtf_get_theme_version', $version );
+
+}
+
+/**
  *	Register all assets
  *
  *  @return null
  */
 function mtf_register_assets() {
 
-	if ( is_admin() )
-		return;
-
 	// Use the theme version for theme assets to bust cache when updating.
+	$version = mtf_get_theme_version();
 
-	if ( function_exists( 'wp_get_theme' ) ) {
-		$theme = wp_get_theme( MPH_THEME_NAME );
-		$version = $theme->version;
-	} else {
-		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
-		$version = $theme['Version'];
-	}
-
+	wp_deregister_script( 'modernizr' );
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
 
 	// Scripts. Theme functions and behaviour
@@ -150,7 +162,7 @@ add_action( 'login_head', 'mtf_favicon' );
 
 /**
  * Filter the excerpt length.
- * Different lengths can be used in different places.
+ * Different lengths are used in different templates
  *
  * @param int $length
  * @return int
@@ -182,7 +194,7 @@ function mtf_excerpt_more_link( $more ) {
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
 
 /**
- *	Different category templates.
+ *	Grid view category templates.
  *
  *	@param $template Path of template file
  *  @return null
@@ -190,7 +202,6 @@ add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
  */
 function mtf_grid_template ( $template ) {
 
-	//m( get_query_var( 'hello' ) );
 	global $wp_query;
 
 	// Portfolio category should use the grid template.
@@ -201,25 +212,6 @@ function mtf_grid_template ( $template ) {
 
 }
 add_filter( 'template_include', 'mtf_grid_template' );
-
-/**
- * Add custom query vars.
- * 
- * @param  WP_Query $query
- * @return WP_Query $query
- */
-function mtf_grid_query_var( $query ) {
-
-	if ( ! $query-> is_main_query() )
-		return;
-
-	if ( isset( $_GET['view'] ) && 'grid' === $_GET['view'] )
-		$query->set( 'hello', 'world' );
-	
-	return $query;
-
-}
-add_filter( 'parse_query', 'mtf_grid_query_var' );
 
 /**
  * Add custom post classes.

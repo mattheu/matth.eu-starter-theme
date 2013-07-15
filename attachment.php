@@ -1,8 +1,10 @@
 <?php
 
-	get_header();
+get_header();
 
-	the_post();
+have_posts();
+
+the_post();
 
 ?>
 
@@ -29,7 +31,7 @@
 
 			<div><?php the_content(); ?></div>
 
-		
+
 		</article><!-- / .article -->
 
 	</section><!-- / .primary-content -->

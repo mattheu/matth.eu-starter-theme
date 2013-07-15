@@ -1,4 +1,4 @@
-<div class="entry-post-format">
+<div class="entry-post-format entry-thumb">
 
 	<?php the_post_format_image( 'large' ); ?>
 

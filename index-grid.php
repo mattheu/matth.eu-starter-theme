@@ -29,7 +29,7 @@ get_header();
 						get_template_part( 'river/single-grid', get_post_type() );
 					
 					// Add clear div after every row.
-					if ( 0 === ( $wp_query->current_post + 1 ) % 2 )
+					if ( 0 === ( $wp_query->current_post + 1 ) % 4 )
 						echo '<div class="clear"></div>';
 
 				}
