@@ -1,19 +1,17 @@
 <?php
 
-get_header();
+	get_header();
 
-the_post();
+	the_post();
 
 ?>
 
-
 <div class="row">
 
-	<section class="primary-content grid8">
+	<section class="primary-content grid-8">
 
 		<article <?php post_class( array( 'entry' ) ); ?>>
-
-			<?php if ( wp_attachment_is_image( get_the_ID() ) ) : ?>
+			<?php if ( wp_attachment_is_image( get_the_id() ) ) : ?>
 				<figure class="entry-thumb full">
 					<?php echo wp_get_attachment_image( get_the_id(), 'large' ); ?>
 				</figure>
@@ -31,13 +29,12 @@ the_post();
 
 			<div><?php the_content(); ?></div>
 
-		</article>
+		
+		</article><!-- / .article -->
 
-	</section>
+	</section><!-- / .primary-content -->
 
-<?php endwhile; ?>
-
-	<section class="secondary-content grid4" role="complementary">
+	<section class="sidebar grid-4" role="complementary">
 		<?php get_sidebar(); ?>
 	</section><!-- .secondary-content .widget-area -->
 
