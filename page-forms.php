@@ -1,8 +1,14 @@
 <?php
 
-	get_header();
+/**
+ * Test page for forms.
+ */
 
-	the_post();
+get_header();
+
+have_posts();
+
+the_post();
 
 ?>
 

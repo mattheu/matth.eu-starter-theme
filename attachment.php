@@ -2,10 +2,11 @@
 
 get_header();
 
+have_posts();
+
 the_post();
 
 ?>
-
 
 <div class="row">
 

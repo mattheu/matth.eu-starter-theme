@@ -14,6 +14,7 @@ $grid-col-gutter-narrow: $grid-col-gutter;
 $border-color-lt: #EEE;
 $border-color-dk: #888;
 
+@import "reset.scss";
 @import "css3-mixins.scss";
 @import "helpers.scss";
 @import "type.scss";

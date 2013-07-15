@@ -111,8 +111,7 @@ body {
 		margin-bottom: px( 1.5 );
 		margin-bottom: rem( 1.5 );
 
-		img,
-		div[data-picture] { 
+		img { 
 			max-width: 100%; 
 			height: auto; 
 			width: 100%; 
@@ -128,8 +127,6 @@ body {
 		
 		@extend img.size-large;
 		@extend img.aligncenter;
-		margin: 0 0 px( 1.5 ) 0;
-		margin: 0 0 rem( 1.5 ) 0;
 
 		iframe, object { 
 			vertical-align: top;
@@ -143,6 +140,8 @@ body {
 
 	.entry-post-format {
  		
+ 		@include clearfix;
+
  		img { 
 			vertical-align: top; 
 			margin-bottom: 0;
@@ -157,8 +156,8 @@ body {
 			margin-bottom:  rem( $base-line-height / -2 );
 		}
 
-		margin-bottom:  px( $base-line-height / 2 );
-		margin-bottom:  rem( $base-line-height / 2 );
+		margin-bottom:  px( $base-line-height );
+		margin-bottom:  rem( $base-line-height );
 
 	}
 
@@ -391,7 +390,6 @@ body {
 
 	}
 	
-
 }
 
 .gallery {
@@ -399,7 +397,7 @@ body {
 	margin: rem( $base-line-height ) 0 0;
 	
 	img { 
-		width: 100%; 
+		width: 100% !important; 
 		vertical-align: top; 
 		top: 0;
 	}

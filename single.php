@@ -1,8 +1,10 @@
 <?php
-	
-	get_header();
 
-	the_post();
+get_header();
+
+have_posts();
+
+the_post();
 
 ?>
 
