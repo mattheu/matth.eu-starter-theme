@@ -1,0 +1,20 @@
+{
+  "name": "mph-starter",
+  "title": "MPH Starter",
+  "description": "Simple theme to get you started.",
+  "version": "0.1.0",
+  "homepage": "http://matth.eu",
+  "author": {
+    "name": "Matthew Haines-Young (@matth_eu)",
+    "email": "matthew@matth.eu",
+    "url": "http://matth.eu"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-sass": "~0.6.1"
+  }
+}
