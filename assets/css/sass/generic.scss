@@ -37,7 +37,7 @@
 	float: right;
 }
 
-.entry img {
+img {
 
 	max-width: 100%;
 	height: auto;
@@ -149,9 +149,8 @@
 	@include clearfix;
 
 	text-align: center;
-	margin: 1.5em px( $base-line-height / 4 );
-	margin: 1.5em rem( $base-line-height / 4 );
-	padding: 0 15px;
+	margin: 1.5em 0;
+	padding: 0;
 
 	a,
   	span {
@@ -161,11 +160,10 @@
   		margin: 0 px( $base-line-height / 4 );
   		margin: 0 rem( $base-line-height / 4 );
   		display: inline-block;
-
   		text-decoration: none;
   		text-align: center;
   		border: 1px solid $border-color-lt;
-  		background: #EEE;
+		background: $bg-color-body;
   		color: #666;
   	}
 
