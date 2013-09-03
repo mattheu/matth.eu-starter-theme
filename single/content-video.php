@@ -1,3 +1,12 @@
+<?php
+
+if ( ! function_exists( 'the_post_format_video' ) ) {
+	get_template_part( 'single/content' );
+	return;
+}
+
+?>
+
 <div class="entry-post-format">
 
 	<?php the_post_format_video(); ?>
