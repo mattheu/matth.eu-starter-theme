@@ -561,3 +561,34 @@ body {
 }
 
 .mejs-controls button { box-shadow: none; }
+
+.wp-caption {
+
+	@extend img;
+
+	border: 1px solid $border-color-lt;
+	background: $bg-color-body;
+	padding: px($base-line-height/2);
+	padding: rem($base-line-height/2);
+	text-align: center;
+
+	img { 
+		top: 0;
+		margin-bottom: 0;
+	}
+
+	&.alignleft { 
+		@extend img.alignleft; 
+	}
+
+	&.alignright { 
+		@extend img.alignright; 
+	}
+	
+	.wp-caption-text { 
+		@extend small; 
+		margin-top: px($base-line-height/2);
+		margin-top: rem($base-line-height/2);
+	}
+
+}
