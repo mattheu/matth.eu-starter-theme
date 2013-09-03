@@ -52,7 +52,7 @@ body {
 
 .entry {
 
-	@extend clearfix;
+	@include clearfix;
 
 	border-bottom: 1px solid $border-color-lt;
 	margin-bottom: -1px;
@@ -142,7 +142,7 @@ body {
 
 	.entry-post-format {
  		
- 		@extend clearfix;
+ 		@include clearfix;
 
  		img { 
 			vertical-align: top; 
@@ -299,7 +299,7 @@ body {
 
 	.comment {
 		
-		@extend clearfix;
+		@include clearfix;
 
 		padding-top: px( $base-line-height );
 		padding-top: rem( $base-line-height );

@@ -51,7 +51,7 @@ select {
 
 .form-row { 
 	
-	@extend clearfix;
+	@include clearfix;
 	@include small;
 
 	margin: 0 -10px;

@@ -1,5 +1,7 @@
 .wrap {
 
+	@include clearfix;
+	
 	width: 90%;
 	max-width: 1100px;
 
@@ -41,7 +43,7 @@
 .row {
 	margin: 0;
 	clear: both;
-	@extend clearfix;
+	@include clearfix;
 	@include grid($grid-col-count );
 }
 

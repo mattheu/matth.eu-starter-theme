@@ -17,7 +17,7 @@
 .alignleft { float: left; }
 .alignright { float: right; }
 
-.clearfix {
+@mixin clearfix {
 	
 	zoom: 1;
 	clear: both;

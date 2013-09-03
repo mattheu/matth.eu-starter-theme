@@ -101,7 +101,7 @@
 
 .search-form {
 
-	@extend clearfix;
+	@include clearfix;
 
 	> div {
 		margin-right: 100px;
@@ -143,6 +143,8 @@
 
 
 .pagination {
+
+	@include clearfix;
 
 	text-align: center;
 	margin: 1.5em px( $base-line-height / 4 );
