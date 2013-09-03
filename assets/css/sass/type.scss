@@ -226,13 +226,15 @@ samp {
 }
 
 pre {
-	padding: px( $base-line-height ) 20px;
-	padding: rem( $base-line-height ) 20px;
+	padding: px( $base-line-height / 2 ) 20px;
+	padding: rem( $base-line-height / 2 ) 20px;
 	margin-bottom:  px( $base-line-height / 2 );
 	margin-bottom:  rem( $base-line-height / 2 );
 	white-space: pre;
 	white-space: pre-wrap; /* white-space: pre-line; CSS 3 (and 2.1 as well, actually) */
 	word-wrap: break-word;
+	border: 1px solid $border-color-lt;
+	background: $bg-color-body;
 }
 
 ins {
@@ -259,6 +261,15 @@ acronym[title] {
 	cursor:help;
 }
 
+sup { 
+	font-size: .5em; 
+	vertical-align: top; 
+}
+sub { 
+	font-size: .5em; 
+	vertical-align: bottom; 
+}
+
 /**
  * Tables
  */
@@ -272,29 +283,57 @@ table					{
 	width: 100%; 
 	border-radius: 3px; 
 }
-th, td					{ line-height: 1.5em; padding: 0.308em 14px 0.308em 10px; text-align:left; }
+
+th, 
+td					{ 
+	line-height: 1.5em; 
+	padding: 0.308em 14px 0.308em 10px; 
+	text-align:left; 
+}
+
 td .num,
-td .num 				{ text-align:center; }
+td .num { 
+	text-align:center; 
+}
 
 table tbody th,
-table td 				{ border-top: 1px solid $border-color-lt; vertical-align: top; }
+table td {
+	border-top: 1px solid $border-color-lt; 
+	vertical-align: top; 
+}
+
 table th + th,
 td + td,
-th + td 				{ border-left: 1px solid $border-color-lt; }
+th + td { 
+	border-left: 1px solid $border-color-lt;
+}
 
 table tr:first-child td,
-table tr:first-child th { border-top: none; }
+table tr:first-child th { 
+	border-top: none; 
+}
 
-table thead tr:first-child th { border-bottom: 1px solid $border-color-lt; }
-table tfoot tr:first-child td { border-top: 1px solid $border-color-lt; }
+table thead tr:first-child th { 
+	border-bottom: 1px solid $border-color-lt; 
+}
 
-th 						{ background: #EEE; font-weight: bold;  }
+table tfoot tr:first-child td { 
+	border-top: 1px solid $border-color-lt; 
+}
 
-caption					{ margin-bottom:0.75em; font-weight: bold; }
+th { 
+	background: $bg-color-body;
+	font-weight: bold;  
+}
+
+caption { 
+	margin-bottom:0.75em; 
+	font-weight: bold; 
+}
 
 small,
 nav,
-.site-footer			{
+.site-footer {
 	@include small;
 	color: #666;
 }
@@ -330,7 +369,6 @@ nav,
 
 }
 
-.admin-bar #baseline-grid { margin-top: 28px; }
-
-sup { font-size: .3em; vertical-align: top; }
-sub { font-size: .3em; vertical-align: bottom; }
+.admin-bar #baseline-grid { 
+	margin-top: 28px; 
+}
