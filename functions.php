@@ -6,11 +6,11 @@ define( 'MPH_THEME_NAME', basename( dirname( __FILE__ ) ) );
  *	More Functions & Plugins.
  */
 get_template_part( 'updates/updates', 'core' );
-get_template_part( 'functions/functions-comments' );
-get_template_part( 'functions/functions-image_caption' );
-get_template_part( 'functions/functions-thumbnail_link' );
-get_template_part( 'functions/functions-user-contact-methods' );
-get_template_part( 'functions/gallery' );
+get_template_part( 'includes/functions-comments' );
+get_template_part( 'includes/functions-image_caption' );
+get_template_part( 'includes/functions-thumbnail_link' );
+get_template_part( 'includes/functions-user-contact-methods' );
+get_template_part( 'includes/gallery' );
 get_template_part( 'widgets/about' );
 get_template_part( 'plugins/grid/grid' );
 
