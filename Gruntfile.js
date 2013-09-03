@@ -4,7 +4,11 @@ module.exports = function( grunt ) {
 
 	var banner = '/**\n * MPH Starter\n * http://matth.eu\n *\n * Copyright (c) 2013 Matthew Haines-Young (@matth_eu)\n */\n';
 
-	var themeScripts = ['assets/js/src/functions.js', 'assets/js/src/flexslider.min.js', 'assets/js/src/theme.js'];
+	var themeScripts = [
+		'assets/js/vendor/flexslider.min.js',
+		'assets/js/src/functions.js', 
+		'assets/js/src/theme.js'
+	];
 
 	// Load all grunt tasks
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -47,7 +51,7 @@ module.exports = function( grunt ) {
 		// Compile SASS
 		sass: {
 
-			compile: {
+			dev: {
 				files: {
 					'assets/css/theme.css' : 'assets/css/sass/theme.scss'
 				}
@@ -78,7 +82,7 @@ module.exports = function( grunt ) {
 
 			sass: {
 				files: ['assets/css/*/**/*.scss'],
-				tasks: ['sass', 'cssmin'],
+				tasks: ['sass'],
 				options: {
 					debounceDelay: 500,
 					livereload: true
