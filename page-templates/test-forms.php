@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Test page for forms.
+ * Template Name: Test Forms
  */
 
 get_header();
@@ -18,11 +18,7 @@ the_post();
 
 		<article <?php post_class( array( 'entry' ) ); ?>>
 
-			<header class="entry-header">
-
-			    <h1 class="entry-title"><?php the_title(); ?></h1>
-
-			</header>
+		    <?php get_template_part( 'single/header' ); ?>
 
 			<div class="entry-content">
 
@@ -129,14 +125,16 @@ the_post();
 
 				</form>
 
-			</div>
-		
-		</article><!-- / .article -->
+			</div><!-- / .entry-content -->
+
+		</article><!-- / .entry -->
 
 	</section><!-- / .primary-content -->
 
 	<section class="sidebar grid-4" role="complementary">
+		
 		<?php get_sidebar(); ?>
+	
 	</section><!-- .secondary-content .widget-area -->
 
 </div>
