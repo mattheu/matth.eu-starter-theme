@@ -8,7 +8,7 @@
    			</a>
    		</div>
 
-		<h2 class="entry-title epsilon">
+		<h2 class="entry-title">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_title(); ?>
 			</a>
@@ -16,7 +16,7 @@
 
 	<?php else : ?>
 
-		<h2 class="entry-title epsilon"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php the_excerpt(); ?>
 
 	<?php endif; ?>
