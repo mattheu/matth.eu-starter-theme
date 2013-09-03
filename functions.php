@@ -100,6 +100,17 @@ add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 
 
 /**
+ * Add humans.txt to the <head> element.
+ */
+function mtf_header_meta() {
+
+	$humans = '<link type="text/plain" rel="author" href="' . get_template_directory_uri() . '/humans.txt" />';
+
+	echo apply_filters( 'mtf_humans', $humans );
+
+}
+add_action( 'wp_head', 'mtf_header_meta' );
+
 
 /**
  *	Setup
