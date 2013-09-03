@@ -181,8 +181,8 @@ body {
 	@media all and ( max-width: 900px ) {
 		
 		.entry-thumb {
-			// width: calc( 0.375 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
-			width: calc( 0.375 * ( 100% + #{ rem( $grid-col-gutter-narrow * 2 ) } ) - #{ rem( $grid-col-gutter-narrow * 2 ) } );
+			$expression: ".375 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			@include calc( width, $expression, 37.5% );
 			margin-right: px( $grid-col-gutter-narrow * 2 );
 			margin-right: rem( $grid-col-gutter-narrow * 2 );
 		}
@@ -192,7 +192,8 @@ body {
 	@media all and ( max-width: 700px ) {
 		
 		.entry-thumb {
-			width: calc( 0.333333 * ( 100% + #{ rem( $grid-col-gutter-narrow * 2 ) } ) - #{ rem( $grid-col-gutter-narrow * 2 ) } );
+			$expression: ".3333333 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			@include calc( width, $expression, 33.33333% );
 			margin-right: px( $grid-col-gutter-narrow * 2 );
 			margin-right: rem( $grid-col-gutter-narrow * 2 );
 		}
@@ -342,12 +343,19 @@ body {
 	@for $i from 1 through ( $comment-container-width - 2 ) {			
 		
 		.depth-#{$i} {
+		
 			@if $i == 1 {
+    			
     			margin-left: 0;
+  			
   			} @else {
-				margin-left: 1 / ( $comment-container-width + 2 - $i ) * 100%;
-				margin-left: calc( #{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) );
+				
+				$margin: 1 / ( $comment-container-width + 2 - $i ) * 100%;
+				$expression: "#{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem )";
+				@include calc( margin-left, $expression, $margin );
+
 			}
+		
 		}
 
 		.depth-#{$i} .comment-info {
@@ -372,12 +380,19 @@ body {
 		@for $i from 1 through ( $comment-container-width ) {			
 		
 			.depth-#{$i} {
+
 				@if $i == 1 {
+	    		
 	    			margin-left: 0;
+	  			
 	  			} @else {
-					margin-left: 1 / ( $comment-container-width + 2 - $i ) * 100%;
-					margin-left: calc( #{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) );
+				
+					$margin: 1 / ( $comment-container-width + 2 - $i ) * 100%;
+					$expression: "#{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem )";
+					@include calc( margin-left, $expression, $margin );
+				
 				}
+			
 			}
 
 			.depth-#{$i} .comment-info {

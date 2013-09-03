@@ -75,14 +75,14 @@
 	
 	&.size-medium,
 	&.attachment-medium { 
-		width: 62.5%;
-		width: calc( .625 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
+		$expression: ".625 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+		@include calc( width, $expression, 62.5% );
 	}
 
 	&.size-thumbnail,
 	&.attachment-thumbnail { 
-		width: 37.5%;
-		width: calc( .375 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
+		$expression: ".375 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+		@include calc( width, $expression, 37.5% );
 	}	
 
 	@media all and ( max-width: 700px ) {
@@ -91,8 +91,8 @@
 		&.attachment-thumbnail,
 		&.size-medium,
 		&.attachment-medium { 
-			width: 50%;
-			width: calc( .5 * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem ) - #{ ( $grid-col-gutter * 2 ) }rem );
+			$expression: ".5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			@include calc( width, $expression, 5% );
 		}
 
 	}
@@ -131,16 +131,18 @@
 .widget_mtf_about_user_widget {
 
 	.avatar {
+
+		$expression: ".5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+		@include calc( width, $expression, 50% );
+
 		float: left;
 		margin-right: px( $grid-col-gutter * 2 );
 		margin-right: rem( $grid-col-gutter * 2 );
 		margin-bottom: .75em;
-		width: calc( 50% - #{$grid-col-gutter}rem );
 		height: auto;
 	}
+
 }
-
-
 
 .pagination {
 
@@ -159,9 +161,9 @@
   		margin: 0 px( $base-line-height / 4 );
   		margin: 0 rem( $base-line-height / 4 );
   		display: inline-block;
+
   		text-decoration: none;
   		text-align: center;
-
   		border: 1px solid $border-color-lt;
   		background: #EEE;
   		color: #666;
