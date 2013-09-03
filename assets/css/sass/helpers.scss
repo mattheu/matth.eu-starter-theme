@@ -12,10 +12,12 @@
 	@return #{$REM * 16}px;
 }
 
-
 // Helper Mixins
 
-@mixin clearfix() {
+.alignleft { float: left; }
+.alignright { float: right; }
+
+.clearfix {
 	
 	zoom: 1;
 	clear: both;
@@ -28,4 +30,5 @@
 	&::after {
 		clear: both;
 	}
+
 }

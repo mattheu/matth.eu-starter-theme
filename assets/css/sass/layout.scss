@@ -4,10 +4,10 @@ body {
 	height: 100%;
 }
 
-.wrap {
+.page-wrap {
 	background-color: $bg-color-wrap;
 	border: 1px solid $border-color-lt;
-	margin: -1px auto;
+	border-width: 0 1px;
 	min-height: 100%; 
 }
 
@@ -15,6 +15,7 @@ body {
 
 	padding-top: px( $base-line-height );
 	padding-top: rem( $base-line-height );
+
 	border-bottom: 1px solid $border-color-lt;
 	
 	.site-description {
@@ -51,7 +52,7 @@ body {
 
 .entry {
 
-	@include clearfix;
+	@extend clearfix;
 
 	border-bottom: 1px solid $border-color-lt;
 	margin-bottom: -1px;
@@ -108,6 +109,7 @@ body {
 		
 		@extend img.size-thumbnail;
 		@extend img.alignleft;
+		
 		margin-bottom: px( 1.5 );
 		margin-bottom: rem( 1.5 );
 
@@ -140,7 +142,7 @@ body {
 
 	.entry-post-format {
  		
- 		@include clearfix;
+ 		@extend clearfix;
 
  		img { 
 			vertical-align: top; 
@@ -297,7 +299,7 @@ body {
 
 	.comment {
 		
-		@include clearfix;
+		@extend clearfix;
 
 		padding-top: px( $base-line-height );
 		padding-top: rem( $base-line-height );

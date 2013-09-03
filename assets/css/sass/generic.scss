@@ -29,6 +29,14 @@
 
 }
 
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
 .entry img {
 
 	max-width: 100%;
@@ -93,7 +101,7 @@
 
 .search-form {
 
-	@include clearfix;
+	@extend clearfix;
 
 	> div {
 		margin-right: 100px;

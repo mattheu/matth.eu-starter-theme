@@ -14,6 +14,92 @@ get_template_part( 'functions/gallery' );
 get_template_part( 'widgets/about' );
 get_template_part( 'plugins/grid/grid' );
 
+/**
+ * Check whether currently running a live or dev environment.
+ *
+ * Uses value of HM_DEV.
+ */
+function mtf_is_dev() {
+
+	return apply_filters( 'mtf_is_dev', defined( 'HM_DEV' ) && true === HM_DEV );
+
+}
+
+/**
+ * Get the theme version.
+ * Return version defined in style.css
+ *
+ * @return string version.
+ * @since 0.1.0
+ */
+function mtf_get_theme_version() {
+
+	//  wp_get_theme since WordPress 3.4.0
+	if ( function_exists( 'wp_get_theme' ) ) {
+		$theme = wp_get_theme( basename( get_bloginfo( 'stylesheet_directory' ) ) );
+		$version = $theme->version;
+	} else {
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$version = $theme['Version'];
+	}
+
+	return apply_filters( 'mtf_get_theme_version', $version );
+
+}
+
+
+/**
+ *	Register all assets
+ *
+ *  @return null
+ */
+function mtf_register_assets() {
+
+	// Use the theme version for theme assets to bust cache when updating.
+	$version = mtf_get_theme_version();
+	$postfix = ( mtf_is_dev() ) ? '' : '.min';
+
+	wp_deregister_script( 'modernizr' );
+	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/vendor/modernizr-1.7.min.js', null, '1.7' );
+
+	// Scripts. Theme functions and behaviour
+	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/js/theme{$postfix}.js", array( 'modernizr', 'jquery' ), $version, true );
+
+	// Theme CSS
+	wp_register_style( 'mtf_genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
+	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/css/theme{$postfix}.css", null, $version, 'all' );
+
+	// Livereload. To use, run 'grunt watch'.
+	if ( mtf_is_dev() ) {
+		wp_enqueue_script( 'mtf_livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
+		// wp_enqueue_script( 'mtf_livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
+	}
+
+}
+add_action( 'init', 'mtf_register_assets' );
+
+/**
+ *	Enqueue all the assets.
+ *
+ *  @return null
+ */
+function mtf_enqueue_assets() {
+
+	wp_enqueue_script( 'modernizr' );
+
+	// Theme Scripts
+	wp_enqueue_script( 'comment-reply' );
+	wp_enqueue_script( 'mtf_theme' );
+
+	// Theme Styles
+	wp_enqueue_style( 'mtf_genericons' );
+	wp_enqueue_style( 'mtf_theme' );
+	
+}
+add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
+
+
+/**
 
 /**
  *	Setup
@@ -63,83 +149,6 @@ add_action( 'init', 'mtf_setup' );
 
 // WPThumb features
 add_theme_support( 'wpthumb-crop-from-position' );
-
-/**
- * Get the theme version.
- * Return version defined in style.css
- *
- * @return string version.
- */
-function mtf_get_theme_version() {
-
-	if ( function_exists( 'wp_get_theme' ) ) {
-
-		$theme = wp_get_theme( MPH_THEME_NAME );
-		$version = $theme->version;
-	
-	} else {
-
-		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
-		$version = $theme['Version'];
-	
-	}
-
-	return apply_filters( 'mtf_get_theme_version', $version );
-
-}
-
-/**
- *	Register all assets
- *
- *  @return null
- */
-function mtf_register_assets() {
-
-	// Use the theme version for theme assets to bust cache when updating.
-	$version = mtf_get_theme_version();
-
-	wp_deregister_script( 'modernizr' );
-	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
-
-	// Scripts. Theme functions and behaviour
-	wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/assets/js/functions.js', array( 'jquery' ), $version, true );
-	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/js/theme.js', array( 'modernizr', 'jquery' ), $version, true );
-
-	// Theme CSS
-	wp_register_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/assets/styles/reset.css', null, $version, 'all' );
-	wp_register_style( 'genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
-	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/styles/css/theme.css', array( 'mtf_reset' ), $version, 'all' );
-	
-	// Flexslider
-	wp_register_script( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/js/flexslider.min.js', array( 'jquery' ), $version, true );
-	wp_register_style( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/styles/flexslider.css', array( 'mtf_reset' ), $version, 'all' );
-
-}
-add_action( 'init', 'mtf_register_assets' );
-
-/**
- *	Enqueue all the assets.
- *
- *  @return null
- */
-function mtf_enqueue_assets() {
-
-	wp_enqueue_script( 'modernizr' );
-
-	// Theme Scripts
-	wp_enqueue_script( 'comment-reply' );
-	wp_enqueue_script( 'mtf_functions' );
-	wp_enqueue_script( 'mtf_theme' );
-
-	// Theme Styles
-	wp_enqueue_style( 'genericons' );
-	wp_enqueue_style( 'mtf_theme' );
-	
-	wp_enqueue_style( 'flexslider' );
-	wp_enqueue_script( 'flexslider' );
-
-}
-add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 
 
 /**

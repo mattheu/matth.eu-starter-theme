@@ -172,7 +172,8 @@
 
 /* OPACITY */
 @mixin opacity($opacity: 0.5) {
-    filter:         alpha(opacity=($opacity * 100));
+    // filter:         alpha(opacity=65); /* use '=' here, not ':' */
+    filter:         alpha(opacity=#{$opacity * 100 });
     -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
     -moz-opacity:   $opacity;
     -khtml-opacity: $opacity;

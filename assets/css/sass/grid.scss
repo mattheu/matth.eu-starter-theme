@@ -41,7 +41,7 @@
 .row {
 	margin: 0;
 	clear: both;
-	@include clearfix;
+	@extend clearfix;
 	@include grid($grid-col-count );
 }
 
