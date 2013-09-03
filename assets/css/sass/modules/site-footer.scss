@@ -1,0 +1,9 @@
+.site-footer {
+
+	border-top: 1px solid $border-color-lt;
+	margin-top: -1px;
+
+	padding: px( $base-line-height ) 0 px( $base-line-height );
+	padding: rem( $base-line-height ) 0 rem( $base-line-height );
+
+}

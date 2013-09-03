@@ -61,6 +61,13 @@ select {
 		margin-top: rem( -1 * $base-line-height / 2 ); 
 	}
 
+	label {
+		float: left;
+		width: 150px;
+		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
+		margin: rem( $base-line-height / 4 ) 10px rem( $base-line-height * 0.75 )  -160px;
+	}
+
 }
 
 input[disabled] {
@@ -68,20 +75,6 @@ input[disabled] {
 	color: #AAA;
 	background: #EEE;
 	cursor: default;
-
-}
-
-// Validation.
-
-.form-row  {
-
-	label {
-		float: left;
-		width: 150px;
-		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
-		margin: rem( $base-line-height / 4 ) 10px rem( $base-line-height * 0.75 )  -160px;
-		// margin: .375rem 10px 1.125rem -160px;
-	}
 
 }
 
@@ -158,6 +151,19 @@ button,
 	}
 
 	.comment-notes {
+		margin-bottom: px( $base-line-height / 2 );
+		margin-bottom: rem( $base-line-height / 2 );
+	}
+
+	// @extend used to handle this... but not any more.
+	label {
+		float: left;
+		width: 150px;
+		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
+		margin: rem( $base-line-height / 4 ) 10px rem( $base-line-height * 0.75 )  -160px;
+	}
+
+	.comment-notes {
 		padding-left: 10px; 
 	}
 
@@ -189,6 +195,7 @@ button,
 @media all and ( max-width: 700px ) {
 
 	.form-row { 
+
 		padding-left: 10px;
 
 		label { 
@@ -209,9 +216,17 @@ button,
 		}
 	}
 
+	#commentform label {
+		margin-left: 0; 
+		margin-top: 0; 
+		margin-bottom: px( $base-line-height / 2 );
+		margin-bottom: rem( $base-line-height / 2 );
+		float: none;
+		display: block;
+	}
+
 }
 
-
-.form-row-label {
+.form-row label {
 	@extend label;
 }

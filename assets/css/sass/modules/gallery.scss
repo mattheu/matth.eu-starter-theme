@@ -1,0 +1,36 @@
+.gallery {
+	
+	margin: px( $base-line-height ) 0 0;
+	margin: rem( $base-line-height ) 0 0;
+	
+	img { 
+		width: 100% !important; 
+		vertical-align: top; 
+		top: 0;
+	}
+
+	.gallery-item {
+		width: 25%;
+		display: block;
+		margin: 0 0 rem( $base-line-height / 2);
+		float: left;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box; 
+		padding: 0 px( $grid-col-gutter );
+		padding: 0 #{ $grid-col-gutter }rem;
+
+	}
+
+	&.gallery-size-large .row {
+		margin: 0; 
+	}
+
+	&.gallery-size-large .gallery-item {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	&.flexslider img { margin: 0; }
+
+}

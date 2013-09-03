@@ -14,12 +14,26 @@ $grid-col-gutter-narrow: $grid-col-gutter;
 $border-color-lt: #EEE;
 $border-color-dk: #888;
 
-@import "reset.scss";
-@import "css3-mixins.scss";
-@import "helpers.scss";
-@import "type.scss";
-@import "grid.scss";
-@import "forms.scss";
-@import "generic.scss";
-@import "layout.scss";
-@import "flexslider.scss";
+@import "global/reset.scss";
+@import "global/mixins.scss";
+@import "global/helpers.scss";
+@import "global/type.scss";
+@import "global/grid.scss";
+@import "global/forms.scss";
+@import "global/linklist.scss";
+@import "global/images.scss";
+
+@import "modules/pagination.scss";
+@import "modules/search-form.scss";
+@import "modules/widget-about-author.scss";
+@import "modules/flexslider.scss";
+@import "modules/site-header.scss";
+@import "modules/site-footer.scss";
+@import "modules/menus.scss";
+@import "modules/entries.scss";
+@import "modules/entries-grid.scss";
+@import "modules/comments.scss";
+@import "modules/gallery.scss";
+@import "modules/wp-caption.scss";
+
+@import "general.scss";
