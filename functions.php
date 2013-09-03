@@ -57,6 +57,54 @@ function mtf_get_theme_version() {
 
 }
 
+/**
+ *	Setup
+ *
+ *  @return null
+ */
+function mtf_setup() {
+
+	register_nav_menus(
+		array(
+		  'mtf_menu_main' => 'Main Menu',
+		  'mtf_menu_foot' => 'Footer Menu'
+		)
+	);
+
+	register_sidebar( array(
+		'name' => __( 'Main Sidebar', 'mtf_secondary' ),
+		'id' => 'mtf_secondary',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h1 class="widget-title">',
+		'after_title' => '</h1>',
+	) );
+
+	add_theme_support( 'structured-post-formats', array(
+		'image', 'gallery', 'video', 'audio'
+	) );
+	
+	// 'aside', 'audio', 'chat', 'gallery', 'image', 'quote', 'status'
+	add_theme_support( 'post-formats', array(
+		'image', 'gallery', 'video', 'audio', 'quote'
+	) );
+
+	add_theme_support( 'post-thumbnails' );
+
+	// Add default posts and comments RSS feed links to head
+	add_theme_support( 'automatic-feed-links' );
+
+	//Remove some unused stuff from the head.
+	remove_action('wp_head', 'wlwmanifest_link');
+
+	// Remove default gallery styles
+	add_filter( 'use_default_gallery_style', '__return_false' );
+
+}
+add_action( 'init', 'mtf_setup' );
+
+// WPThumb features. Doesn't work inside setup function.
+add_theme_support( 'wpthumb-crop-from-position' );
 
 /**
  *	Register all assets
@@ -120,57 +168,6 @@ function mtf_header_meta() {
 
 }
 add_action( 'wp_head', 'mtf_header_meta' );
-
-
-/**
- *	Setup
- *
- *  @return null
- */
-function mtf_setup() {
-
-	register_nav_menus(
-		array(
-		  'mtf_menu_main' => 'Main Menu',
-		  'mtf_menu_foot' => 'Footer Menu'
-		)
-	);
-
-	register_sidebar( array(
-		'name' => __( 'Main Sidebar', 'mtf_secondary' ),
-		'id' => 'mtf_secondary',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
-	) );
-
-	add_theme_support( 'structured-post-formats', array(
-		'image', 'gallery', 'video', 'audio'
-	) );
-	
-	// 'aside', 'audio', 'chat', 'gallery', 'image', 'quote', 'status'
-	add_theme_support( 'post-formats', array(
-		'image', 'gallery', 'video', 'audio', 'quote'
-	) );
-
-	add_theme_support( 'post-thumbnails' );
-
-	// Add default posts and comments RSS feed links to head
-	add_theme_support( 'automatic-feed-links' );
-
-	//Remove some unused stuff from the head.
-	remove_action('wp_head', 'wlwmanifest_link');
-
-	// Remove default gallery styles
-	add_filter( 'use_default_gallery_style', '__return_false' );
-
-}
-add_action( 'init', 'mtf_setup' );
-
-// WPThumb features
-add_theme_support( 'wpthumb-crop-from-position' );
-
 
 /**
  * 	Add the Favicon to the head.
