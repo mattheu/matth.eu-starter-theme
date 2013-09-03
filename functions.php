@@ -21,8 +21,8 @@ get_template_part( 'includes/functions-image_caption' );
 get_template_part( 'includes/functions-thumbnail_link' );
 get_template_part( 'includes/functions-user-contact-methods' );
 get_template_part( 'includes/gallery' );
-get_template_part( 'widgets/about' );
-get_template_part( 'plugins/grid/grid' );
+get_template_part( 'includes/widgets/about' );
+get_template_part( 'includes/plugins/grid/grid' );
 
 /**
  * Check whether currently running a live or dev environment.

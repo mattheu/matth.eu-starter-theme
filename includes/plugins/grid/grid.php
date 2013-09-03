@@ -53,6 +53,7 @@ add_action( 'wp_footer', function() {
 			},
 
 			toggleDisplay : function(e,el) {
+				e.preventDefault();
 				this.overlay.style.display = ( this.overlay.style.display === 'block' ) ? 'none' : 'block';
 				this.button.innerHTML = '';
 				this.button.appendChild( 

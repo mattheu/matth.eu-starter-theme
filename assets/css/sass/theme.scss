@@ -5,10 +5,10 @@ $base-font-size: 1; // REM
 $base-line-height: 1.5; // REM
 $base-font-family: "Helvetica Neue", "helvetica", 'arial', sans-serif;
 
-$secondary-font-size: .875;
+$secondary-font-size: .875; // REM
 
-$grid-col-count: 12;
-$grid-col-gutter: 1;
+$grid-col-count: 12; // Count
+$grid-col-gutter: 1; // REM
 $grid-col-gutter-narrow: $grid-col-gutter;
 
 $border-color-lt: #EEE;
