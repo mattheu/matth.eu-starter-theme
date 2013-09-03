@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Standard Page Template
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
 get_header();
 
 have_posts();

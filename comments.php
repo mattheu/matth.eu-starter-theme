@@ -1,5 +1,12 @@
 <?php 
 
+/**
+ * Comments List Template.
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
 if ( ! comments_open() && ! have_comments() ) 
 	return;
 

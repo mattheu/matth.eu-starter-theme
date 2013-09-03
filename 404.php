@@ -1,4 +1,15 @@
-<?php get_header();  ?>
+<?php 
+
+/**
+ * 404 Template
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
+get_header();  
+
+?>
 
 <div class="row">
 
@@ -24,7 +35,7 @@
 
 					<div class="grid-4">
 						<div class="widget">
-					    	<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'twentyeleven' ); ?></h2>
+					    	<h2 class="widgettitle"><?php _e( 'Most Used Categories' ); ?></h2>
 						    <ul>
 						    	<?php wp_list_categories( array( 'orderby' => 'count', 'order' => 'DESC', 'show_count' => 1, 'title_li' => '', 'number' => 5 ) ); ?>
 						    </ul>

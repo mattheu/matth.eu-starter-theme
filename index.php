@@ -1,10 +1,21 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Default Generic Template File
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
+get_header(); 
+
+?>
 
 <div class="row">
 
 	<section class="primary-content grid-8">
 
-		<?php get_template_part( 'river/header' ); ?>
+		<?php get_template_part( 'index/header' ); ?>
 
 		<div class="entries">
 
@@ -17,19 +28,19 @@
 					the_post();
 						
 					if ( is_search() )
-						get_template_part( 'river/river-search' );
+						get_template_part( 'search/single' );
 
 					elseif ( $post_format = get_post_format() )
-						get_template_part( 'river/single', $post_format );
+						get_template_part( 'index/single', $post_format );
 
 					else
-						get_template_part( 'river/single', get_post_type() );
+						get_template_part( 'index/single', get_post_type() );
 
 				}
 
 			} else {
 
-				get_template_part( 'river/single-no-results' );
+				get_template_part( 'index/single-no-results' );
 
 			}
 
@@ -37,7 +48,7 @@
 
 		</div>
 
-		<?php get_template_part( 'parts/nav', 'pagination' ); ?>
+		<?php get_template_part( 'parts/nav-pagination' ); ?>
 
 	</section><!-- / .primary-content -->
 

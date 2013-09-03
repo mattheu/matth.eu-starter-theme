@@ -1,3 +1,14 @@
+<?php
+
+/**
+ * Searchform Template
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
+?>
+
 <form role="search" method="get" class="search-form clearfix" action="<?php bloginfo( 'url' ); ?>">
 	<div>
 		<label class="screen-reader-text" for="s">Search for:</label>
