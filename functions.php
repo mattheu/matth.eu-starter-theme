@@ -127,12 +127,6 @@ function mtf_register_assets() {
 	wp_register_style( 'mtf_genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
 	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/css/theme{$postfix}.css", null, $version, 'all' );
 
-	// Livereload. To use, run 'grunt watch'.
-	if ( mtf_is_dev() ) {
-		wp_enqueue_script( 'mtf_livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
-		// wp_enqueue_script( 'mtf_livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
-	}
-
 }
 add_action( 'init', 'mtf_register_assets' );
 
@@ -152,6 +146,12 @@ function mtf_enqueue_assets() {
 	// Theme Styles
 	wp_enqueue_style( 'mtf_genericons' );
 	wp_enqueue_style( 'mtf_theme' );
+	
+	// Livereload. To use, run 'grunt watch'.
+	if ( mtf_is_dev() ) {
+		// wp_enqueue_script( 'mtf_livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
+		wp_enqueue_script( 'mtf_livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
+	}
 	
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
