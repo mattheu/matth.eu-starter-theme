@@ -11,9 +11,17 @@ body {
 	min-height: 100%; 
 }
 
-.single .entry-content {
-	margin: 0 0 px( $base-line-height / 2 ); 
-	margin: 0 0 rem( $base-line-height / 2 ); 
+.single .entry {
+
+	.entry-title {
+		@include beta;
+	}
+	
+	.entry-content {
+		margin: 0 0 px( $base-line-height / 2 ); 
+		margin: 0 0 rem( $base-line-height / 2 ); 
+	}
+	
 }
 
 .widget-area {
