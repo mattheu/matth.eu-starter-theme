@@ -1,0 +1,13 @@
+.site-header {
+
+	padding-top: px( $base-line-height );
+	padding-top: rem( $base-line-height );
+
+	border-bottom: 1px solid $border-color-lt;
+	
+	.site-description {
+		margin: px( $base-line-height / -2 ) 0 px( $base-line-height );
+		margin: rem( $base-line-height / -2 ) 0 rem( $base-line-height );
+	}
+
+}

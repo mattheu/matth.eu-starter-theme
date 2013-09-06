@@ -1,0 +1,29 @@
+
+.search-form {
+
+	@include clearfix;
+
+	> div {
+		margin-right: 100px;
+		padding: 0 5px;
+	}
+
+	.search-input {
+		display: block;
+		float: left;
+		width: 100%;
+		margin: 0 -5px;
+	}
+
+	.search-submit {
+		display: block;
+		float: right;
+		width: 90px;
+		margin-right: -105px;
+	}
+
+	label {
+		display: none;
+	}
+
+}

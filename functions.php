@@ -1,19 +1,61 @@
 <?php
-
-define( 'MPH_THEME_NAME', basename( dirname( __FILE__ ) ) );
+/**
+ * MPH Starter functions and definitions
+ *
+ * When using a child theme (see http://codex.wordpress.org/Theme_Development and
+ * http://codex.wordpress.org/Child_Themes), you can override certain functions
+ * (those wrapped in a function_exists() call) by defining them first in your child theme's
+ * functions.php file. The child theme's functions.php file is included before the parent
+ * theme's file, so the child theme functions would be used.
+ *
+ * @package MPH Starter
+ * @since 0.1.0
+ */
 
 /**
  *	More Functions & Plugins.
  */
 get_template_part( 'updates/updates', 'core' );
-get_template_part( 'functions/functions-comments' );
-get_template_part( 'functions/functions-image_caption' );
-get_template_part( 'functions/functions-thumbnail_link' );
-get_template_part( 'functions/functions-user-contact-methods' );
-get_template_part( 'functions/gallery' );
-get_template_part( 'widgets/about' );
-get_template_part( 'plugins/grid/grid' );
+get_template_part( 'includes/functions-comments' );
+get_template_part( 'includes/functions-image_caption' );
+get_template_part( 'includes/functions-thumbnail_link' );
+get_template_part( 'includes/functions-user-contact-methods' );
+get_template_part( 'includes/gallery' );
+get_template_part( 'includes/widgets/about' );
+get_template_part( 'includes/plugins/grid/grid' );
 
+/**
+ * Check whether currently running a live or dev environment.
+ *
+ * Uses value of HM_DEV.
+ */
+function mtf_is_dev() {
+
+	return apply_filters( 'mtf_is_dev', defined( 'HM_DEV' ) && true === HM_DEV );
+
+}
+
+/**
+ * Get the theme version.
+ * Return version defined in style.css
+ *
+ * @return string version.
+ * @since 0.1.0
+ */
+function mtf_get_theme_version() {
+
+	//  wp_get_theme since WordPress 3.4.0
+	if ( function_exists( 'wp_get_theme' ) ) {
+		$theme = wp_get_theme( basename( get_bloginfo( 'stylesheet_directory' ) ) );
+		$version = $theme->version;
+	} else {
+		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
+		$version = $theme['Version'];
+	}
+
+	return apply_filters( 'mtf_get_theme_version', $version );
+
+}
 
 /**
  *	Setup
@@ -61,32 +103,8 @@ function mtf_setup() {
 }
 add_action( 'init', 'mtf_setup' );
 
-// WPThumb features
+// WPThumb features. Doesn't work inside setup function.
 add_theme_support( 'wpthumb-crop-from-position' );
-
-/**
- * Get the theme version.
- * Return version defined in style.css
- *
- * @return string version.
- */
-function mtf_get_theme_version() {
-
-	if ( function_exists( 'wp_get_theme' ) ) {
-
-		$theme = wp_get_theme( MPH_THEME_NAME );
-		$version = $theme->version;
-	
-	} else {
-
-		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
-		$version = $theme['Version'];
-	
-	}
-
-	return apply_filters( 'mtf_get_theme_version', $version );
-
-}
 
 /**
  *	Register all assets
@@ -97,22 +115,17 @@ function mtf_register_assets() {
 
 	// Use the theme version for theme assets to bust cache when updating.
 	$version = mtf_get_theme_version();
+	$postfix = ( mtf_is_dev() ) ? '' : '.min';
 
 	wp_deregister_script( 'modernizr' );
-	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/libs/modernizr-1.7.min.js', null, '1.7' );
+	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/vendor/modernizr-1.7.min.js', null, '1.7' );
 
 	// Scripts. Theme functions and behaviour
-	wp_register_script( 'mtf_functions', get_bloginfo( 'template_directory' ) . '/assets/js/functions.js', array( 'jquery' ), $version, true );
-	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/js/theme.js', array( 'modernizr', 'jquery' ), $version, true );
+	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/js/theme{$postfix}.js", array( 'modernizr', 'jquery' ), $version, true );
 
 	// Theme CSS
-	wp_register_style( 'mtf_reset', get_bloginfo( 'template_directory' ) . '/assets/styles/reset.css', null, $version, 'all' );
-	wp_register_style( 'genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
-	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . '/assets/styles/css/theme.css', array( 'mtf_reset' ), $version, 'all' );
-	
-	// Flexslider
-	wp_register_script( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/js/flexslider.min.js', array( 'jquery' ), $version, true );
-	wp_register_style( 'flexslider', get_bloginfo( 'template_directory' ) . '/assets/styles/flexslider.css', array( 'mtf_reset' ), $version, 'all' );
+	wp_register_style( 'mtf_genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
+	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/css/theme{$postfix}.css", null, $version, 'all' );
 
 }
 add_action( 'init', 'mtf_register_assets' );
@@ -128,19 +141,33 @@ function mtf_enqueue_assets() {
 
 	// Theme Scripts
 	wp_enqueue_script( 'comment-reply' );
-	wp_enqueue_script( 'mtf_functions' );
 	wp_enqueue_script( 'mtf_theme' );
 
 	// Theme Styles
-	wp_enqueue_style( 'genericons' );
+	wp_enqueue_style( 'mtf_genericons' );
 	wp_enqueue_style( 'mtf_theme' );
 	
-	wp_enqueue_style( 'flexslider' );
-	wp_enqueue_script( 'flexslider' );
-
+	// Livereload. To use, run 'grunt watch'.
+	if ( mtf_is_dev() ) {
+		// wp_enqueue_script( 'mtf_livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
+		wp_enqueue_script( 'mtf_livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
+	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
 
+
+/**
+ * Add humans.txt to the <head> element.
+ */
+function mtf_header_meta() {
+
+	$humans = '<link type="text/plain" rel="author" href="' . get_template_directory_uri() . '/humans.txt" />';
+
+	echo apply_filters( 'mtf_humans', $humans );
+
+}
+add_action( 'wp_head', 'mtf_header_meta' );
 
 /**
  * 	Add the Favicon to the head.
