@@ -1,3 +1,3 @@
 # Includes
 
-All generic reusable template parts should be stored here.
+All template parts should be stored here. Use subdirectories to organise them.

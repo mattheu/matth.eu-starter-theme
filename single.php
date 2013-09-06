@@ -23,9 +23,9 @@ the_post();
 
 		    <?php 
 		    
-			get_template_part( 'single/header' ); 
+			get_template_part( 'parts/single/header' ); 
 
-		    get_template_part( 'single/content', get_post_format() );
+		    get_template_part( 'parts/single/content', get_post_format() );
 
 		    get_template_part( 'parts/taxonomies' );
 

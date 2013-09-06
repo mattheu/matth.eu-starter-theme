@@ -15,7 +15,7 @@ get_header();
 
 	<section class="primary-content grid-8">
 
-		<?php get_template_part( 'index/header' ); ?>
+		<?php get_template_part( 'parts/index/header' ); ?>
 
 		<div class="entries">
 
@@ -28,19 +28,19 @@ get_header();
 					the_post();
 						
 					if ( is_search() )
-						get_template_part( 'search/single' );
+						get_template_part( 'parts/index/search-single' );
 
 					elseif ( $post_format = get_post_format() )
-						get_template_part( 'index/single', $post_format );
+						get_template_part( 'parts/index/single', $post_format );
 
 					else
-						get_template_part( 'index/single', get_post_type() );
+						get_template_part( 'parts/index/single', get_post_type() );
 
 				}
 
 			} else {
 
-				get_template_part( 'index/single-no-results' );
+				get_template_part( 'parts/index/single-no-results' );
 
 			}
 
