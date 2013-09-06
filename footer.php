@@ -9,13 +9,13 @@
 
 ?>
 
-	<div class="row">
-		<div class="grid-12">
-			<footer class="site-footer">
-				&copy; <?php echo date('Y', time() ); ?>
-			</footer>
-		</div>
+<div class="row">
+	<div class="grid-12">
+		<footer class="site-footer">
+			&copy; <?php echo date('Y', time() ); ?>
+		</footer>
 	</div>
+</div>
 
 </div><!-- /.wrap -->
 

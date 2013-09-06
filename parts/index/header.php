@@ -3,7 +3,7 @@
 	<div class="search-header entries-header clearfix grid-8">
 
 		<h2 class="search-header-title entries-header-title">
-			Search results for: <em>"<?php the_search_query(); ?>"</em>
+			<?php printf( __( 'Search results for: <em>"%s"</em>', 'mtf' ), get_search_query() ); ?>
 		</h2>
 
 	</div>
@@ -14,7 +14,13 @@
 
 		<div class="row">
 
-			<?php the_post(); ?>
+			<?php
+
+			the_post(); // To grab the author from the first post.
+
+			$description = get_the_author_meta( 'description' );
+
+			?>
 
 			<figure class="entries-header-thumb grid-2">
 				<?php echo get_avatar( get_queried_object_id(), 130  ); ?>
@@ -23,18 +29,18 @@
 			<div class="grid-6">
 
 	    		<h2 class="entries-header-title">
-	    			<a class="url" href="<?php echo get_author_posts_url( get_the_author_meta( "ID" ) ); ?>" title="<?php echo esc_attr( get_the_author() );?>"><?php echo get_the_author(); ?></a>
+	    			<a class="url" href="<?php echo get_author_posts_url( get_the_author_meta( "ID" ) ); ?>" title="<?php echo esc_attr( get_the_author() );?>">
+	    				<?php echo get_the_author(); ?>
+	    			</a>
 	    		</h2>
 
-				<?php
-					$description = get_the_author_meta( 'description' );
-					if ( ! empty( $description  ) )
-						echo '<div class="entries-header-description"><p>' . $description . '</p></div>';
-				?>
+				<?php if ( ! empty( $description  ) ) : ?>
+					<div class="entries-header-description"><?php echo wp_kses_post( $description ); ?></div>
+				<?php endif; ?>
 
 			</div>
 
-			<?php rewind_posts(); ?>
+			<?php rewind_posts(); // undo calling the_post(). ?>
 
 		</div>
 
@@ -43,20 +49,23 @@
 <?php elseif ( is_category() || is_tag() || is_tax() ) : ?>
 
 	<?php
-		$term = get_queried_object();
-		$tax = get_taxonomy( $term->taxonomy );
-		$title = single_term_title( '', false );
-		$description = term_description();
+
+	$term = get_queried_object();
+	$tax = get_taxonomy( $term->taxonomy );
+	$title = single_term_title( '', false );
+	$description = term_description();
+
 	?>
 
     <div class="entries-header tax-header cat-header clearfix grid-8">
 
-    	<h2 class="entries-header-title"><?php echo esc_attr( $tax->labels->name ); ?> Archives: <span><?php echo esc_attr( $title ); ?></span></h2>
+    	<h2 class="entries-header-title">
+    		<?php printf( __( '% Archives: <span>%s</span>', 'mtf' ), esc_attr( $tax->labels->name ), esc_attr( $title ) ); ?>
+    	</h2>
 
-		<?php
-			if ( ! empty( $description  ) )
-				echo '<div class="entries-header-description">' . $description . '</div>';
-		?>
+		<?php if ( ! empty( $description  ) ) : ?>
+			<div class="entries-header-description"><?php echo wp_kses_post( $description ); ?></div>
+		<?php endif; ?>
 
     </div>
 
@@ -66,17 +75,16 @@
 
     	<h2 class="entries-header-title">
 			<?php
-				if ( is_day() )
-					echo 'Daily Archives: <span>' . get_the_date() . '</span>';
 
-				elseif ( is_month() )
-					echo 'Monthly Archives: <span>' . get_the_date( 'F Y' ) . '</span>';
+			if ( is_day() )
+				printf( __( 'Daily Archives: <span>%s</span>', 'mtf' ), get_the_date() );
+			elseif ( is_month() )
+				printf( __( 'Monthly Archives: <span>%s</span>', 'mtf' ), get_the_date( 'F Y' ) );
+			elseif ( is_year() )
+				printf( __( 'Yearly Archives: <span>%s</span>', 'mtf' ), get_the_date( 'Y' ) );
+			else
+				_e( 'Date Archives', 'mtf' );
 
-				elseif ( is_year() )
-					echo 'Yearly Archives: <span>' . get_the_date( 'Y' ) . '</span>';
-
-				else
-					echo 'Date Archives';
 			?>
 		</h2>
 
