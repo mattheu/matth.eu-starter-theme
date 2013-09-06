@@ -5,8 +5,8 @@ module.exports = function( grunt ) {
 	var banner = '/**\n * MPH Starter\n * http://matth.eu\n *\n * Copyright (c) 2013 Matthew Haines-Young (@matth_eu)\n */\n';
 
 	var themeScripts = [
-		'assets/js/vendor/flexslider.min.js',
-		'assets/js/src/functions.js', 
+		'assets/js/vendor/flexslider/jquery.flexslider.js',
+		'assets/js/vendor/fitvids/jquery.fitvids.js',
 		'assets/js/src/theme.js'
 	];
 
@@ -27,7 +27,8 @@ module.exports = function( grunt ) {
 					sourceMap: function( dest ) { return dest + '.map' },
 					sourceMappingURL: function( dest ) { return dest.replace(/^.*[\\\/]/, '') + '.map' },
 					sourceMapRoot: '/',
-					beautify: true
+					beautify: true,
+					mangle: false
 				},
 				files: {
 					'assets/js/theme.js': themeScripts
@@ -41,14 +42,15 @@ module.exports = function( grunt ) {
 					mangle: { except: ['jQuery'] }
 				},
 				files: {
-					'assets/js/theme.js': themeScripts
+					'assets/js/theme.min.js': themeScripts
 				}
 			}
 
 		},
-
-		
+	
 		// Compile SASS
+		// Uses exerimental (but much faster) grunt-sass. 
+		// However this doesn't support minified output.
 		sass: {
 
 			dev: {
@@ -74,15 +76,14 @@ module.exports = function( grunt ) {
 
 			}
 
-		},
-		
+		},	
 
 		// Watch for changes
 		watch:  {
 
 			sass: {
 				files: ['assets/css/*/**/*.scss'],
-				tasks: ['sass'],
+				tasks: ['sass', 'cssmin'],
 				options: {
 					debounceDelay: 500,
 					livereload: true
@@ -98,6 +99,7 @@ module.exports = function( grunt ) {
 			}
 
 		}
+
 	} );
 
 	// Default task.

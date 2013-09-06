@@ -1,0 +1,6 @@
+[submodule "assets/js/vendor/fitvids"]
+	path = assets/js/vendor/fitvids
+	url = https://github.com/davatron5000/FitVids.js.git
+[submodule "assets/js/vendor/flexslider"]
+	path = assets/js/vendor/flexslider
+	url = https://github.com/woothemes/FlexSlider.git
