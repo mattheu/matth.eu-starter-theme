@@ -1,0 +1,63 @@
+html,
+body {
+	background-color: $bg-color-body;
+	height: 100%;
+}
+
+.page-wrap {
+	background-color: $bg-color-wrap;
+	border: 1px solid $border-color-lt;
+	border-width: 0 1px;
+	min-height: 100%; 
+}
+
+.single .entry {
+
+	.entry-title {
+		@include beta;
+	}
+	
+	.entry-content {
+		margin: 0 0 px( $base-line-height / 2 ); 
+		margin: 0 0 rem( $base-line-height / 2 ); 
+	}
+	
+}
+
+.widget-area {
+	padding: px( $base-line-height ) 0 0;
+	padding: rem( $base-line-height ) 0 0;
+}
+
+.sidebar .widget {
+
+	padding: px( $base-line-height / 2 ) 0 0;
+	padding: rem( $base-line-height / 2 ) 0 0;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	> ul {
+		@include linklist;
+	}
+}
+
+.main-menu .menu { 
+	border-top: 1px solid $border-color-lt; 
+}
+
+#wp-calendar {
+	width: 100%;
+	
+	th,
+	td {
+		text-align: center; 
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+}
+
+.mejs-controls button { box-shadow: none; }

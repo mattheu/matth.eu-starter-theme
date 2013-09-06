@@ -1,0 +1,8 @@
+/* TEAM */
+	Developer: Matthew Haines-Young (@matth_eu)
+	Contact:   matthew@matth.eu
+	URI:       http://matth.eu
+
+/* Theme */
+	Created:  2013-09-03
+	Template: https://github.com/mattheu/grunt-wp-theme

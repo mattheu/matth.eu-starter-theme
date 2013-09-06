@@ -1,0 +1,119 @@
+
+.pagination {
+
+	@include clearfix;
+
+	text-align: center;
+	margin: 1.5em 0;
+	padding: 0;
+
+	a,
+  	span {
+  		padding: .75rem;
+  		min-width: .75rem;
+  		line-height: .75rem;
+  		margin: 0 px( $base-line-height / 4 );
+  		margin: 0 rem( $base-line-height / 4 );
+  		display: inline-block;
+  		text-decoration: none;
+  		text-align: center;
+  		border: 1px solid $border-color-lt;
+		background: $bg-color-body;
+  		color: #666;
+  	}
+
+  	.dots {
+  		border: none;
+  		background: none;
+  		color: inherit;
+  		margin: 0;
+  	}
+
+  	/* Reset for nested spans/links */
+  	a span,
+  	span a {
+  		padding: 0;
+  		margin: 0;
+  		display: inline;
+  		min-width: 0;
+  		background: transparent;
+  		border: none;
+  	}
+
+  	> *:first-child,
+  	li:first-child a {
+  		margin-left: 0;
+  	}
+
+  	> *:last-child,
+  	li:last-child * {
+  		margin-right: 0;
+  	}
+
+	a {
+		cursor: pointer;
+	}
+
+  	.current,
+  	.active,
+  	a:hover {
+  		background: #ECECEC;
+  		border-color: $border-color-dk;
+  		color: #000;
+  	}
+
+	ul,
+	ol {
+		margin: 0;
+	}
+	li {
+		list-style: none;
+		display: inline;
+	}
+
+	&.right {
+		text-align: right;
+	}
+	&.left {
+		text-align: left;
+	}
+
+	a.prev,
+	a.next {
+
+		position: relative;
+  		line-height: .75rem;
+  		height: .75rem;
+  		width: .75rem;
+		vertical-align: top;
+		text-indent: -9999px;
+
+		&:after { 
+			font-family: 'Genericons';
+			text-indent: 0;
+			position: absolute;
+			height: 16px;
+			width: 16px;
+			top: 50%;
+			left: 50%;
+			margin-top: -6px;
+			margin-left: -8px;
+		}
+		
+		&.prev:after {
+			content: '\f503';
+			margin-left: -12px;
+		}
+		
+		&.next:after {
+			content: '\f501';
+			margin-left: -4px;
+		}
+
+	}
+
+}
+
+.ie7 .pagination-container span {
+	display: inline; zoom: 1;
+}

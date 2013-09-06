@@ -1,0 +1,31 @@
+@mixin linklist() {
+
+	margin: 0 0 px( $base-line-height / 2 );
+	margin: 0 0 rem( $base-line-height / 2 );
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: block;
+		padding: px( $base-line-height / 2 ) 0;
+		padding: rem( $base-line-height / 2 ) 0;
+		border-bottom: 1px solid $border-color-lt;
+		margin-bottom: -1px;
+
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+	}
+
+	ul li {  
+		padding-top: 0; 
+		border: none;
+		&:first-child {
+			padding-top: px( $base-line-height / 2 );
+			padding-top: rem( $base-line-height / 2 );
+		}
+	}
+
+}
+

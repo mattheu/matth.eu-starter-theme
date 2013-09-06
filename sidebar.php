@@ -2,4 +2,4 @@
 
 	<?php dynamic_sidebar( 'mtf_secondary' ); ?>
 
-  </div>
+</div>

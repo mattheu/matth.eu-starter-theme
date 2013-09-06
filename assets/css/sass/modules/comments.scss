@@ -1,0 +1,176 @@
+
+#comments {
+	
+	clear: both;
+	border-top: 1px solid $border-color-lt;
+	
+	margin-top: px( $base-line-height );
+	margin-top: rem( $base-line-height );
+	padding-top: px( $base-line-height );
+	padding-top: rem( $base-line-height );
+
+	.logged-in-as {
+		@include small;
+		color: $border-color-dk;
+		a { color: inherit; }
+	}
+
+}
+
+#respond {
+	border-top: 1px solid $border-color-lt;
+	padding-top: px( $base-line-height );
+	padding-top: rem( $base-line-height );
+	#reply-title {
+		margin: 0 0 px( $base-line-height / 2 );
+		margin: 0 0 rem( $base-line-height / 2 );
+	}
+}
+
+#comments #respond:first-child { 
+	border: none; 
+	padding: 0; 
+}
+
+.comment #respond { 
+	margin-top: rem( $base-line-height / 2); 
+}
+
+.commentlist {
+
+	margin: 0;
+	list-style: none;
+
+	/* Extend .grid */
+	.comment-info,
+	.comment-body {
+		display: block;
+		margin: 0;
+		float: left;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding-left: px( $grid-col-gutter );
+		padding-left: rem( $grid-col-gutter );
+		padding-right: px( $grid-col-gutter );
+		padding-right: rem( $grid-col-gutter );
+	}
+
+	.avatar {
+		display: block;
+		width: 100%;
+		height: auto;
+		img { 
+			margin: 0;
+		}
+	}
+
+	.comment {
+		
+		@include clearfix;
+
+		padding-top: px( $base-line-height );
+		padding-top: rem( $base-line-height );
+		
+		padding-bottom: px( $base-line-height / 2 );
+		padding-bottom: rem( $base-line-height / 2 );
+
+		border-top: 1px solid $border-color-lt;
+	
+	}
+
+	& > .comment:first-child { 
+		border-top: none; 
+	}
+
+	.comment-header {
+		margin-bottom: px( $base-line-height / 2 );
+		margin-bottom: rem( $base-line-height / 2 );
+
+		.comment-author {
+			font-weight: bold;
+		}
+
+		a { 
+			color: inherit; 
+			text-decoration: none; 
+		}
+
+	}
+
+	.children {
+		
+		margin: rem( $base-line-height / 2 ) 0 rem( -1 * $base-line-height / 2 ) 0;
+		padding-left: 0;		
+		list-style: none;
+	
+	}
+
+	$comment-container-width: 8; // Width of comment container in columns.
+	@for $i from 1 through ( $comment-container-width - 2 ) {			
+		
+		.depth-#{$i} {
+		
+			@if $i == 1 {
+    			
+    			margin-left: 0;
+  			
+  			} @else {
+				
+				$margin: 1 / ( $comment-container-width + 2 - $i ) * 100%;
+				$expression: "#{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem )";
+				@include calc( margin-left, $expression, $margin );
+
+			}
+		
+		}
+
+		.depth-#{$i} .comment-info {
+			width: ( 100% / ( ( $comment-container-width + 1 - $i ) ) ) * 1;
+		}
+	
+		.depth-#{$i} .comment-body {
+			width: ( 100% / ( ( $comment-container-width + 1 - $i ) ) ) * ( $comment-container-width - $i );
+		}
+	
+	}
+
+	.reply { 
+		@include small;
+		margin-bottom: px( $base-line-height / 2 );
+		margin-bottom: rem( $base-line-height / 2 );
+	}
+	
+	@media all and ( max-width: 700px ) {
+
+		$comment-container-width: 6; // Width of comment container in columns.
+		@for $i from 1 through ( $comment-container-width ) {			
+		
+			.depth-#{$i} {
+
+				@if $i == 1 {
+	    		
+	    			margin-left: 0;
+	  			
+	  			} @else {
+				
+					$margin: 1 / ( $comment-container-width + 2 - $i ) * 100%;
+					$expression: "#{ 1 / ( $comment-container-width + 2 - $i ) } * ( 100% + #{ ( $grid-col-gutter * 2 ) }rem )";
+					@include calc( margin-left, $expression, $margin );
+				
+				}
+			
+			}
+
+			.depth-#{$i} .comment-info {
+				width: ( 100% / ( ( $comment-container-width + 1 - $i ) ) ) * 1;
+			}
+		
+			.depth-#{$i} .comment-body {
+				width: ( 100% / ( ( $comment-container-width + 1 - $i ) ) ) * ( $comment-container-width - $i );
+			}
+		
+		}
+
+	}
+	
+}

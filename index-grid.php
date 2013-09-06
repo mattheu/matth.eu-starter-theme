@@ -1,5 +1,12 @@
 <?php 
 
+/**
+ * Generic Grid Layout Template File
+ * 
+ * @package MPH Starter
+ * @since 0.1.0
+ */
+
 global $wp_query;
 
 get_header(); 
@@ -10,7 +17,7 @@ get_header();
 
 	<section class="primary-content grid-12">
 
-		<?php get_template_part( 'river/single-header' ); ?>
+		<?php get_template_part( 'parts/index/single-header' ); ?>
 
 		<div class="entries entries-grid row">
 
@@ -22,11 +29,14 @@ get_header();
 
 					the_post();
 
-					if ( $post_format = get_post_format() )
-						get_template_part( 'river/single-grid', $post_format );
+					if ( is_search() ) 
+						get_template_part( 'parts/index/search-single' );
+					
+					elseif ( $post_format = get_post_format() )
+						get_template_part( 'parts/index/single-grid', $post_format );
 
 					else
-						get_template_part( 'river/single-grid', get_post_type() );
+						get_template_part( 'parts/index/single-grid', get_post_type() );
 					
 					// Add clear div after every row.
 					if ( 0 === ( $wp_query->current_post + 1 ) % 4 )
@@ -36,7 +46,7 @@ get_header();
 
 			} else {
 
-				get_template_part( 'river/single-no-results' );
+				get_template_part( 'parts/index/single-no-results' );
 
 			}
 
