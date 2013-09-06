@@ -97,22 +97,22 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none; }
 
 h1, .alpha {
-  font-size: 36px;
-  font-size: 2.25rem;
-  line-height: 1.33333;
-  margin: 1.33333em 0 0.66667em; }
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  margin: 1.5em 0 0.75em; }
 
 h2, .beta {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 32px;
+  font-size: 2rem;
   line-height: 1.5;
   margin: 1em 0 0.5em; }
 
 h3, .gamma {
-  font-size: 21px;
-  font-size: 1.3125rem;
-  line-height: 1.14286;
-  margin: 0.7619em 0 0.38095em; }
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 1em 0 0.5em; }
 
 h4, .delta {
   font-size: 18px;
@@ -3251,10 +3251,10 @@ html[xmlns] .slides {
     margin-bottom: 12px;
     margin-bottom: 0.75rem; }
   .entry .entry-title {
-    font-size: 21px;
-    font-size: 1.3125rem;
-    line-height: 1.14286;
-    margin: 0.7619em 0 0.38095em;
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 1em 0 0.5em;
     margin: 0 0 12px 0;
     margin: 0 0 0.75rem 0; }
     .entry .entry-title .genericon {
@@ -3588,8 +3588,8 @@ html, body {
   min-height: 100%; }
 
 .single .entry .entry-title {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 32px;
+  font-size: 2rem;
   line-height: 1.5;
   margin: 1em 0 0.5em; }
 .single .entry .entry-content {

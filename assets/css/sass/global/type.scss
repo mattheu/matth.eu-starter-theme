@@ -14,8 +14,8 @@ body {
 }
 
 @mixin alpha {
-	$font-size: $base-font-size * 2.25;
-	$line-height: ( $base-line-height * 2 ) / $font-size;
+	$font-size: $base-font-size * 2.5;
+	$line-height: ( $base-line-height * 2.5 ) / $font-size;
 
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
@@ -24,8 +24,8 @@ body {
 }
 
 @mixin beta {
-	$font-size: $base-font-size * 1.5;
-	$line-height: $base-line-height * 1.5 / $font-size;
+	$font-size: $base-font-size * 2;
+	$line-height: $base-line-height * 2 / $font-size;
 
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
@@ -34,8 +34,8 @@ body {
 }
 
 @mixin gamma {
-	$font-size: $base-font-size * 1.3125;
-	$line-height: $base-line-height / $font-size;
+	$font-size: $base-font-size * 1.5;
+	$line-height: $base-line-height * 1.5 / $font-size;
 
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
