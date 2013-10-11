@@ -10,6 +10,13 @@
 ?>
 
 <div class="row">
+
+	<div class="grid-12">
+		<div class="widget-area">
+			<?php dynamic_sidebar( 'mtf_footer' ); ?>
+		</div>
+	</div>
+
 	<div class="grid-12">
 		<footer class="site-footer">
 			&copy; <?php echo date('Y', time() ); ?>
