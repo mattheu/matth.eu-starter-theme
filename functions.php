@@ -58,7 +58,7 @@ function mtf_get_theme_version() {
 }
 
 /**
- *	Setup
+ *  Set up theme defaults and register supported WordPress features.
  *
  *  @return null
  */
@@ -94,8 +94,7 @@ function mtf_setup() {
 	add_theme_support( 'structured-post-formats', array(
 		'image', 'gallery', 'video', 'audio'
 	) );
-	
-	// 'aside', 'audio', 'chat', 'gallery', 'image', 'quote', 'status'
+
 	add_theme_support( 'post-formats', array(
 		'image', 'gallery', 'video', 'audio', 'quote'
 	) );
@@ -106,13 +105,13 @@ function mtf_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	//Remove some unused stuff from the head.
-	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action( 'wp_head', 'wlwmanifest_link' );
 
 	// Remove default gallery styles
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
 }
-add_action( 'init', 'mtf_setup' );
+add_action( 'after_setup_theme', 'mtf_setup' );
 
 // WPThumb features. Doesn't work inside setup function.
 add_theme_support( 'wpthumb-crop-from-position' );
@@ -157,16 +156,15 @@ function mtf_enqueue_assets() {
 	// Theme Styles
 	wp_enqueue_style( 'mtf_genericons' );
 	wp_enqueue_style( 'mtf_theme' );
-	
-	// Livereload. To use, run 'grunt watch'.
+
+	// Livereload for use with grunt & grunt watch. To use, grunt watch must be running.
 	if ( mtf_is_dev() ) {
 		// wp_enqueue_script( 'mtf_livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
 		wp_enqueue_script( 'mtf_livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
 	}
-	
+
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
-
 
 /**
  * Add humans.txt to the <head> element.
@@ -197,7 +195,6 @@ function mtf_favicon() {
 add_action( 'wp_head', 'mtf_favicon' );
 add_action( 'admin_head', 'mtf_favicon' );
 add_action( 'login_head', 'mtf_favicon' );
-
 
 /**
  * Filter the excerpt length.
@@ -254,7 +251,7 @@ add_filter( 'template_include', 'mtf_grid_template' );
 
 /**
  * Add custom post classes.
- * 
+ *
  * @param array $classes
  * @return array $classes
  */
@@ -264,6 +261,6 @@ function mtf_post_class( $classes ) {
 		$classes[] = 'has-thumbnail';
 
 	return $classes;
-	
+
 }
 add_filter( 'post_class', 'mtf_post_class' );

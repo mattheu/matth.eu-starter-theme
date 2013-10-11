@@ -21,15 +21,15 @@ the_post();
 
 		<article <?php post_class( array( 'entry' ) ); ?>>
 
-		    <?php 
-		    
-			get_template_part( 'parts/single/header' ); 
+		    <?php
+
+			get_template_part( 'parts/single/header' );
 
 		    get_template_part( 'parts/single/content', get_post_format() );
 
 		    get_template_part( 'parts/taxonomies' );
 
-			comments_template(); 
+			comments_template();
 
 			?>
 
@@ -38,9 +38,9 @@ the_post();
 	</section><!-- / .primary-content -->
 
 	<section class="sidebar grid-4" role="complementary">
-		
+
 		<?php get_sidebar(); ?>
-	
+
 	</section><!-- .secondary-content .widget-area -->
 
 </div>
