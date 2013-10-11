@@ -1,6 +1,6 @@
 // remap jQuery to $
 (function($){
-
+	
 	$( document ).ready( function() {
 
 		// Seriously there's no way to add a class to this?!?!
