@@ -60,7 +60,7 @@
     <div class="entries-header tax-header cat-header clearfix grid-8">
 
     	<h2 class="entries-header-title">
-    		<?php printf( __( '% Archives: <span>%s</span>', 'mtf' ), esc_attr( $tax->labels->name ), esc_attr( $title ) ); ?>
+    		<?php printf( __( '%s Archives: <span>%s</span>', 'mtf' ), esc_attr( $tax->labels->name ), esc_attr( $title ) ); ?>
     	</h2>
 
 		<?php if ( ! empty( $description  ) ) : ?>
