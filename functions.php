@@ -64,6 +64,8 @@ function mtf_get_theme_version() {
  */
 function mtf_setup() {
 
+	load_theme_textdomain( 'mft', get_template_directory() . '/languages' );
+
 	register_nav_menus(
 		array(
 		  'mtf_menu_main' => 'Main Menu',
