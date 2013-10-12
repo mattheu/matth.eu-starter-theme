@@ -3,6 +3,12 @@
 
 	@include clearfix;
 
+	padding: px( $base-line-height / 2 ) 0;
+	padding: rem( $base-line-height / 2 ) 0;
+
+	margin-bottom: px( $base-line-height / 2 );
+	margin-bottom: rem( $base-line-height / 2 );
+
 	> div {
 		margin-right: 100px;
 		padding: 0 5px;
@@ -20,6 +26,7 @@
 		float: right;
 		width: 90px;
 		margin-right: -105px;
+		margin-bottom: 0;
 	}
 
 	label {
