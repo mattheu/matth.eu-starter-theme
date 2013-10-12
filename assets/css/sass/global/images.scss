@@ -4,11 +4,11 @@ img {
 	height: auto;
 	margin-bottom: px($base-line-height/2);
 	margin-bottom: rem($base-line-height/2);
-	vertical-align: top;
+	vertical-align: middle;
 
 	// Images in text always seem a little high as they are aligned to the top of the line height;
-	position: relative;
-	top: rem($base-line-height/4);
+	// position: relative;
+	// top: rem($base-line-height/4);
 
 	&.aligncenter {
 		clear: both;
@@ -29,63 +29,86 @@ img {
 		margin-left: rem( $grid-col-gutter * 2 );
 	}
 
-
-}
-
-
-.grid-4 img {
-
-	&.size-large,
-	&.attachment-large,
-	&.size-medium,
-	&.attachment-medium {
-		width: 100%;
-	}
-
 	&.size-thumbnail,
 	&.attachment-thumbnail {
-		$expression: ".75 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-		@include calc( width, $expression, 75% );
+		width: 240px;
 	}
+	
+	&.size-medium,
+	&.attachment-medium {
+		width: 420px;
+	}
+	
+	&.size-large,
+	&.attachment-large {
+		width: 700px;
+	}
+	
+}
 
-	@media all and ( max-width: 700px ) {
+// Width of image sizes in columns.
+$thumbnail: 3;
+$medium: 5;
+$large: 8;
+
+// Generate image sizes - in calc relative to the column size.
+@for $i from 1 through 12 {
+	
+	.grid-#{$i} img { 
+		
+		&.size-large,
+		&.attachment-large {
+			@if $large >= $i {
+				width: 100%;
+			} @else {
+				$width: $large / $i;
+				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, $width*100% );
+			}
+			
+			@media all and ( max-width: 700px ) {
+				width: 100%;	
+			}
+
+		}
+
+		&.size-medium,
+		&.attachment-medium {
+			
+			@if $medium >= $i {
+				width: 100%;
+			} @else {
+				$width: $medium / $i;
+				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, $width*100% );
+			}
+			
+			@media all and ( max-width: 700px ) {
+				$expression: "0.5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, 50% );
+			}
+
+			@media all and ( max-width: 500px ) {
+				width: 100%;	
+			}
+
+		}
 
 		&.size-thumbnail,
 		&.attachment-thumbnail {
-			width: 100%;
-		}
+			@if $thumbnail >= $i {
+				width: 100%;
+			} @else {
+				$width: $thumbnail / $i;
+				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, $width*100% );
+			}
 
-	}
+			@media all and ( max-width: 700px ) {
+				$expression: "0.5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, 50% );
+			}
 
-}
-
-.grid-8 img {
-
-	&.size-large,
-	&.attachment-large {
-		width: 100%;
-	}
-
-	&.size-medium,
-	&.attachment-medium {
-		$expression: ".625 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-		@include calc( width, $expression, 62.5% );
-	}
-
-	&.size-thumbnail,
-	&.attachment-thumbnail {
-		$expression: ".375 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-		@include calc( width, $expression, 37.5% );
-	}
-
-	@media all and ( max-width: 700px ) {
-
-		&.size-thumbnail,
-		&.attachment-thumbnail,
-		&.size-medium,
-		&.attachment-medium {
-			$expression: ".5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-			@include calc( width, $expression, 5% );
 		}
 
 	}

@@ -125,7 +125,7 @@
 
 
 /** Add class grid-demo to grid-content to display demo grids */
-#grid-demo .row [class*="grid"] .grid-content { background: #DDD; text-align: center; margin-bottom: 1.5em; }
+#grid-demo .row [class*="grid"] .grid-content { background: rgba(0,0,0,0.1); text-align: center; margin-bottom: 1.5em;  }
 
 /** Helper grid overlay. **/
 #grid-overlay { position: fixed; top: 0; bottom: 0; left: 0; right: 0; pointer-events: none; overflow: hidden; }
