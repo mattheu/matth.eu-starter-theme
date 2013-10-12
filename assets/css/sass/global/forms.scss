@@ -21,7 +21,7 @@ textarea {
 	cursor: text;
 	overflow: hidden;
 	background-color: #FFF;
-	box-shadow: 0 2px 5px rgba(0,0,0,0.1) inset;
+	@include box-shadow( 0, 2px, 5px, rgba(0,0,0,0.1), inset );
 	width: 100%;
 	vertical-align: top;
 }
@@ -29,6 +29,13 @@ textarea {
 textarea { 
 	height: auto; 
 	max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	-moz-box-shadow: none; 
+	-webkit-box-shadow: none; 
+	box-shadow: none; 
 }
 
 // Input sizes.
@@ -61,7 +68,8 @@ select {
 		margin-top: rem( -1 * $base-line-height / 2 ); 
 	}
 
-	label {
+	label,
+	.form-row-label {
 		float: left;
 		width: 150px;
 		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
@@ -83,8 +91,8 @@ input[disabled] {
 	
 	label { 
 		width: auto; 
-		margin: 0 px( $grid-col-gutter ) 0 px( $grid-col-gutter / 2 ); 
-		margin: 0 rem( $grid-col-gutter ) 0 rem( $grid-col-gutter / 2 ); 
+		margin: px( $base-line-height / 4 ) 20px px( $base-line-height / 4 ) 0;
+		margin: rem( $base-line-height / 4 ) 20px rem( $base-line-height / 4 ) 0;
 	}
 	
 	input { 
