@@ -24,15 +24,10 @@ body {
 	
 }
 
-.widget-area {
-	padding: px( $base-line-height ) 0 0;
-	padding: rem( $base-line-height ) 0 0;
-}
-
 .sidebar .widget {
 
-	padding: px( $base-line-height / 2 ) 0 0;
-	padding: rem( $base-line-height / 2 ) 0 0;
+	margin-bottom: px( $base-line-height / 2 );
+	margin-bottom: rem( $base-line-height / 2 );
 
 	a {
 		color: inherit;

@@ -8,6 +8,10 @@
 	padding: px( $base-line-height ) 0 px( $base-line-height / 2 );
 	padding: rem( $base-line-height ) 0 rem( $base-line-height / 2 );
 
+	&:first-child { 
+		padding-top: 0;
+	}
+
 	&:last-child { 
 		border-bottom: none; 
 	}
@@ -52,7 +56,7 @@
 			color: inherit;
 		}
 	}
-
+	
 	.entry-thumb {
 		
 		@extend img.size-thumbnail;
@@ -66,7 +70,8 @@
 			height: auto; 
 			width: 100%; 
 			margin: 0;
-			vertical-align: top;
+			position: relative;
+			top: rem( $base-line-height / 4 ); 
 		}
 
 	}
