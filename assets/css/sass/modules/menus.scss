@@ -2,9 +2,10 @@
 .menu { 
 
 	@include small;
+	@include clearfix;
 	margin: 0; 
 	padding: 0; 
-
+	
 	ul {
 		margin: 0; 
 		padding: 0; 
@@ -12,21 +13,20 @@
 
 	li {
 		position: relative; 
-		display: inline-block;
+		float: left;
+		list-style: none; 
 	}
 
 	a {
 		
 		position: relative; 
 		display: block; 
+		border: 1px solid transparent;
 		padding: px( $base-line-height / 2 ) 15px;
 		padding: rem( $base-line-height / 2 ) 15px;
 		text-decoration: none;
 		color: inherit;
-
-		&:first-child {
-			padding-left: 0;
-		}
+		margin: -1px -1px -1px 0;
 
 		&:link,
 		&:visited {
@@ -36,30 +36,43 @@
 
 	}
 
+	> li:first-child > a {
+		border-left-color: transparent;
+	}
+
+	li > a:hover,
+	li:hover > a {
+		background: $border-color-lt;
+		border-color: $border-color-dk;
+		position: relative;
+		z-index:5;
+	}
+
 	.sub-menu { 
+		
 		display: none; 
 		position: absolute; 
 		width: 130px; 
 		top: 100%; 
+		z-index: 3;
+		
 		background: #FFF; 
 		background: rgba(255,255,255,0.95); 
-		border: 1px solid #888; 
-		z-index: 100; 
-
+		 
 		li {
 			display: block;
+			width: 100%;
 		}
 
 		a { 
-			border-bottom: 1px solid #888; 
-		}
-
-		li:first-child a 	{ 
+			border: 1px solid $border-color-lt; 
+			margin: 0 0 -1px 0;
 			padding-left: 15px; 
 		}
-		
-		li:last-child a { 
-			border: none; 
+
+		a:hover {
+			background-color: $border-color-lt;
+			border-color: $border-color-dk;
 		}
 
 		.sub-menu { 
