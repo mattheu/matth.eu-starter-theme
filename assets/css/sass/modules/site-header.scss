@@ -9,8 +9,8 @@
 	border-bottom: 1px solid $border-color-lt;
 	
 	.site-description {
-		margin: px( $base-line-height / -2 ) 0 px( $base-line-height );
-		margin: rem( $base-line-height / -2 ) 0 rem( $base-line-height );
+		margin-bottom: px( $base-line-height );
+		margin-bottom: rem( $base-line-height );
 	}
 
 }
