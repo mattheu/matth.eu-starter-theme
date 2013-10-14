@@ -2817,303 +2817,351 @@ input[type="submit"], input[type="button"], button, .button {
     display: block; } }
 
 
-img, .wp-caption {
+.img, img, .wp-caption {
   max-width: 100%;
   height: auto;
   margin-bottom: 12px;
   margin-bottom: 0.75rem;
   vertical-align: middle; }
-  img.aligncenter, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb {
+  .img.aligncenter, img.aligncenter, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb {
     clear: both;
     float: none;
     margin-left: auto;
     margin-right: auto; }
-  img.alignleft, .entry .entry-thumb, .wp-caption.alignleft {
+  .img.alignleft, img.alignleft, .entry .entry-thumb, .wp-caption.alignleft {
     float: left;
     margin-right: 32px;
     margin-right: 2rem; }
-  img.alignright, .wp-caption.alignright {
+  .img.alignright, img.alignright, .wp-caption.alignright {
     float: right;
     margin-left: 32px;
     margin-left: 2rem; }
-  img.size-thumbnail, .entry .entry-thumb, img.attachment-thumbnail {
+  .img.size-thumbnail, .img.attachment-thumbnail, img.size-thumbnail, .entry .entry-thumb, img.attachment-thumbnail {
     width: 240px; }
-  img.size-medium, img.attachment-medium {
+  .img.size-medium, .img.attachment-medium, img.size-medium, img.attachment-medium {
     width: 420px; }
-  img.size-large, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb, img.attachment-large {
+  .img.size-large, .img.attachment-large, img.size-large, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb, img.attachment-large {
     width: 700px; }
 
-.grid-1 img.size-large, .grid-1 img.attachment-large {
+.grid-1 img.size-large, .grid-1 img.attachment-large, .grid-1 .img.size-large, .grid-1 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-1 img.size-large, .grid-1 img.attachment-large {
+    .grid-1 img.size-large, .grid-1 img.attachment-large, .grid-1 .img.size-large, .grid-1 .img.attachment-large {
       width: 100%; } }
-.grid-1 img.size-medium, .grid-1 img.attachment-medium {
+.grid-1 img.size-medium, .grid-1 img.attachment-medium, .grid-1 .img.size-medium, .grid-1 .img.attachment-medium {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-1 img.size-medium, .grid-1 img.attachment-medium {
+    .grid-1 img.size-medium, .grid-1 img.attachment-medium, .grid-1 .img.size-medium, .grid-1 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-1 img.size-medium, .grid-1 img.attachment-medium {
+    .grid-1 img.size-medium, .grid-1 img.attachment-medium, .grid-1 .img.size-medium, .grid-1 .img.attachment-medium {
       width: 100%; } }
-.grid-1 img.size-thumbnail, .grid-1 img.attachment-thumbnail {
+.grid-1 img.size-thumbnail, .grid-1 img.attachment-thumbnail, .grid-1 .img.size-thumbnail, .grid-1 .img.attachment-thumbnail {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-1 img.size-thumbnail, .grid-1 img.attachment-thumbnail {
+    .grid-1 img.size-thumbnail, .grid-1 img.attachment-thumbnail, .grid-1 .img.size-thumbnail, .grid-1 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-1 img.size-thumbnail, .grid-1 img.attachment-thumbnail, .grid-1 .img.size-thumbnail, .grid-1 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-2 img.size-large, .grid-2 img.attachment-large {
+.grid-2 img.size-large, .grid-2 img.attachment-large, .grid-2 .img.size-large, .grid-2 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-2 img.size-large, .grid-2 img.attachment-large {
+    .grid-2 img.size-large, .grid-2 img.attachment-large, .grid-2 .img.size-large, .grid-2 .img.attachment-large {
       width: 100%; } }
-.grid-2 img.size-medium, .grid-2 img.attachment-medium {
+.grid-2 img.size-medium, .grid-2 img.attachment-medium, .grid-2 .img.size-medium, .grid-2 .img.attachment-medium {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-2 img.size-medium, .grid-2 img.attachment-medium {
+    .grid-2 img.size-medium, .grid-2 img.attachment-medium, .grid-2 .img.size-medium, .grid-2 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-2 img.size-medium, .grid-2 img.attachment-medium {
+    .grid-2 img.size-medium, .grid-2 img.attachment-medium, .grid-2 .img.size-medium, .grid-2 .img.attachment-medium {
       width: 100%; } }
-.grid-2 img.size-thumbnail, .grid-2 img.attachment-thumbnail {
+.grid-2 img.size-thumbnail, .grid-2 img.attachment-thumbnail, .grid-2 .img.size-thumbnail, .grid-2 .img.attachment-thumbnail {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-2 img.size-thumbnail, .grid-2 img.attachment-thumbnail {
+    .grid-2 img.size-thumbnail, .grid-2 img.attachment-thumbnail, .grid-2 .img.size-thumbnail, .grid-2 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-2 img.size-thumbnail, .grid-2 img.attachment-thumbnail, .grid-2 .img.size-thumbnail, .grid-2 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-3 img.size-large, .grid-3 img.attachment-large {
+.grid-3 img.size-large, .grid-3 img.attachment-large, .grid-3 .img.size-large, .grid-3 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-3 img.size-large, .grid-3 img.attachment-large {
+    .grid-3 img.size-large, .grid-3 img.attachment-large, .grid-3 .img.size-large, .grid-3 .img.attachment-large {
       width: 100%; } }
-.grid-3 img.size-medium, .grid-3 img.attachment-medium {
+.grid-3 img.size-medium, .grid-3 img.attachment-medium, .grid-3 .img.size-medium, .grid-3 .img.attachment-medium {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-3 img.size-medium, .grid-3 img.attachment-medium {
+    .grid-3 img.size-medium, .grid-3 img.attachment-medium, .grid-3 .img.size-medium, .grid-3 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-3 img.size-medium, .grid-3 img.attachment-medium {
+    .grid-3 img.size-medium, .grid-3 img.attachment-medium, .grid-3 .img.size-medium, .grid-3 .img.attachment-medium {
       width: 100%; } }
-.grid-3 img.size-thumbnail, .grid-3 img.attachment-thumbnail {
+.grid-3 img.size-thumbnail, .grid-3 img.attachment-thumbnail, .grid-3 .img.size-thumbnail, .grid-3 .img.attachment-thumbnail {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-3 img.size-thumbnail, .grid-3 img.attachment-thumbnail {
+    .grid-3 img.size-thumbnail, .grid-3 img.attachment-thumbnail, .grid-3 .img.size-thumbnail, .grid-3 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-3 img.size-thumbnail, .grid-3 img.attachment-thumbnail, .grid-3 .img.size-thumbnail, .grid-3 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-4 img.size-large, .grid-4 img.attachment-large {
+.grid-4 img.size-large, .grid-4 img.attachment-large, .grid-4 .img.size-large, .grid-4 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-4 img.size-large, .grid-4 img.attachment-large {
+    .grid-4 img.size-large, .grid-4 img.attachment-large, .grid-4 .img.size-large, .grid-4 .img.attachment-large {
       width: 100%; } }
-.grid-4 img.size-medium, .grid-4 img.attachment-medium {
+.grid-4 img.size-medium, .grid-4 img.attachment-medium, .grid-4 .img.size-medium, .grid-4 .img.attachment-medium {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-4 img.size-medium, .grid-4 img.attachment-medium {
+    .grid-4 img.size-medium, .grid-4 img.attachment-medium, .grid-4 .img.size-medium, .grid-4 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-4 img.size-medium, .grid-4 img.attachment-medium {
+    .grid-4 img.size-medium, .grid-4 img.attachment-medium, .grid-4 .img.size-medium, .grid-4 .img.attachment-medium {
       width: 100%; } }
-.grid-4 img.size-thumbnail, .grid-4 img.attachment-thumbnail {
+.grid-4 img.size-thumbnail, .grid-4 img.attachment-thumbnail, .grid-4 .img.size-thumbnail, .grid-4 .img.attachment-thumbnail {
   width: 75%;
   width: calc( 0.75 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-4 img.size-thumbnail, .grid-4 img.attachment-thumbnail {
-      width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
-
-.grid-5 img.size-large, .grid-5 img.attachment-large {
-  width: 100%; }
-  @media all and (max-width: 700px) {
-    .grid-5 img.size-large, .grid-5 img.attachment-large {
-      width: 100%; } }
-.grid-5 img.size-medium, .grid-5 img.attachment-medium {
-  width: 100%; }
-  @media all and (max-width: 700px) {
-    .grid-5 img.size-medium, .grid-5 img.attachment-medium {
-      width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+    .grid-4 img.size-thumbnail, .grid-4 img.attachment-thumbnail, .grid-4 .img.size-thumbnail, .grid-4 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-5 img.size-medium, .grid-5 img.attachment-medium {
+    .grid-4 img.size-thumbnail, .grid-4 img.attachment-thumbnail, .grid-4 .img.size-thumbnail, .grid-4 .img.attachment-thumbnail {
+      width: 50%;
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
+
+.grid-5 img.size-large, .grid-5 img.attachment-large, .grid-5 .img.size-large, .grid-5 .img.attachment-large {
+  width: 100%; }
+  @media all and (max-width: 700px) {
+    .grid-5 img.size-large, .grid-5 img.attachment-large, .grid-5 .img.size-large, .grid-5 .img.attachment-large {
       width: 100%; } }
-.grid-5 img.size-thumbnail, .grid-5 img.attachment-thumbnail {
+.grid-5 img.size-medium, .grid-5 img.attachment-medium, .grid-5 .img.size-medium, .grid-5 .img.attachment-medium {
+  width: 100%; }
+  @media all and (max-width: 700px) {
+    .grid-5 img.size-medium, .grid-5 img.attachment-medium, .grid-5 .img.size-medium, .grid-5 .img.attachment-medium {
+      width: 50%;
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-5 img.size-medium, .grid-5 img.attachment-medium, .grid-5 .img.size-medium, .grid-5 .img.attachment-medium {
+      width: 100%; } }
+.grid-5 img.size-thumbnail, .grid-5 img.attachment-thumbnail, .grid-5 .img.size-thumbnail, .grid-5 .img.attachment-thumbnail {
   width: 60%;
   width: calc( 0.6 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-5 img.size-thumbnail, .grid-5 img.attachment-thumbnail {
+    .grid-5 img.size-thumbnail, .grid-5 img.attachment-thumbnail, .grid-5 .img.size-thumbnail, .grid-5 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-5 img.size-thumbnail, .grid-5 img.attachment-thumbnail, .grid-5 .img.size-thumbnail, .grid-5 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-6 img.size-large, .grid-6 img.attachment-large {
+.grid-6 img.size-large, .grid-6 img.attachment-large, .grid-6 .img.size-large, .grid-6 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-6 img.size-large, .grid-6 img.attachment-large {
+    .grid-6 img.size-large, .grid-6 img.attachment-large, .grid-6 .img.size-large, .grid-6 .img.attachment-large {
       width: 100%; } }
-.grid-6 img.size-medium, .grid-6 img.attachment-medium {
+.grid-6 img.size-medium, .grid-6 img.attachment-medium, .grid-6 .img.size-medium, .grid-6 .img.attachment-medium {
   width: 83.33333%;
   width: calc( 0.83333 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-6 img.size-medium, .grid-6 img.attachment-medium {
+    .grid-6 img.size-medium, .grid-6 img.attachment-medium, .grid-6 .img.size-medium, .grid-6 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-6 img.size-medium, .grid-6 img.attachment-medium {
+    .grid-6 img.size-medium, .grid-6 img.attachment-medium, .grid-6 .img.size-medium, .grid-6 .img.attachment-medium {
       width: 100%; } }
-.grid-6 img.size-thumbnail, .grid-6 img.attachment-thumbnail {
+.grid-6 img.size-thumbnail, .grid-6 img.attachment-thumbnail, .grid-6 .img.size-thumbnail, .grid-6 .img.attachment-thumbnail {
   width: 50%;
   width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-6 img.size-thumbnail, .grid-6 img.attachment-thumbnail {
+    .grid-6 img.size-thumbnail, .grid-6 img.attachment-thumbnail, .grid-6 .img.size-thumbnail, .grid-6 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-6 img.size-thumbnail, .grid-6 img.attachment-thumbnail, .grid-6 .img.size-thumbnail, .grid-6 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-7 img.size-large, .grid-7 img.attachment-large {
+.grid-7 img.size-large, .grid-7 img.attachment-large, .grid-7 .img.size-large, .grid-7 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-7 img.size-large, .grid-7 img.attachment-large {
+    .grid-7 img.size-large, .grid-7 img.attachment-large, .grid-7 .img.size-large, .grid-7 .img.attachment-large {
       width: 100%; } }
-.grid-7 img.size-medium, .grid-7 img.attachment-medium {
+.grid-7 img.size-medium, .grid-7 img.attachment-medium, .grid-7 .img.size-medium, .grid-7 .img.attachment-medium {
   width: 71.42857%;
   width: calc( 0.71429 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-7 img.size-medium, .grid-7 img.attachment-medium {
+    .grid-7 img.size-medium, .grid-7 img.attachment-medium, .grid-7 .img.size-medium, .grid-7 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-7 img.size-medium, .grid-7 img.attachment-medium {
+    .grid-7 img.size-medium, .grid-7 img.attachment-medium, .grid-7 .img.size-medium, .grid-7 .img.attachment-medium {
       width: 100%; } }
-.grid-7 img.size-thumbnail, .grid-7 img.attachment-thumbnail {
+.grid-7 img.size-thumbnail, .grid-7 img.attachment-thumbnail, .grid-7 .img.size-thumbnail, .grid-7 .img.attachment-thumbnail {
   width: 42.85714%;
   width: calc( 0.42857 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-7 img.size-thumbnail, .grid-7 img.attachment-thumbnail {
+    .grid-7 img.size-thumbnail, .grid-7 img.attachment-thumbnail, .grid-7 .img.size-thumbnail, .grid-7 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-7 img.size-thumbnail, .grid-7 img.attachment-thumbnail, .grid-7 .img.size-thumbnail, .grid-7 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-8 img.size-large, .grid-8 img.attachment-large {
+.grid-8 img.size-large, .grid-8 img.attachment-large, .grid-8 .img.size-large, .grid-8 .img.attachment-large {
   width: 100%; }
   @media all and (max-width: 700px) {
-    .grid-8 img.size-large, .grid-8 img.attachment-large {
+    .grid-8 img.size-large, .grid-8 img.attachment-large, .grid-8 .img.size-large, .grid-8 .img.attachment-large {
       width: 100%; } }
-.grid-8 img.size-medium, .grid-8 img.attachment-medium {
+.grid-8 img.size-medium, .grid-8 img.attachment-medium, .grid-8 .img.size-medium, .grid-8 .img.attachment-medium {
   width: 62.5%;
   width: calc( 0.625 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-8 img.size-medium, .grid-8 img.attachment-medium {
+    .grid-8 img.size-medium, .grid-8 img.attachment-medium, .grid-8 .img.size-medium, .grid-8 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-8 img.size-medium, .grid-8 img.attachment-medium {
+    .grid-8 img.size-medium, .grid-8 img.attachment-medium, .grid-8 .img.size-medium, .grid-8 .img.attachment-medium {
       width: 100%; } }
-.grid-8 img.size-thumbnail, .grid-8 img.attachment-thumbnail {
+.grid-8 img.size-thumbnail, .grid-8 img.attachment-thumbnail, .grid-8 .img.size-thumbnail, .grid-8 .img.attachment-thumbnail {
   width: 37.5%;
   width: calc( 0.375 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-8 img.size-thumbnail, .grid-8 img.attachment-thumbnail {
+    .grid-8 img.size-thumbnail, .grid-8 img.attachment-thumbnail, .grid-8 .img.size-thumbnail, .grid-8 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-8 img.size-thumbnail, .grid-8 img.attachment-thumbnail, .grid-8 .img.size-thumbnail, .grid-8 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-9 img.size-large, .grid-9 img.attachment-large {
+.grid-9 img.size-large, .grid-9 img.attachment-large, .grid-9 .img.size-large, .grid-9 .img.attachment-large {
   width: 88.88889%;
   width: calc( 0.88889 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-9 img.size-large, .grid-9 img.attachment-large {
+    .grid-9 img.size-large, .grid-9 img.attachment-large, .grid-9 .img.size-large, .grid-9 .img.attachment-large {
       width: 100%; } }
-.grid-9 img.size-medium, .grid-9 img.attachment-medium {
+.grid-9 img.size-medium, .grid-9 img.attachment-medium, .grid-9 .img.size-medium, .grid-9 .img.attachment-medium {
   width: 55.55556%;
   width: calc( 0.55556 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-9 img.size-medium, .grid-9 img.attachment-medium {
+    .grid-9 img.size-medium, .grid-9 img.attachment-medium, .grid-9 .img.size-medium, .grid-9 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-9 img.size-medium, .grid-9 img.attachment-medium {
+    .grid-9 img.size-medium, .grid-9 img.attachment-medium, .grid-9 .img.size-medium, .grid-9 .img.attachment-medium {
       width: 100%; } }
-.grid-9 img.size-thumbnail, .grid-9 img.attachment-thumbnail {
+.grid-9 img.size-thumbnail, .grid-9 img.attachment-thumbnail, .grid-9 .img.size-thumbnail, .grid-9 .img.attachment-thumbnail {
   width: 33.33333%;
   width: calc( 0.33333 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-9 img.size-thumbnail, .grid-9 img.attachment-thumbnail {
+    .grid-9 img.size-thumbnail, .grid-9 img.attachment-thumbnail, .grid-9 .img.size-thumbnail, .grid-9 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-9 img.size-thumbnail, .grid-9 img.attachment-thumbnail, .grid-9 .img.size-thumbnail, .grid-9 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-10 img.size-large, .grid-10 img.attachment-large {
+.grid-10 img.size-large, .grid-10 img.attachment-large, .grid-10 .img.size-large, .grid-10 .img.attachment-large {
   width: 80%;
   width: calc( 0.8 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-10 img.size-large, .grid-10 img.attachment-large {
+    .grid-10 img.size-large, .grid-10 img.attachment-large, .grid-10 .img.size-large, .grid-10 .img.attachment-large {
       width: 100%; } }
-.grid-10 img.size-medium, .grid-10 img.attachment-medium {
+.grid-10 img.size-medium, .grid-10 img.attachment-medium, .grid-10 .img.size-medium, .grid-10 .img.attachment-medium {
   width: 50%;
   width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-10 img.size-medium, .grid-10 img.attachment-medium {
+    .grid-10 img.size-medium, .grid-10 img.attachment-medium, .grid-10 .img.size-medium, .grid-10 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-10 img.size-medium, .grid-10 img.attachment-medium {
+    .grid-10 img.size-medium, .grid-10 img.attachment-medium, .grid-10 .img.size-medium, .grid-10 .img.attachment-medium {
       width: 100%; } }
-.grid-10 img.size-thumbnail, .grid-10 img.attachment-thumbnail {
+.grid-10 img.size-thumbnail, .grid-10 img.attachment-thumbnail, .grid-10 .img.size-thumbnail, .grid-10 .img.attachment-thumbnail {
   width: 30%;
   width: calc( 0.3 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-10 img.size-thumbnail, .grid-10 img.attachment-thumbnail {
+    .grid-10 img.size-thumbnail, .grid-10 img.attachment-thumbnail, .grid-10 .img.size-thumbnail, .grid-10 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-10 img.size-thumbnail, .grid-10 img.attachment-thumbnail, .grid-10 .img.size-thumbnail, .grid-10 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-11 img.size-large, .grid-11 img.attachment-large {
+.grid-11 img.size-large, .grid-11 img.attachment-large, .grid-11 .img.size-large, .grid-11 .img.attachment-large {
   width: 72.72727%;
   width: calc( 0.72727 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-11 img.size-large, .grid-11 img.attachment-large {
+    .grid-11 img.size-large, .grid-11 img.attachment-large, .grid-11 .img.size-large, .grid-11 .img.attachment-large {
       width: 100%; } }
-.grid-11 img.size-medium, .grid-11 img.attachment-medium {
+.grid-11 img.size-medium, .grid-11 img.attachment-medium, .grid-11 .img.size-medium, .grid-11 .img.attachment-medium {
   width: 45.45455%;
   width: calc( 0.45455 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-11 img.size-medium, .grid-11 img.attachment-medium {
+    .grid-11 img.size-medium, .grid-11 img.attachment-medium, .grid-11 .img.size-medium, .grid-11 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-11 img.size-medium, .grid-11 img.attachment-medium {
+    .grid-11 img.size-medium, .grid-11 img.attachment-medium, .grid-11 .img.size-medium, .grid-11 .img.attachment-medium {
       width: 100%; } }
-.grid-11 img.size-thumbnail, .grid-11 img.attachment-thumbnail {
+.grid-11 img.size-thumbnail, .grid-11 img.attachment-thumbnail, .grid-11 .img.size-thumbnail, .grid-11 .img.attachment-thumbnail {
   width: 27.27273%;
   width: calc( 0.27273 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-11 img.size-thumbnail, .grid-11 img.attachment-thumbnail {
+    .grid-11 img.size-thumbnail, .grid-11 img.attachment-thumbnail, .grid-11 .img.size-thumbnail, .grid-11 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-11 img.size-thumbnail, .grid-11 img.attachment-thumbnail, .grid-11 .img.size-thumbnail, .grid-11 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
-.grid-12 img.size-large, .grid-12 img.attachment-large {
+.grid-12 img.size-large, .grid-12 img.attachment-large, .grid-12 .img.size-large, .grid-12 .img.attachment-large {
   width: 66.66667%;
   width: calc( 0.66667 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-12 img.size-large, .grid-12 img.attachment-large {
+    .grid-12 img.size-large, .grid-12 img.attachment-large, .grid-12 .img.size-large, .grid-12 .img.attachment-large {
       width: 100%; } }
-.grid-12 img.size-medium, .grid-12 img.attachment-medium {
+.grid-12 img.size-medium, .grid-12 img.attachment-medium, .grid-12 .img.size-medium, .grid-12 .img.attachment-medium {
   width: 41.66667%;
   width: calc( 0.41667 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-12 img.size-medium, .grid-12 img.attachment-medium {
+    .grid-12 img.size-medium, .grid-12 img.attachment-medium, .grid-12 .img.size-medium, .grid-12 .img.attachment-medium {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
   @media all and (max-width: 500px) {
-    .grid-12 img.size-medium, .grid-12 img.attachment-medium {
+    .grid-12 img.size-medium, .grid-12 img.attachment-medium, .grid-12 .img.size-medium, .grid-12 .img.attachment-medium {
       width: 100%; } }
-.grid-12 img.size-thumbnail, .grid-12 img.attachment-thumbnail {
+.grid-12 img.size-thumbnail, .grid-12 img.attachment-thumbnail, .grid-12 .img.size-thumbnail, .grid-12 .img.attachment-thumbnail {
   width: 25%;
   width: calc( 0.25 * ( 100% + 2rem ) - 2rem ); }
   @media all and (max-width: 700px) {
-    .grid-12 img.size-thumbnail, .grid-12 img.attachment-thumbnail {
+    .grid-12 img.size-thumbnail, .grid-12 img.attachment-thumbnail, .grid-12 .img.size-thumbnail, .grid-12 .img.attachment-thumbnail {
+      width: 33.333%;
+      width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+  @media all and (max-width: 500px) {
+    .grid-12 img.size-thumbnail, .grid-12 img.attachment-thumbnail, .grid-12 .img.size-thumbnail, .grid-12 .img.attachment-thumbnail {
       width: 50%;
-      width: calc( 0.5 * ( 100% + 2rem ) - 2rem ); } }
+      width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
 
 .divider, hr {
   border: 0;
@@ -3469,8 +3517,8 @@ html[xmlns] .slides {
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #eeeeee; }
   .site-header .site-description {
-    margin: -12px 0 24px;
-    margin: -0.75rem 0 1.5rem; }
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
 
 .site-footer {
   border-top: 1px solid #eeeeee;
@@ -3595,8 +3643,18 @@ html[xmlns] .slides {
       text-decoration: none;
       color: inherit; }
   .entry .entry-thumb {
+    width: 37.5%;
+    width: calc( 0.375 * ( 100% + 2rem ) - 2rem );
     margin-bottom: 24px;
     margin-bottom: 1.5rem; }
+    @media all and (max-width: 700px) {
+      .entry .entry-thumb {
+        width: 33.333%;
+        width: calc( 1/3 * ( 100% + 2rem ) - 2rem ); } }
+    @media all and (max-width: 500px) {
+      .entry .entry-thumb {
+        width: 50%;
+        width: calc( 1/2 * ( 100% + 2rem ) - 2rem ); } }
     .entry .entry-thumb img, .entry .entry-thumb .wp-caption {
       max-width: 100%;
       height: auto;
@@ -3637,18 +3695,6 @@ html[xmlns] .slides {
     line-height: 1.71429;
     color: #888888 a;
     color-color: inherit; }
-  @media all and (max-width: 900px) {
-    .entry .entry-thumb {
-      width: 37.5%;
-      width: calc( .375 * ( 100% + 2rem ) - 2rem );
-      margin-right: 32px;
-      margin-right: 2rem; } }
-  @media all and (max-width: 700px) {
-    .entry .entry-thumb {
-      width: 33.33333%;
-      width: calc( .3333333 * ( 100% + 2rem ) - 2rem );
-      margin-right: 32px;
-      margin-right: 2rem; } }
 
 .entries + .pagination-container {
   border-top: 1px solid #eeeeee; }
@@ -3659,6 +3705,13 @@ html[xmlns] .slides {
   margin-bottom: 1.5rem;
   padding-bottom: 12px;
   padding-bottom: 0.75rem; }
+
+.entries-header + .entries .entry-title {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 24px 0 12px;
+  margin: 1.5rem 0 0.75rem; }
 
 .entries-grid .clear {
   clear: both;
