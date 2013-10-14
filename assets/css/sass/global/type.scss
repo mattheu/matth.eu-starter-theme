@@ -15,12 +15,12 @@ body {
 
 @mixin alpha {
 	$font-size: $base-font-size * 2.5;
-	$line-height: ( $base-line-height * 2.5 ) / $font-size;
+	$line-height: ( $base-line-height * 2 ) / $font-size;
 
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
 	line-height: $line-height;
-	margin: em( $line-height ) 0 em( $line-height / 2 );
+	margin: rem( $base-line-height  ) 0 rem( $base-line-height * 1/2 );
 }
 
 @mixin beta {
@@ -30,7 +30,9 @@ body {
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
 	line-height: $line-height;
-	margin: em( $line-height / 3 * 2 ) 0 em( $line-height / 3 );
+	margin: px( $base-line-height  ) 0 px( $base-line-height * 1/2 );
+	margin: rem( $base-line-height  ) 0 rem( $base-line-height * 1/2 );
+
 }
 
 @mixin gamma {
@@ -40,7 +42,8 @@ body {
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
 	line-height: $line-height;
-	margin: em( $line-height / 3 * 2 ) 0 em( $line-height / 3 );
+	margin: px( $base-line-height  ) 0 px( $base-line-height * 1/2 );
+	margin: rem( $base-line-height  ) 0 rem( $base-line-height * 1/2 );
 }
 
 @mixin delta {
@@ -50,7 +53,8 @@ body {
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
 	line-height: $line-height;
-	margin: em( $line-height / 3 * 2 ) 0 em( $line-height / 3 );
+	margin: px( $base-line-height * 2/3 ) 0 px( $base-line-height *  1/3 );
+	margin: rem( $base-line-height * 2/3 ) 0 rem( $base-line-height *  1/3 );
 }
 
 @mixin epsilon {
@@ -60,7 +64,8 @@ body {
 	font-size: px( $font-size );
 	font-size: rem( $font-size );
 	line-height: $line-height;
-	margin: em( $line-height / 3 * 2 ) 0 em( $line-height / 3 );
+	margin: px( $base-line-height * 2/3 ) 0 px( $base-line-height *  1/3 );
+	margin: rem( $base-line-height * 2/3 ) 0 rem( $base-line-height *  1/3 );
 }
 
 @mixin zeta {
@@ -109,12 +114,14 @@ dt {
 	font-weight: bold;
 }
 
+.heading,
 h1, h2, h3,
 h4, h5, h6 {
 	color: #333;
 	font-weight: bold;
 }
 
+.heading a,
 h1 a, h2 a, h3 a,
 h4 a, h5 a, h6 a {
 	color: inherit;
@@ -125,7 +132,7 @@ h1, .alpha	 { @include alpha; }
 h2, .beta    { @include beta; }
 h3, .gamma   { @include gamma; }
 h4, .delta   { @include delta; }
-h6, .epsilon { @include epsilon; }
+h5, .epsilon { @include epsilon; }
 h6, .zeta    { @include zeta; }
 
 /* Slightly smaller text in the sidebar */
@@ -265,6 +272,7 @@ sup {
 	font-size: .5em; 
 	vertical-align: top; 
 }
+
 sub { 
 	font-size: .5em; 
 	vertical-align: bottom; 
