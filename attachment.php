@@ -33,12 +33,17 @@ the_post();
 			<?php if ( ! wp_attachment_is_image( get_the_ID() ) ) : ?>
 				<p class="download-link">
 					<a href="<?php echo wp_get_attachment_url( get_the_id() ); ?>">
-						<?php printf( _e( 'Download %s', 'mtf' ), basename( wp_get_attachment_url( get_the_id() ) ) ); ?>
+						<?php 
+						
+						printf( 
+							__( 'Download %s', 'mtf' ), 
+							basename( wp_get_attachment_url( get_the_id() ) ) 
+						);
+						 
+						?>
 					</a>
 				</p>
 			<?php endif; ?>
-
-			<div class="attachment-excerpt lead-text"><?php the_excerpt(); ?></div>
 
 			<div><?php the_content(); ?></div>
 
