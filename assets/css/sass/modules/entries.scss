@@ -64,6 +64,21 @@
 		@extend img.size-thumbnail;
 		@extend img.alignleft;
 		
+		// This stuff is here because we can't extend nested selectors.
+		$width: 3 / 8;
+		$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+		@include calc( width, $expression, $width*100% );
+
+		@media all and ( max-width: 700px ) {
+			$expression: "1/3 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			@include calc( width, $expression, 33.333% );
+		}
+		
+		@media all and ( max-width: 500px ) {
+			$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			@include calc( width, $expression, 50% );
+		}
+
 		margin-bottom: px( 1.5 );
 		margin-bottom: rem( 1.5 );
 
@@ -131,28 +146,6 @@
 		a { 
 			color: inherit; 
 		}
-	}
-
-	@media all and ( max-width: 900px ) {
-		
-		.entry-thumb {
-			$expression: ".375 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-			@include calc( width, $expression, 37.5% );
-			margin-right: px( $grid-col-gutter-narrow * 2 );
-			margin-right: rem( $grid-col-gutter-narrow * 2 );
-		}
-
-	}
-
-	@media all and ( max-width: 700px ) {
-		
-		.entry-thumb {
-			$expression: ".3333333 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-			@include calc( width, $expression, 33.33333% );
-			margin-right: px( $grid-col-gutter-narrow * 2 );
-			margin-right: rem( $grid-col-gutter-narrow * 2 );
-		}
-
 	}
 
 }

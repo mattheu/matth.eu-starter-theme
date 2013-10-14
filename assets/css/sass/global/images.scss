@@ -1,3 +1,4 @@
+.img,
 img {
 
 	max-width: 100%;
@@ -5,10 +6,6 @@ img {
 	margin-bottom: px($base-line-height/2);
 	margin-bottom: rem($base-line-height/2);
 	vertical-align: middle;
-
-	// Images in text always seem a little high as they are aligned to the top of the line height;
-	// position: relative;
-	// top: rem($base-line-height/4);
 
 	&.aligncenter {
 		clear: both;
@@ -54,7 +51,8 @@ $large: 8;
 // Generate image sizes - in calc relative to the column size.
 @for $i from 1 through 12 {
 	
-	.grid-#{$i} img { 
+	.grid-#{$i} img,
+	.grid-#{$i} .img { 
 		
 		&.size-large,
 		&.attachment-large {
@@ -84,7 +82,7 @@ $large: 8;
 			}
 			
 			@media all and ( max-width: 700px ) {
-				$expression: "0.5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
 				@include calc( width, $expression, 50% );
 			}
 
@@ -101,11 +99,16 @@ $large: 8;
 			} @else {
 				$width: $thumbnail / $i;
 				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
-				@include calc( width, $expression, $width*100% );
+				@include calc( width, $expression, $width * 100% );
 			}
 
 			@media all and ( max-width: 700px ) {
-				$expression: "0.5 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "1/3 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				@include calc( width, $expression, 33.333% );
+			}
+
+			@media all and ( max-width: 500px ) {
+				$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
 				@include calc( width, $expression, 50% );
 			}
 
