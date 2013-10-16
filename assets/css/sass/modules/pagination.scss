@@ -12,6 +12,8 @@
   		@extend .button;
   		padding-left: 4px;
   		padding-right: 4px;
+  		min-width: px( $base-line-height );
+  		min-width: rem( $base-line-height );
   	}
 
   	.current,
@@ -68,6 +70,7 @@
 	a.next {
 
 		position: relative;
+		min-width: px( $base-line-height );
   		line-height: rem( $base-line-height );
 		text-indent: -9999px;
 
