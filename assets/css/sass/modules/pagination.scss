@@ -67,10 +67,7 @@
 	a.next {
 
 		position: relative;
-  		line-height: .75rem;
-  		height: .75rem;
-  		width: .75rem;
-		vertical-align: top;
+  		line-height: rem( $base-line-height );
 		text-indent: -9999px;
 
 		&:after { 
@@ -88,11 +85,13 @@
 		&.prev:after {
 			content: '\f503';
 			margin-left: -12px;
+			margin-top: -11px;
 		}
 		
 		&.next:after {
 			content: '\f501';
 			margin-left: -4px;
+			margin-top: -11px;
 		}
 
 	}

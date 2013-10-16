@@ -3231,10 +3231,7 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
     text-align: left; }
   .pagination a.prev, .pagination a.next {
     position: relative;
-    line-height: 0.75rem;
-    height: 0.75rem;
-    width: 0.75rem;
-    vertical-align: top;
+    line-height: 1.5rem;
     text-indent: -9999px; }
     .pagination a.prev:after, .pagination a.next:after {
       font-family: 'Genericons';
@@ -3248,10 +3245,12 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
       margin-left: -8px; }
     .pagination a.prev.prev:after, .pagination a.next.prev:after {
       content: '\f503';
-      margin-left: -12px; }
+      margin-left: -12px;
+      margin-top: -11px; }
     .pagination a.prev.next:after, .pagination a.next.next:after {
       content: '\f501';
-      margin-left: -4px; }
+      margin-left: -4px;
+      margin-top: -11px; }
 
 .ie7 .pagination-container span {
   display: inline;
