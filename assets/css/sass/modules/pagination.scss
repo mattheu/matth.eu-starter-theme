@@ -10,8 +10,6 @@
 	a,
   	span {
   		@extend .button;
-  		padding-left: 4px;
-  		padding-right: 4px;
   		min-width: px( $base-line-height + 1 );
   		min-width: rem( $base-line-height + 1 );
   	}
@@ -70,9 +68,13 @@
 	a.next {
 
 		position: relative;
-		min-width: px( $base-line-height );
   		line-height: rem( $base-line-height );
 		text-indent: -9999px;
+		
+		padding-left: 0;		
+		padding-right: 0;		
+	  	min-width: px( $base-line-height + 1 );
+  		min-width: rem( $base-line-height + 1 );
 
 		&:after { 
 			font-family: 'Genericons';

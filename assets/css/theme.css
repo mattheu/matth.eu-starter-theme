@@ -3205,8 +3205,6 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
   .pagination::after {
     clear: both; }
   .pagination a, .pagination span {
-    padding-left: 4px;
-    padding-right: 4px;
     min-width: 40px;
     min-width: 2.5rem; }
   .pagination .dots {
@@ -3236,9 +3234,12 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
     text-align: left; }
   .pagination a.prev, .pagination a.next {
     position: relative;
-    min-width: 24px;
     line-height: 1.5rem;
-    text-indent: -9999px; }
+    text-indent: -9999px;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 40px;
+    min-width: 2.5rem; }
     .pagination a.prev:after, .pagination a.next:after {
       font-family: 'Genericons';
       text-indent: 0;
