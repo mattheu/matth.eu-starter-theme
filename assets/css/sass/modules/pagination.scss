@@ -9,17 +9,14 @@
 
 	a,
   	span {
-  		padding: .75rem;
-  		min-width: .75rem;
-  		line-height: .75rem;
-  		margin: 0 px( $base-line-height / 4 );
-  		margin: 0 rem( $base-line-height / 4 );
-  		display: inline-block;
-  		text-decoration: none;
-  		text-align: center;
-  		border: 1px solid $border-color-lt;
-		background: $bg-color-body;
-  		color: #666;
+  		@extend .button;
+  	}
+
+  	.current,
+  	.active,
+  	a:hover {
+  		@extend .button:hover;
+
   	}
 
   	.dots {
@@ -48,18 +45,6 @@
   	> *:last-child,
   	li:last-child * {
   		margin-right: 0;
-  	}
-
-	a {
-		cursor: pointer;
-	}
-
-  	.current,
-  	.active,
-  	a:hover {
-  		background: #ECECEC;
-  		border-color: $border-color-dk;
-  		color: #000;
   	}
 
 	ul,

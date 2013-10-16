@@ -10,14 +10,13 @@ textarea {
 	@include small;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 1px solid $border-color-lt;	
+	border: 1px solid $border-color-md;	
 	margin: 0 0 px( $base-line-height / 2 ) 0;
 	margin: 0 0 rem( $base-line-height / 2 ) 0;
 	padding: px( $base-line-height / 4 ) 0;
 	padding: rem( $base-line-height / 4 ) 0;
 	text-indent: 9px;
 	position: relative;
-	border: 1px solid #aaa;
 	cursor: text;
 	overflow: hidden;
 	background-color: #FFF;
@@ -79,11 +78,9 @@ select {
 }
 
 input[disabled] {
-
 	color: #AAA;
 	background: #EEE;
 	cursor: default;
-
 }
 
 .form-row-radio,
@@ -111,39 +108,6 @@ input[disabled] {
 	input { 
 		border-color: #CC0000; 
 	}
-}
-
-// Buttons
-
-input[type="submit"],
-input[type="button"],
-button,
-.button {
-	
-	@include small;
-	font-family: $base-font-family;
-
-	display: inline-block;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	margin: 0 px( $grid-col-gutter / 2 ) px( $base-line-height / 2 ) 0;
-	margin: 0 rem( $grid-col-gutter / 2 ) rem( $base-line-height / 2 ) 0;
-	padding: px( $base-line-height / 4 ) 9px;
-	padding: rem( $base-line-height / 4 ) 9px;
-	position: relative;
-	overflow: hidden;
-	cursor: default;
-	border: 1px solid darken( $border-color-lt, 15 );	
-	color: #444;
-	background-color: #DDD;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
-	text-decoration: none; 
-	
-	text-indent: 0; 
-	vertical-align: top;
-
-	width: auto;	
-
 }
 
 .description { 

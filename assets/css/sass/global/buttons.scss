@@ -1,0 +1,89 @@
+
+// Buttons
+
+$button-bg: $bg-color-body;
+$button-bg-hover: #ECECEC;
+
+$button-primary-bg: #b1c7d6;
+$button-primary-bg-hover: darken( $button-primary-bg, 5% );
+
+$button-secondary-bg: #c3d6b1;
+$button-secondary-bg-hover: darken( $button-secondary-bg, 5% );
+
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.btn {
+	
+	@include small;
+	font-family: $base-font-family;
+
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	margin: 0 px( $grid-col-gutter / 2 ) px( $base-line-height / 2 ) 0;
+	margin: 0 rem( $grid-col-gutter / 2 ) rem( $base-line-height / 2 ) 0;
+	padding: px( $base-line-height / 4 ) 14px;
+	padding: rem( $base-line-height / 4 ) 14px;
+	
+	position: relative;
+	overflow: hidden;
+	text-decoration: none; 
+	cursor: pointer;
+	text-indent: 0; 
+	vertical-align: top;
+	width: auto;	
+
+	border: 1px solid $border-color-md;
+	color: #444;
+	background-color: $button-bg;
+	box-shadow: 1px 1px 0 rgba(255,255,255,0.25) inset, -1px -1px 0 rgba(0,0,0,0.05) inset;
+
+	&:focus,
+	&:hover {
+		background-color: $button-bg-hover;
+		border-color: $border-color-dk;
+		outline: none;
+	}
+	
+	&:active {
+		background-color: darken( $button-bg-hover, 10% );
+		box-shadow: -1px -1px 0 rgba(255,255,255,0.25) inset, 1px 1px 0 rgba(0,0,0,0.05) inset;
+	}
+	
+	&.primary { 
+
+		background: $button-primary-bg;
+		border-color: darken( $button-primary-bg, 15% );
+		
+		&:focus,
+		&:hover {
+			background: $button-primary-bg-hover;
+			border-color: darken( $button-primary-bg-hover, 15% );		
+		}
+
+		&:active {
+			background-color: darken( $button-primary-bg-hover, 10% );
+		}
+
+	}
+
+	&.secondary { 
+		
+		background: $button-secondary-bg;
+		border-color: darken( $button-secondary-bg, 15% );
+		
+		&:hover {
+			background: $button-secondary-bg-hover;
+			border-color: darken( $button-secondary-bg-hover, 15% );		
+		}
+
+		&:active {
+			background-color: darken( $button-secondary-bg-hover, 10% );
+		}
+
+	}
+
+}

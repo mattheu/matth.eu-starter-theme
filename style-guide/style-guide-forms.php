@@ -127,6 +127,11 @@ the_post();
 						<a class="button" href="#">Button</a>
 					</div>					
 
+					<div class="form-row form-footer">
+						<button type="submit" class="button primary">Button</button>
+						<button type="submit" class="button secondary">Button</button>
+					</div>					
+
 				</form>
 
 			</div><!-- / .entry-content -->
