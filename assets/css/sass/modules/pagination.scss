@@ -12,8 +12,8 @@
   		@extend .button;
   		padding-left: 4px;
   		padding-right: 4px;
-  		min-width: px( $base-line-height );
-  		min-width: rem( $base-line-height );
+  		min-width: px( $base-line-height + 1 );
+  		min-width: rem( $base-line-height + 1 );
   	}
 
   	.current,

@@ -3207,8 +3207,8 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
   .pagination a, .pagination span {
     padding-left: 4px;
     padding-right: 4px;
-    min-width: 24px;
-    min-width: 1.5rem; }
+    min-width: 40px;
+    min-width: 2.5rem; }
   .pagination .dots {
     border: none;
     background: none;
