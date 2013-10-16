@@ -10,13 +10,14 @@
 	a,
   	span {
   		@extend .button;
+  		padding-left: 4px;
+  		padding-right: 4px;
   	}
 
   	.current,
   	.active,
   	a:hover {
   		@extend .button:hover;
-
   	}
 
   	.dots {

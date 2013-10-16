@@ -3204,6 +3204,9 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
     display: table; }
   .pagination::after {
     clear: both; }
+  .pagination a, .pagination span {
+    padding-left: 4px;
+    padding-right: 4px; }
   .pagination .dots {
     border: none;
     background: none;
