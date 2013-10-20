@@ -10,6 +10,7 @@
 	a,
   	span {
   		@extend .button;
+  		margin-bottom: 0;
   		min-width: px( $base-line-height + 1 );
   		min-width: rem( $base-line-height + 1 );
   	}
@@ -70,13 +71,13 @@
 		position: relative;
   		line-height: rem( $base-line-height );
 		text-indent: -9999px;
-		
-		padding-left: 0;		
-		padding-right: 0;		
+
+		padding-left: 0;
+		padding-right: 0;
 	  	min-width: px( $base-line-height + 1 );
   		min-width: rem( $base-line-height + 1 );
 
-		&:after { 
+		&:after {
 			font-family: 'Genericons';
 			text-indent: 0;
 			position: absolute;
@@ -87,13 +88,13 @@
 			margin-top: -6px;
 			margin-left: -8px;
 		}
-		
+
 		&.prev:after {
 			content: '\f503';
 			margin-left: -12px;
 			margin-top: -11px;
 		}
-		
+
 		&.next:after {
 			content: '\f501';
 			margin-left: -4px;
