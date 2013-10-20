@@ -19,13 +19,13 @@
 <?php elseif ( is_tag() ) : ?>
 
 	<div class="loop-no-results">
-		<p><?php printf( 'No entries tagged %s.', 'mtf' ), single_tag_title( '', false ) ); ?></p>
+		<p><?php printf( __( 'No entries tagged %s.', 'mtf' ), single_tag_title( '', false ) ); ?></p>
 	</div>
 
 <?php else : ?>
 
 	<div class="loop-no-results">
-		<p><?php ( _e( 'No entries found.', 'mtf' ); ?></p>
+		<p><?php _e( 'No entries found.', 'mtf' ); ?></p>
 	</div>
 
 <?php endif; ?>
