@@ -4,11 +4,26 @@
  *
  */
 
-body {
-	font-family: $base-font-family;
+// Must set the font size on the HTML so that REMS can be used.
+html {
+
 	font-size: px( $base-font-size );
-	font-size: rem( $base-font-size );
 	line-height: $base-line-height;
+
+	@media all and (min-width: 1200px ) {
+		font-size: 1.125em;
+	}
+
+	@media all and (max-width: 800px ) {
+		font-size: .875em;
+	}
+
+}
+
+body { 
+	font-family: $base-font-family;
+	font-size: inherit; 
+	line-height: inherit; 
 	color: #444;
 	word-wrap: break-word;
 }
@@ -344,18 +359,6 @@ nav,
 .site-footer {
 	@include small;
 	color: #666;
-}
-
-@media all and (min-width: 1200px ) {
-
-	body { font-size: 1.125em; }
-
-}
-
-@media all and (max-width: 800px ) {
-
-	body { font-size: .875em; }
-
 }
 
 #baseline-grid {
