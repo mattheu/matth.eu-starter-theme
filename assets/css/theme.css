@@ -3580,7 +3580,7 @@ html[xmlns] .slides {
   .menu .sub-menu {
     display: none;
     position: absolute;
-    width: 130px;
+    width: 280px;
     top: 100%;
     z-index: 3;
     background: white;

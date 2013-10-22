@@ -1,26 +1,26 @@
 
-.menu { 
+.menu {
 
 	@include small;
 	@include clearfix;
-	margin: 0; 
-	padding: 0; 
-	
+	margin: 0;
+	padding: 0;
+
 	ul {
-		margin: 0; 
-		padding: 0; 
+		margin: 0;
+		padding: 0;
 	}
 
 	li {
-		position: relative; 
+		position: relative;
 		float: left;
-		list-style: none; 
+		list-style: none;
 	}
 
 	a {
-		
-		position: relative; 
-		display: block; 
+
+		position: relative;
+		display: block;
 		border: 1px solid transparent;
 		padding: px( $base-line-height / 2 ) 15px;
 		padding: rem( $base-line-height / 2 ) 15px;
@@ -31,7 +31,7 @@
 		&:link,
 		&:visited {
 			text-decoration: none;
-			color: inherit;	
+			color: inherit;
 		}
 
 	}
@@ -48,26 +48,26 @@
 		z-index:5;
 	}
 
-	.sub-menu { 
-		
-		display: none; 
-		position: absolute; 
-		width: 130px; 
-		top: 100%; 
+	.sub-menu {
+
+		display: none;
+		position: absolute;
+		width: 280px;
+		top: 100%;
 		z-index: 3;
-		
-		background: #FFF; 
-		background: rgba(255,255,255,0.95); 
-		 
+
+		background: #FFF;
+		background: rgba(255,255,255,0.95);
+
 		li {
 			display: block;
 			width: 100%;
 		}
 
-		a { 
-			border: 1px solid $border-color-lt; 
+		a {
+			border: 1px solid $border-color-lt;
 			margin: 0 0 -1px 0;
-			padding-left: 15px; 
+			padding-left: 15px;
 		}
 
 		a:hover {
@@ -75,9 +75,9 @@
 			border-color: $border-color-dk;
 		}
 
-		.sub-menu { 
-			top: -1px; 
-			left: 100%;  
+		.sub-menu {
+			top: -1px;
+			left: 100%;
 		}
 
 	}
