@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-get_header(); 
+get_header();
 
 ?>
 
@@ -26,7 +26,7 @@ get_header();
 				while ( have_posts() ) {
 
 					the_post();
-						
+
 					if ( is_search() )
 						get_template_part( 'parts/index/search-single' );
 
