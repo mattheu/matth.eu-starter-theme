@@ -1,7 +1,7 @@
 <?php
 
 if ( ! function_exists( 'the_post_format_image' ) ) {
-	get_template_part( 'single/content' );
+	get_template_part( 'parts/single/content' );
 	return;
 }
 
