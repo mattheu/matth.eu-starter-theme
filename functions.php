@@ -15,14 +15,15 @@
 /**
  *	More Functions & Plugins.
  */
-get_template_part( 'updates/updates', 'core' );
-get_template_part( 'includes/functions-comments' );
-get_template_part( 'includes/functions-image_caption' );
-get_template_part( 'includes/functions-thumbnail_link' );
-get_template_part( 'includes/functions-user-contact-methods' );
-get_template_part( 'includes/gallery' );
-get_template_part( 'includes/widgets/about' );
-get_template_part( 'includes/plugins/grid/grid' );
+require_once( 'updates/updates-core.php' );
+require_once( 'includes/functions-comments.php' );
+require_once( 'includes/functions-image_caption.php' );
+require_once( 'includes/functions-thumbnail_link.php' );
+require_once( 'includes/functions-user-contact-methods.php' );
+require_once( 'includes/widont.php' );
+require_once( 'includes/gallery.php' );
+require_once( 'includes/widgets/about.php' );
+require_once( 'includes/plugins/grid/grid.php' );
 
 /**
  * Check whether currently running a live or dev environment.
@@ -44,7 +45,7 @@ function mtf_is_dev() {
  */
 function mtf_get_theme_version() {
 
-	//  wp_get_theme since WordPress 3.4.0
+	// wp_get_theme since WordPress 3.4.0
 	if ( function_exists( 'wp_get_theme' ) ) {
 		$theme = wp_get_theme( basename( get_bloginfo( 'stylesheet_directory' ) ) );
 		$version = $theme->version;
