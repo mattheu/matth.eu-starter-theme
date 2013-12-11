@@ -67,12 +67,19 @@ the_post();
 					</div>
 
 					<div class="form-row">
-						<label for="input1">Medium Small</label>
+						<label for="input1">Small Input</label>
 						<input id="input1" type="text" value="Small Txt" class="small-text"/>
 					</div>
 
 					<div class="form-row">
-						<label for="input1">Medium Tiny</label>
+						<label for="input1">Tiny Input</label>
+						<input id="input1" type="text" value="3.5" class="tiny-text"/>
+					</div>
+
+					<div class="form-row">
+						<label for="input1">Mixed Input &amp; Text</label>
+						<input id="input1" type="text" value="3.5" class="tiny-text"/>
+						or
 						<input id="input1" type="text" value="3.5" class="tiny-text"/>
 					</div>
 

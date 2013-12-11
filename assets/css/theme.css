@@ -2699,6 +2699,11 @@ select {
   margin-top: 11px;
   margin-bottom: 0.75rem; }
 
+input[disabled] {
+  color: #aaaaaa;
+  background: #eeeeee;
+  cursor: default; }
+
 .form-row, #commentform p {
   zoom: 1;
   clear: both;
@@ -2706,7 +2711,7 @@ select {
   font-size: 0.875rem;
   line-height: 1.71429;
   margin: 0 -10px;
-  padding: 0.75rem 10px 0 170px; }
+  padding: 1.125rem 10px 0 170px; }
   .form-row:before, .form-row::after {
     content: "";
     display: table; }
@@ -2717,13 +2722,11 @@ select {
   .form-row label, .form-row .form-row label, .form-row .form-row label, .form-row .form-row-label {
     float: left;
     width: 150px;
-    margin: 6px 10px 18px -160px;
-    margin: 0.375rem 10px 1.125rem -160px; }
-
-input[disabled] {
-  color: #aaaaaa;
-  background: #eeeeee;
-  cursor: default; }
+    margin: 0 10px 18px -160px;
+    margin: 0 10px 1.125rem -160px; }
+  .form-row input, .form-row select, .form-row textarea {
+    margin-top: -6px;
+    margin-top: -0.375rem; }
 
 .form-row-radio label, .form-row-radio .form-row label, .form-row .form-row-radio label, .form-row-checkbox label, .form-row-checkbox .form-row label, .form-row .form-row-checkbox label {
   width: auto;

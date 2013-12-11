@@ -54,6 +54,11 @@ select {
 	margin-bottom: .75rem;
 }
 
+input[disabled] {
+	color: #AAA;
+	background: #EEE;
+	cursor: default;
+}
 
 .form-row { 
 	
@@ -61,9 +66,11 @@ select {
 	@include small;
 
 	margin: 0 -10px;
-	padding: rem( $base-line-height / 2 ) 10px 0 170px;
+	padding: px( $base-line-height * 3/4 ) 10px 0 170px;
+	padding: rem( $base-line-height * 3/4 ) 10px 0 170px;
 	
 	&:first-child {
+		margin-top: px( -1 * $base-line-height / 2 ); 
 		margin-top: rem( -1 * $base-line-height / 2 ); 
 	}
 
@@ -71,16 +78,16 @@ select {
 	.form-row-label {
 		float: left;
 		width: 150px;
-		margin: px( $base-line-height / 4 ) 10px px( $base-line-height * 0.75 )  -160px;
-		margin: rem( $base-line-height / 4 ) 10px rem( $base-line-height * 0.75 )  -160px;
+		margin: 0 10px px( $base-line-height * 0.75 )  -160px;
+		margin: 0 10px rem( $base-line-height * 0.75 )  -160px;
 	}
 
-}
-
-input[disabled] {
-	color: #AAA;
-	background: #EEE;
-	cursor: default;
+	input,
+	select,
+	textarea {
+		margin-top: px( $base-line-height * -0.25 );
+		margin-top: rem( $base-line-height * -0.25 );
+	}
 }
 
 .form-row-radio,
