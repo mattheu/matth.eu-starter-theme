@@ -25,6 +25,10 @@ require_once( 'includes/gallery.php' );
 require_once( 'includes/widgets/about.php' );
 require_once( 'includes/plugins/grid/grid.php' );
 
+
+if ( ! isset( $content_width ) )
+	$content_width = 700;
+
 /**
  * Check whether currently running a live or dev environment.
  *
