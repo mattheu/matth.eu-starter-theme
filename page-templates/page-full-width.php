@@ -10,33 +10,33 @@
 
 get_header();
 
-have_posts();
-
-the_post();
-
 ?>
 
 <div class="row">
 
 	<section class="primary-content grid-12">
 
-		<article <?php post_class( array( 'entry' ) ); ?>>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-			<header class="entry-header">
+			<article <?php post_class( array( 'entry' ) ); ?>>
 
-			    <h1 class="entry-title"><?php the_title(); ?></h1>
+				<header class="entry-header">
 
-			</header>
+				    <h1 class="entry-title"><?php the_title(); ?></h1>
 
-			<div class="entry-content">
+				</header>
 
-				<?php the_content(); ?>
+				<div class="entry-content">
 
-				<?php wp_link_pages( array( 'before' => '<div class="singular-pagination pagination-container"><div class="pagination">', 'after' => '</div></div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+					<?php the_content(); ?>
 
-			</div>
-		
-		</article><!-- / .article -->
+					<?php wp_link_pages( array( 'before' => '<div class="singular-pagination pagination-container"><div class="pagination">', 'after' => '</div></div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+
+				</div>
+			
+			</article><!-- / .article -->
+
+		<?php endwhile; ?>
 
 	</section><!-- / .primary-content -->
 

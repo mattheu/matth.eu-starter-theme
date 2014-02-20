@@ -9,32 +9,32 @@
 
 get_header();
 
-have_posts();
-
-the_post();
-
 ?>
 
 <div class="row">
 
 	<section class="primary-content grid-8">
 
-		<article <?php post_class( array( 'entry' ) ); ?>>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-		    <?php
+			<article <?php post_class( array( 'entry' ) ); ?>>
 
-			get_template_part( 'parts/single/header' );
+			    <?php
 
-		    get_template_part( 'parts/single/content', get_post_format() );
+				get_template_part( 'parts/single/header' );
 
-		    get_template_part( 'parts/taxonomies' );
+			    get_template_part( 'parts/single/content', get_post_format() );
 
-			comments_template();
+			    get_template_part( 'parts/taxonomies' );
 
-			?>
+				comments_template();
 
-		</article><!-- / .entry -->
+				?>
 
+			</article><!-- / .entry -->
+
+		<?php endwhile; ?>
+		
 	</section><!-- / .primary-content -->
 
 	<section class="sidebar grid-4" role="complementary">

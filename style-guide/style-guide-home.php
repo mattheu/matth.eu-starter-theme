@@ -20,22 +20,26 @@ the_post();
 
 	<section class="primary-content grid-12">
 
-		<article <?php post_class( array( 'entry' ) ); ?>>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-			<header class="entry-header">
+			<article <?php post_class( array( 'entry' ) ); ?>>
 
-			    <h1 class="entry-title"><?php the_title(); ?></h1>
+				<header class="entry-header">
 
-			</header>
+				    <h1 class="entry-title"><?php the_title(); ?></h1>
 
-			<div class="entry-content">
+				</header>
 
-				<?php wp_list_pages( 'child_of=' . get_the_id() . '&title_li=' ); ?>
+				<div class="entry-content">
 
-			</div>
+					<?php wp_list_pages( 'child_of=' . get_the_id() . '&title_li=' ); ?>
+
+				</div>
+			
+			</article><!-- / .article -->
+
+		<?php endwhile; ?>
 		
-		</article><!-- / .article -->
-
 	</section><!-- / .primary-content -->
 
 </div>

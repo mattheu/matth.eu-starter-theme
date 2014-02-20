@@ -10,8 +10,6 @@
 
 get_header();
 
-have_posts();
-
 the_post();
 
 ?>
