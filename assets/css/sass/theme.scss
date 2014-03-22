@@ -15,28 +15,34 @@ $border-color-lt: #EEE;
 $border-color-dk: #888;
 $border-color-md: #AAA;
 
-@import "global/reset.scss";
-@import "global/mixins.scss";
-@import "global/helpers.scss";
-@import "global/type.scss";
-@import "global/grid.scss";
-@import "global/forms.scss";
-@import "global/buttons.scss";
-@import "global/linklist.scss";
-@import "global/images.scss";
-@import "global/dividers.scss";
+@import "compass/css3";
 
-@import "modules/pagination.scss";
-@import "modules/search-form.scss";
-@import "modules/widget-about-author.scss";
-@import "modules/flexslider.scss";
-@import "modules/site-header.scss";
-@import "modules/site-footer.scss";
-@import "modules/menus.scss";
-@import "modules/entries.scss";
-@import "modules/entries-grid.scss";
-@import "modules/comments.scss";
-@import "modules/gallery.scss";
-@import "modules/wp-caption.scss";
+@import "global/_reset.scss";
+@import "global/_mixins.scss";
+@import "global/_helpers.scss";
+@import "global/_type.scss";
+@import "global/_grid.scss";
+@import "global/_forms.scss";
+@import "global/_buttons.scss";
+@import "global/_linklist.scss";
+@import "global/_images.scss";
+@import "global/_dividers.scss";
+
+@import "modules/_pagination.scss";
+@import "modules/_search-form.scss";
+@import "modules/_widget-about-author.scss";
+@import "modules/_flexslider.scss";
+@import "modules/_site-header.scss";
+@import "modules/_site-footer.scss";
+@import "modules/_menus.scss";
+@import "modules/_entries.scss";
+@import "modules/_entries-grid.scss";
+@import "modules/_comments.scss";
+@import "modules/_gallery.scss";
+@import "modules/_wp-caption.scss";
 
 @import "general.scss";
+
+
+// Search rem\(\s?([^\)]*)\s?\)
+// Replace #{$1}rem

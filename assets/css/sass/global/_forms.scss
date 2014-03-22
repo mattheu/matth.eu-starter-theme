@@ -1,0 +1,197 @@
+label {
+	@include small;
+	display: inline-block;
+}
+
+input,
+textarea {
+
+	font-family: $base-font-family;
+	@include small;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid $border-color-md;
+	margin: 0 0 #{$base-line-height / 2 }rem 0;
+	padding: #{$base-line-height / 4 }rem 0;
+	text-indent: 9px;
+	position: relative;
+	cursor: text;
+	overflow: hidden;
+	background-color: #FFF;
+	@include box-shadow( 0, 2px, 5px, rgba(0,0,0,0.1), inset );
+	width: 100%;
+	vertical-align: top;
+}
+
+textarea {
+	height: auto;
+	max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+// Input sizes.
+.medium-text {
+	max-width: 300px;
+}
+.small-text {
+	max-width: 100px;
+}
+.tiny-text {
+	max-width: 50px;
+}
+
+
+select {
+	margin-top: 11px;
+	margin-bottom: .75rem;
+}
+
+input[disabled] {
+	color: #AAA;
+	background: #EEE;
+	cursor: default;
+}
+
+.form-row {
+
+	@include clearfix;
+	@include small;
+
+	margin: 0 -10px;
+	padding: #{$base-line-height * 3/4 }rem 10px 0 170px;
+
+	&:first-child {
+		margin-top: #{-1 * $base-line-height / 2 }rem;
+	}
+
+	label,
+	.form-row-label {
+		float: left;
+		width: 150px;
+		margin: 0 10px #{$base-line-height * 0.75 }rem  -160px;
+	}
+
+	input,
+	select,
+	textarea {
+		margin-top: #{$base-line-height * -0.25 }rem;
+	}
+}
+
+.form-row-radio,
+.form-row-checkbox {
+
+	label {
+		width: auto;
+		margin: #{$base-line-height / 4 }rem 20px #{$base-line-height / 4 }rem 0;
+	}
+
+	input {
+		margin-right: #{$grid-col-gutter / 4 }rem;
+		padding: 0;
+		height: auto;
+		width: auto;
+		vertical-align: baseline;
+	}
+
+}
+
+.form-row-error {
+	background: #FFDEDE;
+	input {
+		border-color: #CC0000;
+	}
+}
+
+.description {
+	font-style: italic;
+	color: #999;
+}
+
+// WordPress default comment form.
+#commentform {
+
+	p {
+		@extend .form-row;
+	}
+
+	.comment-notes {
+		margin-bottom: #{$base-line-height / 2 }rem;
+	}
+
+	// @extend used to handle this... but not any more.
+	label {
+		float: left;
+		width: 150px;
+		margin: #{$base-line-height / 4 }rem 10px #{$base-line-height * 0.75 }rem  -160px;
+	}
+
+	.comment-notes {
+		padding-left: 10px;
+	}
+
+	.logged-in-as {
+		padding-left: 10px;
+		padding-bottom: #{$base-line-height / 2}rem;
+		margin-top: #{-1 * $base-line-height / 4 }rem;
+	}
+
+	.form-allowed-tags {
+		padding-top: 0;
+	}
+
+	input[type="text"],
+	input[type="email"] {
+		@extend .medium-text;
+	}
+
+}
+
+#reply-title small {
+	font-size: 1em;
+	line-height: inherit;
+	float: right;
+}
+
+@media all and ( max-width: 700px ) {
+
+	.form-row {
+
+		padding-left: 10px;
+
+		label {
+			margin-left: 0;
+			margin-top: 0;
+			margin-bottom: #{$base-line-height / 2 }rem;
+			float: none;
+			display: block;
+		}
+
+
+		&.form-row-checkbox label,
+		&.form-row-radio label { display: inline-block; }
+
+		select {
+			margin-top: #{ $base-line-height / -2 }px;
+		}
+	}
+
+	#commentform label {
+		margin-left: 0;
+		margin-top: 0;
+		margin-bottom: #{$base-line-height / 2 }rem;
+		float: none;
+		display: block;
+	}
+
+}
+
+.form-row label {
+	@extend label;
+}
