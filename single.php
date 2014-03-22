@@ -34,7 +34,7 @@ get_header();
 			</article><!-- / .entry -->
 
 		<?php endwhile; ?>
-		
+
 	</section><!-- / .primary-content -->
 
 	<section class="sidebar grid-4" role="complementary">
