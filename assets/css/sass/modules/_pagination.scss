@@ -25,6 +25,7 @@
   		background: none;
   		color: inherit;
   		margin: 0;
+  		@include box-shadow(none);
   	}
 
   	/* Reset for nested spans/links */
