@@ -37,7 +37,7 @@ button,
 	border: 1px solid $border-color-md;
 	color: #444;
 	background-color: $button-bg;
-	box-shadow: 1px 1px 0 rgba(255,255,255,0.25) inset, -1px -1px 0 rgba(0,0,0,0.05) inset;
+	@include box-shadow( 1px 1px 0 rgba(255,255,255,0.25) inset, -1px -1px 0 rgba(0,0,0,0.05) inset );
 
 	&:focus,
 	&:hover {
@@ -48,7 +48,7 @@ button,
 
 	&:active {
 		background-color: darken( $button-bg-hover, 10% );
-		box-shadow: -1px -1px 0 rgba(255,255,255,0.25) inset, 1px 1px 0 rgba(0,0,0,0.05) inset;
+		@include box-shadow( -1px -1px 0 rgba(255,255,255,0.25) inset, 1px 1px 0 rgba(0,0,0,0.05) inset );
 	}
 
 	&.primary {
