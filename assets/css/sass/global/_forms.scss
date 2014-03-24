@@ -12,8 +12,7 @@ textarea {
 	box-sizing: border-box;
 	border: 1px solid $border-color-md;
 	margin: 0 0 #{$base-line-height / 2 }rem 0;
-	padding: #{$base-line-height / 4 }rem 0;
-	text-indent: 9px;
+	padding: #{$base-line-height / 4 }rem 9px;
 	position: relative;
 	cursor: text;
 	overflow: hidden;
