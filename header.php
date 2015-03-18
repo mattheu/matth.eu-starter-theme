@@ -30,7 +30,7 @@
 
 <body <?php body_class(); ?>>
 
-	<div class="wrap page-wrap" >
+	<div class="wrap page-wrap header-wrap" >
 
 		<div class="row">
 
@@ -38,8 +38,10 @@
 
 				<header class="site-header">
 
-					<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site_name'); ?></a></h1>
-					<div class="site-description"><?php bloginfo('description'); ?></div>
+					<div class="site-header-info">
+						<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site_name'); ?></a></h1>
+						<div class="site-description"><?php bloginfo('description'); ?></div>
+					</div>
 
 					<?php get_template_part( 'parts/nav-main' ); ?>
 
@@ -48,3 +50,7 @@
 			</div>
 
 		</div>
+
+	</div>
+
+	<div class="wrap page-wrap" >
