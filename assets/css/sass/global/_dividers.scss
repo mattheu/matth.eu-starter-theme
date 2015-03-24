@@ -1,0 +1,7 @@
+.divider,
+hr {
+	border : 0;
+	height : 1px;
+	background : $border-color-lt 0 0  no-repeat;
+	margin: #{$base-line-height }rem 0 #{$base-line-height / 2 }rem;
+}

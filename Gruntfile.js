@@ -42,48 +42,44 @@ module.exports = function( grunt ) {
 					mangle: { except: ['jQuery'] }
 				},
 				files: {
-					'assets/js/theme.min.js': themeScripts
-				}
-			}
-
-		},
-	
-		// Compile SASS
-		// Uses exerimental (but much faster) grunt-sass. 
-		// However this doesn't support minified output.
-		sass: {
-
-			dev: {
-				files: {
-					'assets/css/theme.css' : 'assets/css/sass/theme.scss'
+					'assets/js/theme.js': themeScripts
 				}
 			}
 
 		},
 
-		// Minify CSS
-		cssmin: {
-
-			theme: {
-
+		compass: {
+			prod: {
 				options: {
-					banner: banner
-				},
-
-				files: {
-					'assets/css/theme.min.css': ['assets/css/theme.css']
+					sassDir: 'assets/css/sass',
+					cssDir: 'assets/css',
+					environment: 'production'
 				}
-
+			},
+			dev: {
+				options: {
+					sassDir: 'assets/css/sass',
+					cssDir: 'assets/css',
+				}
 			}
+		},
 
-		},	
+		pixrem: {
+    		options: {
+      			rootvalue: '16px'
+    		},
+			dist: {
+				src: 'assets/css/theme.css',
+				dest: 'assets/css/theme.css'
+			}
+		},
 
 		// Watch for changes
 		watch:  {
 
 			sass: {
 				files: ['assets/css/*/**/*.scss'],
-				tasks: ['sass', 'cssmin'],
+				tasks: ['compass', 'pixrem'],
 				options: {
 					debounceDelay: 500,
 					livereload: true
@@ -103,9 +99,10 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task.
-	
-	grunt.registerTask( 'default', ['uglify', 'sass', 'cssmin'] );
-	
+
+	grunt.registerTask( 'default', ['uglify:prod', 'compass:prod', 'pixrem'] );
+	grunt.registerTask( 'dev', ['uglify:dev', 'compass:dev', 'pixrem'] );
+
 
 	grunt.util.linefeed = '\n';
 

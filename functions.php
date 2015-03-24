@@ -130,17 +130,16 @@ function mtf_register_assets() {
 
 	// Use the theme version for theme assets to bust cache when updating.
 	$version = mtf_get_theme_version();
-	$postfix = ( mtf_is_dev() ) ? '' : '.min';
 
 	wp_deregister_script( 'modernizr' );
 	wp_register_script( 'modernizr', get_bloginfo( 'template_directory' ) . '/assets/js/vendor/modernizr-1.7.min.js', null, '1.7' );
 
 	// Scripts. Theme functions and behaviour
-	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/js/theme{$postfix}.js", array( 'modernizr', 'jquery' ), $version, true );
+	wp_register_script( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/js/theme.js", array( 'modernizr', 'jquery' ), $version, true );
 
 	// Theme CSS
 	wp_register_style( 'mtf_genericons', get_bloginfo( 'template_directory' ) . '/assets/fonts/genericons/genericons.css', null, $version, 'all' );
-	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/css/theme{$postfix}.css", null, $version, 'all' );
+	wp_register_style( 'mtf_theme', get_bloginfo( 'template_directory' ) . "/assets/css/theme.css", null, $version, 'all' );
 
 }
 add_action( 'init', 'mtf_register_assets' );

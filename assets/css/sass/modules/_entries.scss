@@ -3,37 +3,30 @@
 	@include clearfix;
 
 	border-bottom: 1px solid $border-color-lt;
+	padding-bottom: #{$base-line-height / 2 }rem;
+	margin-bottom: #{$base-line-height / 2 }rem;
 
-	padding-bottom: px( $base-line-height / 2 );
-	padding-bottom: rem( $base-line-height / 2 );
-
-	margin-bottom: px( $base-line-height / 2 );
-	margin-bottom: rem( $base-line-height / 2 );
-
-	&:first-child { 
+	&:first-child {
 		padding-top: 0;
 	}
 
-	&:last-child { 
-		border-bottom: none; 
+	&:last-child {
+		border-bottom: none;
 	}
 
 	.entry-header {
-		margin-bottom: px( $base-line-height / 2 );
-		margin-bottom: rem( $base-line-height / 2 );
+		margin-bottom: #{$base-line-height / 2 }rem;
 	}
 
 	.entry-title {
-		
+
 		@include gamma;
-		margin: 0 0 px( $base-line-height / 2) 0;
-		margin: 0 0 rem( $base-line-height / 2) 0;
+		margin: 0 0 #{$base-line-height / 2}rem 0;
 
 		.genericon {
 			height: 1em;
 			width: 1em;
-			margin-right: px( $grid-col-gutter / 2 );
-			margin-right: rem( $grid-col-gutter / 4 );
+			margin-right: #{$grid-col-gutter / 4 }rem;
 			font-size: 1.5em;
 			vertical-align: middle;
 			line-height: 1;
@@ -58,37 +51,36 @@
 			color: inherit;
 		}
 	}
-	
+
 	.entry-thumb {
-		
+
 		@extend img.size-thumbnail;
 		@extend img.alignleft;
-		
-		margin-bottom: px( 1.5 );
-		margin-bottom: rem( 1.5 );
+
+		margin-bottom: #{1.5 }rem;
 
 		// This stuff is here because we can't extend nested selectors.
 		$width: 3 / 8;
-		$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+		$expression: "#{$width} * ( 100% + #{ $grid-col-gutter * 2 }rem ) - #{ $grid-col-gutter * 2 }rem";
 		@include calc( width, $expression, $width*100% );
 
 		@media all and ( max-width: 700px ) {
-			$expression: "1/3 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			$expression: "1/3 * ( 100% + #{ $grid-col-gutter * 2 }rem ) - #{ $grid-col-gutter * 2 }rem";
 			@include calc( width, $expression, 33.333% );
 		}
-		
+
 		@media all and ( max-width: 500px ) {
-			$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+			$expression: "1/2 * ( 100% + #{ $grid-col-gutter * 2 }rem ) - #{ $grid-col-gutter * 2 }rem";
 			@include calc( width, $expression, 50% );
 		}
 
-		img { 
-			max-width: 100%; 
-			height: auto; 
-			width: 100%; 
+		img {
+			max-width: 100%;
+			height: auto;
+			width: 100%;
 			margin: 0;
 			position: relative;
-			top: rem( $base-line-height / 4 ); 
+			top: #{$base-line-height / 4 }rem;
 		}
 
 		// e.g. on attachment pages.
@@ -101,74 +93,67 @@
 
 	&.format-image .entry-thumb,
 	&.format-gallery .entry-thumb,
-	&.format-video .entry-thumb { 
-		
+	&.format-video .entry-thumb {
+
 		@extend img.size-large;
 		@extend img.aligncenter;
 
-		iframe, object { 
+		iframe, object {
 			vertical-align: top;
 			width: 100%;
 		}
 	}
 
-	&.format-quote blockquote:first-child { 
-		margin-top: 0; 
+	&.format-quote blockquote:first-child {
+		margin-top: 0;
 	}
 
 	.entry-post-format {
- 		
+
  		@include clearfix;
 
- 		img { 
-			vertical-align: top; 
+ 		img {
+			vertical-align: top;
 			margin-bottom: 0;
 		}
 
-		iframe { 
+		iframe {
 			width: 100%;
 		}
 
 		.flexslider {
-			margin-bottom:  px( $base-line-height / -2 );
-			margin-bottom:  rem( $base-line-height / -2 );
+			margin-bottom:  #{$base-line-height / -2 }rem;
 		}
 
-		margin-bottom:  px( $base-line-height );
-		margin-bottom:  rem( $base-line-height );
+		margin-bottom:  #{$base-line-height }rem;
 
 	}
 
 	.entry-more-link {
 		display: block;
-		margin: px( $base-line-height / 2) 0;
-		margin: rem( $base-line-height / 2) 0;
+		margin: #{$base-line-height / 2}rem 0;
 	}
 
 	.entry-taxonomy-terms {
 		@include small;
 		color: $border-color-dk
-		
-		a { 
-			color: inherit; 
+
+		a {
+			color: inherit;
 		}
 	}
 
 }
 
-.entries + .pagination-container { 
+.entries + .pagination-container {
 	border-top: 1px solid $border-color-lt;
 }
 
 .entries-header {
 
 	border-bottom: 1px solid $border-color-lt;
-	
-	margin-bottom: px( $base-line-height );
-	margin-bottom: rem( $base-line-height );
-
-	padding-bottom: px( $base-line-height / 2 );
-	padding-bottom: rem( $base-line-height / 2 );
+	margin-bottom: #{$base-line-height }rem;
+	padding-bottom: #{$base-line-height / 2 }rem;
 
 }
 

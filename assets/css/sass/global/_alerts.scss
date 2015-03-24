@@ -1,0 +1,26 @@
+@mixin alert( $bg-color ) {
+
+	background: $bg-color;
+	border: 1px solid darken( desaturate( $bg-color, 10% ), 20% );
+	padding: #{$base-line-height/2}rem #{$grid-col-gutter/2}rem;
+	margin: #{$base-line-height/2}rem 0;
+
+	color: darken( desaturate( $bg-color, 75% ), 50% );
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+.alert {
+	@include alert( #fff9d9 );
+}
+
+.info {
+	@include alert( #d9f1ff );
+}
+
+.error {
+	@include alert( #ffd9d9 );
+}

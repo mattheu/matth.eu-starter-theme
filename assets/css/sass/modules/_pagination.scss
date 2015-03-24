@@ -11,8 +11,7 @@
   	span {
   		@extend .button;
   		margin-bottom: 0;
-  		min-width: px( $base-line-height + 1 );
-  		min-width: rem( $base-line-height + 1 );
+  		min-width: #{$base-line-height + 1 }rem;
   	}
 
   	.current,
@@ -26,6 +25,7 @@
   		background: none;
   		color: inherit;
   		margin: 0;
+  		@include box-shadow(none);
   	}
 
   	/* Reset for nested spans/links */
@@ -69,13 +69,12 @@
 	a.next {
 
 		position: relative;
-  		line-height: rem( $base-line-height );
+  		line-height: #{$base-line-height }rem;
 		text-indent: -9999px;
 
 		padding-left: 0;
 		padding-right: 0;
-	  	min-width: px( $base-line-height + 1 );
-  		min-width: rem( $base-line-height + 1 );
+  		min-width: #{$base-line-height + 1 }rem;
 
 		&:after {
 			font-family: 'Genericons';

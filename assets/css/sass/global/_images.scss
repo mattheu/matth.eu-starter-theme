@@ -3,8 +3,7 @@ img {
 
 	max-width: 100%;
 	height: auto;
-	margin-bottom: px($base-line-height/2);
-	margin-bottom: rem($base-line-height/2);
+	margin-bottom: #{$base-line-height/2}rem;
 	vertical-align: middle;
 
 	&.aligncenter {
@@ -16,31 +15,29 @@ img {
 
 	&.alignleft {
 		float: left;
-		margin-right: px( $grid-col-gutter * 2 );
-		margin-right: rem( $grid-col-gutter * 2 );
+		margin-right: #{$grid-col-gutter * 2 }rem;
 	}
 
 	&.alignright {
 		float: right;
-		margin-left: px( $grid-col-gutter * 2 );
-		margin-left: rem( $grid-col-gutter * 2 );
+		margin-left: #{$grid-col-gutter * 2 }rem;
 	}
 
 	&.size-thumbnail,
 	&.attachment-thumbnail {
 		width: 240px;
 	}
-	
+
 	&.size-medium,
 	&.attachment-medium {
 		width: 420px;
 	}
-	
+
 	&.size-large,
 	&.attachment-large {
 		width: 700px;
 	}
-	
+
 }
 
 // Width of image sizes in columns.
@@ -50,44 +47,44 @@ $large: 8;
 
 // Generate image sizes - in calc relative to the column size.
 @for $i from 1 through 12 {
-	
+
 	.grid-#{$i} img,
-	.grid-#{$i} .img { 
-		
+	.grid-#{$i} .img {
+
 		&.size-large,
 		&.attachment-large {
 			@if $large >= $i {
 				width: 100%;
 			} @else {
 				$width: $large / $i;
-				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "#{$width} * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, $width*100% );
 			}
-			
+
 			@media all and ( max-width: 700px ) {
-				width: 100%;	
+				width: 100%;
 			}
 
 		}
 
 		&.size-medium,
 		&.attachment-medium {
-			
+
 			@if $medium >= $i {
 				width: 100%;
 			} @else {
 				$width: $medium / $i;
-				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "#{$width} * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, $width*100% );
 			}
-			
+
 			@media all and ( max-width: 700px ) {
-				$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "1/2 * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, 50% );
 			}
 
 			@media all and ( max-width: 500px ) {
-				width: 100%;	
+				width: 100%;
 			}
 
 		}
@@ -98,17 +95,17 @@ $large: 8;
 				width: 100%;
 			} @else {
 				$width: $thumbnail / $i;
-				$expression: "#{$width} * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "#{$width} * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, $width * 100% );
 			}
 
 			@media all and ( max-width: 700px ) {
-				$expression: "1/3 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "1/3 * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, 33.333% );
 			}
 
 			@media all and ( max-width: 500px ) {
-				$expression: "1/2 * ( 100% + #{rem( $grid-col-gutter * 2)} ) - #{rem( $grid-col-gutter * 2)}";
+				$expression: "1/2 * ( 100% + #{$grid-col-gutter * 2}rem ) - #{$grid-col-gutter * 2}rem";
 				@include calc( width, $expression, 50% );
 			}
 
