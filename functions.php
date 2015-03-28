@@ -280,7 +280,10 @@ add_filter( 'post_class', 'mtf_post_class' );
  */
 function mtf_page_templates( $page_templates, $this, $post ) {
 
-	if ( current_user_can( 'manage_options' ) ) {
+	if (
+		( is_multisite() && is_super_admin() )
+		|| current_user_can( 'manage_options' )
+	) {
 		return $page_templates;
 	}
 
