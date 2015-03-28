@@ -269,3 +269,28 @@ function mtf_post_class( $classes ) {
 
 }
 add_filter( 'post_class', 'mtf_post_class' );
+
+/**
+ * Hide style guide templates for non admins.
+ *
+ * @param  array
+ * @param  WP_Theme
+ * @param  object
+ * @return array
+ */
+function mtf_page_templates( $page_templates, $this, $post ) {
+
+	if ( current_user_can( 'manage_options' ) ) {
+		return $page_templates;
+	}
+
+	foreach ( $page_templates as $key => $value ) {
+		if ( 0 === strpos( $key, 'style-guide/' ) ) {
+			unset( $page_templates[$key] );
+		}
+	}
+
+	return $page_templates;
+
+}
+add_filter( 'theme_page_templates', 'mtf_page_templates' );
