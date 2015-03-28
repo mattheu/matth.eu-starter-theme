@@ -7,11 +7,6 @@ add_action( 'wp_footer', function() {
 
 	?>
 
-	<!-- <div id="grid-overlay-toggle" style="position: fixed; top: 10px; right: 10px; ">
-		<button id="tpp-grid-overlay-on" style="display: none;" class="btn">Show Grid</button>
-		<button id="tpp-grid-overlay-off" style="display: none;" class="btn">Hide Grid</button>
-	</div> -->
-
 	<div id="grid-overlay" style="display:none;">
 		<div class="wrap">
 		<div class="row show-grid">
@@ -26,12 +21,12 @@ add_action( 'wp_footer', function() {
 	</div>
 
 	<script type="text/javascript" >
-	
+
 		var mphGridOverlay = {
 
 			overlay : document.getElementById('grid-overlay'),
 			button  : document.createElement('a'),
-			
+
 			buttonTextOff  : 'Show Grid',
 			buttonTextOn  : 'Hide Grid',
 
@@ -49,15 +44,15 @@ add_action( 'wp_footer', function() {
 				button.appendChild( document.createTextNode( this.buttonTextOff ) );
 				li.appendChild( button );
 				adminBarContainer.appendChild( li );
-				li.style.width = button.offsetWidth + 'px';
+
 			},
 
 			toggleDisplay : function(e,el) {
 				e.preventDefault();
 				this.overlay.style.display = ( this.overlay.style.display === 'block' ) ? 'none' : 'block';
 				this.button.innerHTML = '';
-				this.button.appendChild( 
-					document.createTextNode( ( this.overlay.style.display === 'block' ) ? this.buttonTextOff : this.buttonTextOn ) 
+				this.button.appendChild(
+					document.createTextNode( ( this.overlay.style.display === 'block' ) ? this.buttonTextOff : this.buttonTextOn )
 				);
 			},
 
@@ -86,12 +81,12 @@ add_action( 'wp_footer', function() {
 			},
 
 			init : function() {
-				
+
 				var self = this;
 				self.overlay.style.display = 'none';
 				self.insertButton();
 				self.button.addEventListener( 'click', function(e) { self.toggleDisplay.call( self, e, this ) } );
-				
+
 				this.baselineFillRows();
 			}
 
@@ -102,7 +97,7 @@ add_action( 'wp_footer', function() {
 			mphGridOverlay.init();
 
 		} );
-		
+
 
 		// new function() {
 
