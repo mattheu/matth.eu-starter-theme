@@ -47,15 +47,16 @@ module.exports = function( grunt ) {
 			}
 
 		},
-	
+
 		// Compile SASS
-		// Uses exerimental (but much faster) grunt-sass. 
+		// Uses exerimental (but much faster) grunt-sass.
 		// However this doesn't support minified output.
 		sass: {
 
 			dev: {
 				files: {
-					'assets/css/theme.css' : 'assets/css/sass/theme.scss'
+					'assets/css/theme.css' : 'assets/css/sass/theme.scss',
+					'assets/css/editor.css' : 'assets/css/sass/editor.scss'
 				}
 			}
 
@@ -76,7 +77,7 @@ module.exports = function( grunt ) {
 
 			}
 
-		},	
+		},
 
 		// Watch for changes
 		watch:  {
@@ -103,9 +104,9 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task.
-	
+
 	grunt.registerTask( 'default', ['uglify', 'sass', 'cssmin'] );
-	
+
 
 	grunt.util.linefeed = '\n';
 

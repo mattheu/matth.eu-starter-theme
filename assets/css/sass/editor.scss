@@ -1,0 +1,32 @@
+$bg-color-body: #F5F5F5;
+$bg-color-wrap: #FFF;
+
+$base-font-size: 1; // REM
+$base-line-height: 1.5; // REM
+$base-font-family: "Helvetica Neue", "helvetica", 'arial', sans-serif;
+
+$secondary-font-size: .875; // REM
+
+$grid-col-count: 12; // Count
+$grid-col-gutter: 1; // REM
+$grid-col-gutter-narrow: $grid-col-gutter;
+
+$border-color-lt: #EEE;
+$border-color-dk: #888;
+$border-color-md: #AAA;
+
+@import "global/reset.scss";
+@import "global/mixins.scss";
+@import "global/helpers.scss";
+@import "global/type.scss";
+@import "global/grid.scss";
+@import "global/forms.scss";
+@import "global/buttons.scss";
+@import "global/linklist.scss";
+@import "global/images.scss";
+@import "global/dividers.scss";
+
+body {
+	padding: 1.5rem;
+	max-width: 700px;
+}

@@ -50,9 +50,9 @@
                         slider.flexAnimate(target, slider.vars.pauseOnAction);
                     }
                 }), // MOUSEWHEEL:
-                slider.vars.mousewheel && slider.bind("mousewheel", function(event, delta) {
+                slider.vars.mousewheel && slider.bind("mousewheel", function(event, delta, deltaX, deltaY) {
                     event.preventDefault();
-                    var target = 0 > delta ? slider.getTarget("next") : slider.getTarget("prev");
+                    var target = slider.getTarget(0 > delta ? "next" : "prev");
                     slider.flexAnimate(target, slider.vars.pauseOnAction);
                 }), // PAUSEPLAY
                 slider.vars.pausePlay && methods.pausePlay.setup(), //PAUSE WHEN INVISIBLE
@@ -158,7 +158,7 @@
                     slider.directionNav.bind(eventType, function(event) {
                         event.preventDefault();
                         var target;
-                        ("" === watchedEvent || watchedEvent === event.type) && (target = $(this).hasClass(namespace + "next") ? slider.getTarget("next") : slider.getTarget("prev"), 
+                        ("" === watchedEvent || watchedEvent === event.type) && (target = slider.getTarget($(this).hasClass(namespace + "next") ? "next" : "prev"), 
                         slider.flexAnimate(target, slider.vars.pauseOnAction)), // setup flags to prevent event duplication
                         "" === watchedEvent && (watchedEvent = event.type), methods.setToClearWatchedEvent();
                     });
@@ -204,10 +204,10 @@
                     (!scrolling || Number(new Date()) - startT > fxms) && (e.preventDefault(), !fade && slider.transitions && (slider.vars.animationLoop || (dx /= 0 === slider.currentSlide && 0 > dx || slider.currentSlide === slider.last && dx > 0 ? Math.abs(dx) / cwidth + 2 : 1), 
                     slider.setProps(offset + dx, "setTouch")));
                 }
-                function onTouchEnd() {
+                function onTouchEnd(e) {
                     if (// finish the touch by undoing the touch session
                     el.removeEventListener("touchmove", onTouchMove, !1), slider.animatingTo === slider.currentSlide && !scrolling && null !== dx) {
-                        var updateDx = reverse ? -dx : dx, target = updateDx > 0 ? slider.getTarget("next") : slider.getTarget("prev");
+                        var updateDx = reverse ? -dx : dx, target = slider.getTarget(updateDx > 0 ? "next" : "prev");
                         slider.canAdvance(target) && (Number(new Date()) - startT < 550 && Math.abs(updateDx) > 50 || Math.abs(updateDx) > cwidth / 2) ? slider.flexAnimate(target, slider.vars.pauseOnAction) : fade || slider.flexAnimate(slider.currentSlide, slider.vars.pauseOnAction, !0);
                     }
                     el.removeEventListener("touchend", onTouchEnd, !1), startX = null, startY = null, 
@@ -226,11 +226,11 @@
                         var transX = -e.translationX, transY = -e.translationY;
                         //Accumulate translations.
                         return accDx += vertical ? transY : transX, dx = accDx, scrolling = vertical ? Math.abs(accDx) < Math.abs(-transX) : Math.abs(accDx) < Math.abs(-transY), 
-                        e.detail === e.MSGESTURE_FLAG_INERTIA ? (setImmediate(function() {
+                        e.detail === e.MSGESTURE_FLAG_INERTIA ? void setImmediate(function() {
                             el._gesture.stop();
-                        }), void 0) : ((!scrolling || Number(new Date()) - startT > 500) && (e.preventDefault(), 
+                        }) : void ((!scrolling || Number(new Date()) - startT > 500) && (e.preventDefault(), 
                         !fade && slider.transitions && (slider.vars.animationLoop || (dx = accDx / (0 === slider.currentSlide && 0 > accDx || slider.currentSlide === slider.last && accDx > 0 ? Math.abs(accDx) / cwidth + 2 : 1)), 
-                        slider.setProps(offset + dx, "setTouch"))), void 0);
+                        slider.setProps(offset + dx, "setTouch"))));
                     }
                 }
                 function onMSGestureEnd(e) {
@@ -238,7 +238,7 @@
                     var slider = e.target._slider;
                     if (slider) {
                         if (slider.animatingTo === slider.currentSlide && !scrolling && null !== dx) {
-                            var updateDx = reverse ? -dx : dx, target = updateDx > 0 ? slider.getTarget("next") : slider.getTarget("prev");
+                            var updateDx = reverse ? -dx : dx, target = slider.getTarget(updateDx > 0 ? "next" : "prev");
                             slider.canAdvance(target) && (Number(new Date()) - startT < 550 && Math.abs(updateDx) > 50 || Math.abs(updateDx) > cwidth / 2) ? slider.flexAnimate(target, slider.vars.pauseOnAction) : fade || slider.flexAnimate(slider.currentSlide, slider.vars.pauseOnAction, !0);
                         }
                         startX = null, startY = null, dx = null, offset = null, accDx = 0;
@@ -518,9 +518,9 @@
         }, //FlexSlider: Initialize
         methods.init();
     }, // Ensure the slider isn't focussed if the window loses focus.
-    $(window).blur(function() {
+    $(window).blur(function(e) {
         focused = !1;
-    }).focus(function() {
+    }).focus(function(e) {
         focused = !0;
     }), //FlexSlider: Default Settings
     $.flexslider.defaults = {

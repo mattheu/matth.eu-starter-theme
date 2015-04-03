@@ -8,7 +8,7 @@ body {
 	background-color: $bg-color-wrap;
 	border: 1px solid $border-color-lt;
 	border-width: 0 1px;
-	min-height: 100%; 
+	min-height: 100%;
 }
 
 .single .entry {
@@ -16,12 +16,12 @@ body {
 	.entry-title {
 		@include beta;
 	}
-	
+
 	.entry-content {
-		margin: 0 0 px( $base-line-height / 2 ); 
-		margin: 0 0 rem( $base-line-height / 2 ); 
+		margin: 0 0 px( $base-line-height / 2 );
+		margin: 0 0 rem( $base-line-height / 2 );
 	}
-	
+
 }
 
 .sidebar .widget {
@@ -39,16 +39,16 @@ body {
 	}
 }
 
-.main-menu .menu { 
-	border-top: 1px solid $border-color-lt; 
+.main-menu .menu {
+	border-top: 1px solid $border-color-lt;
 }
 
 #wp-calendar {
 	width: 100%;
-	
+
 	th,
 	td {
-		text-align: center; 
+		text-align: center;
 		padding-left: 0;
 		padding-right: 0;
 	}

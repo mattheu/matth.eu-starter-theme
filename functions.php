@@ -25,7 +25,6 @@ require_once( 'includes/gallery.php' );
 require_once( 'includes/widgets/about.php' );
 require_once( 'includes/plugins/grid/grid.php' );
 
-
 if ( ! isset( $content_width ) )
 	$content_width = 700;
 
@@ -35,9 +34,7 @@ if ( ! isset( $content_width ) )
  * Uses value of HM_DEV.
  */
 function mtf_is_dev() {
-
 	return apply_filters( 'mtf_is_dev', defined( 'HM_DEV' ) && true === HM_DEV );
-
 }
 
 /**
@@ -170,6 +167,12 @@ function mtf_enqueue_assets() {
 
 }
 add_action( 'wp_enqueue_scripts', 'mtf_enqueue_assets' );
+
+function mtf_admin_init() {
+	add_editor_style( '/assets/css/editor.css' );
+}
+
+add_action( 'admin_init', 'mtf_admin_init' );
 
 /**
  * Add humans.txt to the <head> element.
