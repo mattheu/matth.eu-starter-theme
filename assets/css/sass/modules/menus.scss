@@ -22,8 +22,7 @@
 		position: relative;
 		display: block;
 		border: 1px solid transparent;
-		padding: px( $base-line-height / 2 ) 15px;
-		padding: rem( $base-line-height / 2 ) 15px;
+		padding: #{ $base-line-height / 2 }rem 15px;
 		text-decoration: none;
 		color: inherit;
 		margin: -1px -1px -1px 0;

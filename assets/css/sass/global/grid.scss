@@ -1,13 +1,11 @@
 .wrap {
 
 	@include clearfix;
-	
+
 	width: 90%;
 	max-width: 1100px;
 
-	padding-left: px( $grid-col-gutter / 2 );
 	padding-left: #{ $grid-col-gutter / 2 }rem;
-	padding-right: px( $grid-col-gutter / 2 );
 	padding-right: #{ $grid-col-gutter / 2 }rem;
 
 	margin: auto;
@@ -48,10 +46,8 @@
 }
 
 .row .row {
-	margin-left: px( $grid-col-gutter * -1 );
-	margin-left: rem( $grid-col-gutter * -1 );
-	margin-right: px( $grid-col-gutter * -1 );
-	margin-right: rem( $grid-col-gutter * -1 );
+	margin-left: #{ $grid-col-gutter * -1 }rem;
+	margin-right: #{ $grid-col-gutter * -1 }rem;
 }
 
 /**
@@ -63,11 +59,9 @@
 	display: block;
 	margin: 0;
 	float: left;
-	box-sizing: border-box; -moz-box-sizing: border-box;
+	box-sizing: border-box;
 
-	padding-left: px( $grid-col-gutter );
 	padding-left: #{ $grid-col-gutter }rem;
-	padding-right: px( $grid-col-gutter );
 	padding-right: #{ $grid-col-gutter }rem;
 
 }
@@ -94,25 +88,21 @@
 }
 
 @media all and ( max-width: 900px ) {
-	
+
 	.row > [class*="grid-"] {
-		padding-left: px( $grid-col-gutter-narrow );
-		padding-left: rem( $grid-col-gutter-narrow );
-		padding-right: px( $grid-col-gutter-narrow );
-		padding-right: rem( $grid-col-gutter-narrow );
+		padding-left: #{ $grid-col-gutter-narrow }rem;
+		padding-right: #{ $grid-col-gutter-narrow }rem;
 	}
 
 	.row .row {
-		margin-left: px( $grid-col-gutter-narrow * -1 );
-		margin-left: rem( $grid-col-gutter-narrow * -1 );
-		margin-right: px( $grid-col-gutter-narrow * -1 );
-		margin-right: rem( $grid-col-gutter-narrow * -1 );
+		margin-left: #{ $grid-col-gutter-narrow * -1 }rem;
+		margin-right: #{ $grid-col-gutter-narrow * -1 }rem;
 	}
-	
+
 }
 
 @media all and ( max-width: 700px ) {
-	
+
 	.row > [class*="grid-"] {
 		width: 100%;
 	}

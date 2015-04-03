@@ -62,21 +62,42 @@ module.exports = function( grunt ) {
 
 		},
 
+		autoprefixer: {
+			options: {},
+			theme: {
+				src: 'assets/css/theme.css',
+				dest: 'assets/css/theme.css',
+			},
+			editor: {
+				src: 'assets/css/editor.css',
+				dest: 'assets/css/editor.css',
+			},
+		},
+
+		pixrem: {
+			options: {
+				rootvalue: '16px'
+			},
+			theme: {
+				src: 'assets/css/theme.css',
+				dest: 'assets/css/theme.css',
+			},
+			editor: {
+				src: 'assets/css/editor.css',
+				dest: 'assets/css/editor.css',
+			},
+		},
+
 		// Minify CSS
 		cssmin: {
-
 			theme: {
-
 				options: {
 					banner: banner
 				},
-
 				files: {
 					'assets/css/theme.min.css': ['assets/css/theme.css']
 				}
-
 			}
-
 		},
 
 		// Watch for changes
@@ -84,7 +105,7 @@ module.exports = function( grunt ) {
 
 			sass: {
 				files: ['assets/css/*/**/*.scss'],
-				tasks: ['sass', 'cssmin'],
+				tasks: ['sass'],
 				options: {
 					debounceDelay: 500,
 					livereload: true
@@ -105,7 +126,7 @@ module.exports = function( grunt ) {
 
 	// Default task.
 
-	grunt.registerTask( 'default', ['uglify', 'sass', 'cssmin'] );
+	grunt.registerTask( 'default', ['uglify', 'sass', 'autoprefixer', 'pixrem', 'cssmin'] );
 
 
 	grunt.util.linefeed = '\n';

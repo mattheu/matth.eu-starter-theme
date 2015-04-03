@@ -1,16 +1,12 @@
 .site-header {
 
-	padding-top: px( $base-line-height );
-	padding-top: rem( $base-line-height );
-
-	margin-bottom: px( $base-line-height );
-	margin-bottom: rem( $base-line-height );
+	padding-top: #{ $base-line-height }rem;
+	margin-bottom: #{ $base-line-height }rem;
 
 	border-bottom: 1px solid $border-color-lt;
-	
+
 	.site-description {
-		margin-bottom: px( $base-line-height );
-		margin-bottom: rem( $base-line-height );
+		margin-bottom: #{ $base-line-height }rem;
 	}
 
 }

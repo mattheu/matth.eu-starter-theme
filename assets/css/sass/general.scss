@@ -18,16 +18,14 @@ body {
 	}
 
 	.entry-content {
-		margin: 0 0 px( $base-line-height / 2 );
-		margin: 0 0 rem( $base-line-height / 2 );
+		margin: 0 0 #{ $base-line-height / 2 }rem;
 	}
 
 }
 
 .sidebar .widget {
 
-	margin-bottom: px( $base-line-height / 2 );
-	margin-bottom: rem( $base-line-height / 2 );
+	margin-bottom: #{ $base-line-height / 2 }rem;
 
 	a {
 		color: inherit;
