@@ -26,7 +26,10 @@ $border-color-md: #AAA;
 @import "global/images.scss";
 @import "global/dividers.scss";
 
-body {
+html {
 	padding: 1.5rem;
+}
+
+body {
 	max-width: 700px;
 }

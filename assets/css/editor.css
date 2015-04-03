@@ -3198,6 +3198,8 @@ input[type="submit"], input[type="button"], button, .button, .btn {
   margin: 24px 0 12px;
   margin: 1.5rem 0 0.75rem; }
 
+html {
+  padding: 1.5rem; }
+
 body {
-  padding: 1.5rem;
   max-width: 700px; }
