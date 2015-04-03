@@ -26,6 +26,8 @@ $border-color-md: #AAA;
 @import "global/images.scss";
 @import "global/dividers.scss";
 
+@import "modules/wp-caption.scss";
+
 html {
 	padding: 1.5rem;
 }

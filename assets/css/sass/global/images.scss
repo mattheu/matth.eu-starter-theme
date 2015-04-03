@@ -15,11 +15,13 @@ img {
 
 	&.alignleft {
 		float: left;
+		clear: left;
 		margin-right: #{ $grid-col-gutter * 2 }rem;
 	}
 
 	&.alignright {
 		float: right;
+		clear: right;
 		margin-left: #{ $grid-col-gutter * 2 }rem;
 	}
 

@@ -135,8 +135,10 @@
 	}
 
 	.entry-taxonomy-terms {
+
 		@include small;
-		color: $border-color-dk
+		color: $border-color-dk;
+		clear: both;
 
 		a {
 			color: inherit;

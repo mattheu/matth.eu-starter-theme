@@ -2830,17 +2830,19 @@ input[type="submit"], input[type="button"], button, .button, .pagination a, .pag
   margin-bottom: 12px;
   margin-bottom: 0.75rem;
   vertical-align: middle; }
-  .img.aligncenter, img.aligncenter, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb {
+  .img.aligncenter, img.aligncenter, .entry.format-image .entry-thumb, .entry.format-gallery .entry-thumb, .entry.format-video .entry-thumb, .wp-caption.aligncenter {
     clear: both;
     float: none;
     margin-left: auto;
     margin-right: auto; }
   .img.alignleft, img.alignleft, .entry .entry-thumb, .wp-caption.alignleft {
     float: left;
+    clear: left;
     margin-right: 32px;
     margin-right: 2rem; }
   .img.alignright, img.alignright, .wp-caption.alignright {
     float: right;
+    clear: right;
     margin-left: 32px;
     margin-left: 2rem; }
   .img.size-thumbnail, .img.attachment-thumbnail, img.size-thumbnail, .entry .entry-thumb, img.attachment-thumbnail {
@@ -3766,8 +3768,10 @@ html[xmlns] .slides {
     font-size: 14px;
     font-size: 0.875rem;
     line-height: 1.71429;
-    color: #888888 a;
-    color-color: inherit; }
+    color: #888888;
+    clear: both; }
+    .entry .entry-taxonomy-terms a {
+      color: inherit; }
 
 .entries + .pagination-container {
   border-top: 1px solid #eeeeee; }

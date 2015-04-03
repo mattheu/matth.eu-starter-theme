@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, .form-row label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, .wp-caption, ins, kbd, q, s, samp, small, .wp-caption .wp-caption-text, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, .form-row label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -150,7 +150,7 @@ h6, .zeta {
 h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   margin-top: 0 !important; }
 
-small {
+small, .wp-caption .wp-caption-text {
   font-size: 0.875;
   line-height: 1.5; }
 
@@ -275,7 +275,7 @@ caption {
   margin-bottom: 0.75em;
   font-weight: bold; }
 
-small, nav, .site-footer {
+small, .wp-caption .wp-caption-text, nav, .site-footer {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.71429;
@@ -2749,7 +2749,7 @@ input[disabled] {
 #commentform .form-allowed-tags {
   padding-top: 0; }
 
-#reply-title small {
+#reply-title small, #reply-title .wp-caption .wp-caption-text, .wp-caption #reply-title .wp-caption-text {
   font-size: 1em;
   line-height: inherit;
   float: right; }
@@ -2824,23 +2824,25 @@ input[type="submit"], input[type="button"], button, .button, .btn {
     input[type="submit"].secondary:active, input[type="button"].secondary:active, button.secondary:active, .button.secondary:active, .btn.secondary:active {
       background-color: #9ebb7f; }
 
-.img, img {
+.img, img, .wp-caption {
   max-width: 100%;
   height: auto;
   margin-bottom: 12px;
   margin-bottom: 0.75rem;
   vertical-align: middle; }
-  .img.aligncenter, img.aligncenter {
+  .img.aligncenter, img.aligncenter, .wp-caption.aligncenter {
     clear: both;
     float: none;
     margin-left: auto;
     margin-right: auto; }
-  .img.alignleft, img.alignleft {
+  .img.alignleft, img.alignleft, .wp-caption.alignleft {
     float: left;
+    clear: left;
     margin-right: 32px;
     margin-right: 2rem; }
-  .img.alignright, img.alignright {
+  .img.alignright, img.alignright, .wp-caption.alignright {
     float: right;
+    clear: right;
     margin-left: 32px;
     margin-left: 2rem; }
   .img.size-thumbnail, .img.attachment-thumbnail, img.size-thumbnail, img.attachment-thumbnail {
@@ -3232,6 +3234,19 @@ input[type="submit"], input[type="button"], button, .button, .btn {
   background: #eeeeee 0 0 no-repeat;
   margin: 24px 0 12px;
   margin: 1.5rem 0 0.75rem; }
+
+.wp-caption {
+  border: 1px solid #eeeeee;
+  background: whitesmoke;
+  padding: 12px;
+  padding: 0.75rem;
+  text-align: center; }
+  .wp-caption img, .wp-caption .wp-caption {
+    top: 0;
+    margin-bottom: 0; }
+  .wp-caption .wp-caption-text {
+    margin-top: 12px;
+    margin-top: 0.75rem; }
 
 html {
   padding: 24px;

@@ -21,6 +21,10 @@
 		@extend img.alignright;
 	}
 
+	&.aligncenter {
+		@extend img.aligncenter;
+	}
+
 	.wp-caption-text {
 		@extend small;
 		margin-top: #{$base-line-height/2}rem;
