@@ -1,6 +1,8 @@
-<div class="entry-post-format">
-	<?php mtf_the_gallery(); ?>
-</div>
+<?php if ( function_exists( 'mtf_the_gallery' ) ) : ?>
+	<div class="entry-post-format">
+		<?php mtf_the_gallery(); ?>
+	</div>
+<?php endif; ?>
 
 <div class="entry-content">
 
