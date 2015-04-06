@@ -9,25 +9,22 @@
  */
 function mtf_cleaner_caption( $output, $attr, $content ) {
 
-	//hm( $output );
-	//hm( $attr );
-	//hm( $content );
-	//hm( get_intermediate_image_sizes() );
-	//global $_wp_additional_image_sizes;
-	//hm( $_wp_additional_image_sizes );
-	
-	if ( is_feed() )
+	if ( is_feed() ) {
 		return $output;
+	}
 
-	$defaults = array(
-		'id' => '',
-		'align' => 'alignnone',
-		'width' => '',
-		'caption' => ''
+	$attr = shortcode_atts(
+		array(
+			'id' => '',
+			'align' => 'alignnone',
+			'width' => '',
+			'caption' => ''
+		),
+		$attr
 	);
-	$attr = shortcode_atts( $defaults, $attr );
 
-	/* If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags. */
+	// If the width is less than 1 or there is no caption,
+	// return the content wrapped between the [caption] tags.
 	if ( 1 > $attr['width'] || empty( $attr['caption'] ) )
 		return $content;
 
