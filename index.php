@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Default Generic Template File
  *
@@ -27,14 +26,13 @@ get_header();
 
 					the_post();
 
-					if ( is_search() )
+					if ( is_search() ) {
 						get_template_part( 'parts/index/search-single' );
-
-					elseif ( $post_format = get_post_format() )
+					} elseif ( $post_format = get_post_format() ) {
 						get_template_part( 'parts/index/single', $post_format );
-
-					else
+					} else {
 						get_template_part( 'parts/index/single', get_post_type() );
+					}
 
 				}
 

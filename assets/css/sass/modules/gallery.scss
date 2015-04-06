@@ -18,6 +18,14 @@
 
 	}
 
+	$columns: 1;
+	@while $columns < 9 {
+		&.gallery-columns-#{ $columns } .gallery-item {
+			width: 100% / $columns;
+		}
+		$columns: $columns + 1;
+	}
+
 	&.gallery-size-large .row {
 		margin: 0;
 	}
@@ -28,10 +36,25 @@
 		margin: 0;
 	}
 
-	.flex-viewport {
-		background: $bg-color-body;
+	.gallery-caption {
+		@include small;
+		text-align: center;
+		margin: -.375rem 0 0.75rem 0;
 	}
 
-	&.flexslider img { margin: 0; }
+	&.flexslider {
 
+		.flex-viewport {
+			background: $bg-color-body;
+		}
+
+		img {
+			margin: 0;
+		}
+
+		.gallery-caption {
+			margin: 0.75rem 0;
+		}
+
+	}
 }

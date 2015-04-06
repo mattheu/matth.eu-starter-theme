@@ -1,7 +1,5 @@
 <div class="entry-post-format">
-
-	<?php mph_the_gallery(); ?>
-
+	<?php mtf_the_gallery(); ?>
 </div>
 
 <div class="entry-content">

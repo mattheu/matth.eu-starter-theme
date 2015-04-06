@@ -4011,16 +4011,42 @@ html[xmlns] .slides {
     box-sizing: border-box;
     padding: 0 16px;
     padding: 0 1rem; }
+  .gallery.gallery-columns-1 .gallery-item {
+    width: 100%; }
+  .gallery.gallery-columns-2 .gallery-item {
+    width: 50%; }
+  .gallery.gallery-columns-3 .gallery-item {
+    width: 33.33333%; }
+  .gallery.gallery-columns-4 .gallery-item {
+    width: 25%; }
+  .gallery.gallery-columns-5 .gallery-item {
+    width: 20%; }
+  .gallery.gallery-columns-6 .gallery-item {
+    width: 16.66667%; }
+  .gallery.gallery-columns-7 .gallery-item {
+    width: 14.28571%; }
+  .gallery.gallery-columns-8 .gallery-item {
+    width: 12.5%; }
   .gallery.gallery-size-large .row {
     margin: 0; }
   .gallery.gallery-size-large .gallery-item {
     width: 100%;
     padding: 0;
     margin: 0; }
-  .gallery .flex-viewport {
+  .gallery .gallery-caption {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.71429;
+    text-align: center;
+    margin: -6px 0 12px 0;
+    margin: -0.375rem 0 0.75rem 0; }
+  .gallery.flexslider .flex-viewport {
     background: whitesmoke; }
   .gallery.flexslider img, .gallery.flexslider .wp-caption {
     margin: 0; }
+  .gallery.flexslider .gallery-caption {
+    margin: 12px 0;
+    margin: 0.75rem 0; }
 
 .wp-caption {
   border: 1px solid #eeeeee;
