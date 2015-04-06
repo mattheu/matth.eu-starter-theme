@@ -1,1 +1,1 @@
-<?php get_template_part( 'river/single-image' ); ?>
+<?php get_template_part( 'parts/index/single-image' ); ?>

@@ -1,7 +1,7 @@
 <?php
 
 if ( ! function_exists( 'get_post_format_meta' ) ) {
-	get_template_part( 'river/single' );
+	get_template_part( 'parts/index/single' );
 	return;
 }
 
@@ -16,8 +16,8 @@ if ( ! function_exists( 'get_post_format_meta' ) ) {
 				<?php the_post_thumbnail( 'large' ); ?>
 			</a>
 		</figure>
-	
-	<?php elseif ( function_exists( 'get_the_post_format_media' ) && $video = get_the_post_format_media( 'video' ) ) : ?>
+
+	<?php elseif ( $video = get_the_post_format_media( 'video' ) ) : ?>
 
 		<div class="entry-thumb">
 			<?php echo $video; ?>
