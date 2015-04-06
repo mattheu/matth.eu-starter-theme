@@ -3,61 +3,60 @@
 /**
  *	Some more relevant contact methods.
  */
-function mtf_add_remove_contactmethods( $contactmethods ) {
+function mtf_filter_user_contactmethods( $contactmethods ) {
 
     // Add Contact Methods
-    $contactmethods['twitter'] = 'Twitter';
-    $contactmethods['facebook'] = 'Facebook';
+    $contactmethods['twitter']     = 'Twitter';
+    $contactmethods['facebook']    = 'Facebook';
     $contactmethods['google_plus'] = 'Google+';
-    $contactmethods['skype'] = 'Skype';
-    
+    $contactmethods['skype']       = 'Skype';
+
     // Remove Contact Methods
-    unset($contactmethods['aim']);
-    unset($contactmethods['yim']);
+    unset( $contactmethods['aim'] );
+    unset( $contactmethods['yim'] );
 
     return $contactmethods;
 
 }
-add_filter( 'user_contactmethods','mtf_add_remove_contactmethods', 10, 1 );
-
+add_filter( 'user_contactmethods','mtf_filter_user_contactmethods', 10, 1 );
 
 /**
- *	Append the user contact methods (if set) to the user description. 
- *	Added because I don't like the idea that there are default fields in the admin that do nothing in the theme.
+ * Get User contact method data.
  *
- *	Only done on the author page.
- *
- *	@todo is this too much functionality for this starter theme?
+ * @return array user contact method data.
  */
-function mtf_output_user_contact_methods( $description, $user_id ) {
+function mtf_get_user_contact_methods() {
 
-	if ( ! is_author() )
-		return $description;
+	$methods = array();
 
 	foreach ( _wp_get_user_contactmethods() as $method => $name ) {
-	
-		if ( $contact_method = get_the_author_meta( $method, $user_id ) ) {
-			
-			if ( 'google_plus' == $method )
-				$methods[] = '<li  class="contact-method-type-gplus"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://profiles.google.com/' . $contact_method . '">' . $contact_method . '</a></li>';
 
-			elseif ( 'twitter' == $method )
-				$methods[] = '<li class="contact-method-type-twitter"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://twitter.com/' . $contact_method . '">' . $contact_method . '</a></li>';
+		if ( $value = get_the_author_meta( $method, $user_id ) ) {
 
-			elseif ( 'facebook' == $method )
-				$methods[] = '<li class="contact-method-type-fbook"><b class="contact-method-name">' . $name . ':</b> <a class="class="contact-method-value" rel="me" href="http://facebook.com/' . $contact_method . '">' . $contact_method . '</a></li>';				
-	
-			else
-				$methods[] = '<li><b class="contact-method-name">' . $name . ':</b> <span class="class="contact-method-value" rel="me">' . $contact_method . '</span></li>';
-						
+			$method = array(
+				'slug'  => $method,
+				'name'  => $name,
+				'value' => $value,
+				'link'  => apply_filters( 'mtf_contact_method_link', null, $method, $value ),
+			);
+
+			if ( ! $method['link'] ) {
+
+				if ( 'google_plus' == $method ) {
+					$method['link'] = 'http://profiles.google.com/' . $contact_method;
+				} elseif ( 'twitter' == $method ) {
+					$method['link'] = 'http://twitter.com/' . $contact_method;
+				} elseif ( 'facebook' == $method ) {
+					$method['link'] = 'http://facebook.com/' . $contact_method;
+				}
+
+			}
+
+			array_push( $methods, $method );
 		}
-	
+
 	}
-	
-	if ( ! empty( $methods ) )
-		$description .= '<ul class="contact-methods">' . implode( "\n", $methods ) . '</ul>';
-		
-	return $description;
+
+	return apply_filters( 'mtf_contact_methods', $methods );
 
 }
-add_filter( 'get_the_author_description', 'mtf_output_user_contact_methods', 10, 2 );

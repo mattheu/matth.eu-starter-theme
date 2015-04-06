@@ -14,13 +14,7 @@
 
 		<div class="row">
 
-			<?php
-
-			the_post(); // To grab the author from the first post.
-
-			$description = get_the_author_meta( 'description' );
-
-			?>
+			<?php the_post(); // To grab the author from the first post.?>
 
 			<figure class="entries-header-thumb grid-2">
 				<?php echo get_avatar( get_queried_object_id(), 130  ); ?>
@@ -30,13 +24,19 @@
 
 	    		<h2 class="entries-header-title">
 	    			<a class="url" href="<?php echo get_author_posts_url( get_the_author_meta( "ID" ) ); ?>" title="<?php echo esc_attr( get_the_author() );?>">
-	    				<?php echo get_the_author(); ?>
+	    				<?php echo esc_html( get_the_author() ); ?>
 	    			</a>
 	    		</h2>
 
-				<?php if ( ! empty( $description  ) ) : ?>
-					<div class="entries-header-description"><?php echo wp_kses_post( $description ); ?></div>
-				<?php endif; ?>
+				<div class="entries-header-description">
+
+					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+
+					<small>
+						<?php get_template_part( 'parts/author/contact-methods' ); ?>
+					</small>
+
+				</div>
 
 			</div>
 
@@ -50,9 +50,9 @@
 
 	<?php
 
-	$term = get_queried_object();
-	$tax = get_taxonomy( $term->taxonomy );
-	$title = single_term_title( '', false );
+	$term        = get_queried_object();
+	$tax         = get_taxonomy( $term->taxonomy );
+	$title       = single_term_title( '', false );
 	$description = term_description();
 
 	?>
@@ -64,7 +64,7 @@
     	</h2>
 
 		<?php if ( ! empty( $description  ) ) : ?>
-			<div class="entries-header-description"><?php echo wp_kses_post( $description ); ?></div>
+			<div class="entries-header-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
 		<?php endif; ?>
 
     </div>
