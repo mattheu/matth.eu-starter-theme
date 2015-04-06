@@ -18,7 +18,6 @@
 require_once( 'updates/updates-core.php' );
 require_once( 'includes/functions-comments.php' );
 require_once( 'includes/functions-image_caption.php' );
-require_once( 'includes/functions-thumbnail_link.php' );
 require_once( 'includes/functions-user-contact-methods.php' );
 require_once( 'includes/widont.php' );
 require_once( 'includes/gallery.php' );
