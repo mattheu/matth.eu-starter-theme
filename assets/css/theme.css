@@ -4017,6 +4017,8 @@ html[xmlns] .slides {
     width: 100%;
     padding: 0;
     margin: 0; }
+  .gallery .flex-viewport {
+    background: whitesmoke; }
   .gallery.flexslider img, .gallery.flexslider .wp-caption {
     margin: 0; }
 
