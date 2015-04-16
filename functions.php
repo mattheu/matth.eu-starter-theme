@@ -231,7 +231,11 @@ add_filter( 'excerpt_length', 'mtf_excerpt_length' );
  */
 function mtf_excerpt_more_link( $more ) {
 
-	return ' [&hellip;] <span class="entry-more-link"><a href="'. get_permalink( get_the_ID() ) . '">Read the full article&hellip;</a></span>';
+	return sprintf(
+		' &hellip; <span class="entry-more-link"><a href="%s">%s&hellip;</a></span>',
+		__( 'Read more', 'mtf' ),
+		get_permalink( get_the_ID() )
+	);
 
 }
 add_filter( 'excerpt_more', 'mtf_excerpt_more_link' );
