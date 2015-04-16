@@ -15,8 +15,10 @@
 			?>
 		</span>
 
+		|
+
 		<span class="entry-author">
-			<?php the_author_posts_link(); ?>
+			By <?php the_author_posts_link(); ?>
 		</span>
 
 		<?php if ( comments_open() || ! comments_open() && have_comments() ) : ?>
