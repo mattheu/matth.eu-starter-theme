@@ -233,8 +233,8 @@ function mtf_excerpt_more_link( $more ) {
 
 	return sprintf(
 		' &hellip; <span class="entry-more-link"><a href="%s">%s&hellip;</a></span>',
-		__( 'Read more', 'mtf' ),
-		get_permalink( get_the_ID() )
+		get_permalink( get_the_ID() ),
+		__( 'Read more', 'mtf' )
 	);
 
 }
