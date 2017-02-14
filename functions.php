@@ -284,7 +284,7 @@ add_filter( 'post_class', 'mtf_post_class' );
  * @param  object
  * @return array
  */
-function mtf_page_templates( $page_templates, $this, $post ) {
+function mtf_page_templates( $page_templates, $_this, $post ) {
 
 	if (
 		( is_multisite() && is_super_admin() )
