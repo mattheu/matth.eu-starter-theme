@@ -302,4 +302,4 @@ function mtf_page_templates( $page_templates, $_this, $post ) {
 	return $page_templates;
 
 }
-add_filter( 'theme_page_templates', 'mtf_page_templates' );
+add_filter( 'theme_page_templates', 'mtf_page_templates', 10, 3 );
