@@ -1,7 +1,11 @@
 <?php
 
 // register About User Widget
-add_action( 'widgets_init', create_function( '', 'register_widget( "MTF_About_User_Widget" );' ) );
+// add_action( 'widgets_init', create_function( '', 'register_widget( "MTF_About_User_Widget" );' ) );
+
+add_action( 'widgets_init', function() {
+	register_widget( "MTF_About_User_Widget" );
+} );
 
 /**
  * Adds Skype_Blog_Stay_In_Touch_Widget.
